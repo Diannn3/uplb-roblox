@@ -15,3 +15,7 @@ This project is structured using [Rojo](https://rojo.space/), allowing developme
 3. Open a new place in Roblox Studio.
 4. Install the Rojo plugin for Roblox Studio and connect to the server.
 5. All code changes in your code editor will now instantly sync into Roblox Studio!
+
+## Architecture Research
+
+The research branch `research/uplb-master-execution-plan` defines the proposed data, GIS, 3D asset, Roblox, MCP, licensing, automation, validation, and phased execution architecture. Start with [`docs/MASTER_PLAN.md`](docs/MASTER_PLAN.md). No production world-generation system is implemented by that research package.
