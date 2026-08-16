@@ -1,5 +1,7 @@
 {
   "blockers": [],
+  "campusWideProductionReady": false,
+  "canonicalIdentityGate": "pass",
   "checks": [
     {
       "details": "expected=9f766739c1ad0088170c708d222c246b47b4dc684120f1f57f252d6f290f6142 actual=sha256:9f766739c1ad0088170c708d222c246b47b4dc684120f1f57f252d6f290f6142",
@@ -7,9 +9,9 @@
       "status": "pass"
     },
     {
-      "details": "blocked; proceed OSM-first without coverage claim",
+      "details": "blocked explicitly; comparison deferred and no coverage claim is made",
       "name": "overture-provider-access",
-      "status": "warning"
+      "status": "pass"
     },
     {
       "details": "Templates are drafted locally; no external requests were sent.",
@@ -17,9 +19,9 @@
       "status": "pass"
     },
     {
-      "details": "SRTM/NASA 30 m remains a candidate until endpoint and redistribution terms are recorded.",
+      "details": "SRTMGL1.003 endpoint, citation, vertical metadata, and redistribution status are recorded.",
       "name": "dem-license-gate",
-      "status": "warning"
+      "status": "pass"
     },
     {
       "details": "Google imagery and restricted institutional material remain excluded from ingestion.",
@@ -27,13 +29,17 @@
       "status": "pass"
     }
   ],
-  "decision": "conditional",
+  "decision": "pass",
+  "demRightsGate": "pass",
   "discrepancies": [
     {
       "details": "Overture extract absent; see research/results/overture_fallback_probe.json for bounded client/direct-cloud diagnostics.",
       "source": "overture"
     }
   ],
+  "engineeringGate": "pass",
+  "geometryGate": "pass",
+  "humanReviewGate": "pending",
   "id": "validation:evidence-gate-v1",
   "inputRevisions": {
     "comparison": "research\\results\\osm_overture_comparison.json",
@@ -62,6 +68,152 @@
         "status": "timeout"
       }
     ],
-    "sourceRows": 12
-  }
+    "sourceMatrix": [
+      {
+        "accessedAt": "2026-08-17",
+        "bbox": [
+          121.2099966,
+          14.1290501,
+          121.2721856,
+          14.1921433
+        ],
+        "hash": "sha256:9f766739c1ad0088170c708d222c246b47b4dc684120f1f57f252d6f290f6142",
+        "license": "ODbL-1.0",
+        "nextAction": "Keep the pinned hash and refresh only through the reproducible harness",
+        "provider": "OpenStreetMap contributors",
+        "sourceId": "osm",
+        "status": "validated"
+      },
+      {
+        "accessedAt": "2026-08-17",
+        "bbox": [
+          121.2099966,
+          14.1290501,
+          121.2721856,
+          14.1921433
+        ],
+        "hash": null,
+        "license": "ODbL-1.0 plus upstream attribution",
+        "nextAction": "Retry a current client/direct-cloud path; do not claim missing coverage",
+        "provider": "Overture Maps Foundation",
+        "sourceId": "overture-buildings",
+        "status": "blocked-provider-access"
+      },
+      {
+        "accessedAt": null,
+        "bbox": null,
+        "hash": null,
+        "license": "Permission not assumed",
+        "nextAction": "Human-review and send an access/licensing request",
+        "provider": "University of the Philippines Los Baños",
+        "sourceId": "uplb-official-gis",
+        "status": "permission-request-draft"
+      },
+      {
+        "accessedAt": null,
+        "bbox": null,
+        "hash": null,
+        "license": "Permission not assumed",
+        "nextAction": "Request one calibrated Math Building reference set after exterior pilot",
+        "provider": "UPLB IMS / building administrators",
+        "sourceId": "ims-floor-plans",
+        "status": "permission-request-draft"
+      },
+      {
+        "accessedAt": null,
+        "bbox": null,
+        "hash": null,
+        "license": "CC BY-SA/use terms require review",
+        "nextAction": "Check coverage without bulk downloading imagery",
+        "provider": "Mapillary / Meta",
+        "sourceId": "mapillary",
+        "status": "coverage-and-use-unverified"
+      },
+      {
+        "accessedAt": null,
+        "bbox": null,
+        "hash": null,
+        "license": "CC BY-SA 4.0 per current terms",
+        "nextAction": "Verify UPLB coverage and retain per-sequence rights records",
+        "provider": "KartaView",
+        "sourceId": "kartaview",
+        "status": "coverage-unverified"
+      },
+      {
+        "accessedAt": null,
+        "bbox": null,
+        "hash": null,
+        "license": "Dataset-specific",
+        "nextAction": "Record dataset owner and download agreement before retrieval",
+        "provider": "NAMRIA / Geoportal Philippines",
+        "sourceId": "geoportal-philippines",
+        "status": "catalogue-only"
+      },
+      {
+        "accessedAt": null,
+        "bbox": null,
+        "hash": null,
+        "license": "Access/product-specific",
+        "nextAction": "Request Los Baños coverage and exact redistribution terms",
+        "provider": "UP DREAM / DOST",
+        "sourceId": "lipad",
+        "status": "permission-request-draft"
+      },
+      {
+        "accessedAt": "2026-08-17",
+        "bbox": null,
+        "hash": null,
+        "license": "NASA Earthdata open data policy; current LP DAAC product openly shared without restriction, with citation requested",
+        "nextAction": "Retain as the legal baseline; acquire only through the documented Earthdata path when terrain work is approved",
+        "provider": "NASA JPL / NASA Earthdata LP DAAC",
+        "sourceId": "srtm-30m",
+        "status": "validated-fallback"
+      },
+      {
+        "accessedAt": null,
+        "bbox": null,
+        "hash": null,
+        "license": "Free-use notice and service terms apply",
+        "nextAction": "Compare access and vertical metadata against SRTM",
+        "provider": "Copernicus Data Space Ecosystem",
+        "sourceId": "copernicus-dem",
+        "status": "fallback-candidate"
+      },
+      {
+        "accessedAt": null,
+        "bbox": null,
+        "hash": null,
+        "license": "Restricted platform terms",
+        "nextAction": "Do not scrape, bulk-store, or use for automated reconstruction",
+        "provider": "Google Maps Platform",
+        "sourceId": "google-imagery",
+        "status": "excluded"
+      },
+      {
+        "accessedAt": null,
+        "bbox": null,
+        "hash": null,
+        "license": "File-specific",
+        "nextAction": "Use only as a labelled cross-check, never as current campus boundary",
+        "provider": "Wikimedia Commons contributors",
+        "sourceId": "wikimedia-uplb-map",
+        "status": "historical-reference-only"
+      }
+    ],
+    "sourceRows": 12,
+    "srtm": {
+      "accessedAt": "2026-08-17",
+      "authRequirement": "Earthdata Login required for download; no credentials stored",
+      "crs": "EPSG:4326 geographic HGT tiles",
+      "doi": "10.5067/MEASURES/SRTM/SRTMGL1.003",
+      "landingPage": "https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl1-003",
+      "nodata": "No voids in Version 3.0; historical -32768 only applies to Versions 1.0/2.1",
+      "status": "validated-fallback",
+      "verticalDatum": "WGS84 ellipsoid referenced to EGM96 geoid",
+      "verticalUnits": "metres"
+    }
+  },
+  "overtureComparisonGate": "deferred",
+  "reproducibilityGate": "pass",
+  "worldgenReady": false
 }

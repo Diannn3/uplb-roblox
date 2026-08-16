@@ -22,6 +22,19 @@ RightsStatus = Literal[
 ]
 
 
+VerificationStatus = Literal[
+    "unknown",
+    "provisional",
+    "source-supported",
+    "human-reviewed",
+    "verified",
+    "conflicting",
+]
+
+
+VerificationMap = dict[str, str]
+
+
 @dataclass(frozen=True)
 class SourceRecord:
     """A traceable source and its rights state."""
@@ -40,6 +53,7 @@ class SourceRecord:
     content_hash: str | None = None
     coverage: dict[str, Any] | None = None
     notes: tuple[str, ...] = ()
+    metadata: dict[str, Any] | None = None
 
     def to_dict(self) -> dict[str, Any]:
         result: dict[str, Any] = {
@@ -59,6 +73,7 @@ class SourceRecord:
             "contentHash": self.content_hash,
             "coverage": self.coverage,
             "notes": list(self.notes),
+            "metadata": self.metadata,
         }
         result.update({key: value for key, value in optional.items() if value is not None})
         return result
@@ -79,6 +94,7 @@ class CanonicalFeature:
     properties: dict[str, Any] = field(default_factory=dict)
     external_ids: dict[str, str] = field(default_factory=dict)
     asset_binding: str | None = None
+    verification: VerificationMap = field(default_factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -93,6 +109,7 @@ class CanonicalFeature:
             "confidence": self.confidence,
             "verificationStatus": self.verification_status,
             "assetBinding": self.asset_binding,
+            "verification": self.verification,
         }
 
     def to_geojson_feature(self) -> dict[str, Any]:
@@ -110,6 +127,7 @@ class CanonicalFeature:
                 "confidence": self.confidence,
                 "verificationStatus": self.verification_status,
                 "assetBinding": self.asset_binding,
+                "verification": self.verification,
             },
         }
 
@@ -205,6 +223,15 @@ class ValidationReport:
     discrepancies: list[dict[str, Any]] = field(default_factory=list)
     blockers: list[str] = field(default_factory=list)
     decision: Literal["pass", "fail", "conditional"] = "conditional"
+    engineering_gate: Literal["pass", "fail"] = "fail"
+    canonical_identity_gate: Literal["pass", "fail"] = "fail"
+    geometry_gate: Literal["pass", "fail"] = "fail"
+    reproducibility_gate: Literal["pass", "fail"] = "fail"
+    human_review_gate: Literal["pending", "pass"] = "pending"
+    dem_rights_gate: Literal["pending", "pass", "fail"] = "pending"
+    overture_comparison_gate: Literal["pass", "deferred", "blocked"] = "deferred"
+    worldgen_ready: bool = False
+    campus_wide_production_ready: bool = False
 
     def add_check(self, name: str, status: str, details: str = "") -> None:
         if status not in {"pass", "fail", "warning", "not-run"}:
@@ -232,4 +259,13 @@ class ValidationReport:
             "discrepancies": self.discrepancies,
             "blockers": self.blockers,
             "decision": self.decision,
+            "engineeringGate": self.engineering_gate,
+            "canonicalIdentityGate": self.canonical_identity_gate,
+            "geometryGate": self.geometry_gate,
+            "reproducibilityGate": self.reproducibility_gate,
+            "humanReviewGate": self.human_review_gate,
+            "demRightsGate": self.dem_rights_gate,
+            "overtureComparisonGate": self.overture_comparison_gate,
+            "worldgenReady": self.worldgen_ready,
+            "campusWideProductionReady": self.campus_wide_production_ready,
         }

@@ -10,7 +10,16 @@
     "measurements": {"type": "object"},
     "discrepancies": {"type": "array"},
     "blockers": {"type": "array", "items": {"type": "string"}},
-    "decision": {"enum": ["pass", "fail", "conditional"]}
+    "decision": {"enum": ["pass", "fail", "conditional"]},
+    "engineeringGate": {"enum": ["pass", "fail"]},
+    "canonicalIdentityGate": {"enum": ["pass", "fail"]},
+    "geometryGate": {"enum": ["pass", "fail"]},
+    "reproducibilityGate": {"enum": ["pass", "fail"]},
+    "humanReviewGate": {"enum": ["pending", "pass"]},
+    "demRightsGate": {"enum": ["pending", "pass", "fail"]},
+    "overtureComparisonGate": {"enum": ["pass", "deferred", "blocked"]},
+    "worldgenReady": {"type": "boolean"},
+    "campusWideProductionReady": {"type": "boolean"}
   },
   "additionalProperties": false
 }

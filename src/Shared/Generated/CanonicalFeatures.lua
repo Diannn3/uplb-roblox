@@ -1,8 +1,8 @@
 -- GENERATED FILE: do not edit by hand.
--- Canonical source SHA-256: 96621de0c47ff98e71bbe96489e28e582a0421ce65314954aa74c7ea622b1496
+-- Canonical source SHA-256: e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978
 local CampusFeatures = {
     VERSION = "canonical-v1",
-    SOURCE_HASH = "96621de0c47ff98e71bbe96489e28e582a0421ce65314954aa74c7ea622b1496",
+    SOURCE_HASH = "e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
     FEATURE_COUNT = 3,
     FEATURES = {
         ["uplb:building:baker-hall"] = {
@@ -13,7 +13,7 @@ local CampusFeatures = {
                 y = 0,
                 z = 1284.473693791,
             },
-            verificationStatus = "verified",
+            verificationStatus = "source-supported",
         },
         ["uplb:landmark:freedom-park"] = {
             featureType = "landmark",
@@ -23,7 +23,7 @@ local CampusFeatures = {
                 y = 0,
                 z = 1470.488597695,
             },
-            verificationStatus = "reference-only",
+            verificationStatus = "provisional",
         },
         ["uplb:landmark:oblation"] = {
             featureType = "landmark",
@@ -33,7 +33,7 @@ local CampusFeatures = {
                 y = 0,
                 z = 0,
             },
-            verificationStatus = "reference-only",
+            verificationStatus = "provisional",
         },
     },
 }

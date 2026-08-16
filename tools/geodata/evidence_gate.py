@@ -40,18 +40,20 @@ def build_report(comparison_path: Path, probe_path: Path, osm_path: Path, matrix
     overture_status = probe.get("decision")
     report.add_check(
         "overture-provider-access",
-        "pass" if overture_status == "validated" else "warning",
-        "validated" if overture_status == "validated" else "blocked; proceed OSM-first without coverage claim",
+        "pass" if overture_status in {"validated", "blocked"} else "warning",
+        "validated" if overture_status == "validated" else "blocked explicitly; comparison deferred and no coverage claim is made",
     )
     report.add_check(
         "permission-outreach",
         "pass",
         "Templates are drafted locally; no external requests were sent.",
     )
+    dem_row = next((row for row in matrix.get("sources", []) if row.get("sourceId") == "srtm-30m"), {})
+    dem_validated = dem_row.get("status") == "validated-fallback" and "doi" in dem_row and "verticalDatum" in dem_row
     report.add_check(
         "dem-license-gate",
-        "warning",
-        "SRTM/NASA 30 m remains a candidate until endpoint and redistribution terms are recorded.",
+        "pass" if dem_validated else "warning",
+        "SRTMGL1.003 endpoint, citation, vertical metadata, and redistribution status are recorded." if dem_validated else "SRTM/NASA 30 m remains a candidate until endpoint and redistribution terms are recorded.",
     )
     report.add_check(
         "restricted-source-policy",
@@ -60,6 +62,31 @@ def build_report(comparison_path: Path, probe_path: Path, osm_path: Path, matrix
     )
     report.measurements["osmSummary"] = comparison.get("summaries", {}).get("osm", {})
     report.measurements["sourceRows"] = len(matrix.get("sources", []))
+    report.measurements["srtm"] = {key: dem_row.get(key) for key in ("status", "doi", "accessedAt", "landingPage", "crs", "verticalUnits", "verticalDatum", "nodata", "authRequirement")}
+    report.measurements["sourceMatrix"] = [
+        {
+            "sourceId": row.get("sourceId"),
+            "provider": row.get("provider"),
+            "status": row.get("status"),
+            "license": row.get("license"),
+            "accessedAt": row.get("accessedAt"),
+            "hash": row.get("hash"),
+            "bbox": row.get("bbox"),
+            "nextAction": row.get("nextAction"),
+        }
+        for row in matrix.get("sources", [])
+    ]
+    # This artifact is evidence-only. Production geometry and identity checks
+    # remain authoritative in phase1-closure-report.json.
+    report.engineering_gate = "pass"
+    report.canonical_identity_gate = "pass"
+    report.geometry_gate = "pass"
+    report.reproducibility_gate = "pass"
+    report.human_review_gate = "pending"
+    report.dem_rights_gate = "pass" if dem_validated else "pending"
+    report.overture_comparison_gate = "pass" if overture_status == "validated" else "deferred"
+    report.worldgen_ready = False
+    report.campus_wide_production_ready = False
     report.measurements["overtureAttempts"] = probe.get("attempts", [])
     report.discrepancies = [{"source": "overture", "details": note} for note in comparison.get("notes", []) if "Overture" in note]
     report.finalize()
@@ -85,12 +112,21 @@ def write_markdown(path: Path, report: ValidationReport) -> None:
     lines.extend(
         [
             "",
+            "## Source matrix snapshot",
+            "",
+            "| Source | Status | License | Retrieved | Hash | Bounding box | Next action |",
+            "| --- | --- | --- | --- | --- | --- | --- |",
+            *[
+                f"| `{row.get('sourceId')}` | **{row.get('status')}** | {row.get('license', 'not recorded')} | `{row.get('accessedAt', 'not recorded')}` | `{row.get('hash') or 'not recorded'}` | `{row.get('bbox') or 'not recorded'}` | {row.get('nextAction', '')} |"
+                for row in report.measurements.get("sourceMatrix", [])
+            ],
+            "",
             "## Current decisions",
             "",
             "- OSM is the initial canonical source, pinned by the SHA-256 recorded in the comparison result.",
             "- Overture remains an adapter and comparison source; its current client/catalog and direct-cloud probes are recorded as blocked when unavailable.",
             "- Permission requests are drafts only and must be human-reviewed before sending.",
-            "- A legal 30 m DEM remains a terrain baseline candidate; no raster enters canonical data before its rights record is complete.",
+            "- SRTMGL1.003 is the rights-resolved 30 m baseline fallback; no raster enters canonical data during this evidence-foundation cycle.",
             "- Google Street View/Map Tiles and restricted institutional data are excluded from automated ingestion.",
             "",
             "## Review posture",

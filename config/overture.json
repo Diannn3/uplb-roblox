@@ -1,0 +1,10 @@
+{
+  "provider": "Overture Maps Foundation",
+  "role": "comparison-only-until-human-review",
+  "pinnedRelease": "2026-06-17.0",
+  "officialReleaseCalendar": "https://docs.overturemaps.org/release-calendar/",
+  "lastVerifiedOfficialRelease": "2026-06-17.0",
+  "lastVerifiedAt": "2026-08-17",
+  "package": "overturemaps==1.0.1",
+  "policy": "Never auto-update or claim Overture coverage when the provider/catalog path is unavailable."
+}

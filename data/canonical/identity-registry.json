@@ -6,7 +6,7 @@
         "Baker Hall"
       ],
       "canonicalName": "Charles Fuller Baker Memorial Hall",
-      "createdFrom": "human-reviewed",
+      "createdFrom": "research-seed-no-human-review",
       "externalIds": {
         "osm": [
           "way/37449973"
@@ -14,15 +14,23 @@
         "overture": []
       },
       "featureType": "building",
-      "identityStatus": "verified",
-      "supersedes": []
+      "identityStatus": "source-supported",
+      "supersedes": [],
+      "verification": {
+        "facade": "unknown",
+        "footprint": "source-supported",
+        "height": "source-supported",
+        "identity": "source-supported",
+        "interior": "unknown",
+        "position": "source-supported"
+      }
     },
     "uplb:landmark:freedom-park": {
       "aliases": [
         "Freedom Park"
       ],
       "canonicalName": "UPLB Freedom Park",
-      "createdFrom": "human-reviewed",
+      "createdFrom": "research-seed-no-human-review",
       "externalIds": {
         "osm": [
           "way/33541968"
@@ -30,15 +38,23 @@
         "overture": []
       },
       "featureType": "landmark",
-      "identityStatus": "reference-only",
-      "supersedes": []
+      "identityStatus": "provisional",
+      "supersedes": [],
+      "verification": {
+        "facade": "unknown",
+        "footprint": "unknown",
+        "height": "unknown",
+        "identity": "provisional",
+        "interior": "unknown",
+        "position": "source-supported"
+      }
     },
     "uplb:landmark:oblation": {
       "aliases": [
         "Oblation"
       ],
       "canonicalName": "UPLB Oblation",
-      "createdFrom": "human-reviewed",
+      "createdFrom": "research-seed-no-human-review",
       "externalIds": {
         "osm": [
           "node/382803333"
@@ -46,8 +62,16 @@
         "overture": []
       },
       "featureType": "landmark",
-      "identityStatus": "reference-only",
-      "supersedes": []
+      "identityStatus": "provisional",
+      "supersedes": [],
+      "verification": {
+        "facade": "unknown",
+        "footprint": "unknown",
+        "height": "unknown",
+        "identity": "provisional",
+        "interior": "unknown",
+        "position": "source-supported"
+      }
     }
   },
   "nextNumbers": {
@@ -56,5 +80,5 @@
     "road": 1,
     "walkway": 1
   },
-  "version": 1
+  "version": 2
 }

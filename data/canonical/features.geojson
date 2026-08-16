@@ -99,7 +99,15 @@
         "provenance": [
           "source:osm:uplb-aoi@2026-08-17"
         ],
-        "verificationStatus": "verified"
+        "verificationStatus": "source-supported",
+        "verification": {
+          "facade": "unknown",
+          "footprint": "source-supported",
+          "height": "source-supported",
+          "identity": "source-supported",
+          "interior": "unknown",
+          "position": "source-supported"
+        }
       },
       "type": "Feature"
     },
@@ -134,7 +142,15 @@
         "provenance": [
           "source:osm:uplb-aoi@2026-08-17"
         ],
-        "verificationStatus": "reference-only"
+        "verificationStatus": "provisional",
+        "verification": {
+          "facade": "unknown",
+          "footprint": "unknown",
+          "height": "unknown",
+          "identity": "provisional",
+          "interior": "unknown",
+          "position": "source-supported"
+        }
       },
       "type": "Feature"
     },
@@ -169,7 +185,15 @@
         "provenance": [
           "source:osm:uplb-aoi@2026-08-17"
         ],
-        "verificationStatus": "reference-only"
+        "verificationStatus": "provisional",
+        "verification": {
+          "facade": "unknown",
+          "footprint": "unknown",
+          "height": "unknown",
+          "identity": "provisional",
+          "interior": "unknown",
+          "position": "source-supported"
+        }
       },
       "type": "Feature"
     }

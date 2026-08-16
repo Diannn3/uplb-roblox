@@ -12,6 +12,20 @@ from .io import read_json, write_json
 from .models import CanonicalFeature, ProviderCandidate
 
 
+VERIFICATION_FIELDS = ("identity", "position", "footprint", "height", "facade", "interior")
+VERIFICATION_VALUES = {"unknown", "provisional", "source-supported", "human-reviewed", "verified", "conflicting"}
+
+
+def default_verification(identity_status: str = "unknown") -> dict[str, str]:
+    """Return a property-level verification map without inventing review evidence."""
+
+    status = identity_status if identity_status in VERIFICATION_VALUES else "provisional"
+    return {
+        field: (status if field == "identity" else "unknown")
+        for field in VERIFICATION_FIELDS
+    }
+
+
 def normalize_name(value: str) -> str:
     value = unicodedata.normalize("NFKD", value).encode("ascii", "ignore").decode("ascii")
     return re.sub(r"[^a-z0-9]+", " ", value.casefold()).strip()
@@ -38,9 +52,16 @@ class IdentityRegistry:
     @classmethod
     def load(cls, path: Path) -> "IdentityRegistry":
         payload = read_json(path)
+        entities = dict(payload.get("entities", {}))
+        for entity in entities.values():
+            status = entity.get("identityStatus", "provisional")
+            if status in {"reference-only", "needs-review"}:
+                entity["identityStatus"] = "provisional"
+                status = "provisional"
+            entity.setdefault("verification", default_verification(status))
         return cls(
-            version=int(payload.get("version", 1)),
-            entities=dict(payload.get("entities", {})),
+            version=max(2, int(payload.get("version", 1))),
+            entities=entities,
             next_numbers={key: int(value) for key, value in payload.get("nextNumbers", {}).items()},
             deleted_ids=list(payload.get("deletedIds", [])),
         )
@@ -101,8 +122,9 @@ class IdentityRegistry:
             "canonicalName": name,
             "aliases": [],
             "externalIds": {provider: [value] for provider, value in external_ids.items()},
-            "identityStatus": "needs-review",
+            "identityStatus": "provisional",
             "createdFrom": "explicit-promotion",
+            "verification": default_verification("provisional"),
             "supersedes": [],
         }
         return canonical_id
@@ -131,7 +153,8 @@ class IdentityRegistry:
         assert canonical_id is not None
         entity = self.entities[canonical_id]
         entity["canonicalName"] = entity.get("canonicalName") or candidate.name
-        entity["identityStatus"] = entity.get("identityStatus", "needs-review")
+        entity["identityStatus"] = entity.get("identityStatus", "provisional")
+        entity.setdefault("verification", default_verification(entity["identityStatus"]))
         for provider, external_id in candidate.external_ids.items():
             self.update_external_id(canonical_id, provider, external_id)
         return CanonicalFeature(
@@ -145,4 +168,5 @@ class IdentityRegistry:
             provenance=candidate.provenance,
             confidence=candidate.confidence,
             verification_status=entity.get("identityStatus", "needs-review"),
+            verification={str(key): str(value) for key, value in entity.get("verification", {}).items()},
         )

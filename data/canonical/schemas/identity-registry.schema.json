@@ -11,15 +11,29 @@
       "type": "object",
       "additionalProperties": {
         "type": "object",
-        "required": ["featureType", "canonicalName", "aliases", "externalIds", "identityStatus", "createdFrom", "supersedes"],
+        "required": ["featureType", "canonicalName", "aliases", "externalIds", "identityStatus", "createdFrom", "supersedes", "verification"],
         "properties": {
           "featureType": {"type": "string"},
           "canonicalName": {"type": "string"},
           "aliases": {"type": "array", "items": {"type": "string"}},
           "externalIds": {"type": "object", "additionalProperties": {"type": "array", "items": {"type": "string"}}},
-          "identityStatus": {"type": "string"},
+          "identityStatus": {"enum": ["unknown", "provisional", "source-supported", "human-reviewed", "verified", "conflicting"]},
           "createdFrom": {"type": "string"},
-          "supersedes": {"type": "array", "items": {"type": "string"}}
+          "supersedes": {"type": "array", "items": {"type": "string"}},
+          "verification": {
+            "type": "object",
+            "additionalProperties": {"enum": ["unknown", "provisional", "source-supported", "human-reviewed", "verified", "conflicting"]}
+          },
+          "review": {
+            "type": ["object", "null"],
+            "required": ["reviewedAt", "reviewMethod", "evidenceRefs"],
+            "properties": {
+              "reviewedAt": {"type": "string", "minLength": 1},
+              "reviewMethod": {"type": "string", "minLength": 1},
+              "evidenceRefs": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+            },
+            "additionalProperties": false
+          }
         }
       }
     }

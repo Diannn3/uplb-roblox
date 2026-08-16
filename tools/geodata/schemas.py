@@ -22,6 +22,7 @@ EXPECTED: dict[str, tuple[str, ...]] = {
     "validation-report.schema.json": ("id", "inputRevisions", "checks", "decision"),
     "conflation-review.schema.json": ("id", "canonicalId", "candidateIds", "metrics", "recommendation", "decision", "reviewStatus"),
     "identity-registry.schema.json": ("version", "nextNumbers", "deletedIds", "entities"),
+    "vertical-slice-review.schema.json": ("version", "lifecycle", "areaSource", "counts", "rows", "humanReviewStatus"),
 }
 
 
@@ -77,6 +78,7 @@ def validate_artifacts(root: Path = ROOT) -> list[str]:
                 "provenance": properties.get("provenance", []),
                 "confidence": properties.get("confidence", {}),
                 "verificationStatus": properties.get("verificationStatus"),
+                "verification": properties.get("verification", {}),
                 "assetBinding": properties.get("assetBinding"),
             }
             errors.extend(_validate_instance(flat, schema_root / "canonical-feature.schema.json", f"canonical feature {index}"))
@@ -94,6 +96,10 @@ def validate_artifacts(root: Path = ROOT) -> list[str]:
     if review_path.exists():
         for index, review in enumerate(read_json(review_path).get("decisions", [])):
             errors.extend(_validate_instance(review, schema_root / "conflation-review.schema.json", f"review {index}"))
+    priority_path = root / "data" / "reviews" / "vertical-slice-review.json"
+    priority_schema = schema_root / "vertical-slice-review.schema.json"
+    if priority_path.exists() and priority_schema.exists():
+        errors.extend(_validate_instance(read_json(priority_path), priority_schema, "vertical slice review package"))
     return errors
 
 

@@ -257,14 +257,31 @@
     },
     {
       "id": "nasa-srtm",
-      "provider": "NASA Earthdata LP DAAC",
-      "url": "https://www.earthdata.nasa.gov/centers/lp-daac",
+      "provider": "NASA JPL / NASA Earthdata LP DAAC",
+      "url": "https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl1-003",
       "accessed": "2026-08-17",
-      "license": "product-specific",
-      "redistribution": "verify selected endpoint",
-      "status": "verified",
+      "license": "NASA Earthdata open data policy; SRTMGL1.003 openly shared without restriction, with citation requested",
+      "redistribution": "allowed with NASA/LP DAAC attribution; no endorsement implication",
+      "status": "verified-fallback",
       "intended_use": "30 m baseline DEM candidate",
-      "hash": null
+      "hash": null,
+      "product_short_name": "SRTMGL1",
+      "collection_version": "003",
+      "doi": "10.5067/MEASURES/SRTM/SRTMGL1.003",
+      "landing_page": "https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl1-003",
+      "access_path": "Earthdata Search/Earthdata Cloud supported path; retired LP DAAC Data Pool is not used",
+      "resolution": "1 arc-second (~30 m posting)",
+      "crs": "EPSG:4326 geographic HGT tiles",
+      "vertical_units": "metres",
+      "vertical_datum": "WGS84 ellipsoid referenced to EGM96 geoid",
+      "nodata": "Version 3.0 has no voids; -32768 is a historical Version 1/2.1 value",
+      "auth_requirement": "Earthdata Login required for download; no credentials stored",
+      "attribution": "NASA JPL; NASA Land Processes Distributed Active Archive Center (LP DAAC)",
+      "evidence_refs": [
+        "https://doi.org/10.5067/MEASURES/SRTM/SRTMGL1.003",
+        "https://lpdaac.usgs.gov/documents/179/SRTM_User_Guide_V3.pdf",
+        "https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-guidance"
+      ]
     },
     {
       "id": "copernicus-dem",

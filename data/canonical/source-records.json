@@ -38,6 +38,7 @@
       "accessedAt": "2026-08-17",
       "attribution": "Overture Maps Foundation and upstream contributors",
       "id": "source:overture:buildings@2026-08-17",
+      "contentHash": null,
       "intendedUse": [
         "building-footprint",
         "building-height",
@@ -46,7 +47,8 @@
       "license": "ODbL-1.0",
       "notes": [
         "Provider access is blocked; no coverage conclusion is drawn.",
-        "Attempted release: 2026-06-17.0; optional overturemaps package was not installed in this run."
+        "Attempted release: 2026-06-17.0; optional overturemaps package was not installed in this run.",
+        "Comparison gate is blocked/deferred; this does not block the OSM-first greybox POC."
       ],
       "provider": "Overture Maps Foundation",
       "redistribution": "allowed-with-conditions",
@@ -57,18 +59,34 @@
     {
       "accessedAt": "2026-08-17",
       "id": "source:dem:srtm-baseline",
+      "contentHash": null,
       "intendedUse": [
         "30m-terrain-baseline"
       ],
-      "license": "Product-specific; endpoint and redistribution terms require verification.",
+      "license": "NASA Earthdata open data policy; SRTMGL1.003 is openly shared without restriction, with citation requested.",
+      "metadata": {
+        "accessPath": "Earthdata Search/Earthdata Cloud supported path; no retired LP DAAC Data Pool endpoint",
+        "authRequirement": "Earthdata Login required for download; no credentials stored",
+        "collectionVersion": "003",
+        "crs": "EPSG:4326 geographic (1-degree HGT tiles)",
+        "doi": "10.5067/MEASURES/SRTM/SRTMGL1.003",
+        "landingPage": "https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl1-003",
+        "nodata": "Version 3.0 has no voids; -32768 is historical Version 1/2.1 fill value",
+        "productShortName": "SRTMGL1",
+        "resolution": "1 arc-second (~30 m posting)",
+        "verticalDatum": "WGS84 ellipsoid referenced to EGM96 geoid",
+        "verticalUnits": "metres"
+      },
       "notes": [
-        "Fallback candidate only; no raster is ingested before rights validation."
+        "NASA JPL / LP DAAC product page and SRTM Collection User Guide verified 2026-08-17.",
+        "No raster is ingested in this evidence-foundation cycle."
       ],
-      "provider": "NASA Earthdata LP DAAC",
-      "redistribution": "not-yet-verified",
-      "rightsStatus": "uncertain",
-      "sourceUrl": "https://www.earthdata.nasa.gov/centers/lp-daac",
-      "status": "candidate"
+      "provider": "NASA JPL / NASA Earthdata LP DAAC",
+      "redistribution": "allowed; cite the DOI and do not imply NASA endorsement",
+      "rightsStatus": "open-redistributable",
+      "sourceUrl": "https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl1-003",
+      "status": "validated-fallback",
+      "attribution": "NASA JPL; NASA Land Processes Distributed Active Archive Center (LP DAAC)"
     }
   ],
   "version": 1

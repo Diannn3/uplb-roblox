@@ -17,7 +17,8 @@
     "contentHash": {"type": ["string", "null"]},
     "coverage": {"type": ["object", "null"]},
     "intendedUse": {"type": "array", "items": {"type": "string"}, "minItems": 1},
-    "notes": {"type": "array", "items": {"type": "string"}}
+    "notes": {"type": "array", "items": {"type": "string"}},
+    "metadata": {"type": ["object", "null"]}
   },
   "additionalProperties": false
 }

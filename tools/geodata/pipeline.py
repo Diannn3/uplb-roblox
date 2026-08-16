@@ -75,14 +75,28 @@ def _dem_candidate_source(accessed_at: str) -> SourceRecord:
     return SourceRecord(
         id="source:dem:srtm-baseline",
         provider="NASA Earthdata LP DAAC",
-        source_url="https://www.earthdata.nasa.gov/centers/lp-daac",
+        source_url="https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl1-003",
         accessed_at=accessed_at,
-        license="Product-specific; endpoint and redistribution terms require verification.",
-        redistribution="not-yet-verified",
-        rights_status="uncertain",
+        license="NASA Earthdata open data policy; SRTMGL1.003 is openly shared without restriction, with citation requested.",
+        attribution="NASA JPL; NASA Land Processes Distributed Active Archive Center (LP DAAC)",
+        redistribution="allowed; cite the DOI and do not imply NASA endorsement",
+        rights_status="open-redistributable",
         intended_use=("30m-terrain-baseline",),
-        status="candidate",
-        notes=("Fallback candidate only; no raster is ingested before rights validation.",),
+        status="validated-fallback",
+        notes=("No raster is ingested in this evidence-foundation cycle.",),
+        metadata={
+            "productShortName": "SRTMGL1",
+            "collectionVersion": "003",
+            "resolution": "1 arc-second (~30 m posting)",
+            "doi": "10.5067/MEASURES/SRTM/SRTMGL1.003",
+            "landingPage": "https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl1-003",
+            "accessPath": "Earthdata Search/Earthdata Cloud supported path; no retired LP DAAC Data Pool endpoint",
+            "crs": "EPSG:4326 geographic (1-degree HGT tiles)",
+            "verticalUnits": "metres",
+            "verticalDatum": "WGS84 ellipsoid referenced to EGM96 geoid",
+            "nodata": "Version 3.0 has no voids; -32768 is historical Version 1/2.1 fill value",
+            "authRequirement": "Earthdata Login required for download; no credentials stored",
+        },
     )
 
 
@@ -105,6 +119,7 @@ def _canonical_from_registry(candidate: ProviderCandidate, canonical_id: str, re
         provenance=candidate.provenance,
         confidence=candidate.confidence,
         verification_status=entity.get("identityStatus", "needs-review"),
+        verification={str(key): str(value) for key, value in entity.get("verification", {}).items()},
     )
 
 
