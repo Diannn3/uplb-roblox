@@ -1,0 +1,14 @@
+{
+  "bbox": {
+    "west": 121.225,
+    "south": 14.145,
+    "east": 121.265,
+    "north": 14.185
+  },
+  "inputs": {},
+  "summaries": {},
+  "notes": [
+    "OSM extract absent; run --fetch in a network-enabled environment.",
+    "Overture extract absent; install official overturemaps CLI then run --fetch."
+  ]
+}

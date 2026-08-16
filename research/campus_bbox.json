@@ -1,0 +1,19 @@
+{
+  "id": "uplb-research-aoi-v1",
+  "description": "Research AOI only; deliberately broader than the legal/administrative campus boundary so upper/lower campus candidates are not clipped.",
+  "crs": "EPSG:4326",
+  "west": 121.225,
+  "south": 14.145,
+  "east": 121.265,
+  "north": 14.185,
+  "vertical_slice": {
+    "west": 121.238,
+    "south": 14.158,
+    "east": 121.2465,
+    "north": 14.1685
+  },
+  "notes": [
+    "Do not present this bounding box as the official UPLB campus boundary.",
+    "Replace/refine with an authorized campus polygon if UPLB provides one."
+  ]
+}

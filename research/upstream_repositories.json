@@ -1,0 +1,33 @@
+{
+  "uplb-roblox": {
+    "repo": "Diannn3/uplb-roblox",
+    "branch": "feature/ai-context",
+    "commit": "66ad829819441447756bd0620e33023e11fc2d5f",
+    "parent": "34664dd8d4bfbf8414240eb2530947b985807753"
+  },
+  "uppetite": {
+    "repo": "Diannn3/kain-elbi",
+    "branch": "main",
+    "commit": "aab2d3dacbe47dd357b27fcbee12a10cbef226a2"
+  },
+  "ims": {
+    "repo": "Diannn3/ims-app",
+    "branch": "master",
+    "commit": "a922d74f881d97075d61ac9277c6927efdabc21e"
+  },
+  "room_tba_current": {
+    "repo": "uplbtools/room-tba",
+    "branch": "main",
+    "commit": "ff7179c9f7604106720ce587b260ceb7caa9bd4c"
+  },
+  "room_tba_walkgraph": {
+    "repo": "uplbtools/room-tba",
+    "path": "src/generated/walk-graph.json",
+    "commit": "feb008212af6b54d3344f44c4a33672b50983fcc",
+    "sha256": "b8c57e6d04276ca55d5ba8a93d7ef0d5f99c9d83c7d783e4e0f4487a18127b5e",
+    "nodes": 1014,
+    "edges": 1468,
+    "source": "UPLB-simplified-lcc-2026-03-30-windows.gml",
+    "license": "Path network derived from OpenStreetMap data, \u00a9 OpenStreetMap contributors, ODbL"
+  }
+}

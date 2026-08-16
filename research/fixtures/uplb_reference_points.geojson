@@ -1,0 +1,56 @@
+{
+  "type": "FeatureCollection",
+  "name": "uplb-research-reference-points",
+  "license": "ODbL-derived reference coordinates; \u00a9 OpenStreetMap contributors",
+  "source": "OpenStreetMap identifiers; revalidate before production",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "uplb-oblation",
+        "name": "UPLB Oblation",
+        "osm": "node/382803333",
+        "confidence": "reference-only"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.24155,
+          14.165
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "freedom-park",
+        "name": "UPLB Freedom Park",
+        "osm": "way/33541968",
+        "confidence": "reference-only"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.24173,
+          14.16128
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "uplb-university-feature",
+        "name": "UPLB university feature",
+        "osm": "way/517120243",
+        "confidence": "reference-only"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.24389,
+          14.16049
+        ]
+      }
+    }
+  ]
+}

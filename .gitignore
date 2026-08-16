@@ -12,3 +12,21 @@
 # OS
 .DS_Store
 Thumbs.db
+
+# Research downloads and generated caches
+research/raw/*
+!research/raw/.gitkeep
+research/cache/
+research/private/
+research/restricted/
+*.laz
+*.las
+*.tif
+*.tiff
+*.geotiff
+*.e57
+*.ply
+*.glb
+*.gltf
+*.fbx
+*.blend1
