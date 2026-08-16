@@ -22,12 +22,51 @@ The research branch `research/uplb-master-execution-plan` defines the proposed d
 
 ## Canonical geodata foundation
 
-The production geodata package lives in `tools/geodata/`. It keeps WGS84 GeoJSON/JSON as the canonical source and generates a derived Luau lookup for the approved vertical slice.
+The production geodata package lives in `tools/geodata/`. Its explicit lifecycle is
+`data/raw` (ignored downloads) → `data/candidates` (provider snapshots) →
+`data/canonical` (registry-approved campus identities) → generated lightweight
+Luau under `src/Shared/Generated/`. OSM identifiers are provenance fields, never
+canonical identity; new identities require an explicit promotion/review action.
+
+### Clean-clone workflow
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python -m pip install -e ".[dev]"
+.\.venv\Scripts\python -m pytest
+.\.venv\Scripts\python -m tools.geodata.bootstrap --raw tests/fixtures/geodata/osm-small.json --fixture
+.\.venv\Scripts\python -m tools.geodata.pipeline --osm tests/fixtures/geodata/osm-small.json --fixture research/fixtures/uplb_reference_points.geojson
+.\.venv\Scripts\python -m tools.geodata.ci_checks
+```
+
+Full AOI acquisition is deliberately network-opt-in and writes only ignored
+replaceable input:
+
+```powershell
+python -m tools.geodata.bootstrap --fetch
+python -m tools.geodata.pipeline
+```
+
+Inspect or explicitly decide provider conflation reviews with:
+
+```powershell
+python -m tools.geodata.review list
+python -m tools.geodata.review show <review-id>
+python -m tools.geodata.review accept <review-id> --reviewed-at 2026-08-17
+python -m tools.geodata.promote <candidate-id> --promoted-at 2026-08-17
+```
 
 ```powershell
 python -B -m tools.geodata.pipeline
 python -B -m tools.geodata.overture_fallback --python <overture-venv-python>
 python -B -m tools.geodata.evidence_gate
+python -B -m tools.geodata.phase_gate
 ```
 
-The Overture probe is network-opt-in and bounded. A blocked provider is recorded as a source-status warning; it is not treated as evidence of missing coverage. Permission requests under `docs/PERMISSION_REQUEST_TEMPLATES.md` are drafts only.
+The Overture probe is network-opt-in and bounded. A blocked provider is recorded
+as a source-status warning; it is not treated as evidence of missing coverage.
+Permission requests under `docs/PERMISSION_REQUEST_TEMPLATES.md` are drafts only.
+The Phase 1 gate currently remains `conditional` because Overture access is
+blocked and DEM redistribution rights are unresolved; do not begin terrain,
+Blender, or persistent Roblox world-generation work until that report is
+reviewed and passes.

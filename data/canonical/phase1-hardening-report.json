@@ -1,0 +1,89 @@
+{
+  "blockers": [],
+  "checks": [
+    {
+      "details": "canonical feature IDs are opaque/semantic campus IDs; provider candidates remain external evidence",
+      "name": "candidate-canonical-separation",
+      "status": "pass"
+    },
+    {
+      "details": "duplicates=False providerIdentityLeaks=0",
+      "name": "persistent-identity-registry",
+      "status": "pass"
+    },
+    {
+      "details": "rejected=0 needsReview=0",
+      "name": "canonical-geometry-validity",
+      "status": "pass"
+    },
+    {
+      "details": "fixtureTypes=building,walkway,waterway",
+      "name": "expanded-osm-layers",
+      "status": "pass"
+    },
+    {
+      "details": "relationPolygons=1",
+      "name": "osm-multipolygon-relations",
+      "status": "pass"
+    },
+    {
+      "details": "adapter and fallback use documented package entry points",
+      "name": "overture-public-api",
+      "status": "pass"
+    },
+    {
+      "details": "provider is blocked; no Overture coverage conclusion is made",
+      "name": "overture-candidate-review",
+      "status": "warning"
+    },
+    {
+      "details": "uncertainSources=1 canonicalLeaks=0",
+      "name": "rights-gate",
+      "status": "warning"
+    },
+    {
+      "details": "path=C:\\Users\\Dian\\Documents\\Vaults\\Fensalir\\uplb_roblox\\src\\Shared\\Generated\\CanonicalFeatures.lua",
+      "name": "generated-luau-freshness",
+      "status": "pass"
+    },
+    {
+      "details": "two in-memory generations compare equal",
+      "name": "generated-determinism",
+      "status": "pass"
+    },
+    {
+      "details": "rows=25; package remains pending human review",
+      "name": "first-25-review-package",
+      "status": "pass"
+    },
+    {
+      "details": "canonical artifacts validate against production schemas",
+      "name": "schema-artifact-validation",
+      "status": "pass"
+    }
+  ],
+  "decision": "conditional",
+  "discrepancies": [],
+  "id": "validation:phase1-hardening-v1",
+  "inputRevisions": {
+    "canonical": "data/canonical/features.geojson",
+    "generated": "src/Shared/Generated/CanonicalFeatures.lua",
+    "identityRegistry": "data/canonical/identity-registry.json"
+  },
+  "measurements": {
+    "canonicalCount": 3,
+    "geometryStates": {
+      "uplb:building:baker-hall": "valid",
+      "uplb:landmark:freedom-park": "valid",
+      "uplb:landmark:oblation": "valid"
+    },
+    "overture": {
+      "attemptedRelease": "2026-06-17.0",
+      "packageVersion": "not-installed",
+      "status": "blocked"
+    },
+    "registryCount": 3,
+    "reviewPackageRows": 25,
+    "sourceCount": 3
+  }
+}

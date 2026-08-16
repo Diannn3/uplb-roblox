@@ -15,7 +15,19 @@ def sha256(p):
     return h.hexdigest()
 def fetch_osm(out):
     s,w,n,e=BBOX['south'],BBOX['west'],BBOX['north'],BBOX['east']
-    q='[out:json][timeout:180];(way["building"](%s,%s,%s,%s);relation["building"](%s,%s,%s,%s);way["highway"](%s,%s,%s,%s);way["waterway"](%s,%s,%s,%s););out center tags geom;' % ((s,w,n,e)*4)
+    selectors = [
+        f'nwr["building"]({s},{w},{n},{e});',
+        f'nwr["building:part"]({s},{w},{n},{e});',
+        f'way["highway"]({s},{w},{n},{e});',
+        f'nwr["entrance"]({s},{w},{n},{e});',
+        f'nwr["barrier"]({s},{w},{n},{e});',
+        f'nwr["waterway"]({s},{w},{n},{e});',
+        f'nwr["natural"="water"]({s},{w},{n},{e});',
+        f'nwr["landuse"]({s},{w},{n},{e});',
+        f'nwr["leisure"]({s},{w},{n},{e});',
+        f'nwr["amenity"="parking"]({s},{w},{n},{e});',
+    ]
+    q='[out:json][timeout:240];(' + ''.join(selectors) + ');out body;>;out geom;'
     url='https://overpass-api.de/api/interpreter?'+urllib.parse.urlencode({'data':q})
     req=urllib.request.Request(url,headers={'User-Agent':'uplb-roblox-research/0.1'})
     with urllib.request.urlopen(req,timeout=240) as r: out.write_bytes(r.read())

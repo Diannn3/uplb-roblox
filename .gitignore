@@ -8,6 +8,8 @@
 .vscode/
 .idea/
 .antigravity/
+__pycache__/
+.pytest_cache/
 
 # OS
 .DS_Store
@@ -23,7 +25,19 @@ research/restricted/
 # Geodata source downloads (canonical data stays version-controlled)
 data/raw/*
 !data/raw/.gitkeep
+data/candidates/*
+!data/candidates/.gitkeep
+data/generated/*
+!data/generated/.gitkeep
 data/private/
+
+# Credentials and local environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.key
 
 *.laz
 *.las

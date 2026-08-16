@@ -18,6 +18,8 @@
 - Permission requests are drafted locally in `docs/PERMISSION_REQUEST_TEMPLATES.md` and have not been sent.
 - Phase 1 contracts, CRS transforms, OSM normalization, Overture parsing adapter, provenance records, conflation review records, validation, canonical GeoJSON, and generated Luau are implemented on the feature branch.
 - The evidence gate is `conditional` until DEM rights are pinned and a human reviews the proposed source/ADR decisions.
+- The hardening branch now separates raw/candidate/canonical/generated data, persists `data/canonical/identity-registry.json`, uses Shapely validity/intersection checks, and emits an offline CI/Phase 1 hardening report.
+- The current tracked fixture produces 7 candidate features and only 3 registry-approved canonical features (Baker Hall, Oblation, Freedom Park). Overture remains explicitly blocked and no Blender/Roblox world work may start while the hardening report is `conditional`.
 
 ## Phase 1 — Canonical geospatial foundation
 

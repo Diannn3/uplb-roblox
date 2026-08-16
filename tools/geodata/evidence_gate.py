@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import argparse
 from pathlib import Path
-from typing import Any
 
 from .io import read_json, sha256, write_json
 from .models import ValidationReport

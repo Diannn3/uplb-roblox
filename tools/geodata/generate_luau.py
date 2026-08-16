@@ -4,9 +4,9 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Iterable
 
-from .io import geometry_anchor, sha256, write_json
+from .io import geometry_anchor, sha256
 from .models import CanonicalFeature
 from .transform import CoordinateTransform
 
