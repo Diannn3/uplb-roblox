@@ -1,0 +1,4103 @@
+{
+  "blenderExecutable": null,
+  "candidateSourceHash": "sha256:9f766739c1ad0088170c708d222c246b47b4dc684120f1f57f252d6f290f6142",
+  "canonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+  "coordinateContract": "Blender units are local UPLB metres; Roblox conversion is a later handoff",
+  "determinism": "pass",
+  "generatorVersion": "greybox-v0.1",
+  "objectCount": 95,
+  "objects": [
+    {
+      "candidateId": "candidate:osm:way/109244752",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 32.683739,
+        "heightM": 6.0,
+        "widthM": 40.450883
+      },
+      "featureId": "candidate:osm:way/109244752",
+      "heightConfidence": "placeholder",
+      "heightM": 6.0,
+      "heightMethod": "conservative-feature-placeholder",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/109244752",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/109244752",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:6c0563b971a3a2e49a4f7489a1e2cf6aa003c0c3653a89147b55bdf4e6497cc8",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "OSM building 109244752",
+      "objectId": "BLDG__candidate_osm_way_109244752",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:5c10705947b37be822964e1717c7f71e23535a92cb2fe25347b24e656b73a482",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -153.351326,
+        "northM": -350.932646,
+        "upM": 105.059806
+      },
+      "widthConfidence": null,
+      "widthM": 40.450883,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/109244753",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 21.463848,
+        "heightM": 3.2,
+        "widthM": 39.437845
+      },
+      "featureId": "candidate:osm:way/109244753",
+      "heightConfidence": "approximate",
+      "heightM": 3.2,
+      "heightMethod": "source-supported-floor-count-x-default-floor-height",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/109244753",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/109244753",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "source-supported",
+        "InputHash": "sha256:f4d4defe7be98ae418fd5edbf6e20ea1c39958ca32de869098fbcea9b005ec69",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "Nelia T. Gonzales Hall",
+      "objectId": "BLDG__candidate_osm_way_109244753",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:433c9cadfde673f0e44655a596e8f71ffb479432d5466d495252d6983273a1f7",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -288.733523,
+        "northM": -236.023471,
+        "upM": 104.668846
+      },
+      "widthConfidence": null,
+      "widthM": 39.437845,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/109353062",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 27.512155,
+        "heightM": 6.0,
+        "widthM": 39.180902
+      },
+      "featureId": "candidate:osm:way/109353062",
+      "heightConfidence": "placeholder",
+      "heightM": 6.0,
+      "heightMethod": "conservative-feature-placeholder",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/109353062",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/109353062",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:3eba2bb8cae43590d046ce63fc2e8daf3d182e58e122ed5f346832d1f798c802",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "OSM building 109353062",
+      "objectId": "BLDG__candidate_osm_way_109353062",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:8287c39944a4522c150b23b3308b015a0b5c802ef86bdca38c67d6127286f7d4",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -145.601591,
+        "northM": -19.270648,
+        "upM": 106.322398
+      },
+      "widthConfidence": null,
+      "widthM": 39.180902,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/109353068",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 15.369764,
+        "heightM": 6.0,
+        "widthM": 14.675434
+      },
+      "featureId": "candidate:osm:way/109353068",
+      "heightConfidence": "placeholder",
+      "heightM": 6.0,
+      "heightMethod": "conservative-feature-placeholder",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/109353068",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/109353068",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:33214984793cd920475339c40619f7332e71a83a929fa86eca228b56080189bc",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "OSM building 109353068",
+      "objectId": "BLDG__candidate_osm_way_109353068",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:b675944e53c8d270fe6cd5c8c9241e61ce583484e1d09f7f0587917b75317445",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -165.926338,
+        "northM": -4.71132,
+        "upM": 106.253834
+      },
+      "widthConfidence": null,
+      "widthM": 14.675434,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/109353069",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 25.391349,
+        "heightM": 6.0,
+        "widthM": 23.756325
+      },
+      "featureId": "candidate:osm:way/109353069",
+      "heightConfidence": "placeholder",
+      "heightM": 6.0,
+      "heightMethod": "conservative-feature-placeholder",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/109353069",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/109353069",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:4f383d66774dae5752497c27d7ed533cbe20a1ae496b556fb4867a368867ee60",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "OSM building 109353069",
+      "objectId": "BLDG__candidate_osm_way_109353069",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:a614a98222e6f528325e5d0e941527b7fa1089b24f53be35a488c4a6e8d2c7e1",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -190.573118,
+        "northM": -3.78463,
+        "upM": 106.109351
+      },
+      "widthConfidence": null,
+      "widthM": 23.756325,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/109353073",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 24.862743,
+        "heightM": 6.0,
+        "widthM": 24.696199
+      },
+      "featureId": "candidate:osm:way/109353073",
+      "heightConfidence": "placeholder",
+      "heightM": 6.0,
+      "heightMethod": "conservative-feature-placeholder",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/109353073",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/109353073",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:0c62ea21bcce91c7c41e16924b05ca3f841a09e4353729634db3258bc7922594",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "OSM building 109353073",
+      "objectId": "BLDG__candidate_osm_way_109353073",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:5221ca8b1a90511d58603bddf0ec30ab50557a3200ebef7ff0e2f23bca496a4c",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -175.852524,
+        "northM": -10.960273,
+        "upM": 106.171364
+      },
+      "widthConfidence": null,
+      "widthM": 24.696199,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/109353074",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 35.947139,
+        "heightM": 6.0,
+        "widthM": 25.067809
+      },
+      "featureId": "candidate:osm:way/109353074",
+      "heightConfidence": "placeholder",
+      "heightM": 6.0,
+      "heightMethod": "conservative-feature-placeholder",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/109353074",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/109353074",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:16e3be08264f02ac9bf13ca4f0d3f6164e3b1741f611a846e9de94e37a575df7",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "OSM building 109353074",
+      "objectId": "BLDG__candidate_osm_way_109353074",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:295bf71c7300cab5b8cc100e958a251d3452fccf020df493745714e3f34e0523",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -209.402952,
+        "northM": 2.204789,
+        "upM": 106.018333
+      },
+      "widthConfidence": null,
+      "widthM": 25.067809,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/1202553405",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 16.649233,
+        "heightM": 6.0,
+        "widthM": 14.610758
+      },
+      "featureId": "candidate:osm:way/1202553405",
+      "heightConfidence": "placeholder",
+      "heightM": 6.0,
+      "heightMethod": "conservative-feature-placeholder",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/1202553405",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/1202553405",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:f4309ea6af5ce1ec48caff49d77a76c21076cf515e052452cb4d2919516eb639",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "OSM building 1202553405",
+      "objectId": "BLDG__candidate_osm_way_1202553405",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:ef8ca4dc295880d7d8552da5d4a65ab4e1475a091e413fd0293c35e5bc838749",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 206.477509,
+        "northM": -291.693779,
+        "upM": 107.435988
+      },
+      "widthConfidence": null,
+      "widthM": 14.610758,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/1259331372",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 4.846558,
+        "heightM": 6.0,
+        "widthM": 4.855492
+      },
+      "featureId": "candidate:osm:way/1259331372",
+      "heightConfidence": "placeholder",
+      "heightM": 6.0,
+      "heightMethod": "conservative-feature-placeholder",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/1259331372",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/1259331372",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:cff51793377f5f7292f9f977656d8c5a16fc22597462acfe33afae833253ac0d",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "OSM building 1259331372",
+      "objectId": "BLDG__candidate_osm_way_1259331372",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:d2608b8e9c7708ee2f9953b7f4f0ecfcf95c0690ef2af4749be440010cf6121b",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -74.425608,
+        "northM": -136.274823,
+        "upM": 106.320439
+      },
+      "widthConfidence": null,
+      "widthM": 4.855492,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/139810619",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 41.776166,
+        "heightM": 3.2,
+        "widthM": 29.368536
+      },
+      "featureId": "candidate:osm:way/139810619",
+      "heightConfidence": "approximate",
+      "heightM": 3.2,
+      "heightMethod": "source-supported-floor-count-x-default-floor-height",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/139810619",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/139810619",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "source-supported",
+        "InputHash": "sha256:5a08e88139af10e9a6a14a11d18b5dcb1938a543ba93839384785860eaa33600",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "Lower ACCI Dorm",
+      "objectId": "BLDG__candidate_osm_way_139810619",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:a1aa634517e6d026608c4326d059766c897882b73e4a8d9611e9314a62467889",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -143.292808,
+        "northM": -241.216769,
+        "upM": 105.522448
+      },
+      "widthConfidence": null,
+      "widthM": 29.368536,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/139810621",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 50.08038,
+        "heightM": 6.4,
+        "widthM": 42.076175
+      },
+      "featureId": "candidate:osm:way/139810621",
+      "heightConfidence": "approximate",
+      "heightM": 6.4,
+      "heightMethod": "source-supported-floor-count-x-default-floor-height",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/139810621",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/139810621",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "source-supported",
+        "InputHash": "sha256:7c2e43b820275dc61cce78b62482efd102f802630a7272653a4733f6a7addd1b",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "OSM building 139810621",
+      "objectId": "BLDG__candidate_osm_way_139810621",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:aa63bae67de640c342671a1c1d8a92a8935b686338dc6277830a63227e7de768",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -129.224446,
+        "northM": -313.941468,
+        "upM": 105.340201
+      },
+      "widthConfidence": null,
+      "widthM": 42.076175,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/33541702",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 62.559809,
+        "heightM": 3.2,
+        "widthM": 57.197482
+      },
+      "featureId": "candidate:osm:way/33541702",
+      "heightConfidence": "approximate",
+      "heightM": 3.2,
+      "heightMethod": "source-supported-floor-count-x-default-floor-height",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/33541702",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/33541702",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "source-supported",
+        "InputHash": "sha256:f12178714beed0be49fbb635211bddf118e942096644a97d8f6e3da81f243e82",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "Gil F. Saguiguit Hall",
+      "objectId": "BLDG__candidate_osm_way_33541702",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:1110dd94e44ed412695b6d7f7db8d68964afd2320738dc5834a2009054ebe151",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 70.359226,
+        "northM": 6.790923,
+        "upM": 107.713722
+      },
+      "widthConfidence": null,
+      "widthM": 57.197482,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/33541786",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 57.15969,
+        "heightM": 8.0,
+        "widthM": 48.608271
+      },
+      "featureId": "candidate:osm:way/33541786",
+      "heightConfidence": "approximate",
+      "heightM": 8.0,
+      "heightMethod": "source-supported-floor-count-x-default-floor-height",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/33541786",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/33541786",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "source-supported",
+        "InputHash": "sha256:6d9992404b9bbc28a22f04283855baa8465712e766310e4bd1cf9e69cf34ecf6",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "Dean Edelwina C. Legaspi Hall",
+      "objectId": "BLDG__candidate_osm_way_33541786",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:16b1a4107ffb5c6494a42015e7bdb703ac046ecb64817a54ab6147f8aa24e887",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -29.973846,
+        "northM": -18.125925,
+        "upM": 107.020362
+      },
+      "widthConfidence": null,
+      "widthM": 48.608271,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/335874368",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 20.362344,
+        "heightM": 3.2,
+        "widthM": 28.985514
+      },
+      "featureId": "candidate:osm:way/335874368",
+      "heightConfidence": "approximate",
+      "heightM": 3.2,
+      "heightMethod": "source-supported-floor-count-x-default-floor-height",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/335874368",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/335874368",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "source-supported",
+        "InputHash": "sha256:122e7490661c830ce358109d9e26b67508ec1a82930d09be79744a9f0bca2b8b",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "OSM building 335874368",
+      "objectId": "BLDG__candidate_osm_way_335874368",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:9f01c176f4c97cbb357e253391a80aee06bb917b46484eee958619d38944910d",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 149.71987,
+        "northM": -400.904262,
+        "upM": 106.695004
+      },
+      "widthConfidence": null,
+      "widthM": 28.985514,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/366611215",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 29.592411,
+        "heightM": 3.2,
+        "widthM": 23.996613
+      },
+      "featureId": "candidate:osm:way/366611215",
+      "heightConfidence": "approximate",
+      "heightM": 3.2,
+      "heightMethod": "source-supported-floor-count-x-default-floor-height",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/366611215",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/366611215",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "source-supported",
+        "InputHash": "sha256:f079792e49b9bc0f31c8e36c77fdc8480ab33c0d26fdb609cbbaee3e69e7a210",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "Milka Krem",
+      "objectId": "BLDG__candidate_osm_way_366611215",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:d9ce502e019cfdba86dc57dd20135116dd7ed355ac3e488f94d01adcbf18bcf2",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 78.137338,
+        "northM": -322.176898,
+        "upM": 106.554175
+      },
+      "widthConfidence": null,
+      "widthM": 23.996613,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/37331964",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 16.967078,
+        "heightM": 6.0,
+        "widthM": 55.086205
+      },
+      "featureId": "candidate:osm:way/37331964",
+      "heightConfidence": "placeholder",
+      "heightM": 6.0,
+      "heightMethod": "conservative-feature-placeholder",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/37331964",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/37331964",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:f17926cafac55223f23563bcf3a445e18e142975b69e2d397611ca07c29d2cea",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "International House",
+      "objectId": "BLDG__candidate_osm_way_37331964",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:1c4429e63904e9e8aea6133b734f8085c16392891c8811f8d0a6aa363d981d4d",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -262.493308,
+        "northM": -162.572831,
+        "upM": 105.095606
+      },
+      "widthConfidence": null,
+      "widthM": 55.086205,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/37331969",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 26.965666,
+        "heightM": 6.4,
+        "widthM": 25.983688
+      },
+      "featureId": "candidate:osm:way/37331969",
+      "heightConfidence": "approximate",
+      "heightM": 6.4,
+      "heightMethod": "source-supported-floor-count-x-default-floor-height",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/37331969",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/37331969",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "source-supported",
+        "InputHash": "sha256:6c4bed9c67e6da2f2486cebd1e626d88015572ea0a61c9b5bde91352e71f5ef2",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "UPLB Graduate School",
+      "objectId": "BLDG__candidate_osm_way_37331969",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:fdc4b025d2a97ebc8582e31d66e87bd4dc7fce2f77b33900eece6bc8c47f9ca5",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -244.608899,
+        "northM": -143.758704,
+        "upM": 105.271898
+      },
+      "widthConfidence": null,
+      "widthM": 25.983688,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/37331990",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 13.202244,
+        "heightM": 6.4,
+        "widthM": 41.523409
+      },
+      "featureId": "candidate:osm:way/37331990",
+      "heightConfidence": "approximate",
+      "heightM": 6.4,
+      "heightMethod": "source-supported-floor-count-x-default-floor-height",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/37331990",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/37331990",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "source-supported",
+        "InputHash": "sha256:5b658754f024733bfdf2df38283a6edb707309c07785708c1890cc3c0f323f69",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "UPLB Office of International Linkages",
+      "objectId": "BLDG__candidate_osm_way_37331990",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:327c97114badb99dd760db8560bff2abfc710d3878e08fa07a7895c39847fe05",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -225.958873,
+        "northM": -190.194552,
+        "upM": 105.213533
+      },
+      "widthConfidence": null,
+      "widthM": 41.523409,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/37450035",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 83.335277,
+        "heightM": 9.6,
+        "widthM": 82.483114
+      },
+      "featureId": "candidate:osm:way/37450035",
+      "heightConfidence": "approximate",
+      "heightM": 9.6,
+      "heightMethod": "source-supported-floor-count-x-default-floor-height",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/37450035",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/37450035",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "source-supported",
+        "InputHash": "sha256:f90bf9be7d9826948ffd4fa8de65cc0ddbc40dd2fc8d00d8e650a7f84f1c29e2",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "Student Union Building",
+      "objectId": "BLDG__candidate_osm_way_37450035",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:a0ddd149d34ce9e30b8afb3dd7ece46752364c95920af764d1b05cd87d56b08d",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -19.150442,
+        "northM": -190.017431,
+        "upM": 106.455033
+      },
+      "widthConfidence": null,
+      "widthM": 82.483114,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/44076412",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 108.773938,
+        "heightM": 9.6,
+        "widthM": 86.442163
+      },
+      "featureId": "candidate:osm:way/44076412",
+      "heightConfidence": "approximate",
+      "heightM": 9.6,
+      "heightMethod": "source-supported-floor-count-x-default-floor-height",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/44076412",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/44076412",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "source-supported",
+        "InputHash": "sha256:0486e26110e5e1f49025dbb1c01489d49eb765a6eb6cfe88ba504eee8ee69239",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "Francisco O. Santos Hall",
+      "objectId": "BLDG__candidate_osm_way_44076412",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:572b8dd22889402536774035746bab7b79640bc368db7ede0a1a84ef9d8f3415",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 44.249964,
+        "northM": -81.648309,
+        "upM": 107.232789
+      },
+      "widthConfidence": null,
+      "widthM": 86.442163,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/45160536",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 32.224228,
+        "heightM": 6.0,
+        "widthM": 74.267537
+      },
+      "featureId": "candidate:osm:way/45160536",
+      "heightConfidence": "placeholder",
+      "heightM": 6.0,
+      "heightMethod": "conservative-feature-placeholder",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/45160536",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/45160536",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:ed8ad820d11a3fdb9a551483116bf36ba164e76eb32aa3e4540284668091d673",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "OSM building 45160536",
+      "objectId": "BLDG__candidate_osm_way_45160536",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:a12a6d0ec16ed9937f1149430a029df5637a43ee61f95ed7cd06c89dfca57689",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -148.333289,
+        "northM": 11.582247,
+        "upM": 106.419135
+      },
+      "widthConfidence": null,
+      "widthM": 74.267537,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/473811335",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 57.375559,
+        "heightM": 6.0,
+        "widthM": 31.826156
+      },
+      "featureId": "candidate:osm:way/473811335",
+      "heightConfidence": "placeholder",
+      "heightM": 6.0,
+      "heightMethod": "conservative-feature-placeholder",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/473811335",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/473811335",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:a55240fb024fe162e30105d7b4695228238934f4e5e1bace732a759f273e27a1",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "UPLB Graduate School International Student and Cultural Center",
+      "objectId": "BLDG__candidate_osm_way_473811335",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:4a2467941df91a27405c1e2819bae1088c88a22c6f4f73f8779754bccf1cb941",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -274.687515,
+        "northM": -128.27946,
+        "upM": 105.148184
+      },
+      "widthConfidence": null,
+      "widthM": 31.826156,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/486667196",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 39.447955,
+        "heightM": 6.4,
+        "widthM": 58.92755
+      },
+      "featureId": "candidate:osm:way/486667196",
+      "heightConfidence": "approximate",
+      "heightM": 6.4,
+      "heightMethod": "source-supported-floor-count-x-default-floor-height",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/486667196",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/486667196",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "source-supported",
+        "InputHash": "sha256:e48bc745f5b0136b8aef8d94dedc6cbf7cfea6a203250d448c82969fd24371fe",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "CAS Annex 2",
+      "objectId": "BLDG__candidate_osm_way_486667196",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:d75afd8684bfcb2e074d660c3465ab52a50f1c7dac2c37362e29f43c2e351ddd",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 22.731773,
+        "northM": 74.943272,
+        "upM": 107.677849
+      },
+      "widthConfidence": null,
+      "widthM": 58.92755,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/554781548",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 54.681523,
+        "heightM": 6.4,
+        "widthM": 31.091488
+      },
+      "featureId": "candidate:osm:way/554781548",
+      "heightConfidence": "approximate",
+      "heightM": 6.4,
+      "heightMethod": "source-supported-floor-count-x-default-floor-height",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/554781548",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/554781548",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "source-supported",
+        "InputHash": "sha256:673c13496cb9bdd11fadde835bfdf39c960fd071e61b3495cf83981ef15dc2fb",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "OSM building 554781548",
+      "objectId": "BLDG__candidate_osm_way_554781548",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:fd615911e22e90ebecb383afad82ea84e085c63d2d0a85dfe43707d9751aed54",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -15.198836,
+        "northM": 71.294678,
+        "upM": 107.436887
+      },
+      "widthConfidence": null,
+      "widthM": 31.091488,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/554832785",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 26.222731,
+        "heightM": 3.2,
+        "widthM": 35.408338
+      },
+      "featureId": "candidate:osm:way/554832785",
+      "heightConfidence": "approximate",
+      "heightM": 3.2,
+      "heightMethod": "source-supported-floor-count-x-default-floor-height",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/554832785",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/554832785",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "source-supported",
+        "InputHash": "sha256:6823fa1e591f06be57b9b51b49aeec5c39b17fff6ead00eae8e3a738a6565e8c",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "ROTC Barracks",
+      "objectId": "BLDG__candidate_osm_way_554832785",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:8817d64af1daa475942c685f77081f7555652af36228ba04ccc5173a8b112328",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 171.480672,
+        "northM": -450.505465,
+        "upM": 106.643697
+      },
+      "widthConfidence": null,
+      "widthM": 35.408338,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/554832786",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 22.803407,
+        "heightM": 3.2,
+        "widthM": 29.986225
+      },
+      "featureId": "candidate:osm:way/554832786",
+      "heightConfidence": "approximate",
+      "heightM": 3.2,
+      "heightMethod": "source-supported-floor-count-x-default-floor-height",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/554832786",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/554832786",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "source-supported",
+        "InputHash": "sha256:5ea61b8f46707f811a9b6fe333fd8aff3c52b73a9be113dc99a1687112eac9d1",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "Technology Hub and One Stop Shop",
+      "objectId": "BLDG__candidate_osm_way_554832786",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:73f0f51c8f17dbee5c2b19b0e757b04affcd454390f9f84fe80f24f613780e3d",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 96.287646,
+        "northM": -344.415282,
+        "upM": 106.581537
+      },
+      "widthConfidence": null,
+      "widthM": 29.986225,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/572392484",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 22.702183,
+        "heightM": 6.0,
+        "widthM": 13.705489
+      },
+      "featureId": "candidate:osm:way/572392484",
+      "heightConfidence": "placeholder",
+      "heightM": 6.0,
+      "heightMethod": "conservative-feature-placeholder",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/572392484",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/572392484",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:0d2c3aeb807f962cba3ba135780c5460c09ebe55f8c979bac73e787c2d4f21a4",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "UP Presidential Guest House",
+      "objectId": "BLDG__candidate_osm_way_572392484",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:e276f61585fdff660b9fbfba0a3eefd9725811a8136762d465dad97f749970b0",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -250.199483,
+        "northM": -307.388774,
+        "upM": 104.638378
+      },
+      "widthConfidence": null,
+      "widthM": 13.705489,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/64056189",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 31.483765,
+        "heightM": 3.2,
+        "widthM": 40.282273
+      },
+      "featureId": "candidate:osm:way/64056189",
+      "heightConfidence": "approximate",
+      "heightM": 3.2,
+      "heightMethod": "source-supported-floor-count-x-default-floor-height",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/64056189",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/64056189",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "source-supported",
+        "InputHash": "sha256:0a8c9efafeb628ed8210b96c6867e5f02b349dbb5c48a5d54884f88015f18641",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "Seniors' Social Garden",
+      "objectId": "BLDG__candidate_osm_way_64056189",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:f1c45a0fce28f9e47cdc82d68f0503a013f0e22cb2704f485ea41d81662770b2",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 226.798308,
+        "northM": -278.999916,
+        "upM": 107.604457
+      },
+      "widthConfidence": null,
+      "widthM": 40.282273,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/64233044",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 49.934909,
+        "heightM": 12.8,
+        "widthM": 91.501677
+      },
+      "featureId": "candidate:osm:way/64233044",
+      "heightConfidence": "approximate",
+      "heightM": 12.8,
+      "heightMethod": "source-supported-floor-count-x-default-floor-height",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/64233044",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/64233044",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "source-supported",
+        "InputHash": "sha256:5820833d22a634b1fb36b6c3e60b6d6edb81eb2c54e3b63a00bff77e7c0e5556",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "SEARCA Dormitory",
+      "objectId": "BLDG__candidate_osm_way_64233044",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:8d017971b37f09ae44b3b9c80f45c5646b37032b797f63f333101ea89e3296f2",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -237.025194,
+        "northM": -365.799915,
+        "upM": 104.503249
+      },
+      "widthConfidence": null,
+      "widthM": 91.501677,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/96322505",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 42.353538,
+        "heightM": 6.0,
+        "widthM": 34.217297
+      },
+      "featureId": "candidate:osm:way/96322505",
+      "heightConfidence": "placeholder",
+      "heightM": 6.0,
+      "heightMethod": "conservative-feature-placeholder",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/96322505",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/96322505",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:6534a2654837b848903fb869ee41dc5b96e1dd39cba8568fc3147166497f8959",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "OSM building 96322505",
+      "objectId": "BLDG__candidate_osm_way_96322505",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:b8962bb8170fd334b900d26788ceee69dd29937241cbdb386e6e2b018b28a406",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -165.861071,
+        "northM": -317.433664,
+        "upM": 105.107577
+      },
+      "widthConfidence": null,
+      "widthM": 34.217297,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/96322506",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 34.324256,
+        "heightM": 9.6,
+        "widthM": 45.16868
+      },
+      "featureId": "candidate:osm:way/96322506",
+      "heightConfidence": "approximate",
+      "heightM": 9.6,
+      "heightMethod": "source-supported-floor-count-x-default-floor-height",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/96322506",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/96322506",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "source-supported",
+        "InputHash": "sha256:9e462a726d498be5df0f15a627ac2451fe5e3ffcdc3149946a164b44f0cc082a",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "OSM building 96322506",
+      "objectId": "BLDG__candidate_osm_way_96322506",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:168a6b542a2b2390f2ebb5abfc5e825e21a110a384c1fd56799b4b674be934a6",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -170.097824,
+        "northM": -275.58201,
+        "upM": 105.235612
+      },
+      "widthConfidence": null,
+      "widthM": 45.16868,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/96322508",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 12.239176,
+        "heightM": 9.6,
+        "widthM": 25.247232
+      },
+      "featureId": "candidate:osm:way/96322508",
+      "heightConfidence": "approximate",
+      "heightM": 9.6,
+      "heightMethod": "source-supported-floor-count-x-default-floor-height",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/96322508",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/96322508",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "source-supported",
+        "InputHash": "sha256:e7f3a78fdc36a8ec7964b6fe3df5ae298818daf5ed119f6ab1c691b9310b5026",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "Philippine Agricultural Scientist",
+      "objectId": "BLDG__candidate_osm_way_96322508",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:a604cca8559356ade82782714d18532a0fd5a7c052fd333a5f966e20a8a4b85b",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -232.909778,
+        "northM": -125.263187,
+        "upM": 105.40991
+      },
+      "widthConfidence": null,
+      "widthM": 25.247232,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/96323127",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 45.883416,
+        "heightM": 6.4,
+        "widthM": 35.222369
+      },
+      "featureId": "candidate:osm:way/96323127",
+      "heightConfidence": "approximate",
+      "heightM": 6.4,
+      "heightMethod": "source-supported-floor-count-x-default-floor-height",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/96323127",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/96323127",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "source-supported",
+        "InputHash": "sha256:05d29b697e66b18a107db543eb8c9e48f6a249e679978673ad079bc722f30fac",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "Unit 3",
+      "objectId": "BLDG__candidate_osm_way_96323127",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:ce91a03fcef4a3e86b312007b4cac2552c6e7b35d251b142e76950c8dc8095fe",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -56.673024,
+        "northM": -465.533588,
+        "upM": 105.219672
+      },
+      "widthConfidence": null,
+      "widthM": 35.222369,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/97204119",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 28.41995,
+        "heightM": 3.2,
+        "widthM": 24.204517
+      },
+      "featureId": "candidate:osm:way/97204119",
+      "heightConfidence": "approximate",
+      "heightM": 3.2,
+      "heightMethod": "source-supported-floor-count-x-default-floor-height",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/97204119",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/97204119",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "source-supported",
+        "InputHash": "sha256:1b971028ac9fc88f726725a39a21da6a077f41fdfb9f47809afbb8c206ba32ea",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "Bathhouse",
+      "objectId": "BLDG__candidate_osm_way_97204119",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:dff28abb14f4ea51ad563da197f63e9f8fc5503b470f55b30fdb2eb33d2214ef",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 124.90465,
+        "northM": -292.763447,
+        "upM": 106.942629
+      },
+      "widthConfidence": null,
+      "widthM": 24.204517,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/97204124",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 21.022824,
+        "heightM": 3.2,
+        "widthM": 19.13979
+      },
+      "featureId": "candidate:osm:way/97204124",
+      "heightConfidence": "approximate",
+      "heightM": 3.2,
+      "heightMethod": "source-supported-floor-count-x-default-floor-height",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/97204124",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/97204124",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "source-supported",
+        "InputHash": "sha256:eb6f8e3453e2242700ea737e5f355f91f699c28ae5fc0d2fa59cfbba695b0e01",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "context-building"
+      },
+      "name": "OSM building 97204124",
+      "objectId": "BLDG__candidate_osm_way_97204124",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:4476d36c85ddce8ba77434cf595a62b39aaa88b75e673c194cc352ff8ed72678",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 180.951623,
+        "northM": -358.489044,
+        "upM": 107.037917
+      },
+      "widthConfidence": null,
+      "widthM": 19.13979,
+      "widthMethod": null,
+      "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:osm:way/1098780830",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 82.082786,
+        "heightM": 6.0,
+        "widthM": 74.780514
+      },
+      "featureId": "candidate:osm:way/1098780830",
+      "heightConfidence": "placeholder",
+      "heightM": 6.0,
+      "heightMethod": "conservative-feature-placeholder",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/1098780830",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/1098780830",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:0d17a84083a1d89fffdfcc9c864f6aa126c1df71a33c09e2eddd23055b781e0a",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "human-reviewed",
+        "WorldgenRole": "hero"
+      },
+      "name": "University Library and Knowledge Center",
+      "objectId": "HERO__candidate_osm_way_1098780830",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:dc7ab6437576d75d964a4e3cf8eb28ec410a0d81aaedeff1831c95a50af2a76c",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -184.466452,
+        "northM": -231.048388,
+        "upM": 105.312691
+      },
+      "widthConfidence": null,
+      "widthM": 74.780514,
+      "widthMethod": null,
+      "worldgenRole": "hero"
+    },
+    {
+      "candidateId": "candidate:osm:way/33541381",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 66.296695,
+        "heightM": 3.2,
+        "widthM": 51.32903
+      },
+      "featureId": "candidate:osm:way/33541381",
+      "heightConfidence": "approximate",
+      "heightM": 3.2,
+      "heightMethod": "source-supported-floor-count-x-default-floor-height",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/33541381",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/33541381",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "source-supported",
+        "InputHash": "sha256:fb1b4ccb327076828e8cdb4405098c93860f069cc6527764763c7ae55bfe6bcf",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "human-reviewed",
+        "WorldgenRole": "hero"
+      },
+      "name": "Dioscoro L. Umali Hall",
+      "objectId": "HERO__candidate_osm_way_33541381",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:6cfd4cae3fd9252015f40671dcd844be8e235b6b34d4d2a9e3cbe6afa2cf5ffe",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -155.6637,
+        "northM": -107.548255,
+        "upM": 105.938341
+      },
+      "widthConfidence": null,
+      "widthM": 51.32903,
+      "widthMethod": null,
+      "worldgenRole": "hero"
+    },
+    {
+      "candidateId": "candidate:osm:way/37449973",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 53.650428,
+        "heightM": 6.4,
+        "widthM": 62.216832
+      },
+      "featureId": "uplb:building:baker-hall",
+      "heightConfidence": "approximate",
+      "heightM": 6.4,
+      "heightMethod": "source-supported-floor-count-x-default-floor-height",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/37449973",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "uplb:building:baker-hall",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "source-supported",
+        "HeightConfidence": "source-supported",
+        "InputHash": "sha256:5a9d139fc228928afee0944b010381a285ed7a5b628fe70cd2d9feeb33b72c2f",
+        "SourceLifecycle": "canonical",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "human-reviewed",
+        "WorldgenRole": "hero"
+      },
+      "name": "Charles Fuller Baker Memorial Hall",
+      "objectId": "HERO__uplb_building_baker_hall",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:453a6ff16f9a8a5f99be1d9dd8f1eef5831f4b57afac3b1ff9a061fb3a0407f9",
+      "sourceLifecycle": "canonical",
+      "transformLocalMeters": {
+        "eastM": 129.126463,
+        "northM": -359.654714,
+        "upM": 106.722691
+      },
+      "widthConfidence": null,
+      "widthM": 62.216832,
+      "widthMethod": null,
+      "worldgenRole": "hero"
+    },
+    {
+      "candidateId": "candidate:osm:way/33541968",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 0.01,
+        "heightM": 6.0,
+        "widthM": 0.01
+      },
+      "featureId": "uplb:landmark:freedom-park",
+      "heightConfidence": "placeholder",
+      "heightM": 6.0,
+      "heightMethod": "conservative-feature-placeholder",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/33541968",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "uplb:landmark:freedom-park",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:2696ecfb24090423c9d0f8546cfcb318a2ecb10706ebaecf816e247fcaec4d80",
+        "SourceLifecycle": "canonical",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "human-reviewed",
+        "WorldgenRole": "hero"
+      },
+      "name": "UPLB Freedom Park",
+      "objectId": "HERO__uplb_landmark_freedom_park",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:d82c3d955f3c53032def43c6d42503e554568cd94124b9d234fcc4640621201c",
+      "sourceLifecycle": "canonical",
+      "transformLocalMeters": {
+        "eastM": 16.340977,
+        "northM": -411.736807,
+        "upM": 105.855011
+      },
+      "widthConfidence": null,
+      "widthM": 0.01,
+      "widthMethod": null,
+      "worldgenRole": "hero"
+    },
+    {
+      "candidateId": "candidate:osm:node/382803333",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 0.01,
+        "heightM": 6.0,
+        "widthM": 0.01
+      },
+      "featureId": "uplb:landmark:oblation",
+      "heightConfidence": "placeholder",
+      "heightM": 6.0,
+      "heightMethod": "conservative-feature-placeholder",
+      "metadata": {
+        "CandidateId": "candidate:osm:node/382803333",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "uplb:landmark:oblation",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:f3577099270defa085fe16e622dd39045b05d65c4e9b9ae1a4da9a2d12cdf0a8",
+        "SourceLifecycle": "canonical",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "human-reviewed",
+        "WorldgenRole": "hero"
+      },
+      "name": "UPLB Oblation",
+      "objectId": "HERO__uplb_landmark_oblation",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:c3e1c41d88c3c25e99698729ef8ba42ccd71560d4b589fb9a6bfa18967c0d5ca",
+      "sourceLifecycle": "canonical",
+      "transformLocalMeters": {
+        "eastM": 0.0,
+        "northM": 0.0,
+        "upM": 107.266667
+      },
+      "widthConfidence": null,
+      "widthM": 0.01,
+      "widthMethod": null,
+      "worldgenRole": "hero"
+    },
+    {
+      "candidateId": "candidate:osm:way/1101379845",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 0.782749,
+        "heightM": 2.5,
+        "widthM": 2.5
+      },
+      "featureId": "candidate:osm:way/1101379845",
+      "heightConfidence": "unknown",
+      "heightM": 2.5,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/1101379845",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/1101379845",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:518c4ce1b301f42730c1200cb9aefc9d5da438053aeb0e1283702a4bbbce4735",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "walkway"
+      },
+      "name": "OSM walkway 1101379845",
+      "objectId": "PATH__candidate_osm_way_1101379845",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:1dd6141a50fa71804698d3f20bceea736c7228a036044804e3c032702ffe9991",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -158.830357,
+        "northM": -184.309347,
+        "upM": 105.637884
+      },
+      "widthConfidence": "approximate",
+      "widthM": 2.5,
+      "widthMethod": "conservative-walkway-fallback-width",
+      "worldgenRole": "walkway"
+    },
+    {
+      "candidateId": "candidate:osm:way/125448845",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 4.476867,
+        "heightM": 2.5,
+        "widthM": 2.5
+      },
+      "featureId": "candidate:osm:way/125448845",
+      "heightConfidence": "unknown",
+      "heightM": 2.5,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/125448845",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/125448845",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:c17649e7a12ab4d852408a6505b8db15c33ebfe0444d428e7455799bcdde1d83",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "walkway"
+      },
+      "name": "OSM walkway 125448845",
+      "objectId": "PATH__candidate_osm_way_125448845",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:11bc84b73bb5982899577206d48c481b2e5eed0eeb229b2a7d5090562961c9a2",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -139.734073,
+        "northM": -138.721667,
+        "upM": 105.919616
+      },
+      "widthConfidence": "approximate",
+      "widthM": 2.5,
+      "widthMethod": "conservative-walkway-fallback-width",
+      "worldgenRole": "walkway"
+    },
+    {
+      "candidateId": "candidate:osm:way/125448846",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 1.406029,
+        "heightM": 2.5,
+        "widthM": 2.5
+      },
+      "featureId": "candidate:osm:way/125448846",
+      "heightConfidence": "unknown",
+      "heightM": 2.5,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/125448846",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/125448846",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:07ccc248391e9152243e21f50880fc84433a8d0ec00eddac61421936d206d760",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "walkway"
+      },
+      "name": "OSM walkway 125448846",
+      "objectId": "PATH__candidate_osm_way_125448846",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:4cb57c17ab3148de214b70a1ea1e1c0e33e2c65e793c0a7a136a95ab55092581",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -129.538617,
+        "northM": -126.759698,
+        "upM": 106.024649
+      },
+      "widthConfidence": "approximate",
+      "widthM": 2.5,
+      "widthMethod": "conservative-walkway-fallback-width",
+      "worldgenRole": "walkway"
+    },
+    {
+      "candidateId": "candidate:osm:way/125448847",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 1.887095,
+        "heightM": 2.5,
+        "widthM": 2.5
+      },
+      "featureId": "candidate:osm:way/125448847",
+      "heightConfidence": "unknown",
+      "heightM": 2.5,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/125448847",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/125448847",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:20cf905b0cc4cfb911b2ceb74881ace01e8483ee701e6ad8a406d8f007d17f8a",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "walkway"
+      },
+      "name": "OSM walkway 125448847",
+      "objectId": "PATH__candidate_osm_way_125448847",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:d7fa837fbf3b9e696684f1ff34f001ef639b5f9a289096bba03449e7a4a8cae3",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -135.743862,
+        "northM": -127.830605,
+        "upM": 105.983491
+      },
+      "widthConfidence": "approximate",
+      "widthM": 2.5,
+      "widthMethod": "conservative-walkway-fallback-width",
+      "worldgenRole": "walkway"
+    },
+    {
+      "candidateId": "candidate:osm:way/125448850",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 7.782289,
+        "heightM": 2.5,
+        "widthM": 15.702645
+      },
+      "featureId": "candidate:osm:way/125448850",
+      "heightConfidence": "unknown",
+      "heightM": 2.5,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/125448850",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/125448850",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:50173787bc85202724a01b4a9de907020794328da832b538ff52a4afbd09a002",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "walkway"
+      },
+      "name": "OSM walkway 125448850",
+      "objectId": "PATH__candidate_osm_way_125448850",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:f63738a5cf01f471b8326a8b9c58e3a8c6ed81eda0b36e7fe44562ed2e33a65e",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -152.252855,
+        "northM": -133.725799,
+        "upM": 105.862822
+      },
+      "widthConfidence": "approximate",
+      "widthM": 15.702645,
+      "widthMethod": "conservative-walkway-fallback-width",
+      "worldgenRole": "walkway"
+    },
+    {
+      "candidateId": "candidate:osm:way/125448851",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 3.37677,
+        "heightM": 2.5,
+        "widthM": 2.5
+      },
+      "featureId": "candidate:osm:way/125448851",
+      "heightConfidence": "unknown",
+      "heightM": 2.5,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/125448851",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/125448851",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:01bff004509016866bf626ccd564c30734bc3cb3417ca28d81045531536c3ef3",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "walkway"
+      },
+      "name": "OSM walkway 125448851",
+      "objectId": "PATH__candidate_osm_way_125448851",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:d39b0b3f2a96bddc7d64d916ba424597d07ede725263083dd8bc19499cd2fc30",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -141.811557,
+        "northM": -133.582999,
+        "upM": 105.925993
+      },
+      "widthConfidence": "approximate",
+      "widthM": 2.5,
+      "widthMethod": "conservative-walkway-fallback-width",
+      "worldgenRole": "walkway"
+    },
+    {
+      "candidateId": "candidate:osm:way/125448856",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 10.49883,
+        "heightM": 2.5,
+        "widthM": 15.401889
+      },
+      "featureId": "candidate:osm:way/125448856",
+      "heightConfidence": "unknown",
+      "heightM": 2.5,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/125448856",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/125448856",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:62e8e52cd600ac1117d30c31aa89be384974dbb27bc427fcf0fa812fa267e827",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "walkway"
+      },
+      "name": "OSM walkway 125448856",
+      "objectId": "PATH__candidate_osm_way_125448856",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:b6c8bdc075328dcb2c726bef35d22a49f3cbc01e6ae09b25afec8583bbc4afe2",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -135.073237,
+        "northM": -131.973921,
+        "upM": 105.972323
+      },
+      "widthConfidence": "approximate",
+      "widthM": 15.401889,
+      "widthMethod": "conservative-walkway-fallback-width",
+      "worldgenRole": "walkway"
+    },
+    {
+      "candidateId": "candidate:osm:way/125448857",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 10.299724,
+        "heightM": 2.5,
+        "widthM": 19.359992
+      },
+      "featureId": "candidate:osm:way/125448857",
+      "heightConfidence": "unknown",
+      "heightM": 2.5,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/125448857",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/125448857",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:a86b48b834c30efd8ee48f3f54325ca21cb808bfab374d8d9ecd8a657f9d82a4",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "walkway"
+      },
+      "name": "OSM walkway 125448857",
+      "objectId": "PATH__candidate_osm_way_125448857",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:6ac06bfd078075a118022e9ca2b9dd3fb3078a7ebe4331f29a52e7bb691d2efe",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -136.817064,
+        "northM": -128.408977,
+        "upM": 105.974931
+      },
+      "widthConfidence": "approximate",
+      "widthM": 19.359992,
+      "widthMethod": "conservative-walkway-fallback-width",
+      "worldgenRole": "walkway"
+    },
+    {
+      "candidateId": "candidate:osm:way/125448860",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 34.845658,
+        "heightM": 2.5,
+        "widthM": 28.855505
+      },
+      "featureId": "candidate:osm:way/125448860",
+      "heightConfidence": "unknown",
+      "heightM": 2.5,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/125448860",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/125448860",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:52ff9cde21d257eef76557b6b304cd2fe0a79c5fcf6ce4c380f0b9d589b4581e",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "walkway"
+      },
+      "name": "OSM walkway 125448860",
+      "objectId": "PATH__candidate_osm_way_125448860",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:2a9b0b7ae23c85a771942a1796e7c5bf7d2deb10965a9dcd8f8697a1009b6684",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -154.252953,
+        "northM": -129.782721,
+        "upM": 105.865279
+      },
+      "widthConfidence": "approximate",
+      "widthM": 28.855505,
+      "widthMethod": "conservative-walkway-fallback-width",
+      "worldgenRole": "walkway"
+    },
+    {
+      "candidateId": "candidate:osm:way/125448867",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 9.892038,
+        "heightM": 2.5,
+        "widthM": 43.837635
+      },
+      "featureId": "candidate:osm:way/125448867",
+      "heightConfidence": "unknown",
+      "heightM": 2.5,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/125448867",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/125448867",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:300d31e6d91054277938bcd309509d14344573743db03bc568cdc2d2f06e8c60",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "walkway"
+      },
+      "name": "OSM walkway 125448867",
+      "objectId": "PATH__candidate_osm_way_125448867",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:40b730655b3d5493f12b73a4dcd1896f7b4e3be66e259df9fe5c895e154ae2c3",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -109.498528,
+        "northM": -126.523068,
+        "upM": 106.145758
+      },
+      "widthConfidence": "approximate",
+      "widthM": 43.837635,
+      "widthMethod": "conservative-walkway-fallback-width",
+      "worldgenRole": "walkway"
+    },
+    {
+      "candidateId": "candidate:osm:way/1271077976",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 5.565324,
+        "heightM": 2.5,
+        "widthM": 13.289197
+      },
+      "featureId": "candidate:osm:way/1271077976",
+      "heightConfidence": "unknown",
+      "heightM": 2.5,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/1271077976",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/1271077976",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:5a130b0af77952049f2919715e04c16de2eceac106d6155e5f90ad7f18ac8f83",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "walkway"
+      },
+      "name": "OSM walkway 1271077976",
+      "objectId": "PATH__candidate_osm_way_1271077976",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:a7ef9f1170589dd4c39c9f35d97430424c64e5f8ba483a9cde4128b1630ef895",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -149.602903,
+        "northM": -210.635734,
+        "upM": 105.596718
+      },
+      "widthConfidence": "approximate",
+      "widthM": 13.289197,
+      "widthMethod": "conservative-walkway-fallback-width",
+      "worldgenRole": "walkway"
+    },
+    {
+      "candidateId": "candidate:osm:way/1271077979",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 0.88046,
+        "heightM": 2.5,
+        "widthM": 2.5
+      },
+      "featureId": "candidate:osm:way/1271077979",
+      "heightConfidence": "unknown",
+      "heightM": 2.5,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/1271077979",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/1271077979",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:8e3efd978cbee3b9cdc8df5175873edc00d127f6c96fc6c5f9ca245679f1fbed",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "walkway"
+      },
+      "name": "OSM walkway 1271077979",
+      "objectId": "PATH__candidate_osm_way_1271077979",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:8fee93959a08c4bef74ee7f37a4804d71b6635878379b9aaec79ff096dfc1239",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -161.809014,
+        "northM": -215.744473,
+        "upM": 105.50475
+      },
+      "widthConfidence": "approximate",
+      "widthM": 2.5,
+      "widthMethod": "conservative-walkway-fallback-width",
+      "worldgenRole": "walkway"
+    },
+    {
+      "candidateId": "candidate:osm:way/1308580895",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 8.569335,
+        "heightM": 2.5,
+        "widthM": 8.151041
+      },
+      "featureId": "candidate:osm:way/1308580895",
+      "heightConfidence": "unknown",
+      "heightM": 2.5,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/1308580895",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/1308580895",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:b6f5a3210ea3cc9dafa435a2adaff0b419d5da5d2d4dfb5303919d6a66311f25",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "walkway"
+      },
+      "name": "OSM walkway 1308580895",
+      "objectId": "PATH__candidate_osm_way_1308580895",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:29d7cb246d2f46425c8719614b55ef19ed2d10dcdba99a0e5513eaf50582f989",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -194.08284,
+        "northM": -194.600205,
+        "upM": 105.388636
+      },
+      "widthConfidence": "approximate",
+      "widthM": 8.151041,
+      "widthMethod": "conservative-walkway-fallback-width",
+      "worldgenRole": "walkway"
+    },
+    {
+      "candidateId": "candidate:osm:way/1316742225",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 23.291146,
+        "heightM": 2.5,
+        "widthM": 51.577283
+      },
+      "featureId": "candidate:osm:way/1316742225",
+      "heightConfidence": "unknown",
+      "heightM": 2.5,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/1316742225",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/1316742225",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:ae77207dfff1777c77b6ff3884f71fa94084e1450cc08024b7993b193a6d596d",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "walkway"
+      },
+      "name": "OSM walkway 1316742225",
+      "objectId": "PATH__candidate_osm_way_1316742225",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:ea88ead240c531901da7bc3dad0e7db2f8f95f9249cd14d7615be55ae7531e72",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -139.734073,
+        "northM": -138.721667,
+        "upM": 105.919616
+      },
+      "widthConfidence": "approximate",
+      "widthM": 51.577283,
+      "widthMethod": "conservative-walkway-fallback-width",
+      "worldgenRole": "walkway"
+    },
+    {
+      "candidateId": "candidate:osm:way/1316742228",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 276.660502,
+        "heightM": 2.5,
+        "widthM": 125.784653
+      },
+      "featureId": "candidate:osm:way/1316742228",
+      "heightConfidence": "unknown",
+      "heightM": 2.5,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/1316742228",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/1316742228",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:61ccb7aefe3bfa2bfe928be94a31159c8ffcaab89efa81aa49ff85b354c87d64",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "walkway"
+      },
+      "name": "OSM walkway 1316742228",
+      "objectId": "PATH__candidate_osm_way_1316742228",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:2150088dcd3cfc572688587aa6b21eb6cc67de95e42e0307d2dddc307a787aab",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -99.411706,
+        "northM": -321.507096,
+        "upM": 105.491337
+      },
+      "widthConfidence": "approximate",
+      "widthM": 125.784653,
+      "widthMethod": "conservative-walkway-fallback-width",
+      "worldgenRole": "walkway"
+    },
+    {
+      "candidateId": "candidate:osm:way/1324244631",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 3.928698,
+        "heightM": 2.5,
+        "widthM": 8.742329
+      },
+      "featureId": "candidate:osm:way/1324244631",
+      "heightConfidence": "unknown",
+      "heightM": 2.5,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/1324244631",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/1324244631",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:548b744384f35695d9a751cc516eff54d886704b5ae1063e4fe05a0a3354545b",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "walkway"
+      },
+      "name": "OSM walkway 1324244631",
+      "objectId": "PATH__candidate_osm_way_1324244631",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:6811b3600597b24b792379fe130139f0303e3a0690757abbec4e31ef8125c188",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -171.167849,
+        "northM": -152.327533,
+        "upM": 105.681125
+      },
+      "widthConfidence": "approximate",
+      "widthM": 8.742329,
+      "widthMethod": "conservative-walkway-fallback-width",
+      "worldgenRole": "walkway"
+    },
+    {
+      "candidateId": "candidate:osm:way/1324244649",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 77.234284,
+        "heightM": 2.5,
+        "widthM": 47.346287
+      },
+      "featureId": "candidate:osm:way/1324244649",
+      "heightConfidence": "unknown",
+      "heightM": 2.5,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/1324244649",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/1324244649",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:ad848f94a2fe714a12af2f356768f91fc806b928ff4a11966e1ff467443ba543",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "walkway"
+      },
+      "name": "OSM walkway 1324244649",
+      "objectId": "PATH__candidate_osm_way_1324244649",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:7ff3a95bfcdba6a524ca56c2ed871ac3dc76fb4cccfe2dacb1b03533303038a7",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 117.146441,
+        "northM": -419.265385,
+        "upM": 106.432239
+      },
+      "widthConfidence": "approximate",
+      "widthM": 47.346287,
+      "widthMethod": "conservative-walkway-fallback-width",
+      "worldgenRole": "walkway"
+    },
+    {
+      "candidateId": "candidate:osm:way/1324506408",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 3.216159,
+        "heightM": 2.5,
+        "widthM": 6.383339
+      },
+      "featureId": "candidate:osm:way/1324506408",
+      "heightConfidence": "unknown",
+      "heightM": 2.5,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/1324506408",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/1324506408",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:4a52130a998753625d9cacd4d5bc153b6a8aac057d3a260f7c2f84cd9dbe11c0",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "walkway"
+      },
+      "name": "OSM walkway 1324506408",
+      "objectId": "PATH__candidate_osm_way_1324506408",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:9cb417548eba12c909da4d25cb9190b22885c53d29e5d53b481c16d640d2cd08",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -140.035329,
+        "northM": -206.08253,
+        "upM": 105.670819
+      },
+      "widthConfidence": "approximate",
+      "widthM": 6.383339,
+      "widthMethod": "conservative-walkway-fallback-width",
+      "worldgenRole": "walkway"
+    },
+    {
+      "candidateId": "candidate:osm:way/1393647139",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 101.206074,
+        "heightM": 2.5,
+        "widthM": 167.081242
+      },
+      "featureId": "candidate:osm:way/1393647139",
+      "heightConfidence": "unknown",
+      "heightM": 2.5,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/1393647139",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/1393647139",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:fa9db05aba86bfdaddd65de471acbe939c76e58c12bb0fd17fea7f96f6a6ef33",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "walkway"
+      },
+      "name": "OSM walkway 1393647139",
+      "objectId": "PATH__candidate_osm_way_1393647139",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:9ff3e1578573d4ba689f5194da9dcaae66e264d2bfdb814f7026b7ae6e6b6841",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -212.343201,
+        "northM": -85.949346,
+        "upM": 105.67746
+      },
+      "widthConfidence": "approximate",
+      "widthM": 167.081242,
+      "widthMethod": "conservative-walkway-fallback-width",
+      "worldgenRole": "walkway"
+    },
+    {
+      "candidateId": "candidate:osm:way/142448239",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 7.797112,
+        "heightM": 2.5,
+        "widthM": 16.67444
+      },
+      "featureId": "candidate:osm:way/142448239",
+      "heightConfidence": "unknown",
+      "heightM": 2.5,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/142448239",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/142448239",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:6c72491ca95e58798abcb0c8ab87a6903658da600c80f5dae404831c542ac62b",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "walkway"
+      },
+      "name": "OSM walkway 142448239",
+      "objectId": "PATH__candidate_osm_way_142448239",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:d1089c8617ea7f62af79716287ff6a5c2d3f64c57144b27fec2d2a9ad72c1561",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -154.252953,
+        "northM": -129.782721,
+        "upM": 105.865279
+      },
+      "widthConfidence": "approximate",
+      "widthM": 16.67444,
+      "widthMethod": "conservative-walkway-fallback-width",
+      "worldgenRole": "walkway"
+    },
+    {
+      "candidateId": "candidate:osm:way/142448246",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 5.840868,
+        "heightM": 2.5,
+        "widthM": 13.431571
+      },
+      "featureId": "candidate:osm:way/142448246",
+      "heightConfidence": "unknown",
+      "heightM": 2.5,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/142448246",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/142448246",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:dc3f4d73a2230e2a475391f838e66285b0f56637ba36c4845260c6b22c5cfe2a",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "walkway"
+      },
+      "name": "OSM walkway 142448246",
+      "objectId": "PATH__candidate_osm_way_142448246",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:f11a5f4aff07e03c4d3837cee45a93af8e189144c4f39fc8f0bf1cfae4390940",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -156.97755,
+        "northM": -107.322611,
+        "upM": 105.931285
+      },
+      "widthConfidence": "approximate",
+      "widthM": 13.431571,
+      "widthMethod": "conservative-walkway-fallback-width",
+      "worldgenRole": "walkway"
+    },
+    {
+      "candidateId": "candidate:osm:way/227490228",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 20.033695,
+        "heightM": 2.5,
+        "widthM": 21.247048
+      },
+      "featureId": "candidate:osm:way/227490228",
+      "heightConfidence": "unknown",
+      "heightM": 2.5,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/227490228",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/227490228",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:f149b72a00131d3aa5ef20b005f68b22e5edb7af77e0bbad6be01ec4f7b3f352",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "walkway"
+      },
+      "name": "OSM walkway 227490228",
+      "objectId": "PATH__candidate_osm_way_227490228",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:1db5ed3233e04d078e781a96d15aa860b6ac66c0bd1880419211e25d8eb94866",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -177.087245,
+        "northM": -177.123736,
+        "upM": 105.554689
+      },
+      "widthConfidence": "approximate",
+      "widthM": 21.247048,
+      "widthMethod": "conservative-walkway-fallback-width",
+      "worldgenRole": "walkway"
+    },
+    {
+      "candidateId": "candidate:osm:way/329836583",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 72.393536,
+        "heightM": 2.5,
+        "widthM": 33.335407
+      },
+      "featureId": "candidate:osm:way/329836583",
+      "heightConfidence": "unknown",
+      "heightM": 2.5,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/329836583",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/329836583",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:4e88200237ea6dee1d110fafb2bde5a55fbc90c505f5c5603742a4145d092fb8",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "walkway"
+      },
+      "name": "OSM walkway 329836583",
+      "objectId": "PATH__candidate_osm_way_329836583",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:e5553a25edd99de2d3dab1a48a5f2d3f9875f7032366cce1f34bb4d450727ef9",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 22.671352,
+        "northM": -10.217242,
+        "upM": 107.365232
+      },
+      "widthConfidence": "approximate",
+      "widthM": 33.335407,
+      "widthMethod": "conservative-walkway-fallback-width",
+      "worldgenRole": "walkway"
+    },
+    {
+      "candidateId": "candidate:osm:way/53057108",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 282.267371,
+        "heightM": 2.5,
+        "widthM": 180.87988
+      },
+      "featureId": "candidate:osm:way/53057108",
+      "heightConfidence": "unknown",
+      "heightM": 2.5,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/53057108",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/53057108",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:0424e5b4c920761c549571ce32375b6279425df7ff94596a6cd4a8ec76bee568",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "walkway"
+      },
+      "name": "OSM walkway 53057108",
+      "objectId": "PATH__candidate_osm_way_53057108",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:5a64455b5abd3c378333b5e97cf0c9407f3e0593f0a0023f61a4addffbb9c817",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 19.803052,
+        "northM": -310.153904,
+        "upM": 106.248254
+      },
+      "widthConfidence": "approximate",
+      "widthM": 180.87988,
+      "widthMethod": "conservative-walkway-fallback-width",
+      "worldgenRole": "walkway"
+    },
+    {
+      "candidateId": "candidate:osm:way/758525601",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 16.602216,
+        "heightM": 2.5,
+        "widthM": 9.495128
+      },
+      "featureId": "candidate:osm:way/758525601",
+      "heightConfidence": "unknown",
+      "heightM": 2.5,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/758525601",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/758525601",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:0f15c1e914ead4c479b31a017c51694edaaba4465c1db0645e80263c01450f20",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "walkway"
+      },
+      "name": "OSM walkway 758525601",
+      "objectId": "PATH__candidate_osm_way_758525601",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:023c243b7842dfe99c01dc12653ed6b27cdbf877b198b77964d7b61370d6eef4",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 114.445759,
+        "northM": -328.856053,
+        "upM": 106.747536
+      },
+      "widthConfidence": "approximate",
+      "widthM": 9.495128,
+      "widthMethod": "conservative-walkway-fallback-width",
+      "worldgenRole": "walkway"
+    },
+    {
+      "candidateId": "candidate:osm:way/1271077977",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 15.454842,
+        "heightM": 4.0,
+        "widthM": 11.275898
+      },
+      "featureId": "candidate:osm:way/1271077977",
+      "heightConfidence": "unknown",
+      "heightM": 4.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/1271077977",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/1271077977",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:76b1decba980a7fc7a0103ef76050d6c71d11b734198406b48c0f93d3bbf411d",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "road"
+      },
+      "name": "OSM road 1271077977",
+      "objectId": "ROAD__candidate_osm_way_1271077977",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:fbc5fd7e8d6c6b1c3254b61e5d5c5a5028f75513decc13336f3e43fc1dbdc04b",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -159.447538,
+        "northM": -203.214627,
+        "upM": 105.564861
+      },
+      "widthConfidence": "approximate",
+      "widthM": 11.275898,
+      "widthMethod": "classification-default-width",
+      "worldgenRole": "road"
+    },
+    {
+      "candidateId": "candidate:osm:way/1271077978",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 8.372905,
+        "heightM": 4.0,
+        "widthM": 17.476902
+      },
+      "featureId": "candidate:osm:way/1271077978",
+      "heightConfidence": "unknown",
+      "heightM": 4.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/1271077978",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/1271077978",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:2859d561409ab40f92e03c29a11ec3eb3dbdef0e919ced4a1b6e22a52b250ab0",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "road"
+      },
+      "name": "OSM road 1271077978",
+      "objectId": "ROAD__candidate_osm_way_1271077978",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:4eb3613213b4d66a52fa7592251ca6bde652a279d8d23eefa75c159204345d47",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -151.30632,
+        "northM": -223.236917,
+        "upM": 105.540293
+      },
+      "widthConfidence": "approximate",
+      "widthM": 17.476902,
+      "widthMethod": "classification-default-width",
+      "worldgenRole": "road"
+    },
+    {
+      "candidateId": "candidate:osm:way/225084077",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 206.749458,
+        "heightM": 5.0,
+        "widthM": 93.091131
+      },
+      "featureId": "candidate:osm:way/225084077",
+      "heightConfidence": "unknown",
+      "heightM": 5.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/225084077",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/225084077",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:41a7fa92864f13682f70462474616285c210c5a8a4e0067c2f9b8c4136414022",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "road"
+      },
+      "name": "Jose B. Juliano Avenue",
+      "objectId": "ROAD__candidate_osm_way_225084077",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:d00542282e5dc87932aa75e0a6c13483d2a722ff8e36320f6685c58a9a23e66c",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 17.536388,
+        "northM": -570.283545,
+        "upM": 105.280845
+      },
+      "widthConfidence": "approximate",
+      "widthM": 93.091131,
+      "widthMethod": "classification-default-width",
+      "worldgenRole": "road"
+    },
+    {
+      "candidateId": "candidate:osm:way/23435324",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 73.329922,
+        "heightM": 6.0,
+        "widthM": 120.436358
+      },
+      "featureId": "candidate:osm:way/23435324",
+      "heightConfidence": "unknown",
+      "heightM": 6.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/23435324",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/23435324",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:2251c320f3a62ab4919ec8b5284e9f0d47685b01be96b8a507368fd8707b7f5d",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "road"
+      },
+      "name": "Romeo C. Espino Street",
+      "objectId": "ROAD__candidate_osm_way_23435324",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:a49f93ce53a6a798b10905a327cd49b94ac49251d3f65fc4d95e5e06bbda0738",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 71.743634,
+        "northM": -395.223551,
+        "upM": 106.247975
+      },
+      "widthConfidence": "approximate",
+      "widthM": 120.436358,
+      "widthMethod": "classification-default-width",
+      "worldgenRole": "road"
+    },
+    {
+      "candidateId": "candidate:osm:way/33541389",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 20.863343,
+        "heightM": 6.0,
+        "widthM": 28.648727
+      },
+      "featureId": "candidate:osm:way/33541389",
+      "heightConfidence": "unknown",
+      "heightM": 6.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/33541389",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/33541389",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:877b3af31c123770cb2c20bc85194252a4c3fcb900a066af24458539f4e413b7",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "road"
+      },
+      "name": "Harold Cuzner Royal Palm Avenue",
+      "objectId": "ROAD__candidate_osm_way_33541389",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:f1483522f1c83c749c3c7f6d526b44f9f4a6cf81d03cbaec686981e75dd057da",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -59.963552,
+        "northM": -106.325707,
+        "upM": 106.517024
+      },
+      "widthConfidence": "placeholder",
+      "widthM": 28.648727,
+      "widthMethod": "conservative-fallback-width",
+      "worldgenRole": "road"
+    },
+    {
+      "candidateId": "candidate:osm:way/33541448",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 21.497282,
+        "heightM": 6.0,
+        "widthM": 126.011662
+      },
+      "featureId": "candidate:osm:way/33541448",
+      "heightConfidence": "unknown",
+      "heightM": 6.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/33541448",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/33541448",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:5d0a901d1923e0399ceea14580f49e5d56d615cf5e9f9f0fd1cf4169e0a934e2",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "road"
+      },
+      "name": "Pedro R. Sandoval Avenue",
+      "objectId": "ROAD__candidate_osm_way_33541448",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:9f785e5bb40c457cf37a241dff660f833d07a8a98d47510861978751cd063a62",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -20.419488,
+        "northM": 31.157261,
+        "upM": 107.258393
+      },
+      "widthConfidence": "placeholder",
+      "widthM": 126.011662,
+      "widthMethod": "conservative-fallback-width",
+      "worldgenRole": "road"
+    },
+    {
+      "candidateId": "candidate:osm:way/33541546",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 61.218916,
+        "heightM": 4.0,
+        "widthM": 35.837231
+      },
+      "featureId": "candidate:osm:way/33541546",
+      "heightConfidence": "unknown",
+      "heightM": 4.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/33541546",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/33541546",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:7c0810631a46b1b842900254ba1cc231af0c5fff09e376a4c99788e413a1f308",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "road"
+      },
+      "name": "OSM road 33541546",
+      "objectId": "ROAD__candidate_osm_way_33541546",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:ac6b0bfbf386dca014081f2079eab3f6fbe7eb3d7f372eecff5a4b3ed7df41cf",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -16.706056,
+        "northM": -10.585304,
+        "upM": 107.127618
+      },
+      "widthConfidence": "approximate",
+      "widthM": 35.837231,
+      "widthMethod": "classification-default-width",
+      "worldgenRole": "road"
+    },
+    {
+      "candidateId": "candidate:osm:way/33541574",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 151.026962,
+        "heightM": 6.0,
+        "widthM": 101.336418
+      },
+      "featureId": "candidate:osm:way/33541574",
+      "heightConfidence": "unknown",
+      "heightM": 6.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/33541574",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/33541574",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:2fd1528abd22faf4fddb4423a261f47342c0f00e3d5c13326716efebd9ea2dd6",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "road"
+      },
+      "name": "Harold Cuzner Royal Palm Avenue",
+      "objectId": "ROAD__candidate_osm_way_33541574",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:5c9dd53255d529e2575ddbf581c73048200e3d5072f5173a284e4ae6cb539982",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 15.648867,
+        "northM": -29.53912,
+        "upM": 107.25225
+      },
+      "widthConfidence": "placeholder",
+      "widthM": 101.336418,
+      "widthMethod": "conservative-fallback-width",
+      "worldgenRole": "road"
+    },
+    {
+      "candidateId": "candidate:osm:way/33541817",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 22.459374,
+        "heightM": 4.0,
+        "widthM": 68.802871
+      },
+      "featureId": "candidate:osm:way/33541817",
+      "heightConfidence": "unknown",
+      "heightM": 4.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/33541817",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/33541817",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:fbe01160315a21a318b24ce9c23f019be3110131a2f9b536f03a9234808885e7",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "road"
+      },
+      "name": "OSM road 33541817",
+      "objectId": "ROAD__candidate_osm_way_33541817",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:83b27f923b00750aba34b7197db72cc2d1650bf659519ba2f2c8f5a678dc1fc2",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -139.193065,
+        "northM": -141.436636,
+        "upM": 105.912907
+      },
+      "widthConfidence": "approximate",
+      "widthM": 68.802871,
+      "widthMethod": "classification-default-width",
+      "worldgenRole": "road"
+    },
+    {
+      "candidateId": "candidate:osm:way/33541880",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 190.730744,
+        "heightM": 6.0,
+        "widthM": 131.93957
+      },
+      "featureId": "candidate:osm:way/33541880",
+      "heightConfidence": "unknown",
+      "heightM": 6.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/33541880",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/33541880",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:99f69f06ac275888d9f58499304ee63538928d23b0591a343a641155ad48e05b",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "road"
+      },
+      "name": "Mariano M. Mondoñedo Avenue",
+      "objectId": "ROAD__candidate_osm_way_33541880",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:8bcddb18e726c6a1035f35e9d0aa86dc6ecc727f2780820cde8b1ff6bc63ebeb",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 154.281551,
+        "northM": -487.582071,
+        "upM": 106.404555
+      },
+      "widthConfidence": "approximate",
+      "widthM": 131.93957,
+      "widthMethod": "classification-default-width",
+      "worldgenRole": "road"
+    },
+    {
+      "candidateId": "candidate:osm:way/33541891",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 25.910064,
+        "heightM": 6.0,
+        "widthM": 52.039657
+      },
+      "featureId": "candidate:osm:way/33541891",
+      "heightConfidence": "unknown",
+      "heightM": 6.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/33541891",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/33541891",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:94d5380ee81a4b8a0e2ce10fde863305e9e592432da0690ba869e3e85dbccd54",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "road"
+      },
+      "name": "Harold Cuzner Royal Palm Avenue",
+      "objectId": "ROAD__candidate_osm_way_33541891",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:8a68ad866c45c4efe80ceb4c0ba1b6efae50faa336a2e3c636f26e57fcfd16fc",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -157.737506,
+        "northM": -166.757561,
+        "upM": 105.708797
+      },
+      "widthConfidence": "placeholder",
+      "widthM": 52.039657,
+      "widthMethod": "conservative-fallback-width",
+      "worldgenRole": "road"
+    },
+    {
+      "candidateId": "candidate:osm:way/33542093",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 56.898461,
+        "heightM": 4.0,
+        "widthM": 32.40588
+      },
+      "featureId": "candidate:osm:way/33542093",
+      "heightConfidence": "unknown",
+      "heightM": 4.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/33542093",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/33542093",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:dcaa81c6deb739837afd53674e3edb95e29d1a578c276e89cab02c0998013d55",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "road"
+      },
+      "name": "OSM road 33542093",
+      "objectId": "ROAD__candidate_osm_way_33542093",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:643c94f1a64055eb4a10b523e19bc91a0e3263cf3bcbb1ca5aaa381bf2bfe175",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -119.238318,
+        "northM": -301.939187,
+        "upM": 105.444126
+      },
+      "widthConfidence": "approximate",
+      "widthM": 32.40588,
+      "widthMethod": "classification-default-width",
+      "worldgenRole": "road"
+    },
+    {
+      "candidateId": "candidate:osm:way/37331842",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 315.144693,
+        "heightM": 6.0,
+        "widthM": 267.025925
+      },
+      "featureId": "candidate:osm:way/37331842",
+      "heightConfidence": "unknown",
+      "heightM": 6.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/37331842",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/37331842",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:754b3a7f4942490b5e9cda504dfc0abf98aa4a0b2be0c8abab1e12c4fdacafb1",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "road"
+      },
+      "name": "Jose B. Juliano Avenue",
+      "objectId": "ROAD__candidate_osm_way_37331842",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:6cbe78971003b083835c916026e60f69eaa2b954b8463bf31a3b78928168504b",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -150.500988,
+        "northM": -199.409171,
+        "upM": 105.632494
+      },
+      "widthConfidence": "approximate",
+      "widthM": 267.025925,
+      "widthMethod": "classification-default-width",
+      "worldgenRole": "road"
+    },
+    {
+      "candidateId": "candidate:osm:way/37331938",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 39.254276,
+        "heightM": 4.0,
+        "widthM": 15.651254
+      },
+      "featureId": "candidate:osm:way/37331938",
+      "heightConfidence": "unknown",
+      "heightM": 4.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/37331938",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/37331938",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:d454757be35db396fb9aea1cd00f9bf8b2724de6b16f0d3aba07d06da26d9857",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "road"
+      },
+      "name": "OSM road 37331938",
+      "objectId": "ROAD__candidate_osm_way_37331938",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:9a59d79087e873dcb3c402d3ac6c249ea512e93558f95bd17e25331edfeac03a",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -205.474978,
+        "northM": -150.332367,
+        "upM": 105.482598
+      },
+      "widthConfidence": "approximate",
+      "widthM": 15.651254,
+      "widthMethod": "classification-default-width",
+      "worldgenRole": "road"
+    },
+    {
+      "candidateId": "candidate:osm:way/37331949",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 39.643975,
+        "heightM": 4.0,
+        "widthM": 14.503907
+      },
+      "featureId": "candidate:osm:way/37331949",
+      "heightConfidence": "unknown",
+      "heightM": 4.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/37331949",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/37331949",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:7ff1d49ecb821e20c75659e2d02f03ba0498838b1bb41d56fd0550794e2c1c59",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "road"
+      },
+      "name": "OSM road 37331949",
+      "objectId": "ROAD__candidate_osm_way_37331949",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:657d654ceee6facf7e702cd71e386c8caa487ae4a16aab7680db042e8a65f35a",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -185.917547,
+        "northM": -164.033946,
+        "upM": 105.549704
+      },
+      "widthConfidence": "approximate",
+      "widthM": 14.503907,
+      "widthMethod": "classification-default-width",
+      "worldgenRole": "road"
+    },
+    {
+      "candidateId": "candidate:osm:way/37331951",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 52.594103,
+        "heightM": 4.0,
+        "widthM": 52.329002
+      },
+      "featureId": "candidate:osm:way/37331951",
+      "heightConfidence": "unknown",
+      "heightM": 4.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/37331951",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/37331951",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:4278dd07d936ba1e6e4db60fc815e97bfa51d3c9e958325319b5d3da81bdb69d",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "road"
+      },
+      "name": "OSM road 37331951",
+      "objectId": "ROAD__candidate_osm_way_37331951",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:603dea56a63bb7c88a4ae1c0df760424a8476b9731e7220cd8c5bcbbe6a388ec",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -217.297481,
+        "northM": -160.423171,
+        "upM": 105.374663
+      },
+      "widthConfidence": "approximate",
+      "widthM": 52.329002,
+      "widthMethod": "classification-default-width",
+      "worldgenRole": "road"
+    },
+    {
+      "candidateId": "candidate:osm:way/37332712",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 66.524663,
+        "heightM": 4.0,
+        "widthM": 4.0
+      },
+      "featureId": "candidate:osm:way/37332712",
+      "heightConfidence": "unknown",
+      "heightM": 4.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/37332712",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/37332712",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:ce2e9bd3a8996ee0f0014ec20829436b8383233a37f714e006654b39d482e9ac",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "road"
+      },
+      "name": "OSM road 37332712",
+      "objectId": "ROAD__candidate_osm_way_37332712",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:186cc43f3f6389c929663a23172cd954fbb699525786dae1d921e274cf48e248",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -257.387094,
+        "northM": -129.128826,
+        "upM": 105.248872
+      },
+      "widthConfidence": "approximate",
+      "widthM": 4.0,
+      "widthMethod": "classification-default-width",
+      "worldgenRole": "road"
+    },
+    {
+      "candidateId": "candidate:osm:way/37449785",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 14.769388,
+        "heightM": 4.0,
+        "widthM": 34.163205
+      },
+      "featureId": "candidate:osm:way/37449785",
+      "heightConfidence": "unknown",
+      "heightM": 4.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/37449785",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/37449785",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:a5899670e1e1dc46f46f731a0cf736c83aad8690d435b75c3915e105391f9ae0",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "road"
+      },
+      "name": "OSM road 37449785",
+      "objectId": "ROAD__candidate_osm_way_37449785",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:a155ae718d6f28d5f932505f130b6fb1780480de4d42e75cb1f3ad2145dd14d5",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -77.845729,
+        "northM": -162.777217,
+        "upM": 106.202742
+      },
+      "widthConfidence": "approximate",
+      "widthM": 34.163205,
+      "widthMethod": "classification-default-width",
+      "worldgenRole": "road"
+    },
+    {
+      "candidateId": "candidate:osm:way/37450072",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 77.615602,
+        "heightM": 6.0,
+        "widthM": 49.436992
+      },
+      "featureId": "candidate:osm:way/37450072",
+      "heightConfidence": "unknown",
+      "heightM": 6.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/37450072",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/37450072",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:1eb2f918b3a53b1f8c570bd496804af7fe90047fd02d617dc6f09543b3d747e6",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "road"
+      },
+      "name": "Mariano M. Mondoñedo Avenue",
+      "objectId": "ROAD__candidate_osm_way_37450072",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:c737308b32550e7ffde26f975be005c8464f03d9a62187287b4bda1589770ddc",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -85.138552,
+        "northM": -190.760864,
+        "upM": 106.056379
+      },
+      "widthConfidence": "placeholder",
+      "widthM": 49.436992,
+      "widthMethod": "conservative-fallback-width",
+      "worldgenRole": "road"
+    },
+    {
+      "candidateId": "candidate:osm:way/45107187",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 118.888009,
+        "heightM": 6.0,
+        "widthM": 105.518261
+      },
+      "featureId": "candidate:osm:way/45107187",
+      "heightConfidence": "unknown",
+      "heightM": 6.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/45107187",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/45107187",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:8f8fcefca6f81c233d1ee484822fdb7b39d60a5c9e2f6d0127ca51ed380f4f64",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "road"
+      },
+      "name": "Mariano M. Mondoñedo Avenue",
+      "objectId": "ROAD__candidate_osm_way_45107187",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:69f6dc36d123d6826f0319d114ed544d6edf745d952c764797d72d8d78ad3e26",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 49.159501,
+        "northM": -315.829361,
+        "upM": 106.403583
+      },
+      "widthConfidence": "placeholder",
+      "widthM": 105.518261,
+      "widthMethod": "conservative-fallback-width",
+      "worldgenRole": "road"
+    },
+    {
+      "candidateId": "candidate:osm:way/45177520",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 26.75547,
+        "heightM": 4.0,
+        "widthM": 19.210889
+      },
+      "featureId": "candidate:osm:way/45177520",
+      "heightConfidence": "unknown",
+      "heightM": 4.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/45177520",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/45177520",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:c6fa84ea232488e447fc70b278e2b3fc27865bd3b112ed6583039958d0730300",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "road"
+      },
+      "name": "OSM road 45177520",
+      "objectId": "ROAD__candidate_osm_way_45177520",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:e4718e58649d9a4d0af5074b5588b27b9fab9dd7dd3db049cec999608c682dae",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -63.23584,
+        "northM": 44.391751,
+        "upM": 107.050021
+      },
+      "widthConfidence": "approximate",
+      "widthM": 19.210889,
+      "widthMethod": "classification-default-width",
+      "worldgenRole": "road"
+    },
+    {
+      "candidateId": "candidate:osm:way/560680298",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 25.62913,
+        "heightM": 6.0,
+        "widthM": 34.95737
+      },
+      "featureId": "candidate:osm:way/560680298",
+      "heightConfidence": "unknown",
+      "heightM": 6.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/560680298",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/560680298",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:031a5c0f8de6362056953dc604467ed127d4972ae9debc0b44fe0fa7623938a2",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "road"
+      },
+      "name": "Harold Cuzner Royal Palm Avenue",
+      "objectId": "ROAD__candidate_osm_way_560680298",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:210ed95f55108ad5da8c91865abf21d2ee7f7fd3b6af7bc843d11b1ae6cacdd6",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -93.717041,
+        "northM": -129.795182,
+        "upM": 106.228449
+      },
+      "widthConfidence": "placeholder",
+      "widthM": 34.95737,
+      "widthMethod": "conservative-fallback-width",
+      "worldgenRole": "road"
+    },
+    {
+      "candidateId": "candidate:osm:way/573767567",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 46.870831,
+        "heightM": 6.0,
+        "widthM": 22.083253
+      },
+      "featureId": "candidate:osm:way/573767567",
+      "heightConfidence": "unknown",
+      "heightM": 6.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/573767567",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/573767567",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:247d7652cb1c628046dcd6a152878b98f9e814f8bc95714de6c5fd4361b321ef",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "road"
+      },
+      "name": "Jose B. Juliano Avenue",
+      "objectId": "ROAD__candidate_osm_way_573767567",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:3be31d576e708f683ba751cdf997618fd234820ce539232bcdf9b92f61ce1d32",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -50.455558,
+        "northM": -417.199043,
+        "upM": 105.434203
+      },
+      "widthConfidence": "approximate",
+      "widthM": 22.083253,
+      "widthMethod": "classification-default-width",
+      "worldgenRole": "road"
+    },
+    {
+      "candidateId": "candidate:osm:way/573767568",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 17.666917,
+        "heightM": 6.0,
+        "widthM": 8.342645
+      },
+      "featureId": "candidate:osm:way/573767568",
+      "heightConfidence": "unknown",
+      "heightM": 6.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/573767568",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/573767568",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:94e96a4e2ac7adcf86c6b8a7d24307ff23acb8013ef062533a15a09b5d3a0545",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "road"
+      },
+      "name": "Jose B. Juliano Avenue",
+      "objectId": "ROAD__candidate_osm_way_573767568",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:b7f7ab889b7c5b7521525c31ea254f7b54517176d663269636b33681ff4912c2",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -36.46178,
+        "northM": -445.763081,
+        "upM": 105.413431
+      },
+      "widthConfidence": "approximate",
+      "widthM": 8.342645,
+      "widthMethod": "classification-default-width",
+      "worldgenRole": "road"
+    },
+    {
+      "candidateId": "candidate:osm:way/84649402",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 46.870831,
+        "heightM": 4.0,
+        "widthM": 33.426949
+      },
+      "featureId": "candidate:osm:way/84649402",
+      "heightConfidence": "unknown",
+      "heightM": 4.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/84649402",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/84649402",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:bd23a17c6be4996b4f53bf79f9b8875b2f45542aa227228e83cdc844917c32a9",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "road"
+      },
+      "name": "Men's Dorm Driveway",
+      "objectId": "ROAD__candidate_osm_way_84649402",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:b429a04866ec739a7dc89fea330e2ba1bb69f628ad701166b50efa255f466b03",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -71.836463,
+        "northM": -424.861286,
+        "upM": 105.277823
+      },
+      "widthConfidence": "approximate",
+      "widthM": 33.426949,
+      "widthMethod": "classification-default-width",
+      "worldgenRole": "road"
+    },
+    {
+      "candidateId": "candidate:osm:way/100127089",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 345.850883,
+        "heightM": 2.0,
+        "widthM": 855.298435
+      },
+      "featureId": "candidate:osm:way/100127089",
+      "heightConfidence": "unknown",
+      "heightM": 2.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/100127089",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/100127089",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:a86ba4474430dbaccbfbeebbc3555445e136817774d3136f6b1658cc0dceca3c",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "water"
+      },
+      "name": "Molawin Creek",
+      "objectId": "WATER__candidate_osm_way_100127089",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:dd09822a8fff24188d0d9c42dd60ea6877ce97c0b139ee6fde41ac53b0f55fd9",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 157.560319,
+        "northM": -231.963583,
+        "upM": 107.361495
+      },
+      "widthConfidence": null,
+      "widthM": 855.298435,
+      "widthMethod": "water-placeholder-width",
+      "worldgenRole": "water"
+    },
+    {
+      "candidateId": "candidate:osm:way/169079254",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 165.007687,
+        "heightM": 2.0,
+        "widthM": 32.460054
+      },
+      "featureId": "candidate:osm:way/169079254",
+      "heightConfidence": "unknown",
+      "heightM": 2.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/169079254",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/169079254",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:322492b84b4dab101bcc5781ca64c15ce5093b1537e6519341d5a360ec09f96c",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "water"
+      },
+      "name": "OSM waterway 169079254",
+      "objectId": "WATER__candidate_osm_way_169079254",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:f3b003664da0e8448f885049ae57e86001e82e4253f1acbd927c0cabff25f299",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 214.923664,
+        "northM": -434.682224,
+        "upM": 106.962374
+      },
+      "widthConfidence": null,
+      "widthM": 32.460054,
+      "widthMethod": "water-placeholder-width",
+      "worldgenRole": "water"
+    },
+    {
+      "candidateId": "candidate:osm:way/37331917",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 838.848632,
+        "heightM": 2.0,
+        "widthM": 1105.753317
+      },
+      "featureId": "candidate:osm:way/37331917",
+      "heightConfidence": "unknown",
+      "heightM": 2.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/37331917",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/37331917",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:ac6e8960bbb2cebc42421f1532d664d100a2cb1aeccc6e8558a9f36a3757d702",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "water"
+      },
+      "name": "OSM waterway 37331917",
+      "objectId": "WATER__candidate_osm_way_37331917",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:5c1c3227d8e740f6b298851bc0b7638b7634b2c4e54da7065c9fb87e8ef7c06d",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -919.286854,
+        "northM": -433.384136,
+        "upM": 0.0
+      },
+      "widthConfidence": null,
+      "widthM": 1105.753317,
+      "widthMethod": "water-placeholder-width",
+      "worldgenRole": "water"
+    },
+    {
+      "candidateId": "candidate:osm:way/37331919",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 855.873372,
+        "heightM": 2.0,
+        "widthM": 513.992306
+      },
+      "featureId": "candidate:osm:way/37331919",
+      "heightConfidence": "unknown",
+      "heightM": 2.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/37331919",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/37331919",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:fea21568d0026aceb55956cabbe9e08eef2c655a7e0918fe7a2007e7ac12df26",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "water"
+      },
+      "name": "OSM waterway 37331919",
+      "objectId": "WATER__candidate_osm_way_37331919",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:05e2a417734429ab807ab408d885a655c569f9800d8fb87dda18086194cd7482",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": -571.166602,
+        "northM": -470.221776,
+        "upM": 102.115521
+      },
+      "widthConfidence": null,
+      "widthM": 513.992306,
+      "widthMethod": "water-placeholder-width",
+      "worldgenRole": "water"
+    },
+    {
+      "candidateId": "candidate:osm:way/742184417",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 234.977851,
+        "heightM": 2.0,
+        "widthM": 124.623558
+      },
+      "featureId": "candidate:osm:way/742184417",
+      "heightConfidence": "unknown",
+      "heightM": 2.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:osm:way/742184417",
+        "CanonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+        "DetailTier": 1,
+        "FeatureId": "candidate:osm:way/742184417",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "unknown",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:1d6475018658bab2a0bed01d8f0a194fb79dd3503a81452cf61236ab6cb374df",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "water"
+      },
+      "name": "OSM waterway 742184417",
+      "objectId": "WATER__candidate_osm_way_742184417",
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "sourceGeometryHash": "sha256:31c98cbd2b4d0708c0c132e0b5d9f23b165bd0d796520a9e6960d2c64e2f76ee",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 458.48827,
+        "northM": -245.406988,
+        "upM": 109.117771
+      },
+      "widthConfidence": null,
+      "widthM": 124.623558,
+      "widthMethod": "water-placeholder-width",
+      "worldgenRole": "water"
+    }
+  ],
+  "qaStatus": "pass",
+  "requiredHeroesMissing": [],
+  "revision": "greybox-v0.1",
+  "sliceVersion": "v0.1",
+  "status": "conditional-blender-unavailable",
+  "terrainRevision": "terrain-v0.1-fixture",
+  "terrainSourceKind": "synthetic-fixture"
+}

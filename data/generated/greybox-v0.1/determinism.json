@@ -1,0 +1,6 @@
+{
+  "binaryBlendEqual": null,
+  "note": "No Blender executable was available; binary .blend comparison was not run.",
+  "semanticManifestEqual": true,
+  "status": "pass"
+}

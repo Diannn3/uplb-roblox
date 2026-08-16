@@ -1,0 +1,20 @@
+{
+  "status": "pending-owner-approval",
+  "engineeringGate": "pass",
+  "greyboxEngineeringGate": "pass",
+  "greyboxVisualGate": "pending",
+  "terrainStatus": "blocked-no-local-raster",
+  "selectedDEM": null,
+  "blenderStatus": "conditional-blender-unavailable",
+  "structuralQA": "pass",
+  "determinism": "pass",
+  "previewPaths": [
+    "data/generated/greybox-v0.1/previews/topdown.png",
+    "data/generated/greybox-v0.1/previews/oblation.png",
+    "data/generated/greybox-v0.1/previews/freedom-park.png",
+    "data/generated/greybox-v0.1/previews/baker-context.png",
+    "data/generated/greybox-v0.1/previews/dl-umali-context.png",
+    "data/generated/greybox-v0.1/previews/road-level.png"
+  ],
+  "nextAction": "Project owner reviews terrain/world manifest/QA/previews and approves or rejects the greybox before Roblox Studio MCP handoff."
+}
