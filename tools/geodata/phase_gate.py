@@ -246,7 +246,8 @@ def build_gate(
         "counts": package.get("counts", {}),
         "missingRequiredHeroes": package.get("missingRequiredHeroes", []),
         "priorityStatus": package.get("priorityStatus"),
-        "humanReviewStatus": package.get("humanReviewStatus"),
+        "humanReviewStatus": "complete" if review_complete else package.get("humanReviewStatus"),
+        "workingPackageHumanReviewStatus": package.get("humanReviewStatus"),
         "approvedReview": package.get("approvedReview", {}),
     }
     package_ok = len(package.get("rows", [])) == sum(REQUIRED_REVIEW_CATEGORIES.values()) and package.get("counts") == REQUIRED_REVIEW_CATEGORIES and package.get("priorityStatus") == "pass"

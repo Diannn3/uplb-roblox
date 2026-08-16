@@ -71,10 +71,11 @@ This report is the fail-closed boundary before terrain, Blender, Roblox, or pers
       "road/intersection": 5,
       "walkway/pedestrian": 5
     },
-    "humanReviewStatus": "pending",
+    "humanReviewStatus": "complete",
     "missingRequiredHeroes": [],
     "priorityStatus": "pass",
-    "rows": 25
+    "rows": 25,
+    "workingPackageHumanReviewStatus": "pending"
   },
   "sourceCount": 3
 }
