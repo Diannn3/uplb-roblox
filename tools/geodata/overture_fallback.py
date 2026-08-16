@@ -39,9 +39,13 @@ def probe_cli(cli: str | None, bbox: tuple[float, float, float, float], output: 
     try:
         result = subprocess.run(command, check=False, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=timeout)
     except subprocess.TimeoutExpired:
+        if output.exists() and output.stat().st_size == 0:
+            output.unlink()
         attempt.update(status="timeout", details=f"CLI exceeded {timeout}s timeout.")
         return attempt
     except OSError as exc:
+        if output.exists() and output.stat().st_size == 0:
+            output.unlink()
         attempt.update(status="blocked", details=f"CLI could not start: {exc}")
         return attempt
     if result.returncode != 0:
@@ -50,6 +54,8 @@ def probe_cli(cli: str | None, bbox: tuple[float, float, float, float], output: 
             output.unlink()
         return attempt
     if not output.exists() or output.stat().st_size == 0:
+        if output.exists() and output.stat().st_size == 0:
+            output.unlink()
         attempt.update(status="blocked", details="CLI returned success without a non-empty output file.")
         return attempt
     attempt.update(status="validated", outputHash=f"sha256:{sha256(output)}", bytes=output.stat().st_size)
@@ -59,10 +65,16 @@ def probe_cli(cli: str | None, bbox: tuple[float, float, float, float], output: 
 def probe_direct(python: str | None, release: str, bbox: tuple[float, float, float, float], timeout: int) -> dict[str, Any]:
     executable = python or os.environ.get("OVERTURE_PYTHON") or sys.executable
     west, south, east, north = bbox
+    # Keep this probe on the package's documented public path.  ``stac=False``
+    # exercises the direct cloud/GeoParquet path without importing private
+    # package implementation details.
     code = (
-        "from overturemaps.core import count_rows; "
-        f"print(count_rows('building', bbox=({west!r},{south!r},{east!r},{north!r}), "
-        f"release={release!r}, stac=False, connect_timeout=3, request_timeout={timeout}))"
+        "from overturemaps import record_batch_reader; "
+        f"reader=record_batch_reader('building', bbox=({west!r},{south!r},{east!r},{north!r}), "
+        f"release={release!r}, stac=False, connect_timeout=3, request_timeout={timeout}); "
+        "table=reader.read_all() if hasattr(reader, 'read_all') else reader; "
+        "count=getattr(table, 'num_rows', None); "
+        "print(int(count if count is not None else len(table)))"
     )
     attempt: dict[str, Any] = {"method": "direct-s3-geoparquet", "status": "not-run", "release": release}
     try:

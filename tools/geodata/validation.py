@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections import Counter
 from typing import Iterable
 
+from .geometry import GeometryState, inspect_geometry
 from .models import CanonicalFeature, SourceRecord, ValidationReport
 
 
@@ -46,6 +47,22 @@ def validate_features(
         "geojson-geometry-types",
         "fail" if invalid_geometry else "pass",
         f"invalid={len(invalid_geometry)}",
+    )
+
+    rejected_geometry: list[str] = []
+    review_geometry: list[str] = []
+    for feature in feature_list:
+        if feature.geometry is None:
+            continue
+        inspection = inspect_geometry(feature.geometry)
+        if inspection.state == GeometryState.REJECTED:
+            rejected_geometry.append(feature.id)
+        elif inspection.state == GeometryState.NEEDS_REVIEW:
+            review_geometry.append(feature.id)
+    report.add_check(
+        "geometry-validity",
+        "fail" if rejected_geometry else ("warning" if review_geometry else "pass"),
+        f"rejected={len(rejected_geometry)} needsReview={len(review_geometry)}",
     )
 
     restricted = [
