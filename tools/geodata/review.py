@@ -281,9 +281,12 @@ def main() -> int:
     parser.add_argument("--priority", action="store_true", help="operate on the authoritative vertical-slice package")
     parser.add_argument("--name")
     parser.add_argument("--alias", action="append", dest="aliases")
+    parser.add_argument("--aliases", nargs="+", dest="aliases_many")
     parser.add_argument("--canonical-id")
+    parser.add_argument("--canonical-identity", dest="canonical_identity")
     parser.add_argument("--verification", action="append", help="property=value; may be repeated")
     parser.add_argument("--selected-geometry-source")
+    parser.add_argument("--notes")
     parser.add_argument("--review-method")
     parser.add_argument("--evidence-ref", action="append", default=[])
     args = parser.parse_args()
@@ -304,11 +307,23 @@ def main() -> int:
         if args.action == "modify":
             corrections: dict[str, str] = {}
             for raw in args.verification or []:
-                if "=" not in raw:
-                    parser.error("--verification requires property=value")
-                key, value = raw.split("=", 1)
-                corrections[key] = value
-            _print(modify_priority(args.review_id, review_path=priority_path, name=args.name, aliases=args.aliases, canonical_id=args.canonical_id, verification=corrections or None, selected_geometry_source=args.selected_geometry_source, notes=args.reason, reviewed_at=args.reviewed_at))
+                if raw.lstrip().startswith("{"):
+                    try:
+                        parsed = json.loads(raw)
+                    except json.JSONDecodeError as exc:
+                        parser.error(f"--verification JSON is invalid: {exc}")
+                    if not isinstance(parsed, dict):
+                        parser.error("--verification JSON must be an object")
+                    corrections.update({str(key): str(value) for key, value in parsed.items()})
+                else:
+                    if "=" not in raw:
+                        parser.error("--verification requires property=value or a JSON object")
+                    key, value = raw.split("=", 1)
+                    corrections[key] = value
+            aliases = [*(args.aliases or []), *(args.aliases_many or [])] or None
+            notes = args.notes if args.notes is not None else args.reason
+            canonical_id = args.canonical_id if args.canonical_id is not None else args.canonical_identity
+            _print(modify_priority(args.review_id, review_path=priority_path, name=args.name, aliases=aliases, canonical_id=canonical_id, verification=corrections or None, selected_geometry_source=args.selected_geometry_source, notes=notes, reviewed_at=args.reviewed_at))
             return 0
         _print(decide_priority(args.review_id, args.action, review_path=priority_path, reviewed_at=args.reviewed_at, review_method=args.review_method, evidence_refs=args.evidence_ref, reason=args.reason))
         return 0
