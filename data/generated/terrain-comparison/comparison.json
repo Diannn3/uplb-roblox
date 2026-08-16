@@ -1,0 +1,88 @@
+{
+  "artifactBehavior": "not-assessed-on-synthetic-fixture",
+  "baselineSelected": false,
+  "comparisonRevision": "terrain-comparison-v0.1-fixture",
+  "continuity": "fixture-grid-continuous",
+  "elevationMinMaxM": {
+    "nasadem": [
+      100.65,
+      113.41
+    ],
+    "srtm": [
+      100.0,
+      112.76
+    ]
+  },
+  "officialSources": {
+    "nasadem": {
+      "doi": "10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
+      "landingPage": "https://doi.org/10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
+      "product": "NASADEM_HGT.001"
+    },
+    "srtm": {
+      "doi": "10.5067/MEASURES/SRTM/SRTMGL1.003",
+      "landingPage": "https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl1-003",
+      "product": "SRTMGL1.003"
+    }
+  },
+  "pointsCRS": "project-local metres (EPSG:32651 origin contract)",
+  "products": [
+    "SRTMGL1.003",
+    "NASADEM_HGT.001"
+  ],
+  "samples": {
+    "baker-hall": {
+      "differenceM": 0.65,
+      "localEastM": 129.12646285956725,
+      "localNorthM": -359.65471421554685,
+      "nasademElevationM": 107.372691,
+      "nasademSlope": 0.007031674,
+      "nodata": false,
+      "srtmElevationM": 106.722691,
+      "srtmSlope": 0.007031674
+    },
+    "dl-umali": {
+      "differenceM": 0.65,
+      "localEastM": -155.66369955072878,
+      "localNorthM": -107.54825505404733,
+      "nasademElevationM": 106.588341,
+      "nasademSlope": 0.007031674,
+      "nodata": false,
+      "srtmElevationM": 105.938341,
+      "srtmSlope": 0.007031674
+    },
+    "freedom-park": {
+      "differenceM": 0.65,
+      "localEastM": 16.34097715653479,
+      "localNorthM": -411.7368073547259,
+      "nasademElevationM": 106.505011,
+      "nasademSlope": 0.007031674,
+      "nodata": false,
+      "srtmElevationM": 105.855011,
+      "srtmSlope": 0.007031674
+    },
+    "main-library": {
+      "differenceM": 0.65,
+      "localEastM": -184.4664518852369,
+      "localNorthM": -231.04838849557564,
+      "nasademElevationM": 105.962691,
+      "nasademSlope": 0.007031674,
+      "nodata": false,
+      "srtmElevationM": 105.312691,
+      "srtmSlope": 0.007031674
+    },
+    "oblation": {
+      "differenceM": 0.65,
+      "localEastM": 0.0,
+      "localNorthM": 0.0,
+      "nasademElevationM": 107.916667,
+      "nasademSlope": 0.007031674,
+      "nodata": false,
+      "srtmElevationM": 107.266667,
+      "srtmSlope": 0.007031674
+    }
+  },
+  "selectionReason": "No NASA raster was acquired; fixture results are not evidence for selecting a baseline.",
+  "sourceStatus": "blocked-no-local-raster",
+  "status": "fixture-only"
+}

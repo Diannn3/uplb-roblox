@@ -1,0 +1,35 @@
+{
+  "candidateProducts": [
+    "SRTMGL1.003",
+    "NASADEM_HGT.001"
+  ],
+  "groundHeightApi": "tools.terrain.sample.HeightField.ground_height(local_east_m, local_north_m)",
+  "horizontalDatum": "WGS84",
+  "interpolatedCount": 0,
+  "knownLimitation": "Synthetic macro-slope fixture is not a NASA terrain comparison and cannot support a DEM baseline choice.",
+  "localCRS": "EPSG:32651",
+  "localOrigin": {
+    "eastM": -600.0,
+    "northM": -1000.0
+  },
+  "maxElevationM": 112.76,
+  "minElevationM": 100.0,
+  "nodataCount": 0,
+  "processingVersion": "terrain-v0.1-fixture",
+  "resolutionM": 30,
+  "sampleSpacingM": 30.0,
+  "selectedDEM": null,
+  "sourceCRS": "EPSG:4326",
+  "sourceKind": "synthetic-fixture",
+  "status": "blocked-no-local-raster",
+  "validation": {
+    "columns": 45,
+    "errors": [],
+    "maxElevationM": 112.76,
+    "minElevationM": 100.0,
+    "rows": 45,
+    "status": "pass"
+  },
+  "verticalDatum": "EGM96",
+  "verticalExaggeration": 1.0
+}

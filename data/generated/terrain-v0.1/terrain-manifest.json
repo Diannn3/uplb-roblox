@@ -1,0 +1,8 @@
+{
+  "heightfield": "heightfield.json",
+  "report": "terrain-report.json",
+  "revision": "terrain-v0.1-fixture",
+  "sourceHash": null,
+  "sourceKind": "synthetic-fixture",
+  "status": "blocked-no-local-raster"
+}

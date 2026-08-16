@@ -1,0 +1,29 @@
+{
+  "acquisitionRoute": "Earthdata Search/Earthdata Cloud supported route; retired LP DAAC Data Pool is not used",
+  "authRequirement": "Earthdata Login required for download; no credentials stored",
+  "citation": "NASA JPL. (2020). NASADEM Merged DEM Global 1 arc second V001 [Dataset]. NASA LP DAAC.",
+  "doi": "10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
+  "heightfield": "heightfield.json",
+  "horizontalCRS": "EPSG:4326",
+  "horizontalDatum": "WGS84",
+  "landingPage": "https://doi.org/10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
+  "nodata": "Product metadata must be checked per granule before processing",
+  "processing": {
+    "crop": "fixture-only",
+    "localCoordinates": true,
+    "targetCRS": "EPSG:32651",
+    "verticalExaggeration": 1.0
+  },
+  "product": "NASADEM_HGT.001",
+  "provider": "NASA JPL / NASA Earthdata LP DAAC",
+  "redistribution": "Allowed with citation; do not imply NASA endorsement",
+  "resolutionM": 30,
+  "rights": "NASA Earthdata open data policy; public-domain/open reuse with citation requested",
+  "shortName": "NASADEM_HGT",
+  "sourceHash": null,
+  "sourceKind": "synthetic-fixture",
+  "status": "fixture-only",
+  "version": "001",
+  "verticalDatum": "EGM96",
+  "verticalUnits": "metres"
+}

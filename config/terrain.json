@@ -1,0 +1,51 @@
+{
+  "baseline": null,
+  "candidates": [
+    {
+      "acquisitionRoute": "Earthdata Search/Earthdata Cloud supported route; retired LP DAAC Data Pool is not used",
+      "authRequirement": "Earthdata Login required for download; no credentials stored",
+      "citation": "NASA JPL; NASA Land Processes Distributed Active Archive Center (LP DAAC), SRTMGL1.003",
+      "doi": "10.5067/MEASURES/SRTM/SRTMGL1.003",
+      "horizontalCRS": "EPSG:4326",
+      "horizontalDatum": "WGS84",
+      "landingPage": "https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl1-003",
+      "nodata": "Version 3.0 has no voids; historical -32768 is not expected",
+      "product": "SRTMGL1.003",
+      "provider": "NASA JPL / NASA Earthdata LP DAAC",
+      "redistribution": "Allowed with citation; do not imply NASA endorsement",
+      "resolutionM": 30,
+      "rights": "NASA Earthdata open data policy; cite the DOI; no credentials or raw bulk data committed",
+      "shortName": "SRTMGL1",
+      "version": "003",
+      "verticalDatum": "EGM96",
+      "verticalUnits": "metres"
+    },
+    {
+      "acquisitionRoute": "Earthdata Search/Earthdata Cloud supported route; retired LP DAAC Data Pool is not used",
+      "authRequirement": "Earthdata Login required for download; no credentials stored",
+      "citation": "NASA JPL. (2020). NASADEM Merged DEM Global 1 arc second V001 [Dataset]. NASA LP DAAC.",
+      "doi": "10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
+      "horizontalCRS": "EPSG:4326",
+      "horizontalDatum": "WGS84",
+      "landingPage": "https://doi.org/10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
+      "nodata": "Product metadata must be checked per granule before processing",
+      "product": "NASADEM_HGT.001",
+      "provider": "NASA JPL / NASA Earthdata LP DAAC",
+      "redistribution": "Allowed with citation; do not imply NASA endorsement",
+      "resolutionM": 30,
+      "rights": "NASA Earthdata open data policy; public-domain/open reuse with citation requested",
+      "shortName": "NASADEM_HGT",
+      "version": "001",
+      "verticalDatum": "EGM96",
+      "verticalUnits": "metres"
+    }
+  ],
+  "horizontalDatum": "WGS84",
+  "resolutionM": 30,
+  "selectionReason": "No NASA raster was acquired; do not choose a baseline from synthetic fixtures.",
+  "sourceHash": null,
+  "status": "blocked-no-local-raster",
+  "terrainRevision": "terrain-v0.1-fixture",
+  "verticalDatum": "EGM96",
+  "verticalExaggeration": 1.0
+}
