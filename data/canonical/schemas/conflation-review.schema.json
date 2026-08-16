@@ -2,13 +2,16 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "UPLB Conflation Review",
   "type": "object",
-  "required": ["id", "canonicalId", "candidates", "decision", "reviewStatus"],
+  "required": ["id", "canonicalId", "candidateIds", "metrics", "recommendation", "decision", "reviewStatus"],
   "properties": {
     "id": {"type": "string", "pattern": "^review:"},
-    "canonicalId": {"type": "string", "pattern": "^uplb:"},
-    "candidates": {"type": "array", "items": {"type": "object"}},
+    "canonicalId": {"type": ["string", "null"], "pattern": "^uplb:"},
+    "candidateIds": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "string", "minLength": 1}},
+    "metrics": {"type": "object", "additionalProperties": {"type": "number"}},
+    "recommendation": {"enum": ["probable-match", "possible-match", "no-match"]},
     "decision": {"enum": ["pending", "accept", "reject"]},
     "reason": {"type": "string"},
+    "reviewedAt": {"type": "string"},
     "reviewStatus": {"enum": ["needs-review", "reviewed"]}
   },
   "additionalProperties": false

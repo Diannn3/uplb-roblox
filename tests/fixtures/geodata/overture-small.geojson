@@ -1,0 +1,19 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "gERS:building:one",
+      "properties": {
+        "names": {"primary": {"value": "Baker Hall"}},
+        "height": 8.5,
+        "num_floors": 2,
+        "sources": [{"dataset": "OpenStreetMap", "recordId": "way/100"}]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[121.2400, 14.1600], [121.2410, 14.1600], [121.2410, 14.1610], [121.2400, 14.1600]]]
+      }
+    }
+  ]
+}

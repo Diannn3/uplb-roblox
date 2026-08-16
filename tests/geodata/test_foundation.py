@@ -6,7 +6,7 @@ from pathlib import Path
 
 from tools.geodata.conflate import conflate_buildings
 from tools.geodata.generate_luau import generate_luau
-from tools.geodata.io import read_json, write_json
+from tools.geodata.io import read_json, sha256, write_json
 from tools.geodata.models import CanonicalFeature, SourceRecord
 from tools.geodata.osm import ingest_osm
 from tools.geodata.overture_fallback import probe_cli, probe_direct
@@ -17,7 +17,7 @@ from tools.geodata.validation import validate_features
 
 
 ROOT = Path(__file__).resolve().parents[2]
-OSM_PATH = ROOT / "research" / "raw" / "osm_uplb_aoi.json"
+OSM_PATH = ROOT / "tests" / "fixtures" / "geodata" / "osm-small.json"
 
 
 class FoundationTests(unittest.TestCase):
@@ -39,12 +39,12 @@ class FoundationTests(unittest.TestCase):
 
     def test_osm_ingest_is_pinned_and_finds_baker(self) -> None:
         result = ingest_osm(OSM_PATH)
-        self.assertEqual(len(result.features), 10290)
-        self.assertEqual(result.source.content_hash, "sha256:9f766739c1ad0088170c708d222c246b47b4dc684120f1f57f252d6f290f6142")
+        self.assertEqual(len(result.features), 4)
+        self.assertEqual(result.source.content_hash, f"sha256:{sha256(OSM_PATH)}")
         baker = next(feature for feature in result.features if feature.id == "uplb:building:baker-hall")
-        self.assertEqual(baker.external_ids["osm"], "way/37449973")
+        self.assertEqual(baker.external_ids["osm"], "way/100")
         self.assertEqual(baker.properties["levels"], 2.0)
-        self.assertEqual(result.skipped_elements, 29)
+        self.assertEqual(result.skipped_elements, 0)
 
     def test_vertical_slice_keeps_required_landmarks(self) -> None:
         features = [

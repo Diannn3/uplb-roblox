@@ -1,0 +1,53 @@
+{
+  "version": 0.6,
+  "elements": [
+    {
+      "type": "way",
+      "id": 100,
+      "geometry": [
+        {"lat": 14.1600, "lon": 121.2400},
+        {"lat": 14.1600, "lon": 121.2410},
+        {"lat": 14.1610, "lon": 121.2410},
+        {"lat": 14.1600, "lon": 121.2400}
+      ],
+      "tags": {"building": "yes", "name": "Baker Hall", "building:levels": "2"}
+    },
+    {
+      "type": "way",
+      "id": 200,
+      "geometry": [
+        {"lat": 14.1595, "lon": 121.2395},
+        {"lat": 14.1620, "lon": 121.2420}
+      ],
+      "tags": {"highway": "footway", "name": "Crossing Path", "surface": "concrete"}
+    },
+    {
+      "type": "way",
+      "id": 300,
+      "geometry": [
+        {"lat": 14.1598, "lon": 121.2402},
+        {"lat": 14.1602, "lon": 121.2408}
+      ],
+      "tags": {"waterway": "stream", "name": "Sample Creek"}
+    },
+    {
+      "type": "relation",
+      "id": 400,
+      "members": [
+        {"type": "way", "ref": 401, "role": "outer", "geometry": [
+          {"lat": 14.1600, "lon": 121.2420},
+          {"lat": 14.1600, "lon": 121.2430},
+          {"lat": 14.1610, "lon": 121.2430},
+          {"lat": 14.1600, "lon": 121.2420}
+        ]},
+        {"type": "way", "ref": 402, "role": "inner", "geometry": [
+          {"lat": 14.1602, "lon": 121.2422},
+          {"lat": 14.1602, "lon": 121.2424},
+          {"lat": 14.1604, "lon": 121.2424},
+          {"lat": 14.1602, "lon": 121.2422}
+        ]}
+      ],
+      "tags": {"type": "multipolygon", "building": "yes", "name": "Courtyard Hall"}
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "uplb-roblox-geodata"
+version = "0.2.0"
+description = "Reproducible geospatial tooling for the UPLB Roblox reconstruction"
+requires-python = ">=3.11"
+dependencies = [
+    "pyproj>=3.7,<4",
+    "shapely>=2.1,<2.2",
+    "jsonschema>=4,<5",
+]
+
+[project.optional-dependencies]
+overture = ["overturemaps==1.0.1"]
+dev = ["pytest>=8,<9", "ruff>=0.6,<1"]
+
+[tool.setuptools.packages.find]
+include = ["tools*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "research/tests"]
+python_files = ["test_*.py"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"

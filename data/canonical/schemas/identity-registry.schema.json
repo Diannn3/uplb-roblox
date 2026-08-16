@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UPLB Persistent Campus Identity Registry",
+  "type": "object",
+  "required": ["version", "nextNumbers", "deletedIds", "entities"],
+  "properties": {
+    "version": {"type": "integer", "minimum": 1},
+    "nextNumbers": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 1}},
+    "deletedIds": {"type": "array", "items": {"type": "string", "pattern": "^uplb:"}},
+    "entities": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["featureType", "canonicalName", "aliases", "externalIds", "identityStatus", "createdFrom", "supersedes"],
+        "properties": {
+          "featureType": {"type": "string"},
+          "canonicalName": {"type": "string"},
+          "aliases": {"type": "array", "items": {"type": "string"}},
+          "externalIds": {"type": "object", "additionalProperties": {"type": "array", "items": {"type": "string"}}},
+          "identityStatus": {"type": "string"},
+          "createdFrom": {"type": "string"},
+          "supersedes": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

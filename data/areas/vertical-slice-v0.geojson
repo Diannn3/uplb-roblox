@@ -1,0 +1,20 @@
+{
+  "type": "FeatureCollection",
+  "name": "uplb-vertical-slice-v0",
+  "properties": {
+    "coreDescription": "Oblation, Freedom Park, Baker Hall cluster",
+    "bufferMeters": 120,
+    "researchAoi": true
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "area:vertical-slice-v0:core",
+      "properties": {"role": "core"},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[121.238, 14.158], [121.2465, 14.158], [121.2465, 14.1685], [121.238, 14.1685], [121.238, 14.158]]]
+      }
+    }
+  ]
+}

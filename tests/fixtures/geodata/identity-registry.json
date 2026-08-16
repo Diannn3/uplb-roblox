@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "nextNumbers": {"building": 2, "road": 1, "walkway": 1, "landmark": 1},
+  "deletedIds": [],
+  "entities": {
+    "uplb:building:baker-hall": {
+      "featureType": "building",
+      "canonicalName": "Charles Fuller Baker Memorial Hall",
+      "aliases": ["Baker Hall"],
+      "externalIds": {"osm": ["way/100"], "overture": []},
+      "identityStatus": "verified",
+      "createdFrom": "human-reviewed",
+      "supersedes": []
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "invalid-self-crossing",
+      "properties": {},
+      "geometry": {"type": "Polygon", "coordinates": [[[0, 0], [2, 2], [0, 2], [2, 0], [0, 0]]]}
+    },
+    {
+      "type": "Feature",
+      "id": "invalid-line",
+      "properties": {},
+      "geometry": {"type": "LineString", "coordinates": [[0, 0]]}
+    }
+  ]
+}
