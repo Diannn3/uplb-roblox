@@ -5,10 +5,23 @@
     "east": 121.265,
     "north": 14.185
   },
-  "inputs": {},
-  "summaries": {},
+  "inputs": {
+    "osm": {
+      "path": "research\\raw\\osm_uplb_aoi.json",
+      "sha256": "9f766739c1ad0088170c708d222c246b47b4dc684120f1f57f252d6f290f6142"
+    }
+  },
+  "summaries": {
+    "osm": {
+      "elements": 10319,
+      "buildings": 7725,
+      "highways": 2524,
+      "waterways": 70,
+      "named": 814
+    }
+  },
   "notes": [
-    "OSM extract absent; run --fetch in a network-enabled environment.",
+    "Overture fetch failed: RuntimeError: overturemaps failed with exit code 1: Exception: Could not fetch STAC catalog: HTTP Error 404: Not Found",
     "Overture extract absent; install official overturemaps CLI then run --fetch."
   ]
 }

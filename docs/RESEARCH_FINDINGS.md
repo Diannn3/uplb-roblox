@@ -232,6 +232,6 @@ For this project, copying a monolithic “OSM-to-game” generator would be less
 
 ## 9. Research limitations
 
-The controlled local shell used for this branch does not have arbitrary outbound internet access. Public web research and GitHub repository reads were available through controlled connectors, but bulk OSM/Overture data could not be fetched into the shell. `research/scripts/osm_overture_compare.py` is therefore provided as a reproducible, network-opt-in harness, and `research/results/osm_overture_comparison.json` explicitly records that no live counts were fabricated.
+The 2026-08-17 network-enabled harness run fetched the OSM AOI successfully and recorded 10,319 elements (7,725 building-tagged, 2,524 highways, 70 waterways, 814 named) plus a SHA-256 in `research/results/osm_overture_comparison.json`. The installed Overture client failed while resolving its STAC catalog with HTTP 404, so no Overture coverage conclusion is drawn; the result records this as a provider failure and the next retry must use a verified current client/catalog or an explicitly documented direct cloud-data path.
 
-This limitation does **not** change the architecture decision; it creates a concrete first execution task for a network-enabled Codex/terminal session.
+This provider failure does **not** change the architecture decision; it creates a concrete retry task for a verified current Overture client/catalog or documented direct cloud-data path.

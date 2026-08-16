@@ -21,7 +21,26 @@ def fetch_osm(out):
     with urllib.request.urlopen(req,timeout=240) as r: out.write_bytes(r.read())
 def fetch_overture(out):
     w,s,e,n=BBOX['west'],BBOX['south'],BBOX['east'],BBOX['north']
-    subprocess.run(['overturemaps','download',f'--bbox={w},{s},{e},{n}','-f','geojson','--type=building','-o',str(out)],check=True)
+    result=subprocess.run(
+        ['overturemaps','download',f'--bbox={w},{s},{e},{n}','-f','geojson','--type=building','-o',str(out)],
+        check=False,
+        capture_output=True,
+        text=True,
+        encoding='utf-8',
+    )
+    if result.returncode:
+        detail=next((line.strip() for line in reversed((result.stderr or result.stdout).splitlines()) if line.strip()), 'no diagnostic output')
+        raise RuntimeError(f'overturemaps failed with exit code {result.returncode}: {detail}')
+
+def fetch_with_note(label, fetcher, output, notes):
+    try:
+        fetcher(output)
+    except Exception as exc:
+        notes.append(f'{label} fetch failed: {type(exc).__name__}: {exc}')
+        if output.exists() and output.stat().st_size == 0:
+            output.unlink()
+        return False
+    return True
 def summarize_osm(p):
     els=read_json(p).get('elements',[])
     return {'elements':len(els),'buildings':sum('building' in x.get('tags',{}) for x in els),'highways':sum('highway' in x.get('tags',{}) for x in els),'waterways':sum('waterway' in x.get('tags',{}) for x in els),'named':sum(bool(x.get('tags',{}).get('name')) for x in els)}
@@ -31,11 +50,15 @@ def summarize_ov(p):
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument('--fetch',action='store_true'); a=ap.parse_args(); RAW.mkdir(exist_ok=True); RESULTS.mkdir(exist_ok=True)
     osm=RAW/'osm_uplb_aoi.json'; ov=RAW/'overture_buildings_uplb_aoi.geojson'
-    if a.fetch: fetch_osm(osm); fetch_overture(ov)
     r={'bbox':{k:BBOX[k] for k in ('west','south','east','north')},'inputs':{},'summaries':{},'notes':[]}
-    if osm.exists(): r['inputs']['osm']={'path':str(osm.relative_to(ROOT)),'sha256':sha256(osm)}; r['summaries']['osm']=summarize_osm(osm)
+    osm_ok=ov_ok=True
+    if a.fetch:
+        osm_ok=fetch_with_note('OSM', fetch_osm, osm, r['notes'])
+        ov_ok=fetch_with_note('Overture', fetch_overture, ov, r['notes'])
+    if osm.exists() and osm_ok: r['inputs']['osm']={'path':str(osm.relative_to(ROOT)),'sha256':sha256(osm)}; r['summaries']['osm']=summarize_osm(osm)
     else: r['notes'].append('OSM extract absent; run --fetch in a network-enabled environment.')
-    if ov.exists(): r['inputs']['overture']={'path':str(ov.relative_to(ROOT)),'sha256':sha256(ov)}; r['summaries']['overture']=summarize_ov(ov)
+    if ov.exists() and ov_ok: r['inputs']['overture']={'path':str(ov.relative_to(ROOT)),'sha256':sha256(ov)}; r['summaries']['overture']=summarize_ov(ov)
     else: r['notes'].append('Overture extract absent; install official overturemaps CLI then run --fetch.')
     out=RESULTS/'osm_overture_comparison.json'; out.write_text(json.dumps(r,indent=2)+'\n', encoding='utf-8'); print(json.dumps(r,indent=2))
-if __name__=='__main__': main()
+    return 0 if (not a.fetch or (osm_ok and ov_ok)) else 1
+if __name__=='__main__': raise SystemExit(main())

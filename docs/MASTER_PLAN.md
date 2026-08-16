@@ -315,7 +315,7 @@ The core pipeline can remain mostly free/open. Biggest risks are not software pr
 
 ## What you should do tomorrow
 
-1. Run Task 1 (live OSM/Overture comparison) in a network-enabled terminal.
+1. Complete Task 1's Overture leg in a network-enabled terminal; the OSM leg now has a live hashed result, while the installed Overture client requires a verified STAC/client retry.
 2. Send the three data/permission requests in Task 3 instead of waiting until modeling is blocked.
 3. Decide whether the proposed **Digital-twin-lite / one streaming outdoor place / EPSG:32651 / GeoJSON+JSON canonical** ADR set is approved.
 4. If approved, let Codex implement Phase 1 only; do not start hero modeling yet.

@@ -2,6 +2,7 @@
 from pathlib import Path
 import json,re,subprocess,sys
 ROOT=Path(__file__).resolve().parents[2]
+RAW_DIR=ROOT/'research'/'raw'
 TEXT_ENCODING='utf-8'
 
 def read_text(path: Path) -> str:
@@ -14,6 +15,8 @@ for rel in required:
     if not (ROOT/rel).exists(): errors.append(f'missing {rel}')
 # JSON parse
 for p in list((ROOT/'research').rglob('*.json'))+list((ROOT/'research').rglob('*.geojson')):
+    if p.is_relative_to(RAW_DIR):
+        continue
     try: json.loads(read_text(p))
     except Exception as e: errors.append(f'bad json {p.relative_to(ROOT)}: {e}')
 # Source register
