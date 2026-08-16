@@ -1,0 +1,30 @@
+{
+  "approvedReviewHash": "sha256:b526f1a3798c85130723d04f3682000adc2a95b2c2ae04632bdef81718111b99",
+  "areaSource": "data/areas/vertical-slice-v0.geojson",
+  "bufferMeters": 120.0,
+  "candidateSourceHash": "sha256:9f766739c1ad0088170c708d222c246b47b4dc684120f1f57f252d6f290f6142",
+  "canonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+  "contextFeatureCount": 92,
+  "generatorVersion": "vertical-slice-v0.1",
+  "requiredHeroes": [
+    "Charles Fuller Baker Memorial Hall",
+    "Dioscoro L. Umali Hall",
+    "UPLB Freedom Park",
+    "UPLB Oblation",
+    "University Library and Knowledge Center"
+  ],
+  "requiredHeroesMissing": [],
+  "reviewVersion": "v1",
+  "roleCounts": {
+    "context-building": 35,
+    "green-space": 0,
+    "hero": 5,
+    "landmark-placeholder": 0,
+    "road": 25,
+    "walkway": 25,
+    "water": 5
+  },
+  "selectedFeatureCount": 95,
+  "selectionPolicy": "required approved heroes plus deterministic nearest context by role; context remains candidate lifecycle",
+  "sliceVersion": "v0.1"
+}

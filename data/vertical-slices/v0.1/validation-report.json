@@ -1,0 +1,11 @@
+{
+  "canonicalFeatureCount": 3,
+  "contextFeatureCount": 92,
+  "duplicateFeatureIds": false,
+  "errors": [],
+  "geometryState": "source geometry retained; no survey-grade claim",
+  "requiredHeroesMissing": [],
+  "selectedFeatureCount": 95,
+  "sliceVersion": "v0.1",
+  "status": "pass"
+}

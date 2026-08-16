@@ -1,0 +1,24 @@
+{
+  "bindings": [
+    {
+      "candidateId": "candidate:osm:way/37449973",
+      "canonicalId": "uplb:building:baker-hall",
+      "featureId": "uplb:building:baker-hall",
+      "sourceLifecycle": "canonical"
+    },
+    {
+      "candidateId": "candidate:osm:way/33541968",
+      "canonicalId": "uplb:landmark:freedom-park",
+      "featureId": "uplb:landmark:freedom-park",
+      "sourceLifecycle": "canonical"
+    },
+    {
+      "candidateId": "candidate:osm:node/382803333",
+      "canonicalId": "uplb:landmark:oblation",
+      "featureId": "uplb:landmark:oblation",
+      "sourceLifecycle": "canonical"
+    }
+  ],
+  "canonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
+  "sliceVersion": "v0.1"
+}

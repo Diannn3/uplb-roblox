@@ -1,0 +1,45 @@
+{
+  "approvedReviewHash": "sha256:b526f1a3798c85130723d04f3682000adc2a95b2c2ae04632bdef81718111b99",
+  "candidateSourceHash": "sha256:9f766739c1ad0088170c708d222c246b47b4dc684120f1f57f252d6f290f6142",
+  "rightsNote": "Context features remain candidate lifecycle and are not canonical promotions.",
+  "sliceVersion": "v0.1",
+  "sourceIds": [
+    "source:osm:uplb-aoi@2026-08-17"
+  ],
+  "sources": [
+    {
+      "accessedAt": "2026-08-17",
+      "attribution": "© OpenStreetMap contributors",
+      "contentHash": "sha256:9f766739c1ad0088170c708d222c246b47b4dc684120f1f57f252d6f290f6142",
+      "coverage": {
+        "bbox": [
+          121.2099966,
+          14.1290501,
+          121.2721856,
+          14.1921433
+        ],
+        "crs": "EPSG:4326"
+      },
+      "id": "source:osm:uplb-aoi@2026-08-17",
+      "intendedUse": [
+        "building-footprint",
+        "road",
+        "walkway",
+        "waterway",
+        "water",
+        "entrance",
+        "barrier",
+        "landuse"
+      ],
+      "license": "ODbL-1.0",
+      "notes": [
+        "Research AOI only; not an official UPLB boundary."
+      ],
+      "provider": "OpenStreetMap contributors",
+      "redistribution": "allowed-with-conditions",
+      "rightsStatus": "open-attribution-required",
+      "sourceUrl": "https://overpass-api.de/api/interpreter",
+      "status": "validated"
+    }
+  ]
+}
