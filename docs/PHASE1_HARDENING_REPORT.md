@@ -1,6 +1,9 @@
 # Phase 1 Evidence Closure Report
 
-**Decision:** `conditional`
+**Decision:** `PASS_FOR_POC`
+
+`PASS_FOR_POC` means the evidence and engineering gates are sufficient for a controlled greybox proof of concept. It does not mean the campus is ready for production-wide reconstruction.
+
 
 This report is the fail-closed boundary before terrain, Blender, Roblox, or persistent world-generation work.
 
@@ -12,10 +15,10 @@ This report is the fail-closed boundary before terrain, Blender, Roblox, or pers
 | `canonicalIdentityGate` | **pass** |
 | `geometryGate` | **pass** |
 | `reproducibilityGate` | **pass** |
-| `humanReviewGate` | **pending** |
+| `humanReviewGate` | **pass** |
 | `demRightsGate` | **pass** |
 | `overtureComparisonGate` | **blocked** |
-| `worldgenReady` | **False** |
+| `worldgenReady` | **True** |
 | `campusWideProductionReady` | **False** |
 
 ## Checks
@@ -33,8 +36,8 @@ This report is the fail-closed boundary before terrain, Blender, Roblox, or pers
 | `dem-rights` | **pass** | source:dem:srtm-baseline has a recorded usable rights status and endpoint metadata |
 | `generated-luau-freshness` | **pass** | path=C:\Users\Dian\Documents\Vaults\Fensalir\uplb_roblox\src\Shared\Generated\CanonicalFeatures.lua |
 | `generated-determinism` | **pass** | two in-memory generations compare equal |
-| `priority-review-package` | **pass** | rows=25 counts={'environmental': 2, 'hero/reference': 5, 'ordinary building': 8, 'road/intersection': 5, 'walkway/pedestrian': 5} missingHeroes=0 |
-| `human-review-gate` | **warning** | explicit accept/reject decisions with provenance are required before worldgen |
+| `priority-review-package` | **pass** | rows=25 counts={'environmental': 2, 'hero/reference': 5, 'ordinary building': 8, 'road/intersection': 5, 'walkway/pedestrian': 5} missingHeroes=0 approvedRows=25 approved=True |
+| `human-review-gate` | **pass** | approved v1 review snapshot is complete and hash-bound |
 | `schema-artifact-validation` | **pass** | canonical, source, registry, and review artifacts validate |
 
 ## Measurements
@@ -54,6 +57,13 @@ This report is the fail-closed boundary before terrain, Blender, Roblox, or pers
   },
   "registryCount": 3,
   "reviewPackage": {
+    "approvedReview": {
+      "approvalStatus": "approved",
+      "path": "data/reviews/approved/vertical-slice-review-v1.json",
+      "reviewVersion": "v1",
+      "reviewer": "project-owner",
+      "sourcePackageHashMatches": true
+    },
     "counts": {
       "environmental": 2,
       "hero/reference": 5,
@@ -70,11 +80,20 @@ This report is the fail-closed boundary before terrain, Blender, Roblox, or pers
 }
 ```
 
-## Blockers and pending work
+## Hard blockers
 
-- vertical-slice human review is pending
-- official UPLB GIS/licensing review remains pending
-- high-resolution terrain remains pending
+- none
+
+## Deferred enhancements
+
+- Overture comparison is unavailable; continue OSM-first without a coverage claim
+- Optional secondary provider comparison remains deferred
+
+## Campus-wide blockers
+
+- Official UPLB GIS/licensing not acquired
+- High-resolution LiDAR/terrain not acquired
+- Campus-wide visual verification incomplete
 
 ## Stop rule
 

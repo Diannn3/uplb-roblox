@@ -1,8 +1,9 @@
 {
-  "blockers": [
-    "vertical-slice human review is pending",
-    "official UPLB GIS/licensing review remains pending",
-    "high-resolution terrain remains pending"
+  "blockers": [],
+  "campusWideBlockers": [
+    "Official UPLB GIS/licensing not acquired",
+    "High-resolution LiDAR/terrain not acquired",
+    "Campus-wide visual verification incomplete"
   ],
   "campusWideProductionReady": false,
   "canonicalIdentityGate": "pass",
@@ -63,14 +64,14 @@
       "status": "pass"
     },
     {
-      "details": "rows=25 counts={'environmental': 2, 'hero/reference': 5, 'ordinary building': 8, 'road/intersection': 5, 'walkway/pedestrian': 5} missingHeroes=0",
+      "details": "rows=25 counts={'environmental': 2, 'hero/reference': 5, 'ordinary building': 8, 'road/intersection': 5, 'walkway/pedestrian': 5} missingHeroes=0 approvedRows=25 approved=True",
       "name": "priority-review-package",
       "status": "pass"
     },
     {
-      "details": "explicit accept/reject decisions with provenance are required before worldgen",
+      "details": "approved v1 review snapshot is complete and hash-bound",
       "name": "human-review-gate",
-      "status": "warning"
+      "status": "pass"
     },
     {
       "details": "canonical, source, registry, and review artifacts validate",
@@ -78,14 +79,20 @@
       "status": "pass"
     }
   ],
-  "decision": "conditional",
+  "decision": "PASS_FOR_POC",
+  "deferredEnhancements": [
+    "Overture comparison is unavailable; continue OSM-first without a coverage claim",
+    "Optional secondary provider comparison remains deferred"
+  ],
   "demRightsGate": "pass",
   "discrepancies": [],
   "engineeringGate": "pass",
   "geometryGate": "pass",
-  "humanReviewGate": "pending",
+  "hardBlockers": [],
+  "humanReviewGate": "pass",
   "id": "validation:phase1-closure-v1",
   "inputRevisions": {
+    "approvedPriorityReview": "data/reviews/approved/vertical-slice-review-v1.json",
     "canonical": "data/canonical/features.geojson",
     "generated": "src/Shared/Generated/CanonicalFeatures.lua",
     "identityRegistry": "data/canonical/identity-registry.json",
@@ -105,6 +112,13 @@
     },
     "registryCount": 3,
     "reviewPackage": {
+      "approvedReview": {
+        "approvalStatus": "approved",
+        "path": "data/reviews/approved/vertical-slice-review-v1.json",
+        "reviewVersion": "v1",
+        "reviewer": "project-owner",
+        "sourcePackageHashMatches": true
+      },
       "counts": {
         "environmental": 2,
         "hero/reference": 5,
@@ -121,5 +135,5 @@
   },
   "overtureComparisonGate": "blocked",
   "reproducibilityGate": "pass",
-  "worldgenReady": false
+  "worldgenReady": true
 }

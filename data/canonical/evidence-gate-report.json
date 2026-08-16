@@ -1,5 +1,6 @@
 {
   "blockers": [],
+  "campusWideBlockers": [],
   "campusWideProductionReady": false,
   "canonicalIdentityGate": "pass",
   "checks": [
@@ -30,6 +31,7 @@
     }
   ],
   "decision": "pass",
+  "deferredEnhancements": [],
   "demRightsGate": "pass",
   "discrepancies": [
     {
@@ -39,6 +41,7 @@
   ],
   "engineeringGate": "pass",
   "geometryGate": "pass",
+  "hardBlockers": [],
   "humanReviewGate": "pending",
   "id": "validation:evidence-gate-v1",
   "inputRevisions": {
@@ -204,12 +207,13 @@
     "srtm": {
       "accessedAt": "2026-08-17",
       "authRequirement": "Earthdata Login required for download; no credentials stored",
-      "crs": "EPSG:4326 geographic HGT tiles",
       "doi": "10.5067/MEASURES/SRTM/SRTMGL1.003",
+      "horizontalCRS": "EPSG:4326",
+      "horizontalDatum": "WGS84",
       "landingPage": "https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl1-003",
       "nodata": "No voids in Version 3.0; historical -32768 only applies to Versions 1.0/2.1",
       "status": "validated-fallback",
-      "verticalDatum": "WGS84 ellipsoid referenced to EGM96 geoid",
+      "verticalDatum": "EGM96",
       "verticalUnits": "metres"
     }
   },
