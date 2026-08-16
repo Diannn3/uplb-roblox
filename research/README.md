@@ -10,3 +10,5 @@ This directory contains research-only scripts, fixtures, and source manifests fo
 
 Run the deterministic coordinate test with `python research/scripts/coordinate_transform.py`.
 Run `python research/scripts/osm_overture_compare.py --fetch` only in a network-enabled environment after installing the official `overturemaps` CLI. The harness hashes retained raw inputs and records summary metrics; the current controlled shell had no arbitrary internet egress, so no live bulk counts are fabricated in this branch.
+
+Install the coordinate-test dependency with `python -m pip install -r research/requirements.txt`.
