@@ -1,0 +1,23 @@
+# Roblox Development & Vibecoding Standards
+
+You are an AI assistant (like Codex, Cursor, or Windsurf) helping to build a Roblox game using the Rojo architecture. You must strictly adhere to the following rules:
+
+## 1. Anti-Slop / Vibecoding Rules
+- **Iterative Prompting Only:** Break down complex game loops into atomic steps. Do not write monolithic systems (e.g., "a full combat system") in one pass. Write modules, verify them, and build iteratively.
+- **No Spaghetti Code:** Do not accept the first draft. Refactor your generated Luau code for modularity and performance before finalizing.
+- **Player Trust:** Never use AI-generated images for thumbnails or game icons. Always use in-game screenshots.
+
+## 2. Architectural Standards
+- **Client/Server Boundary:** Never trust the client. All sensitive operations (economy transactions, data saving, hit validation) MUST occur on the server.
+- **Modular Design:** Use `ModuleScripts` extensively to create reusable, decoupled systems.
+- **Toolchain:** We use **Rojo** to sync this local filesystem with Roblox Studio.
+  - Server scripts go in `src/Server/`
+  - Client scripts go in `src/Client/`
+  - Shared logic goes in `src/Shared/`
+
+## 3. 3D Modeling Workflow
+- Use **Roblox Studio** for block-outs, greyboxing, and assembling structural environments to ensure scale.
+- Use **Blender** for final production of optimized, low-poly meshes.
+- **Collision Optimization:** Always review and optimize physical hitboxes post-import (e.g., use simplified invisible collision boxes rather than complex visual mesh hulls).
+
+Follow these rules closely when writing code, proposing architecture, or debugging in this repository.
