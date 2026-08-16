@@ -177,10 +177,12 @@ def modify_priority(
     if name is not None:
         row.setdefault("sourceName", row.get("name"))
         row["name"] = name
+        row["correctedName"] = name
         changes["name"] = name
     if aliases is not None:
         row.setdefault("sourceAliases", list(row.get("aliases", [])))
         row["aliases"] = list(dict.fromkeys(str(alias) for alias in aliases))
+        row["correctedAliases"] = list(row["aliases"])
         changes["aliases"] = row["aliases"]
     if canonical_id is not None:
         row["registryMatch"] = canonical_id

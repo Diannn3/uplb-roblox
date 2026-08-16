@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 import math
 import re
@@ -144,19 +145,104 @@ def _connectivity_scores(candidates: list[ProviderCandidate]) -> dict[str, int]:
     return scores
 
 
-def _score(candidate: ProviderCandidate, category: str, registry_id: str | None, hero_candidates: list[ProviderCandidate], connectivity: dict[str, int]) -> tuple[float, ...]:
+def _direct_connectivity(candidate: ProviderCandidate, hero_candidates: list[ProviderCandidate], connectivity: dict[str, int]) -> int:
+    """Return a deterministic direct-hero connectivity signal.
+
+    A line that reaches the hero cluster wins before name/evidence signals. The
+    distance threshold is a review-priority heuristic only; it never conflates
+    or promotes a candidate.
+    """
+
+    if candidate.feature_type not in {"road", "walkway"} or not candidate.geometry:
+        return 0
+    if connectivity.get(candidate.id, 0) > 0:
+        return 1
+    for hero in hero_candidates:
+        if hero.geometry:
+            try:
+                if distance_m(candidate.geometry, hero.geometry) <= 35.0:
+                    return 1
+            except (TypeError, ValueError):
+                continue
+    return 0
+
+
+def priority_score(
+    candidate: ProviderCandidate,
+    category: str,
+    registry_id: str | None,
+    hero_candidates: list[ProviderCandidate],
+    connectivity: dict[str, int],
+    core_ids: set[str] | None = None,
+) -> tuple[float, ...]:
+    """Return a future-review score ordered by spatial usefulness first."""
+
     named = 1 if _named(candidate) else 0
     registry = 1 if registry_id else 0
     evidence = _evidence_richness(candidate)
     connectivity_score = connectivity.get(candidate.id, 0)
     proximity = _distance_to_heroes(candidate, hero_candidates)
-    proximity_score = 1.0 / (1.0 + proximity)
+    proximity_score = 1.0 / (1.0 + (proximity / 50.0))
+    direct = _direct_connectivity(candidate, hero_candidates, connectivity)
+    core = 1 if core_ids and candidate.id in core_ids else 0
     if category == "environmental":
         molawin = 1 if "molawin" in normalize_name(candidate.name) else 0
-        return (float(molawin), float(named), float(evidence), proximity_score, -proximity)
-    if category == "road/intersection" or category == "walkway/pedestrian":
-        return (float(named), float(connectivity_score), float(registry), float(evidence), proximity_score, -proximity)
-    return (float(named), float(registry), float(evidence), proximity_score, -proximity)
+        return (float(direct), float(core), proximity_score, float(connectivity_score), float(registry), float(molawin), float(named), float(evidence), -proximity)
+    return (float(direct), float(core), proximity_score, float(connectivity_score), float(registry), float(named), float(evidence), -proximity)
+
+
+def _score(
+    candidate: ProviderCandidate,
+    category: str,
+    registry_id: str | None,
+    hero_candidates: list[ProviderCandidate],
+    connectivity: dict[str, int],
+    core_ids: set[str] | None = None,
+) -> tuple[float, ...]:
+    """Backward-compatible internal alias for the public priority score."""
+
+    return priority_score(candidate, category, registry_id, hero_candidates, connectivity, core_ids)
+
+
+_HUMAN_FIELDS = (
+    "currentDecision",
+    "reviewStatus",
+    "reviewHistory",
+    "review",
+    "reviewNotes",
+    "sourceName",
+    "sourceAliases",
+    "correctedName",
+    "correctedAliases",
+    "canonicalIdentityCorrection",
+    "registryMatch",
+    "verification",
+    "selectedGeometrySource",
+    "reviewer",
+    "reviewerProvenance",
+)
+
+
+def _overlay_human_state(row: dict[str, Any], existing: dict[str, Any] | None) -> dict[str, Any]:
+    """Overlay human-authored corrections while refreshing provider fields."""
+
+    if not existing:
+        return row
+    for key in _HUMAN_FIELDS:
+        if key in existing:
+            row[key] = copy.deepcopy(existing[key])
+    # Older review edits stored the corrected value in name/aliases and kept
+    # the original in sourceName/sourceAliases. Preserve those edits while
+    # allowing all other provider-derived values to refresh.
+    if existing.get("correctedName") is not None:
+        row["name"] = existing["correctedName"]
+    elif existing.get("sourceName") is not None and existing.get("name") != existing.get("sourceName"):
+        row["name"] = existing["name"]
+    if existing.get("correctedAliases") is not None:
+        row["aliases"] = copy.deepcopy(existing["correctedAliases"])
+    elif existing.get("sourceAliases") is not None and existing.get("aliases") != existing.get("sourceAliases"):
+        row["aliases"] = copy.deepcopy(existing["aliases"])
+    return row
 
 
 def _row(
@@ -204,11 +290,11 @@ def _row(
             if hero_display_name
             else "confirm candidate identity, geometry, aliases, and source rights before promotion"
         ),
-        "currentDecision": (existing or {}).get("currentDecision", "pending"),
-        "reviewStatus": (existing or {}).get("reviewStatus", "pending"),
-        "reviewHistory": list((existing or {}).get("reviewHistory", [])),
+        "currentDecision": "pending",
+        "reviewStatus": "pending",
+        "reviewHistory": [],
     }
-    return row
+    return _overlay_human_state(row, existing)
 
 
 def build_priority_package(
@@ -228,6 +314,8 @@ def build_priority_package(
     hero_ids = {candidate.id for _, candidate in heroes}
     hero_candidates = [candidate for _, candidate in heroes]
     connectivity = _connectivity_scores(slice_candidates)
+    core_candidates = select_intersecting(candidates, _area_geometry(area_path), buffer_m=0)
+    core_ids = {candidate.id for candidate in core_candidates}
     by_category: dict[str, list[ProviderCandidate]] = {
         "hero/reference": [candidate for _, candidate in heroes],
         "ordinary building": [candidate for candidate in slice_candidates if candidate.feature_type == "building" and candidate.id not in hero_ids],
@@ -246,7 +334,7 @@ def build_priority_package(
             ordered = sorted(
                 by_category[category],
                 key=lambda candidate: (
-                    tuple(-value for value in _score(candidate, category, _registry_match(candidate, registry), hero_candidates, connectivity)),
+                    tuple(-value for value in _score(candidate, category, _registry_match(candidate, registry), hero_candidates, connectivity, core_ids)),
                     candidate.id,
                 ),
             )
@@ -254,7 +342,7 @@ def build_priority_package(
         for candidate in selected:
             registry_id = _registry_match(candidate, registry)
             hero_display = next((display for display, hero in heroes if hero.id == candidate.id), None)
-            rows.append(_row(candidate, category, registry_id, hero_display, _score(candidate, category, registry_id, hero_candidates, connectivity), existing_rows.get(candidate.id)))
+            rows.append(_row(candidate, category, registry_id, hero_display, _score(candidate, category, registry_id, hero_candidates, connectivity, core_ids), existing_rows.get(candidate.id)))
     rows.sort(key=lambda row: (list(QUOTAS).index(row["category"]), row["candidateId"]))
     counts = {category: sum(row["category"] == category for row in rows) for category in QUOTAS}
     package = {
