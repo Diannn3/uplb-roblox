@@ -62,7 +62,7 @@ def build_report(comparison_path: Path, probe_path: Path, osm_path: Path, matrix
     )
     report.measurements["osmSummary"] = comparison.get("summaries", {}).get("osm", {})
     report.measurements["sourceRows"] = len(matrix.get("sources", []))
-    report.measurements["srtm"] = {key: dem_row.get(key) for key in ("status", "doi", "accessedAt", "landingPage", "crs", "verticalUnits", "verticalDatum", "nodata", "authRequirement")}
+    report.measurements["srtm"] = {key: dem_row.get(key) for key in ("status", "doi", "accessedAt", "landingPage", "horizontalCRS", "horizontalDatum", "verticalUnits", "verticalDatum", "nodata", "authRequirement")}
     report.measurements["sourceMatrix"] = [
         {
             "sourceId": row.get("sourceId"),

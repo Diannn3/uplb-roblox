@@ -91,11 +91,13 @@ def _dem_candidate_source(accessed_at: str) -> SourceRecord:
             "doi": "10.5067/MEASURES/SRTM/SRTMGL1.003",
             "landingPage": "https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl1-003",
             "accessPath": "Earthdata Search/Earthdata Cloud supported path; no retired LP DAAC Data Pool endpoint",
-            "crs": "EPSG:4326 geographic (1-degree HGT tiles)",
+            "horizontalCRS": "EPSG:4326",
+            "horizontalDatum": "WGS84",
+            "verticalDatum": "EGM96",
             "verticalUnits": "metres",
-            "verticalDatum": "WGS84 ellipsoid referenced to EGM96 geoid",
             "nodata": "Version 3.0 has no voids; -32768 is historical Version 1/2.1 fill value",
             "authRequirement": "Earthdata Login required for download; no credentials stored",
+            "citation": "NASA JPL; NASA Land Processes Distributed Active Archive Center (LP DAAC), SRTMGL1.003, DOI:10.5067/MEASURES/SRTM/SRTMGL1.003",
         },
     )
 

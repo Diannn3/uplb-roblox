@@ -104,9 +104,10 @@
       "accessPath": "Earthdata Search/Earthdata Cloud supported path; no retired LP DAAC Data Pool endpoint",
       "accessedAt": "2026-08-17",
       "authRequirement": "Earthdata Login required for download; no credentials stored",
-      "crs": "EPSG:4326 geographic HGT tiles",
+      "horizontalCRS": "EPSG:4326",
+      "horizontalDatum": "WGS84",
       "verticalUnits": "metres",
-      "verticalDatum": "WGS84 ellipsoid referenced to EGM96 geoid",
+      "verticalDatum": "EGM96",
       "nodata": "No voids in Version 3.0; historical -32768 only applies to Versions 1.0/2.1",
       "nextAction": "Retain as the legal baseline; acquire only through the documented Earthdata path when terrain work is approved"
     },
