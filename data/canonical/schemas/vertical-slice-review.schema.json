@@ -18,6 +18,14 @@
     "counts": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
     "priorityStatus": {"enum": ["pass", "fail"]},
     "humanReviewStatus": {"enum": ["pending", "complete"]},
+    "reviewVersion": {"type": "string"},
+    "approvalStatus": {"enum": ["pending", "approved", "rejected"]},
+    "reviewer": {"type": "string"},
+    "approvedAt": {"type": "string"},
+    "sourcePackagePath": {"type": "string"},
+    "sourcePackageHash": {"type": "string", "pattern": "^sha256:"},
+    "sourceCandidateHash": {"type": "string", "pattern": "^sha256:"},
+    "notes": {"type": "string"},
     "rows": {
       "type": "array",
       "items": {

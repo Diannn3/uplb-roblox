@@ -222,7 +222,7 @@ class ValidationReport:
     measurements: dict[str, Any] = field(default_factory=dict)
     discrepancies: list[dict[str, Any]] = field(default_factory=list)
     blockers: list[str] = field(default_factory=list)
-    decision: Literal["pass", "fail", "conditional"] = "conditional"
+    decision: Literal["pass", "fail", "conditional", "PASS_FOR_POC", "NOT_READY_FOR_CAMPUS_WIDE_PRODUCTION"] = "conditional"
     engineering_gate: Literal["pass", "fail"] = "fail"
     canonical_identity_gate: Literal["pass", "fail"] = "fail"
     geometry_gate: Literal["pass", "fail"] = "fail"
@@ -232,6 +232,9 @@ class ValidationReport:
     overture_comparison_gate: Literal["pass", "deferred", "blocked"] = "deferred"
     worldgen_ready: bool = False
     campus_wide_production_ready: bool = False
+    hard_blockers: list[str] = field(default_factory=list)
+    deferred_enhancements: list[str] = field(default_factory=list)
+    campus_wide_blockers: list[str] = field(default_factory=list)
 
     def add_check(self, name: str, status: str, details: str = "") -> None:
         if status not in {"pass", "fail", "warning", "not-run"}:
@@ -243,7 +246,7 @@ class ValidationReport:
 
     def finalize(self) -> None:
         statuses = {check["status"] for check in self.checks}
-        if self.blockers or "fail" in statuses:
+        if self.hard_blockers or self.blockers or "fail" in statuses:
             self.decision = "fail"
         elif "warning" in statuses or "not-run" in statuses:
             self.decision = "conditional"
@@ -258,6 +261,9 @@ class ValidationReport:
             "measurements": self.measurements,
             "discrepancies": self.discrepancies,
             "blockers": self.blockers,
+            "hardBlockers": self.hard_blockers,
+            "deferredEnhancements": self.deferred_enhancements,
+            "campusWideBlockers": self.campus_wide_blockers,
             "decision": self.decision,
             "engineeringGate": self.engineering_gate,
             "canonicalIdentityGate": self.canonical_identity_gate,

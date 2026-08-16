@@ -28,6 +28,7 @@ DEFAULT_REGISTRY = ROOT / "data" / "canonical" / "identity-registry.json"
 DEFAULT_SOURCES = ROOT / "data" / "canonical" / "source-records.json"
 DEFAULT_REVIEWS = ROOT / "data" / "canonical" / "review-decisions.json"
 DEFAULT_PRIORITY_REVIEW = ROOT / "data" / "reviews" / "vertical-slice-review.json"
+DEFAULT_APPROVED_PRIORITY_REVIEW = ROOT / "data" / "reviews" / "approved" / "vertical-slice-review-v1.json"
 DEFAULT_GENERATED = ROOT / "src" / "Shared" / "Generated" / "CanonicalFeatures.lua"
 DEFAULT_REVIEW_DOC = ROOT / "docs" / "reviews" / "VERTICAL_SLICE_FEATURE_REVIEW.md"
 DEFAULT_FIXTURE = ROOT / "tests" / "fixtures" / "geodata" / "osm-small.json"
@@ -106,16 +107,37 @@ def _contains_internal_overture_import(root: Path) -> bool:
     return False
 
 
-def _review_gate(priority_path: Path) -> tuple[bool, dict[str, Any], str]:
+def _review_gate(priority_path: Path, approved_path: Path = DEFAULT_APPROVED_PRIORITY_REVIEW) -> tuple[bool, dict[str, Any], str]:
     if not priority_path.exists():
         return False, {"rows": 0, "counts": {}, "missingRequiredHeroes": []}, "priority review package is missing"
     package = read_json(priority_path)
     rows = package.get("rows", [])
     counts = {str(key): int(value) for key, value in (package.get("counts") or {}).items()}
-    complete = bool(rows) and all(row.get("currentDecision") in {"accept", "reject"} and row.get("reviewStatus") == "reviewed" for row in rows)
-    complete = complete and not package.get("missingRequiredHeroes")
-    details = f"rows={len(rows)} counts={counts} missingHeroes={len(package.get('missingRequiredHeroes', []))}"
-    return complete, package, details
+    package_complete = bool(rows) and len(rows) == 25 and not package.get("missingRequiredHeroes")
+    approved: dict[str, Any] = read_json(approved_path) if approved_path.exists() else {}
+    approved_rows = approved.get("rows", [])
+    hashes_match = (
+        approved.get("sourcePackageHash") == f"sha256:{sha256(priority_path)}"
+        and approved.get("sourceCandidateHash") == package.get("sourceHash")
+    )
+    approved_complete = (
+        approved.get("reviewVersion") == "v1"
+        and approved.get("approvalStatus") == "approved"
+        and approved.get("reviewer")
+        and len(approved_rows) == len(rows) == 25
+        and all(row.get("currentDecision") in {"accept", "reject"} and row.get("reviewStatus") == "reviewed" for row in approved_rows)
+        and not approved.get("missingRequiredHeroes")
+        and hashes_match
+    )
+    details = f"rows={len(rows)} counts={counts} missingHeroes={len(package.get('missingRequiredHeroes', []))} approvedRows={len(approved_rows)} approved={approved_complete}"
+    package["approvedReview"] = {
+        "path": approved_path.relative_to(ROOT).as_posix() if approved_path.is_relative_to(ROOT) else approved_path.as_posix(),
+        "reviewVersion": approved.get("reviewVersion"),
+        "approvalStatus": approved.get("approvalStatus"),
+        "reviewer": approved.get("reviewer"),
+        "sourcePackageHashMatches": hashes_match,
+    }
+    return package_complete and approved_complete, package, details
 
 
 def _source_status(sources: list[SourceRecord], fragment: str) -> SourceRecord | None:
@@ -129,6 +151,7 @@ def build_gate(
     sources_path: Path = DEFAULT_SOURCES,
     reviews_path: Path = DEFAULT_REVIEWS,
     priority_review_path: Path = DEFAULT_PRIORITY_REVIEW,
+    approved_priority_review_path: Path = DEFAULT_APPROVED_PRIORITY_REVIEW,
     generated_path: Path = DEFAULT_GENERATED,
     review_doc_path: Path = DEFAULT_REVIEW_DOC,
     fixture_path: Path = DEFAULT_FIXTURE,
@@ -140,6 +163,7 @@ def build_gate(
             "identityRegistry": registry_path.relative_to(ROOT).as_posix() if registry_path.is_relative_to(ROOT) else registry_path.as_posix(),
             "generated": generated_path.relative_to(ROOT).as_posix() if generated_path.is_relative_to(ROOT) else generated_path.as_posix(),
             "priorityReview": priority_review_path.relative_to(ROOT).as_posix() if priority_review_path.is_relative_to(ROOT) else priority_review_path.as_posix(),
+            "approvedPriorityReview": approved_priority_review_path.relative_to(ROOT).as_posix() if approved_priority_review_path.is_relative_to(ROOT) else approved_priority_review_path.as_posix(),
         },
     )
     required_paths = (canonical_path, registry_path, sources_path, priority_review_path)
@@ -216,17 +240,18 @@ def build_gate(
     report.add_check("generated-luau-freshness", "pass" if generated_match else "fail", f"path={generated_path}")
     report.add_check("generated-determinism", "pass" if generate_luau(features, CoordinateTransform(), sha256(canonical_path)) == generated else "fail", "two in-memory generations compare equal")
 
-    review_complete, package, review_details = _review_gate(priority_review_path)
+    review_complete, package, review_details = _review_gate(priority_review_path, approved_priority_review_path)
     report.measurements["reviewPackage"] = {
         "rows": len(package.get("rows", [])),
         "counts": package.get("counts", {}),
         "missingRequiredHeroes": package.get("missingRequiredHeroes", []),
         "priorityStatus": package.get("priorityStatus"),
         "humanReviewStatus": package.get("humanReviewStatus"),
+        "approvedReview": package.get("approvedReview", {}),
     }
     package_ok = len(package.get("rows", [])) == sum(REQUIRED_REVIEW_CATEGORIES.values()) and package.get("counts") == REQUIRED_REVIEW_CATEGORIES and package.get("priorityStatus") == "pass"
     report.add_check("priority-review-package", "pass" if package_ok else "fail", review_details)
-    report.add_check("human-review-gate", "pass" if review_complete else "warning", "explicit accept/reject decisions with provenance are required before worldgen" if not review_complete else "all priority rows have explicit human decisions")
+    report.add_check("human-review-gate", "pass" if review_complete else "warning", "approved v1 review snapshot is complete and hash-bound" if review_complete else "approved v1 review snapshot with provenance is required before worldgen")
 
     artifact_errors = validate_artifacts(ROOT)
     report.add_check("schema-artifact-validation", "fail" if artifact_errors else "pass", "; ".join(artifact_errors[:3]) if artifact_errors else "canonical, source, registry, and review artifacts validate")
@@ -242,21 +267,33 @@ def build_gate(
         for gate in (report.engineering_gate, report.canonical_identity_gate, report.geometry_gate, report.reproducibility_gate, report.human_review_gate, report.dem_rights_gate)
     )
     report.campus_wide_production_ready = False
-    if report.engineering_gate != "pass":
-        report.blockers.append("engineering gate failed")
+    report.hard_blockers = []
+    for check in report.checks:
+        if check["status"] == "fail":
+            report.hard_blockers.append(f"{check['name']}: {check.get('details', 'failed')}")
     if report.human_review_gate != "pass":
-        report.blockers.append("vertical-slice human review is pending")
+        report.hard_blockers.append("required vertical-slice human review is incomplete")
     if report.dem_rights_gate != "pass":
-        report.blockers.append("baseline DEM rights are not resolved")
-    report.blockers.extend(["official UPLB GIS/licensing review remains pending", "high-resolution terrain remains pending"])
+        report.hard_blockers.append("baseline DEM rights are unresolved")
+    report.deferred_enhancements = []
+    if report.overture_comparison_gate in {"blocked", "deferred"}:
+        report.deferred_enhancements.append("Overture comparison is unavailable; continue OSM-first without a coverage claim")
+    report.deferred_enhancements.append("Optional secondary provider comparison remains deferred")
+    report.campus_wide_blockers = [
+        "Official UPLB GIS/licensing not acquired",
+        "High-resolution LiDAR/terrain not acquired",
+        "Campus-wide visual verification incomplete",
+    ]
+    report.blockers = list(report.hard_blockers)
+    report.worldgen_ready = report.worldgen_ready and not report.hard_blockers
     report.measurements["overture"] = {"status": overture_source.status if overture_source else "not-recorded", "comparisonGate": report.overture_comparison_gate, "pinnedRelease": "2026-06-17.0"}
     report.finalize()
-    if report.worldgen_ready and not report.blockers:
-        report.decision = "pass"
-    elif report.engineering_gate == "fail" or report.canonical_identity_gate == "fail" or report.geometry_gate == "fail" or report.reproducibility_gate == "fail" or report.dem_rights_gate == "fail":
+    if report.worldgen_ready:
+        report.decision = "PASS_FOR_POC"
+    elif report.hard_blockers:
         report.decision = "fail"
     else:
-        report.decision = "conditional"
+        report.decision = "NOT_READY_FOR_CAMPUS_WIDE_PRODUCTION"
     return report
 
 
@@ -277,6 +314,9 @@ def write_markdown(path: Path, report: ValidationReport) -> None:
         "",
         f"**Decision:** `{report.decision}`",
         "",
+        "`PASS_FOR_POC` means the evidence and engineering gates are sufficient for a controlled greybox proof of concept. It does not mean the campus is ready for production-wide reconstruction.",
+        "",
+        "",
         "This report is the fail-closed boundary before terrain, Blender, Roblox, or persistent world-generation work.",
         "",
         "## Gate status",
@@ -294,8 +334,10 @@ def write_markdown(path: Path, report: ValidationReport) -> None:
         details = check.get("details", "").replace("|", "\\|")
         lines.append(f"| `{check['name']}` | **{check['status']}** | {details} |")
     lines.extend(["", "## Measurements", "", "```json", json.dumps(report.measurements, indent=2, sort_keys=True), "```", ""])
-    if report.blockers:
-        lines.extend(["## Blockers and pending work", "", *[f"- {blocker}" for blocker in report.blockers], ""])
+    hard_blocker_lines = [f"- {blocker}" for blocker in report.hard_blockers] or ["- none"]
+    deferred_lines = [f"- {item}" for item in report.deferred_enhancements] or ["- none"]
+    campus_lines = [f"- {item}" for item in report.campus_wide_blockers] or ["- none"]
+    lines.extend(["## Hard blockers", "", *hard_blocker_lines, "", "## Deferred enhancements", "", *deferred_lines, "", "## Campus-wide blockers", "", *campus_lines, ""])
     lines.extend(["## Stop rule", "", "Do not start terrain, Blender, or Roblox world generation while `worldgenReady` is `false`. Overture comparison may remain blocked/deferred without blocking the OSM-first greybox POC.", ""])
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text("\n".join(lines), encoding="utf-8", newline="\n")
@@ -308,13 +350,14 @@ def main() -> int:
     parser.add_argument("--sources", type=Path, default=DEFAULT_SOURCES)
     parser.add_argument("--reviews", type=Path, default=DEFAULT_REVIEWS)
     parser.add_argument("--priority-review", type=Path, default=DEFAULT_PRIORITY_REVIEW)
+    parser.add_argument("--approved-priority-review", type=Path, default=DEFAULT_APPROVED_PRIORITY_REVIEW)
     parser.add_argument("--generated", type=Path, default=DEFAULT_GENERATED)
     parser.add_argument("--review-doc", type=Path, default=DEFAULT_REVIEW_DOC)
     parser.add_argument("--fixture", type=Path, default=DEFAULT_FIXTURE)
     parser.add_argument("--json", type=Path, default=DEFAULT_CLOSURE_REPORT)
     parser.add_argument("--markdown", type=Path, default=DEFAULT_CLOSURE_MARKDOWN)
     args = parser.parse_args()
-    report = build_gate(canonical_path=args.canonical, registry_path=args.registry, sources_path=args.sources, reviews_path=args.reviews, priority_review_path=args.priority_review, generated_path=args.generated, review_doc_path=args.review_doc, fixture_path=args.fixture)
+    report = build_gate(canonical_path=args.canonical, registry_path=args.registry, sources_path=args.sources, reviews_path=args.reviews, priority_review_path=args.priority_review, approved_priority_review_path=args.approved_priority_review, generated_path=args.generated, review_doc_path=args.review_doc, fixture_path=args.fixture)
     write_json(args.json, report.to_dict())
     write_markdown(args.markdown, report)
     if args.json != DEFAULT_REPORT:

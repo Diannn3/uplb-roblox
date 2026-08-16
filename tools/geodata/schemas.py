@@ -100,6 +100,9 @@ def validate_artifacts(root: Path = ROOT) -> list[str]:
     priority_schema = schema_root / "vertical-slice-review.schema.json"
     if priority_path.exists() and priority_schema.exists():
         errors.extend(_validate_instance(read_json(priority_path), priority_schema, "vertical slice review package"))
+    approved_path = root / "data" / "reviews" / "approved" / "vertical-slice-review-v1.json"
+    if approved_path.exists() and priority_schema.exists():
+        errors.extend(_validate_instance(read_json(approved_path), priority_schema, "approved vertical slice review"))
     return errors
 
 
