@@ -1,0 +1,3506 @@
+{
+  "areaSource": "data/areas/vertical-slice-v0.geojson",
+  "candidateCount": 10293,
+  "candidateSource": "data/candidates/osm/features.geojson",
+  "counts": {
+    "environmental": 2,
+    "hero/reference": 5,
+    "ordinary building": 8,
+    "road/intersection": 5,
+    "walkway/pedestrian": 5
+  },
+  "generatedAt": "2026-08-17",
+  "humanReviewStatus": "pending",
+  "lifecycle": "human-review",
+  "missingRequiredHeroes": [],
+  "priorityStatus": "pass",
+  "quotas": {
+    "environmental": 2,
+    "hero/reference": 5,
+    "ordinary building": 8,
+    "road/intersection": 5,
+    "walkway/pedestrian": 5
+  },
+  "requiredHeroes": [
+    "UPLB Oblation",
+    "UPLB Freedom Park",
+    "Charles Fuller Baker Memorial Hall",
+    "DL Umali Auditorium",
+    "Main Library"
+  ],
+  "rows": [
+    {
+      "aliases": [
+        "UPLB Oblation"
+      ],
+      "approximatePosition": {
+        "lat": 14.165,
+        "lon": 121.24155
+      },
+      "areaOrLength": {
+        "kind": "none",
+        "unit": "m",
+        "value": 0.0
+      },
+      "candidateId": "candidate:osm:node/382803333",
+      "category": "hero/reference",
+      "confidence": {
+        "facade": "unknown",
+        "footprint": "unknown",
+        "height": "unknown",
+        "position": "medium"
+      },
+      "currentDecision": "pending",
+      "evidenceAttributes": {
+        "referenceConfidence": "reference-only"
+      },
+      "externalIds": {
+        "osm": "node/382803333"
+      },
+      "featureType": "landmark",
+      "geometryReason": "valid",
+      "geometryStatus": "valid",
+      "name": "UPLB Oblation",
+      "priorityScore": [
+        1.0,
+        1.0,
+        12.0,
+        1.0,
+        -0.0
+      ],
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "recommendedAction": "confirm required hero identity, geometry, aliases, and source rights before promotion",
+      "registryMatch": "uplb:landmark:oblation",
+      "reviewHistory": [],
+      "reviewStatus": "pending",
+      "sourceGeometry": {
+        "coordinates": [
+          121.24155,
+          14.165
+        ],
+        "type": "Point"
+      },
+      "sourceGeometryHash": "sha256:c3e1c41d88c3c25e99698729ef8ba42ccd71560d4b589fb9a6bfa18967c0d5ca"
+    },
+    {
+      "aliases": [
+        "ULKC",
+        "Main Library"
+      ],
+      "approximatePosition": {
+        "lat": 14.1628993,
+        "lon": 121.2398575
+      },
+      "areaOrLength": {
+        "kind": "area",
+        "unit": "m2",
+        "value": 3595.677
+      },
+      "candidateId": "candidate:osm:way/1098780830",
+      "category": "hero/reference",
+      "confidence": {
+        "facade": "unknown",
+        "footprint": "medium",
+        "height": "unknown",
+        "position": "medium"
+      },
+      "currentDecision": "pending",
+      "evidenceAttributes": {
+        "building": "construction",
+        "geometryReason": "valid",
+        "geometryState": "valid",
+        "layer": "1",
+        "originalGeometryHash": "sha256:dc7ab6437576d75d964a4e3cf8eb28ec410a0d81aaedeff1831c95a50af2a76c",
+        "osmTags": {
+          "alt_name": "ULKC",
+          "building": "construction",
+          "layer": "1",
+          "name": "University Library and Knowledge Center"
+        }
+      },
+      "externalIds": {
+        "osm": "way/1098780830"
+      },
+      "featureType": "building",
+      "geometryReason": "valid",
+      "geometryStatus": "valid",
+      "name": "University Library and Knowledge Center",
+      "priorityScore": [
+        1.0,
+        0.0,
+        17.0,
+        1.0,
+        -0.0
+      ],
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "recommendedAction": "confirm required hero identity, geometry, aliases, and source rights before promotion",
+      "registryMatch": null,
+      "reviewHistory": [],
+      "reviewStatus": "pending",
+      "sourceGeometry": {
+        "coordinates": [
+          [
+            [
+              121.2395023,
+              14.1631069
+            ],
+            [
+              121.2396487,
+              14.1627595
+            ],
+            [
+              121.2397391,
+              14.1625452
+            ],
+            [
+              121.2401979,
+              14.162727
+            ],
+            [
+              121.2400663,
+              14.1630392
+            ],
+            [
+              121.239961,
+              14.1632887
+            ],
+            [
+              121.2398509,
+              14.1632457
+            ],
+            [
+              121.2397789,
+              14.1632175
+            ],
+            [
+              121.2397141,
+              14.1631916
+            ],
+            [
+              121.2395023,
+              14.1631069
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "sourceGeometryHash": "sha256:dc7ab6437576d75d964a4e3cf8eb28ec410a0d81aaedeff1831c95a50af2a76c"
+    },
+    {
+      "aliases": [
+        "DL Umali Auditorium"
+      ],
+      "approximatePosition": {
+        "lat": 14.1640174,
+        "lon": 121.2401157
+      },
+      "areaOrLength": {
+        "kind": "area",
+        "unit": "m2",
+        "value": 1740.539
+      },
+      "candidateId": "candidate:osm:way/33541381",
+      "category": "hero/reference",
+      "confidence": {
+        "facade": "unknown",
+        "footprint": "medium",
+        "height": "medium",
+        "position": "medium"
+      },
+      "currentDecision": "pending",
+      "evidenceAttributes": {
+        "building": "yes",
+        "geometryReason": "valid",
+        "geometryState": "valid",
+        "levels": 1.0,
+        "originalGeometryHash": "sha256:6cfd4cae3fd9252015f40671dcd844be8e235b6b34d4d2a9e3cbe6afa2cf5ffe",
+        "osmTags": {
+          "amenity": "theatre",
+          "building": "yes",
+          "building:levels": "1",
+          "building:material": "concrete",
+          "building:underground": "1",
+          "name": "Dioscoro L. Umali Hall",
+          "roof:material": "eternit",
+          "roof:shape": "flat",
+          "start_date": "1969",
+          "theatre:type": "stage"
+        }
+      },
+      "externalIds": {
+        "osm": "way/33541381"
+      },
+      "featureType": "building",
+      "geometryReason": "valid",
+      "geometryStatus": "valid",
+      "name": "Dioscoro L. Umali Hall",
+      "priorityScore": [
+        1.0,
+        0.0,
+        17.0,
+        1.0,
+        -0.0
+      ],
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "recommendedAction": "confirm required hero identity, geometry, aliases, and source rights before promotion",
+      "registryMatch": null,
+      "reviewHistory": [],
+      "reviewStatus": "pending",
+      "sourceGeometry": {
+        "coordinates": [
+          [
+            [
+              121.2403709,
+              14.1638068
+            ],
+            [
+              121.2403443,
+              14.1638582
+            ],
+            [
+              121.2401346,
+              14.1642815
+            ],
+            [
+              121.2398926,
+              14.1641767
+            ],
+            [
+              121.2401204,
+              14.1636822
+            ],
+            [
+              121.2402621,
+              14.1637527
+            ],
+            [
+              121.2403709,
+              14.1638068
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "sourceGeometryHash": "sha256:6cfd4cae3fd9252015f40671dcd844be8e235b6b34d4d2a9e3cbe6afa2cf5ffe"
+    },
+    {
+      "aliases": [
+        "UPLB Freedom Park"
+      ],
+      "approximatePosition": {
+        "lat": 14.16128,
+        "lon": 121.24173
+      },
+      "areaOrLength": {
+        "kind": "none",
+        "unit": "m",
+        "value": 0.0
+      },
+      "candidateId": "candidate:osm:way/33541968",
+      "category": "hero/reference",
+      "confidence": {
+        "facade": "unknown",
+        "footprint": "unknown",
+        "height": "unknown",
+        "position": "medium"
+      },
+      "currentDecision": "pending",
+      "evidenceAttributes": {
+        "referenceConfidence": "reference-only"
+      },
+      "externalIds": {
+        "osm": "way/33541968"
+      },
+      "featureType": "landmark",
+      "geometryReason": "valid",
+      "geometryStatus": "valid",
+      "name": "UPLB Freedom Park",
+      "priorityScore": [
+        1.0,
+        1.0,
+        12.0,
+        1.0,
+        -0.0
+      ],
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "recommendedAction": "confirm required hero identity, geometry, aliases, and source rights before promotion",
+      "registryMatch": "uplb:landmark:freedom-park",
+      "reviewHistory": [],
+      "reviewStatus": "pending",
+      "sourceGeometry": {
+        "coordinates": [
+          121.24173,
+          14.16128
+        ],
+        "type": "Point"
+      },
+      "sourceGeometryHash": "sha256:d82c3d955f3c53032def43c6d42503e554568cd94124b9d234fcc4640621201c"
+    },
+    {
+      "aliases": [
+        "Baker Hall",
+        "Charles Fuller Baker Memorial Hall"
+      ],
+      "approximatePosition": {
+        "lat": 14.1617583,
+        "lon": 121.242771
+      },
+      "areaOrLength": {
+        "kind": "area",
+        "unit": "m2",
+        "value": 1639.319
+      },
+      "candidateId": "candidate:osm:way/37449973",
+      "category": "hero/reference",
+      "confidence": {
+        "facade": "unknown",
+        "footprint": "medium",
+        "height": "medium",
+        "position": "medium"
+      },
+      "currentDecision": "pending",
+      "evidenceAttributes": {
+        "building": "yes",
+        "geometryReason": "valid",
+        "geometryState": "valid",
+        "levels": 2.0,
+        "originalGeometryHash": "sha256:453a6ff16f9a8a5f99be1d9dd8f1eef5831f4b57afac3b1ff9a061fb3a0407f9",
+        "osmTags": {
+          "addr:city": "Los Baños",
+          "addr:postcode": "4031",
+          "addr:street": "Mariano M. Mondoñedo Avenue",
+          "alt_name": "Baker Hall",
+          "building": "yes",
+          "building:levels": "2",
+          "building:material": "concrete",
+          "building:underground": "1",
+          "leisure": "stadium",
+          "name": "Charles Fuller Baker Memorial Hall",
+          "roof:material": "eternit",
+          "start_date": "1938",
+          "wikidata": "Q18209841",
+          "wikimedia_commons": "Category:Baker Memorial Hall",
+          "wikipedia": "en:Baker Memorial Hall"
+        }
+      },
+      "externalIds": {
+        "osm": "way/37449973"
+      },
+      "featureType": "building",
+      "geometryReason": "valid",
+      "geometryStatus": "valid",
+      "name": "Charles Fuller Baker Memorial Hall",
+      "priorityScore": [
+        1.0,
+        1.0,
+        17.0,
+        1.0,
+        -0.0
+      ],
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "recommendedAction": "confirm required hero identity, geometry, aliases, and source rights before promotion",
+      "registryMatch": "uplb:building:baker-hall",
+      "reviewHistory": [],
+      "reviewStatus": "pending",
+      "sourceGeometry": {
+        "coordinates": [
+          [
+            [
+              121.2425717,
+              14.1616089
+            ],
+            [
+              121.2425392,
+              14.1615886
+            ],
+            [
+              121.2425096,
+              14.161633
+            ],
+            [
+              121.2424807,
+              14.1616762
+            ],
+            [
+              121.2425132,
+              14.1616965
+            ],
+            [
+              121.2424861,
+              14.161737
+            ],
+            [
+              121.242722,
+              14.1618863
+            ],
+            [
+              121.2429078,
+              14.1620018
+            ],
+            [
+              121.2430562,
+              14.1617797
+            ],
+            [
+              121.2426345,
+              14.1615149
+            ],
+            [
+              121.2425717,
+              14.1616089
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "sourceGeometryHash": "sha256:453a6ff16f9a8a5f99be1d9dd8f1eef5831f4b57afac3b1ff9a061fb3a0407f9"
+    },
+    {
+      "aliases": [],
+      "approximatePosition": {
+        "lat": 14.1628102,
+        "lon": 121.2402396
+      },
+      "areaOrLength": {
+        "kind": "area",
+        "unit": "m2",
+        "value": 602.306
+      },
+      "candidateId": "candidate:osm:way/139810619",
+      "category": "ordinary building",
+      "confidence": {
+        "facade": "unknown",
+        "footprint": "medium",
+        "height": "medium",
+        "position": "medium"
+      },
+      "currentDecision": "pending",
+      "evidenceAttributes": {
+        "building": "dormitory",
+        "geometryReason": "valid",
+        "geometryState": "valid",
+        "levels": 1.0,
+        "originalGeometryHash": "sha256:a1aa634517e6d026608c4326d059766c897882b73e4a8d9611e9314a62467889",
+        "osmTags": {
+          "building": "dormitory",
+          "building:levels": "1",
+          "name": "Lower ACCI Dorm",
+          "source": "Bing"
+        }
+      },
+      "externalIds": {
+        "osm": "way/139810619"
+      },
+      "featureType": "building",
+      "geometryReason": "valid",
+      "geometryStatus": "valid",
+      "name": "Lower ACCI Dorm",
+      "priorityScore": [
+        1.0,
+        0.0,
+        17.0,
+        1.0,
+        -0.0
+      ],
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "recommendedAction": "confirm candidate identity, geometry, aliases, and source rights before promotion",
+      "registryMatch": null,
+      "reviewHistory": [],
+      "reviewStatus": "pending",
+      "sourceGeometry": {
+        "coordinates": [
+          [
+            [
+              121.2401251,
+              14.1628935
+            ],
+            [
+              121.2402569,
+              14.1629481
+            ],
+            [
+              121.2403992,
+              14.1626252
+            ],
+            [
+              121.2402674,
+              14.1625706
+            ],
+            [
+              121.2401979,
+              14.162727
+            ],
+            [
+              121.2401251,
+              14.1628935
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "sourceGeometryHash": "sha256:a1aa634517e6d026608c4326d059766c897882b73e4a8d9611e9314a62467889"
+    },
+    {
+      "aliases": [],
+      "approximatePosition": {
+        "lat": 14.1673106,
+        "lon": 121.2415831
+      },
+      "areaOrLength": {
+        "kind": "area",
+        "unit": "m2",
+        "value": 671.67
+      },
+      "candidateId": "candidate:osm:way/139810622",
+      "category": "ordinary building",
+      "confidence": {
+        "facade": "unknown",
+        "footprint": "medium",
+        "height": "medium",
+        "position": "medium"
+      },
+      "currentDecision": "pending",
+      "evidenceAttributes": {
+        "building": "yes",
+        "geometryReason": "valid",
+        "geometryState": "valid",
+        "layer": "1",
+        "levels": 1.0,
+        "originalGeometryHash": "sha256:3756d58d2bdeea5d1c7e92cfb305f9077788d0e071789fe2d0260c610e846af3",
+        "osmTags": {
+          "building": "yes",
+          "building:levels": "1",
+          "layer": "1",
+          "name": "Department of Economics"
+        }
+      },
+      "externalIds": {
+        "osm": "way/139810622"
+      },
+      "featureType": "building",
+      "geometryReason": "valid",
+      "geometryStatus": "valid",
+      "name": "Department of Economics",
+      "priorityScore": [
+        1.0,
+        0.0,
+        18.0,
+        0.0041718,
+        -238.704671508
+      ],
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "recommendedAction": "confirm candidate identity, geometry, aliases, and source rights before promotion",
+      "registryMatch": null,
+      "reviewHistory": [],
+      "reviewStatus": "pending",
+      "sourceGeometry": {
+        "coordinates": [
+          [
+            [
+              121.2413698,
+              14.167353
+            ],
+            [
+              121.2415566,
+              14.1672466
+            ],
+            [
+              121.2417251,
+              14.1671506
+            ],
+            [
+              121.2417964,
+              14.1672682
+            ],
+            [
+              121.2416137,
+              14.1673723
+            ],
+            [
+              121.2414411,
+              14.1674707
+            ],
+            [
+              121.2413698,
+              14.167353
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "sourceGeometryHash": "sha256:3756d58d2bdeea5d1c7e92cfb305f9077788d0e071789fe2d0260c610e846af3"
+    },
+    {
+      "aliases": [],
+      "approximatePosition": {
+        "lat": 14.1670087,
+        "lon": 121.2415393
+      },
+      "areaOrLength": {
+        "kind": "area",
+        "unit": "m2",
+        "value": 622.192
+      },
+      "candidateId": "candidate:osm:way/139810623",
+      "category": "ordinary building",
+      "confidence": {
+        "facade": "unknown",
+        "footprint": "medium",
+        "height": "medium",
+        "position": "medium"
+      },
+      "currentDecision": "pending",
+      "evidenceAttributes": {
+        "building": "yes",
+        "geometryReason": "valid",
+        "geometryState": "valid",
+        "layer": "1",
+        "levels": 1.0,
+        "originalGeometryHash": "sha256:55ed4a0b29841218a91d4a63fe0b298930f39e4088b9b27a5abca846387b6f76",
+        "osmTags": {
+          "building": "yes",
+          "building:levels": "1",
+          "layer": "1",
+          "name": "UPLB College of Economics and Management",
+          "wikidata": "Q7896743",
+          "wikipedia": "en:University of the Philippines Los Baños College of Economics and Management",
+          "wikipedia:en": "University of the Philippines Los Baños College of Economics and Management"
+        }
+      },
+      "externalIds": {
+        "osm": "way/139810623"
+      },
+      "featureType": "building",
+      "geometryReason": "valid",
+      "geometryStatus": "valid",
+      "name": "UPLB College of Economics and Management",
+      "priorityScore": [
+        1.0,
+        0.0,
+        18.0,
+        0.004822025,
+        -206.381773995
+      ],
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "recommendedAction": "confirm candidate identity, geometry, aliases, and source rights before promotion",
+      "registryMatch": null,
+      "reviewHistory": [],
+      "reviewStatus": "pending",
+      "sourceGeometry": {
+        "coordinates": [
+          [
+            [
+              121.2415651,
+              14.1669133
+            ],
+            [
+              121.2416537,
+              14.1668625
+            ],
+            [
+              121.2417266,
+              14.1669819
+            ],
+            [
+              121.2416332,
+              14.1670355
+            ],
+            [
+              121.2414034,
+              14.1671671
+            ],
+            [
+              121.2413306,
+              14.1670477
+            ],
+            [
+              121.2415651,
+              14.1669133
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "sourceGeometryHash": "sha256:55ed4a0b29841218a91d4a63fe0b298930f39e4088b9b27a5abca846387b6f76"
+    },
+    {
+      "aliases": [
+        "DECL Hall",
+        "College of Arts and Sciences Building",
+        "CAS Building",
+        "Humanities Building",
+        "Former UPLB Main Library",
+        "Former UPLB Post Office"
+      ],
+      "approximatePosition": {
+        "lat": 14.1648342,
+        "lon": 121.2412736
+      },
+      "areaOrLength": {
+        "kind": "area",
+        "unit": "m2",
+        "value": 1281.149
+      },
+      "candidateId": "candidate:osm:way/33541786",
+      "category": "ordinary building",
+      "confidence": {
+        "facade": "unknown",
+        "footprint": "medium",
+        "height": "medium",
+        "position": "medium"
+      },
+      "currentDecision": "pending",
+      "evidenceAttributes": {
+        "building": "university",
+        "geometryReason": "valid",
+        "geometryState": "valid",
+        "levels": 2.5,
+        "originalGeometryHash": "sha256:16b1a4107ffb5c6494a42015e7bdb703ac046ecb64817a54ab6147f8aa24e887",
+        "osmTags": {
+          "addr:city": "Los Baños",
+          "addr:postcode": "4031",
+          "alt_name": "DECL Hall;College of Arts and Sciences Building;CAS Building;Humanities Building;Former UPLB Main Library;Former UPLB Post Office",
+          "building": "university",
+          "building:levels": "2.5",
+          "name": "Dean Edelwina C. Legaspi Hall"
+        }
+      },
+      "externalIds": {
+        "osm": "way/33541786"
+      },
+      "featureType": "building",
+      "geometryReason": "valid",
+      "geometryStatus": "valid",
+      "name": "Dean Edelwina C. Legaspi Hall",
+      "priorityScore": [
+        1.0,
+        0.0,
+        17.0,
+        0.040882141,
+        -23.460558248
+      ],
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "recommendedAction": "confirm candidate identity, geometry, aliases, and source rights before promotion",
+      "registryMatch": null,
+      "reviewHistory": [],
+      "reviewStatus": "pending",
+      "sourceGeometry": {
+        "coordinates": [
+          [
+            [
+              121.2412458,
+              14.1645814
+            ],
+            [
+              121.241481,
+              14.1647018
+            ],
+            [
+              121.2414044,
+              14.1648426
+            ],
+            [
+              121.2413713,
+              14.1648257
+            ],
+            [
+              121.2413416,
+              14.1648804
+            ],
+            [
+              121.2413067,
+              14.1649444
+            ],
+            [
+              121.2413336,
+              14.1649581
+            ],
+            [
+              121.2412574,
+              14.1650981
+            ],
+            [
+              121.2410286,
+              14.164981
+            ],
+            [
+              121.2410649,
+              14.1649144
+            ],
+            [
+              121.241117,
+              14.1648187
+            ],
+            [
+              121.2411733,
+              14.1648475
+            ],
+            [
+              121.2412238,
+              14.1647546
+            ],
+            [
+              121.2411673,
+              14.1647256
+            ],
+            [
+              121.2412051,
+              14.1646561
+            ],
+            [
+              121.2412458,
+              14.1645814
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "sourceGeometryHash": "sha256:16b1a4107ffb5c6494a42015e7bdb703ac046ecb64817a54ab6147f8aa24e887"
+    },
+    {
+      "aliases": [
+        "UPLB OIL",
+        "Old UPLB Sentro ng Wikang Filipino"
+      ],
+      "approximatePosition": {
+        "lat": 14.1632658,
+        "lon": 121.2394704
+      },
+      "areaOrLength": {
+        "kind": "area",
+        "unit": "m2",
+        "value": 541.569
+      },
+      "candidateId": "candidate:osm:way/37331990",
+      "category": "ordinary building",
+      "confidence": {
+        "facade": "unknown",
+        "footprint": "medium",
+        "height": "medium",
+        "position": "medium"
+      },
+      "currentDecision": "pending",
+      "evidenceAttributes": {
+        "building": "university",
+        "geometryReason": "valid",
+        "geometryState": "valid",
+        "levels": 2.0,
+        "originalGeometryHash": "sha256:327c97114badb99dd760db8560bff2abfc710d3878e08fa07a7895c39847fe05",
+        "osmTags": {
+          "addr:city": "Los Baños",
+          "addr:postcode": "4031",
+          "addr:street": "Jose B. Juliano Avenue",
+          "alt_name": "UPLB OIL;Old UPLB Sentro ng Wikang Filipino",
+          "building": "university",
+          "building:levels": "2",
+          "name": "UPLB Office of International Linkages"
+        }
+      },
+      "externalIds": {
+        "osm": "way/37331990"
+      },
+      "featureType": "building",
+      "geometryReason": "valid",
+      "geometryStatus": "valid",
+      "name": "UPLB Office of International Linkages",
+      "priorityScore": [
+        1.0,
+        0.0,
+        17.0,
+        0.21131335,
+        -3.732308677
+      ],
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "recommendedAction": "confirm candidate identity, geometry, aliases, and source rights before promotion",
+      "registryMatch": null,
+      "reviewHistory": [],
+      "reviewStatus": "pending",
+      "sourceGeometry": {
+        "coordinates": [
+          [
+            [
+              121.2396622,
+              14.1633255
+            ],
+            [
+              121.2396627,
+              14.1632075
+            ],
+            [
+              121.2392785,
+              14.163206
+            ],
+            [
+              121.239278,
+              14.163324
+            ],
+            [
+              121.2395854,
+              14.1633252
+            ],
+            [
+              121.2396622,
+              14.1633255
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "sourceGeometryHash": "sha256:327c97114badb99dd760db8560bff2abfc710d3878e08fa07a7895c39847fe05"
+    },
+    {
+      "aliases": [
+        "PhySci"
+      ],
+      "approximatePosition": {
+        "lat": 14.1642651,
+        "lon": 121.2419655
+      },
+      "areaOrLength": {
+        "kind": "area",
+        "unit": "m2",
+        "value": 4734.463
+      },
+      "candidateId": "candidate:osm:way/44076412",
+      "category": "ordinary building",
+      "confidence": {
+        "facade": "unknown",
+        "footprint": "medium",
+        "height": "medium",
+        "position": "medium"
+      },
+      "currentDecision": "pending",
+      "evidenceAttributes": {
+        "building": "university",
+        "geometryReason": "valid",
+        "geometryState": "valid",
+        "layer": "1",
+        "levels": 3.0,
+        "originalGeometryHash": "sha256:572b8dd22889402536774035746bab7b79640bc368db7ede0a1a84ef9d8f3415",
+        "osmTags": {
+          "addr:city": "Los Baños",
+          "addr:postcode": "4031",
+          "addr:street": "Harold Cuzner Royal Palm Avenue",
+          "alt_name": "PhySci",
+          "building": "university",
+          "building:levels": "3",
+          "building:material": "concrete",
+          "layer": "1",
+          "name": "Francisco O. Santos Hall",
+          "old_name": "Physical Sciences",
+          "roof:shape": "gabled"
+        }
+      },
+      "externalIds": {
+        "osm": "way/44076412"
+      },
+      "featureType": "building",
+      "geometryReason": "valid",
+      "geometryStatus": "valid",
+      "name": "Francisco O. Santos Hall",
+      "priorityScore": [
+        1.0,
+        0.0,
+        18.0,
+        0.018298495,
+        -53.649304369
+      ],
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "recommendedAction": "confirm candidate identity, geometry, aliases, and source rights before promotion",
+      "registryMatch": null,
+      "reviewHistory": [],
+      "reviewStatus": "pending",
+      "sourceGeometry": {
+        "coordinates": [
+          [
+            [
+              121.2416125,
+              14.1642209
+            ],
+            [
+              121.2419549,
+              14.1643768
+            ],
+            [
+              121.241917,
+              14.1644552
+            ],
+            [
+              121.2417559,
+              14.1643881
+            ],
+            [
+              121.2417017,
+              14.164481
+            ],
+            [
+              121.2418619,
+              14.1645542
+            ],
+            [
+              121.241859,
+              14.1645605
+            ],
+            [
+              121.2418555,
+              14.164568
+            ],
+            [
+              121.2418382,
+              14.164605
+            ],
+            [
+              121.2418772,
+              14.1646197
+            ],
+            [
+              121.2419107,
+              14.1646336
+            ],
+            [
+              121.2419334,
+              14.164644
+            ],
+            [
+              121.2422479,
+              14.1647774
+            ],
+            [
+              121.2422917,
+              14.1647631
+            ],
+            [
+              121.2423453,
+              14.1646601
+            ],
+            [
+              121.2421532,
+              14.1645763
+            ],
+            [
+              121.2419666,
+              14.164502
+            ],
+            [
+              121.2419925,
+              14.1644529
+            ],
+            [
+              121.2422046,
+              14.1645381
+            ],
+            [
+              121.2423174,
+              14.1643073
+            ],
+            [
+              121.2420906,
+              14.1642075
+            ],
+            [
+              121.2421096,
+              14.1641583
+            ],
+            [
+              121.2422587,
+              14.1642229
+            ],
+            [
+              121.2424156,
+              14.1639086
+            ],
+            [
+              121.2421674,
+              14.1637937
+            ],
+            [
+              121.2420969,
+              14.1639216
+            ],
+            [
+              121.2420752,
+              14.1639612
+            ],
+            [
+              121.2417743,
+              14.1638317
+            ],
+            [
+              121.241708,
+              14.1639899
+            ],
+            [
+              121.2417354,
+              14.1640025
+            ],
+            [
+              121.2420628,
+              14.16415
+            ],
+            [
+              121.2420321,
+              14.1642142
+            ],
+            [
+              121.2417085,
+              14.1640682
+            ],
+            [
+              121.2416803,
+              14.1640574
+            ],
+            [
+              121.2416125,
+              14.1642209
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "sourceGeometryHash": "sha256:572b8dd22889402536774035746bab7b79640bc368db7ede0a1a84ef9d8f3415"
+    },
+    {
+      "aliases": [],
+      "approximatePosition": {
+        "lat": 14.1618939,
+        "lon": 121.2424658
+      },
+      "areaOrLength": {
+        "kind": "area",
+        "unit": "m2",
+        "value": 325.181
+      },
+      "candidateId": "candidate:osm:way/554832786",
+      "category": "ordinary building",
+      "confidence": {
+        "facade": "unknown",
+        "footprint": "medium",
+        "height": "medium",
+        "position": "medium"
+      },
+      "currentDecision": "pending",
+      "evidenceAttributes": {
+        "building": "yes",
+        "geometryReason": "valid",
+        "geometryState": "valid",
+        "levels": 1.0,
+        "originalGeometryHash": "sha256:73f0f51c8f17dbee5c2b19b0e757b04affcd454390f9f84fe80f24f613780e3d",
+        "osmTags": {
+          "building": "yes",
+          "building:levels": "1",
+          "name": "Technology Hub and One Stop Shop",
+          "shop": "general"
+        }
+      },
+      "externalIds": {
+        "osm": "way/554832786"
+      },
+      "featureType": "building",
+      "geometryReason": "valid",
+      "geometryStatus": "valid",
+      "name": "Technology Hub and One Stop Shop",
+      "priorityScore": [
+        1.0,
+        0.0,
+        17.0,
+        0.120440905,
+        -7.302827048
+      ],
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "recommendedAction": "confirm candidate identity, geometry, aliases, and source rights before promotion",
+      "registryMatch": null,
+      "reviewHistory": [],
+      "reviewStatus": "pending",
+      "sourceGeometry": {
+        "coordinates": [
+          [
+            [
+              121.2423839,
+              14.1619871
+            ],
+            [
+              121.2423146,
+              14.1619412
+            ],
+            [
+              121.2424248,
+              14.1617813
+            ],
+            [
+              121.2425928,
+              14.1618832
+            ],
+            [
+              121.2425299,
+              14.1619626
+            ],
+            [
+              121.242448,
+              14.1619045
+            ],
+            [
+              121.2423839,
+              14.1619871
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "sourceGeometryHash": "sha256:73f0f51c8f17dbee5c2b19b0e757b04affcd454390f9f84fe80f24f613780e3d"
+    },
+    {
+      "aliases": [],
+      "approximatePosition": {
+        "lat": 14.1624939,
+        "lon": 121.2436701
+      },
+      "areaOrLength": {
+        "kind": "area",
+        "unit": "m2",
+        "value": 786.296
+      },
+      "candidateId": "candidate:osm:way/64056189",
+      "category": "ordinary building",
+      "confidence": {
+        "facade": "unknown",
+        "footprint": "medium",
+        "height": "medium",
+        "position": "medium"
+      },
+      "currentDecision": "pending",
+      "evidenceAttributes": {
+        "building": "roof",
+        "geometryReason": "valid",
+        "geometryState": "valid",
+        "layer": "1",
+        "levels": 1.0,
+        "originalGeometryHash": "sha256:f1c45a0fce28f9e47cdc82d68f0503a013f0e22cb2704f485ea41d81662770b2",
+        "osmTags": {
+          "addr:street": "Andres P. Aglibut Avenue",
+          "building": "roof",
+          "building:levels": "1",
+          "layer": "1",
+          "name": "Seniors' Social Garden",
+          "operator": "Crop Science Cluster, UPLB College of Agriculture"
+        }
+      },
+      "externalIds": {
+        "osm": "way/64056189"
+      },
+      "featureType": "building",
+      "geometryReason": "valid",
+      "geometryStatus": "valid",
+      "name": "Seniors' Social Garden",
+      "priorityScore": [
+        1.0,
+        0.0,
+        18.0,
+        0.012229298,
+        -80.77084449
+      ],
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "recommendedAction": "confirm candidate identity, geometry, aliases, and source rights before promotion",
+      "registryMatch": null,
+      "reviewHistory": [],
+      "reviewStatus": "pending",
+      "sourceGeometry": {
+        "coordinates": [
+          [
+            [
+              121.2435642,
+              14.162573
+            ],
+            [
+              121.2435798,
+              14.1625895
+            ],
+            [
+              121.2436096,
+              14.1626096
+            ],
+            [
+              121.2436358,
+              14.1626193
+            ],
+            [
+              121.2436768,
+              14.1626235
+            ],
+            [
+              121.2437076,
+              14.1626184
+            ],
+            [
+              121.2437445,
+              14.1626015
+            ],
+            [
+              121.2438144,
+              14.1626456
+            ],
+            [
+              121.2438412,
+              14.1626055
+            ],
+            [
+              121.2438744,
+              14.162556
+            ],
+            [
+              121.2438022,
+              14.1625104
+            ],
+            [
+              121.2438027,
+              14.1624843
+            ],
+            [
+              121.2437955,
+              14.1624516
+            ],
+            [
+              121.2437867,
+              14.1624324
+            ],
+            [
+              121.2437658,
+              14.1624049
+            ],
+            [
+              121.2437486,
+              14.1623903
+            ],
+            [
+              121.2437216,
+              14.1623755
+            ],
+            [
+              121.2436964,
+              14.162368
+            ],
+            [
+              121.2436654,
+              14.1623654
+            ],
+            [
+              121.2436323,
+              14.1623706
+            ],
+            [
+              121.2436012,
+              14.1623838
+            ],
+            [
+              121.2435622,
+              14.1623592
+            ],
+            [
+              121.2435021,
+              14.1624488
+            ],
+            [
+              121.2435388,
+              14.162472
+            ],
+            [
+              121.2435371,
+              14.1625035
+            ],
+            [
+              121.2435422,
+              14.162531
+            ],
+            [
+              121.2435491,
+              14.1625487
+            ],
+            [
+              121.2435642,
+              14.162573
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "sourceGeometryHash": "sha256:f1c45a0fce28f9e47cdc82d68f0503a013f0e22cb2704f485ea41d81662770b2"
+    },
+    {
+      "aliases": [],
+      "approximatePosition": {
+        "lat": 14.1652802,
+        "lon": 121.2413587
+      },
+      "areaOrLength": {
+        "kind": "length",
+        "unit": "m",
+        "value": 129.925
+      },
+      "candidateId": "candidate:osm:way/33541448",
+      "category": "road/intersection",
+      "confidence": {
+        "facade": "unknown",
+        "footprint": "unknown",
+        "height": "unknown",
+        "position": "medium"
+      },
+      "currentDecision": "pending",
+      "evidenceAttributes": {
+        "geometryReason": "valid",
+        "geometryState": "valid",
+        "highway": "unclassified",
+        "oneway": "yes",
+        "originalGeometryHash": "sha256:9f785e5bb40c457cf37a241dff660f833d07a8a98d47510861978751cd063a62",
+        "osmTags": {
+          "highway": "unclassified",
+          "lanes": "2",
+          "lit": "yes",
+          "maxspeed": "30",
+          "name": "Pedro R. Sandoval Avenue",
+          "old_name": "Sampaloc",
+          "oneway": "yes",
+          "postal_code": "4031",
+          "surface": "asphalt"
+        },
+        "surface": "asphalt"
+      },
+      "externalIds": {
+        "osm": "way/33541448"
+      },
+      "featureType": "road",
+      "geometryReason": "valid",
+      "geometryStatus": "valid",
+      "name": "Pedro R. Sandoval Avenue",
+      "priorityScore": [
+        1.0,
+        48.0,
+        0.0,
+        18.0,
+        0.028587664,
+        -33.980122432
+      ],
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "recommendedAction": "confirm candidate identity, geometry, aliases, and source rights before promotion",
+      "registryMatch": null,
+      "reviewHistory": [],
+      "reviewStatus": "pending",
+      "sourceGeometry": {
+        "coordinates": [
+          [
+            121.2419523,
+            14.165474
+          ],
+          [
+            121.2418774,
+            14.1654385
+          ],
+          [
+            121.241577,
+            14.1653237
+          ],
+          [
+            121.2414858,
+            14.165301
+          ],
+          [
+            121.2414238,
+            14.1652854
+          ],
+          [
+            121.2413587,
+            14.1652802
+          ],
+          [
+            121.241284,
+            14.1652757
+          ],
+          [
+            121.2411331,
+            14.1652737
+          ],
+          [
+            121.2410158,
+            14.1652757
+          ],
+          [
+            121.2408896,
+            14.1652872
+          ],
+          [
+            121.2407864,
+            14.1653017
+          ]
+        ],
+        "type": "LineString"
+      },
+      "sourceGeometryHash": "sha256:9f785e5bb40c457cf37a241dff660f833d07a8a98d47510861978751cd063a62"
+    },
+    {
+      "aliases": [],
+      "approximatePosition": {
+        "lat": 14.1651961,
+        "lon": 121.2407871
+      },
+      "areaOrLength": {
+        "kind": "length",
+        "unit": "m",
+        "value": 247.109
+      },
+      "candidateId": "candidate:osm:way/33541760",
+      "category": "road/intersection",
+      "confidence": {
+        "facade": "unknown",
+        "footprint": "unknown",
+        "height": "unknown",
+        "position": "medium"
+      },
+      "currentDecision": "pending",
+      "evidenceAttributes": {
+        "geometryReason": "valid",
+        "geometryState": "valid",
+        "highway": "unclassified",
+        "oneway": "yes",
+        "originalGeometryHash": "sha256:c0b523aa6d7b0b4326df9654651299999284c19450f21a05b57effcaf84a259a",
+        "osmTags": {
+          "highway": "unclassified",
+          "lanes": "2",
+          "lit": "yes",
+          "maxspeed": "30",
+          "name": "Andres P. Aglibut Avenue",
+          "old_name": "Lanzones",
+          "oneway": "yes",
+          "postal_code": "4031",
+          "surface": "asphalt"
+        },
+        "surface": "asphalt"
+      },
+      "externalIds": {
+        "osm": "way/33541760"
+      },
+      "featureType": "road",
+      "geometryReason": "valid",
+      "geometryStatus": "valid",
+      "name": "Andres P. Aglibut Avenue",
+      "priorityScore": [
+        1.0,
+        73.0,
+        0.0,
+        18.0,
+        0.013701113,
+        -71.986773812
+      ],
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "recommendedAction": "confirm candidate identity, geometry, aliases, and source rights before promotion",
+      "registryMatch": null,
+      "reviewHistory": [],
+      "reviewStatus": "pending",
+      "sourceGeometry": {
+        "coordinates": [
+          [
+            121.2410055,
+            14.1662961
+          ],
+          [
+            121.2409886,
+            14.1662167
+          ],
+          [
+            121.2409712,
+            14.166125
+          ],
+          [
+            121.2409469,
+            14.166014
+          ],
+          [
+            121.2409166,
+            14.1658752
+          ],
+          [
+            121.2408894,
+            14.1657507
+          ],
+          [
+            121.240862,
+            14.1656301
+          ],
+          [
+            121.240836,
+            14.1655162
+          ],
+          [
+            121.2408002,
+            14.165366
+          ],
+          [
+            121.2407984,
+            14.1653575
+          ],
+          [
+            121.2407864,
+            14.1653017
+          ],
+          [
+            121.2407871,
+            14.1651961
+          ],
+          [
+            121.2408645,
+            14.1649311
+          ],
+          [
+            121.2409158,
+            14.1647991
+          ],
+          [
+            121.2409641,
+            14.1646554
+          ],
+          [
+            121.2410788,
+            14.1644028
+          ],
+          [
+            121.2411482,
+            14.1642455
+          ],
+          [
+            121.2411901,
+            14.1641597
+          ]
+        ],
+        "type": "LineString"
+      },
+      "sourceGeometryHash": "sha256:c0b523aa6d7b0b4326df9654651299999284c19450f21a05b57effcaf84a259a"
+    },
+    {
+      "aliases": [],
+      "approximatePosition": {
+        "lat": 14.1673583,
+        "lon": 121.2407507
+      },
+      "areaOrLength": {
+        "kind": "length",
+        "unit": "m",
+        "value": 522.943
+      },
+      "candidateId": "candidate:osm:way/36873802",
+      "category": "road/intersection",
+      "confidence": {
+        "facade": "unknown",
+        "footprint": "unknown",
+        "height": "unknown",
+        "position": "medium"
+      },
+      "currentDecision": "pending",
+      "evidenceAttributes": {
+        "geometryReason": "valid",
+        "geometryState": "valid",
+        "highway": "secondary",
+        "originalGeometryHash": "sha256:517934194f6b9da574db53efb51268bf73a6f5aa82c5d69821eb2d7aa0b9970f",
+        "osmTags": {
+          "designation": "national_tertiary_road",
+          "highway": "secondary",
+          "lanes": "2",
+          "lit": "yes",
+          "name": "Jose R. Velasco Avenue",
+          "old_name": "Kanluran",
+          "postal_code": "4031",
+          "ref": "420-3",
+          "surface": "asphalt"
+        },
+        "surface": "asphalt"
+      },
+      "externalIds": {
+        "osm": "way/36873802"
+      },
+      "featureType": "road",
+      "geometryReason": "valid",
+      "geometryStatus": "valid",
+      "name": "Jose R. Velasco Avenue",
+      "priorityScore": [
+        1.0,
+        57.0,
+        0.0,
+        17.0,
+        0.003644315,
+        -273.400019402
+      ],
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "recommendedAction": "confirm candidate identity, geometry, aliases, and source rights before promotion",
+      "registryMatch": null,
+      "reviewHistory": [],
+      "reviewStatus": "pending",
+      "sourceGeometry": {
+        "coordinates": [
+          [
+            121.2430119,
+            14.1675854
+          ],
+          [
+            121.242849,
+            14.167692
+          ],
+          [
+            121.2426227,
+            14.16784
+          ],
+          [
+            121.2425112,
+            14.167913
+          ],
+          [
+            121.2424781,
+            14.1679347
+          ],
+          [
+            121.2423666,
+            14.1679905
+          ],
+          [
+            121.2422935,
+            14.1679964
+          ],
+          [
+            121.2422232,
+            14.1679778
+          ],
+          [
+            121.2420598,
+            14.1679164
+          ],
+          [
+            121.2416451,
+            14.1677326
+          ],
+          [
+            121.2415719,
+            14.1677017
+          ],
+          [
+            121.241549,
+            14.1676924
+          ],
+          [
+            121.2414037,
+            14.1676358
+          ],
+          [
+            121.2412887,
+            14.1675829
+          ],
+          [
+            121.2409983,
+            14.1674609
+          ],
+          [
+            121.2407507,
+            14.1673583
+          ],
+          [
+            121.240644,
+            14.1673102
+          ],
+          [
+            121.2405416,
+            14.1672666
+          ],
+          [
+            121.2404288,
+            14.1672186
+          ],
+          [
+            121.24035,
+            14.1671905
+          ],
+          [
+            121.2401965,
+            14.167118
+          ],
+          [
+            121.2401695,
+            14.1671062
+          ],
+          [
+            121.239995,
+            14.1670302
+          ],
+          [
+            121.2399375,
+            14.1670045
+          ],
+          [
+            121.2395699,
+            14.1668577
+          ],
+          [
+            121.2391875,
+            14.1667047
+          ],
+          [
+            121.2387567,
+            14.1665188
+          ],
+          [
+            121.2386169,
+            14.166457
+          ]
+        ],
+        "type": "LineString"
+      },
+      "sourceGeometryHash": "sha256:517934194f6b9da574db53efb51268bf73a6f5aa82c5d69821eb2d7aa0b9970f"
+    },
+    {
+      "aliases": [],
+      "approximatePosition": {
+        "lat": 14.1631876,
+        "lon": 121.2401699
+      },
+      "areaOrLength": {
+        "kind": "length",
+        "unit": "m",
+        "value": 458.079
+      },
+      "candidateId": "candidate:osm:way/37331842",
+      "category": "road/intersection",
+      "confidence": {
+        "facade": "unknown",
+        "footprint": "unknown",
+        "height": "unknown",
+        "position": "medium"
+      },
+      "currentDecision": "pending",
+      "evidenceAttributes": {
+        "geometryReason": "valid",
+        "geometryState": "valid",
+        "highway": "tertiary",
+        "originalGeometryHash": "sha256:6cbe78971003b083835c916026e60f69eaa2b954b8463bf31a3b78928168504b",
+        "osmTags": {
+          "highway": "tertiary",
+          "lanes": "2",
+          "lit": "yes",
+          "name": "Jose B. Juliano Avenue",
+          "old_name": "Waling-Waling",
+          "postal_code": "4031",
+          "surface": "asphalt"
+        },
+        "surface": "asphalt"
+      },
+      "externalIds": {
+        "osm": "way/37331842"
+      },
+      "featureType": "road",
+      "geometryReason": "valid",
+      "geometryStatus": "valid",
+      "name": "Jose B. Juliano Avenue",
+      "priorityScore": [
+        1.0,
+        51.0,
+        0.0,
+        17.0,
+        0.057094032,
+        -16.514965616
+      ],
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "recommendedAction": "confirm candidate identity, geometry, aliases, and source rights before promotion",
+      "registryMatch": null,
+      "reviewHistory": [],
+      "reviewStatus": "pending",
+      "sourceGeometry": {
+        "coordinates": [
+          [
+            121.2385151,
+            14.164272
+          ],
+          [
+            121.2386303,
+            14.1642649
+          ],
+          [
+            121.238752,
+            14.1642513
+          ],
+          [
+            121.2391822,
+            14.1641916
+          ],
+          [
+            121.2394241,
+            14.1641795
+          ],
+          [
+            121.2396274,
+            14.1641535
+          ],
+          [
+            121.2397015,
+            14.1641121
+          ],
+          [
+            121.2397394,
+            14.1640669
+          ],
+          [
+            121.2398402,
+            14.1639068
+          ],
+          [
+            121.2399382,
+            14.1636861
+          ],
+          [
+            121.2399709,
+            14.163621
+          ],
+          [
+            121.2399752,
+            14.1636117
+          ],
+          [
+            121.2399844,
+            14.1635917
+          ],
+          [
+            121.2399983,
+            14.163561
+          ],
+          [
+            121.2400362,
+            14.1634886
+          ],
+          [
+            121.2400519,
+            14.1634565
+          ],
+          [
+            121.2400936,
+            14.1633662
+          ],
+          [
+            121.2401088,
+            14.1633307
+          ],
+          [
+            121.2401699,
+            14.1631876
+          ],
+          [
+            121.2402084,
+            14.1630985
+          ],
+          [
+            121.2402479,
+            14.1630063
+          ],
+          [
+            121.240462,
+            14.1625648
+          ],
+          [
+            121.2405156,
+            14.1624502
+          ],
+          [
+            121.2407148,
+            14.1620524
+          ],
+          [
+            121.2407518,
+            14.1619528
+          ],
+          [
+            121.2407719,
+            14.1619014
+          ],
+          [
+            121.2408529,
+            14.1617361
+          ],
+          [
+            121.2408978,
+            14.1616561
+          ],
+          [
+            121.2409953,
+            14.1614706
+          ],
+          [
+            121.2410103,
+            14.161442
+          ]
+        ],
+        "type": "LineString"
+      },
+      "sourceGeometryHash": "sha256:6cbe78971003b083835c916026e60f69eaa2b954b8463bf31a3b78928168504b"
+    },
+    {
+      "aliases": [],
+      "approximatePosition": {
+        "lat": 14.1658859,
+        "lon": 121.2441932
+      },
+      "areaOrLength": {
+        "kind": "length",
+        "unit": "m",
+        "value": 407.267
+      },
+      "candidateId": "candidate:osm:way/38284027",
+      "category": "road/intersection",
+      "confidence": {
+        "facade": "unknown",
+        "footprint": "unknown",
+        "height": "unknown",
+        "position": "medium"
+      },
+      "currentDecision": "pending",
+      "evidenceAttributes": {
+        "geometryReason": "valid",
+        "geometryState": "valid",
+        "highway": "secondary",
+        "originalGeometryHash": "sha256:22ad90cb6218c291b4a185e7bcab28fcedd0b70c6b0094306340c3e0b7231ca2",
+        "osmTags": {
+          "highway": "secondary",
+          "lanes": "4",
+          "lit": "yes",
+          "name": "Victoria M. Ela Avenue",
+          "old_name": "Silangan",
+          "postal_code": "4031",
+          "surface": "asphalt"
+        },
+        "surface": "asphalt"
+      },
+      "externalIds": {
+        "osm": "way/38284027"
+      },
+      "featureType": "road",
+      "geometryReason": "valid",
+      "geometryStatus": "valid",
+      "name": "Victoria M. Ela Avenue",
+      "priorityScore": [
+        1.0,
+        63.0,
+        0.0,
+        17.0,
+        0.003321083,
+        -300.106607925
+      ],
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "recommendedAction": "confirm candidate identity, geometry, aliases, and source rights before promotion",
+      "registryMatch": null,
+      "reviewHistory": [],
+      "reviewStatus": "pending",
+      "sourceGeometry": {
+        "coordinates": [
+          [
+            121.243316,
+            14.1673864
+          ],
+          [
+            121.2433452,
+            14.1673673
+          ],
+          [
+            121.243425,
+            14.167324
+          ],
+          [
+            121.2435852,
+            14.1672184
+          ],
+          [
+            121.243647,
+            14.1671311
+          ],
+          [
+            121.2436945,
+            14.1669908
+          ],
+          [
+            121.2437754,
+            14.1667967
+          ],
+          [
+            121.2438143,
+            14.1667038
+          ],
+          [
+            121.2438708,
+            14.1665781
+          ],
+          [
+            121.2439018,
+            14.166509
+          ],
+          [
+            121.243935,
+            14.1664401
+          ],
+          [
+            121.2440012,
+            14.1662888
+          ],
+          [
+            121.2440141,
+            14.1662594
+          ],
+          [
+            121.2440181,
+            14.1662483
+          ],
+          [
+            121.2440741,
+            14.1661397
+          ],
+          [
+            121.2441932,
+            14.1658859
+          ],
+          [
+            121.2442568,
+            14.1657636
+          ],
+          [
+            121.2443739,
+            14.1655266
+          ],
+          [
+            121.2444107,
+            14.1654504
+          ],
+          [
+            121.2444545,
+            14.1653284
+          ],
+          [
+            121.2445087,
+            14.1652155
+          ],
+          [
+            121.2445651,
+            14.1650784
+          ],
+          [
+            121.2445835,
+            14.165037
+          ],
+          [
+            121.2447094,
+            14.1647193
+          ],
+          [
+            121.2448866,
+            14.1643492
+          ],
+          [
+            121.2450006,
+            14.1641515
+          ]
+        ],
+        "type": "LineString"
+      },
+      "sourceGeometryHash": "sha256:22ad90cb6218c291b4a185e7bcab28fcedd0b70c6b0094306340c3e0b7231ca2"
+    },
+    {
+      "aliases": [],
+      "approximatePosition": {
+        "lat": 14.1572833,
+        "lon": 121.2417296
+      },
+      "areaOrLength": {
+        "kind": "length",
+        "unit": "m",
+        "value": 74.495
+      },
+      "candidateId": "candidate:osm:way/1105825165",
+      "category": "walkway/pedestrian",
+      "confidence": {
+        "facade": "unknown",
+        "footprint": "unknown",
+        "height": "unknown",
+        "position": "medium"
+      },
+      "currentDecision": "pending",
+      "evidenceAttributes": {
+        "geometryReason": "valid",
+        "geometryState": "valid",
+        "highway": "footway",
+        "originalGeometryHash": "sha256:9334ef7e5042b1367d1953b788fa7e7eba6ef2de64bf991a335e188d0dd2bac6",
+        "osmTags": {
+          "highway": "footway",
+          "name": "UPLB Softball Infield",
+          "surface": "grass"
+        },
+        "surface": "grass"
+      },
+      "externalIds": {
+        "osm": "way/1105825165"
+      },
+      "featureType": "walkway",
+      "geometryReason": "valid",
+      "geometryStatus": "valid",
+      "name": "UPLB Softball Infield",
+      "priorityScore": [
+        1.0,
+        1.0,
+        0.0,
+        17.0,
+        0.002394298,
+        -416.658895946
+      ],
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "recommendedAction": "confirm candidate identity, geometry, aliases, and source rights before promotion",
+      "registryMatch": null,
+      "reviewHistory": [],
+      "reviewStatus": "pending",
+      "sourceGeometry": {
+        "coordinates": [
+          [
+            121.2417863,
+            14.1575147
+          ],
+          [
+            121.2416359,
+            14.1574105
+          ],
+          [
+            121.2417296,
+            14.1572833
+          ],
+          [
+            121.24188,
+            14.1573875
+          ],
+          [
+            121.2417863,
+            14.1575147
+          ]
+        ],
+        "type": "LineString"
+      },
+      "sourceGeometryHash": "sha256:9334ef7e5042b1367d1953b788fa7e7eba6ef2de64bf991a335e188d0dd2bac6"
+    },
+    {
+      "aliases": [],
+      "approximatePosition": {
+        "lat": 14.1583239,
+        "lon": 121.2418082
+      },
+      "areaOrLength": {
+        "kind": "length",
+        "unit": "m",
+        "value": 74.197
+      },
+      "candidateId": "candidate:osm:way/125579517",
+      "category": "walkway/pedestrian",
+      "confidence": {
+        "facade": "unknown",
+        "footprint": "unknown",
+        "height": "unknown",
+        "position": "medium"
+      },
+      "currentDecision": "pending",
+      "evidenceAttributes": {
+        "geometryReason": "valid",
+        "geometryState": "valid",
+        "highway": "footway",
+        "oneway": "yes",
+        "originalGeometryHash": "sha256:a1c280acfce93ea928b1ddc9c72a459fcbe8978a6087c76d9610e80bd3444bc1",
+        "osmTags": {
+          "foot": "yes",
+          "highway": "footway",
+          "name": "UPLB Baseball Infield",
+          "oneway": "yes",
+          "surface": "grass"
+        },
+        "surface": "grass"
+      },
+      "externalIds": {
+        "osm": "way/125579517"
+      },
+      "featureType": "walkway",
+      "geometryReason": "valid",
+      "geometryStatus": "valid",
+      "name": "UPLB Baseball Infield",
+      "priorityScore": [
+        1.0,
+        1.0,
+        0.0,
+        18.0,
+        0.003047025,
+        -327.188946615
+      ],
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "recommendedAction": "confirm candidate identity, geometry, aliases, and source rights before promotion",
+      "registryMatch": null,
+      "reviewHistory": [],
+      "reviewStatus": "pending",
+      "sourceGeometry": {
+        "coordinates": [
+          [
+            121.2417426,
+            14.1580963
+          ],
+          [
+            121.2418932,
+            14.1581796
+          ],
+          [
+            121.2418082,
+            14.1583239
+          ],
+          [
+            121.2416577,
+            14.1582406
+          ],
+          [
+            121.2417426,
+            14.1580963
+          ]
+        ],
+        "type": "LineString"
+      },
+      "sourceGeometryHash": "sha256:a1c280acfce93ea928b1ddc9c72a459fcbe8978a6087c76d9610e80bd3444bc1"
+    },
+    {
+      "aliases": [],
+      "approximatePosition": {
+        "lat": 14.1630698,
+        "lon": 121.2411925
+      },
+      "areaOrLength": {
+        "kind": "length",
+        "unit": "m",
+        "value": 186.925
+      },
+      "candidateId": "candidate:osm:way/131293024",
+      "category": "walkway/pedestrian",
+      "confidence": {
+        "facade": "unknown",
+        "footprint": "unknown",
+        "height": "unknown",
+        "position": "medium"
+      },
+      "currentDecision": "pending",
+      "evidenceAttributes": {
+        "geometryReason": "valid",
+        "geometryState": "valid",
+        "highway": "pedestrian",
+        "originalGeometryHash": "sha256:d25dfafa5fc8fd4b15a9a8b3edf6a4ab49be44fae893be139f00ec716a42a589",
+        "osmTags": {
+          "area": "yes",
+          "highway": "pedestrian",
+          "name": "SU Amphitheater"
+        }
+      },
+      "externalIds": {
+        "osm": "way/131293024"
+      },
+      "featureType": "walkway",
+      "geometryReason": "valid",
+      "geometryStatus": "valid",
+      "name": "SU Amphitheater",
+      "priorityScore": [
+        1.0,
+        18.0,
+        0.0,
+        16.0,
+        0.012447234,
+        -79.339136026
+      ],
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "recommendedAction": "confirm candidate identity, geometry, aliases, and source rights before promotion",
+      "registryMatch": null,
+      "reviewHistory": [],
+      "reviewStatus": "pending",
+      "sourceGeometry": {
+        "coordinates": [
+          [
+            121.2413396,
+            14.1629443
+          ],
+          [
+            121.2414202,
+            14.1628475
+          ],
+          [
+            121.2414805,
+            14.1628834
+          ],
+          [
+            121.2414076,
+            14.1629912
+          ],
+          [
+            121.2413195,
+            14.1631216
+          ],
+          [
+            121.2412569,
+            14.1631939
+          ],
+          [
+            121.2412014,
+            14.1632387
+          ],
+          [
+            121.2411023,
+            14.1633188
+          ],
+          [
+            121.2409797,
+            14.1634002
+          ],
+          [
+            121.2409514,
+            14.1633671
+          ],
+          [
+            121.2409304,
+            14.1633395
+          ],
+          [
+            121.240914,
+            14.163298
+          ],
+          [
+            121.2409108,
+            14.1632631
+          ],
+          [
+            121.2409148,
+            14.1632285
+          ],
+          [
+            121.2409242,
+            14.1631906
+          ],
+          [
+            121.2409329,
+            14.1631659
+          ],
+          [
+            121.2409577,
+            14.1631225
+          ],
+          [
+            121.2409852,
+            14.1630885
+          ],
+          [
+            121.241022,
+            14.1630603
+          ],
+          [
+            121.2410612,
+            14.1630439
+          ],
+          [
+            121.2411274,
+            14.1630511
+          ],
+          [
+            121.2411666,
+            14.1630602
+          ],
+          [
+            121.2411925,
+            14.1630698
+          ],
+          [
+            121.2412082,
+            14.1630745
+          ],
+          [
+            121.2412223,
+            14.1630755
+          ],
+          [
+            121.241234,
+            14.1630723
+          ],
+          [
+            121.2412498,
+            14.1630602
+          ],
+          [
+            121.2412769,
+            14.1630236
+          ],
+          [
+            121.2413317,
+            14.1629568
+          ],
+          [
+            121.2413396,
+            14.1629443
+          ]
+        ],
+        "type": "LineString"
+      },
+      "sourceGeometryHash": "sha256:d25dfafa5fc8fd4b15a9a8b3edf6a4ab49be44fae893be139f00ec716a42a589"
+    },
+    {
+      "aliases": [],
+      "approximatePosition": {
+        "lat": 14.1650456,
+        "lon": 121.2445036
+      },
+      "areaOrLength": {
+        "kind": "length",
+        "unit": "m",
+        "value": 679.652
+      },
+      "candidateId": "candidate:osm:way/1316742236",
+      "category": "walkway/pedestrian",
+      "confidence": {
+        "facade": "unknown",
+        "footprint": "unknown",
+        "height": "unknown",
+        "position": "medium"
+      },
+      "currentDecision": "pending",
+      "evidenceAttributes": {
+        "geometryReason": "valid",
+        "geometryState": "valid",
+        "highway": "footway",
+        "originalGeometryHash": "sha256:33e3034bd22d7d760ba272ab99466f98ef0413c14dc152a9c763cbe737cc3f5f",
+        "osmTags": {
+          "foot": "yes",
+          "highway": "footway"
+        }
+      },
+      "externalIds": {
+        "osm": "way/1316742236"
+      },
+      "featureType": "walkway",
+      "geometryReason": "valid",
+      "geometryStatus": "valid",
+      "name": "OSM walkway 1316742236",
+      "priorityScore": [
+        0.0,
+        80.0,
+        0.0,
+        16.0,
+        0.006114647,
+        -162.541732108
+      ],
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "recommendedAction": "confirm candidate identity, geometry, aliases, and source rights before promotion",
+      "registryMatch": null,
+      "reviewHistory": [],
+      "reviewStatus": "pending",
+      "sourceGeometry": {
+        "coordinates": [
+          [
+            121.2424473,
+            14.1637268
+          ],
+          [
+            121.2425348,
+            14.1636993
+          ],
+          [
+            121.2425906,
+            14.1636817
+          ],
+          [
+            121.2427892,
+            14.1635967
+          ],
+          [
+            121.243009,
+            14.163517
+          ],
+          [
+            121.2433564,
+            14.1634041
+          ],
+          [
+            121.2434108,
+            14.1634062
+          ],
+          [
+            121.2434731,
+            14.1634217
+          ],
+          [
+            121.2435367,
+            14.1634525
+          ],
+          [
+            121.2436253,
+            14.1634955
+          ],
+          [
+            121.243794,
+            14.1635837
+          ],
+          [
+            121.2441341,
+            14.1637533
+          ],
+          [
+            121.2445292,
+            14.1639514
+          ],
+          [
+            121.2447813,
+            14.1640737
+          ],
+          [
+            121.24487,
+            14.1641316
+          ],
+          [
+            121.244891,
+            14.1641453
+          ],
+          [
+            121.2449039,
+            14.1642092
+          ],
+          [
+            121.2447291,
+            14.1646112
+          ],
+          [
+            121.2446853,
+            14.1647085
+          ],
+          [
+            121.2446442,
+            14.1647954
+          ],
+          [
+            121.2446229,
+            14.1648522
+          ],
+          [
+            121.2445734,
+            14.1648739
+          ],
+          [
+            121.2445234,
+            14.16499
+          ],
+          [
+            121.2445149,
+            14.165014
+          ],
+          [
+            121.2445036,
+            14.1650456
+          ],
+          [
+            121.2444393,
+            14.1651853
+          ],
+          [
+            121.2444513,
+            14.1652133
+          ],
+          [
+            121.2443467,
+            14.1654864
+          ],
+          [
+            121.2443348,
+            14.165507
+          ],
+          [
+            121.2442897,
+            14.1656015
+          ],
+          [
+            121.2442143,
+            14.1657575
+          ],
+          [
+            121.2441037,
+            14.1659812
+          ],
+          [
+            121.2440273,
+            14.1661425
+          ],
+          [
+            121.243986,
+            14.1662353
+          ],
+          [
+            121.24397,
+            14.1662713
+          ],
+          [
+            121.2439677,
+            14.1662774
+          ],
+          [
+            121.2438545,
+            14.166571
+          ],
+          [
+            121.2437992,
+            14.1666969
+          ],
+          [
+            121.2437321,
+            14.1668503
+          ],
+          [
+            121.2437043,
+            14.1668675
+          ],
+          [
+            121.2436181,
+            14.1670833
+          ],
+          [
+            121.2435549,
+            14.1671879
+          ],
+          [
+            121.2434104,
+            14.1672773
+          ]
+        ],
+        "type": "LineString"
+      },
+      "sourceGeometryHash": "sha256:33e3034bd22d7d760ba272ab99466f98ef0413c14dc152a9c763cbe737cc3f5f"
+    },
+    {
+      "aliases": [],
+      "approximatePosition": {
+        "lat": 14.1666511,
+        "lon": 121.2415971
+      },
+      "areaOrLength": {
+        "kind": "length",
+        "unit": "m",
+        "value": 293.678
+      },
+      "candidateId": "candidate:osm:way/486586077",
+      "category": "walkway/pedestrian",
+      "confidence": {
+        "facade": "unknown",
+        "footprint": "unknown",
+        "height": "unknown",
+        "position": "medium"
+      },
+      "currentDecision": "pending",
+      "evidenceAttributes": {
+        "geometryReason": "valid",
+        "geometryState": "valid",
+        "highway": "footway",
+        "originalGeometryHash": "sha256:11892a5bd83dd5d989a0e23607810287224920b19abe1e37472ca68af47d836a",
+        "osmTags": {
+          "highway": "footway"
+        }
+      },
+      "externalIds": {
+        "osm": "way/486586077"
+      },
+      "featureType": "walkway",
+      "geometryReason": "valid",
+      "geometryStatus": "valid",
+      "name": "OSM walkway 486586077",
+      "priorityScore": [
+        0.0,
+        70.0,
+        0.0,
+        16.0,
+        0.01145893,
+        -86.268186282
+      ],
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "recommendedAction": "confirm candidate identity, geometry, aliases, and source rights before promotion",
+      "registryMatch": null,
+      "reviewHistory": [],
+      "reviewStatus": "pending",
+      "sourceGeometry": {
+        "coordinates": [
+          [
+            121.2425251,
+            14.1661823
+          ],
+          [
+            121.242391,
+            14.166258
+          ],
+          [
+            121.2421547,
+            14.1663937
+          ],
+          [
+            121.2421218,
+            14.1664124
+          ],
+          [
+            121.2418863,
+            14.1665334
+          ],
+          [
+            121.2417798,
+            14.1665845
+          ],
+          [
+            121.2416455,
+            14.1666356
+          ],
+          [
+            121.2415971,
+            14.1666511
+          ],
+          [
+            121.2415292,
+            14.1666668
+          ],
+          [
+            121.2414669,
+            14.1666718
+          ],
+          [
+            121.2414025,
+            14.1666658
+          ],
+          [
+            121.2413392,
+            14.1666507
+          ],
+          [
+            121.2412798,
+            14.1666236
+          ],
+          [
+            121.2412271,
+            14.1665953
+          ],
+          [
+            121.2411731,
+            14.166555
+          ],
+          [
+            121.2411419,
+            14.1665198
+          ],
+          [
+            121.2411284,
+            14.1664846
+          ],
+          [
+            121.2410808,
+            14.1662858
+          ],
+          [
+            121.2410617,
+            14.1662053
+          ],
+          [
+            121.2410052,
+            14.1659711
+          ],
+          [
+            121.2409767,
+            14.1658527
+          ],
+          [
+            121.2409205,
+            14.1656185
+          ],
+          [
+            121.2408868,
+            14.1654782
+          ],
+          [
+            121.2408704,
+            14.1654101
+          ]
+        ],
+        "type": "LineString"
+      },
+      "sourceGeometryHash": "sha256:11892a5bd83dd5d989a0e23607810287224920b19abe1e37472ca68af47d836a"
+    },
+    {
+      "aliases": [
+        "Maulawin Creek"
+      ],
+      "approximatePosition": {
+        "lat": 14.1629143,
+        "lon": 121.2430255
+      },
+      "areaOrLength": {
+        "kind": "length",
+        "unit": "m",
+        "value": 1319.263
+      },
+      "candidateId": "candidate:osm:way/100127089",
+      "category": "environmental",
+      "confidence": {
+        "facade": "unknown",
+        "footprint": "unknown",
+        "height": "unknown",
+        "position": "medium"
+      },
+      "currentDecision": "pending",
+      "evidenceAttributes": {
+        "geometryReason": "valid",
+        "geometryState": "valid",
+        "originalGeometryHash": "sha256:dd09822a8fff24188d0d9c42dd60ea6877ce97c0b139ee6fde41ac53b0f55fd9",
+        "osmTags": {
+          "alt_name": "Maulawin Creek",
+          "boat": "no",
+          "name": "Molawin Creek",
+          "waterway": "stream",
+          "wikipedia": "en:Molawin River"
+        },
+        "waterway": "stream"
+      },
+      "externalIds": {
+        "osm": "way/100127089"
+      },
+      "featureType": "waterway",
+      "geometryReason": "valid",
+      "geometryStatus": "valid",
+      "name": "Molawin Creek",
+      "priorityScore": [
+        1.0,
+        1.0,
+        16.0,
+        0.050337668,
+        -18.865838798
+      ],
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "recommendedAction": "confirm candidate identity, geometry, aliases, and source rights before promotion",
+      "registryMatch": null,
+      "reviewHistory": [],
+      "reviewStatus": "pending",
+      "sourceGeometry": {
+        "coordinates": [
+          [
+            121.2382975,
+            14.1647522
+          ],
+          [
+            121.238591,
+            14.1647149
+          ],
+          [
+            121.2386696,
+            14.164745
+          ],
+          [
+            121.2391339,
+            14.1646693
+          ],
+          [
+            121.2394366,
+            14.164594
+          ],
+          [
+            121.2398442,
+            14.1644878
+          ],
+          [
+            121.2401245,
+            14.1644527
+          ],
+          [
+            121.2403717,
+            14.1644408
+          ],
+          [
+            121.2405941,
+            14.1643618
+          ],
+          [
+            121.2408354,
+            14.1641771
+          ],
+          [
+            121.2411463,
+            14.1637872
+          ],
+          [
+            121.2413076,
+            14.1636265
+          ],
+          [
+            121.2415914,
+            14.1634247
+          ],
+          [
+            121.2417673,
+            14.1632594
+          ],
+          [
+            121.241972,
+            14.1629999
+          ],
+          [
+            121.2420374,
+            14.162766
+          ],
+          [
+            121.2421135,
+            14.1625575
+          ],
+          [
+            121.2421841,
+            14.1624897
+          ],
+          [
+            121.2423136,
+            14.1624542
+          ],
+          [
+            121.242435,
+            14.1624722
+          ],
+          [
+            121.24256,
+            14.1625163
+          ],
+          [
+            121.2426415,
+            14.1625584
+          ],
+          [
+            121.2427158,
+            14.1626042
+          ],
+          [
+            121.2427999,
+            14.1626638
+          ],
+          [
+            121.2428805,
+            14.1627246
+          ],
+          [
+            121.2429339,
+            14.1627816
+          ],
+          [
+            121.2429755,
+            14.1628458
+          ],
+          [
+            121.2430255,
+            14.1629143
+          ],
+          [
+            121.2430864,
+            14.1629587
+          ],
+          [
+            121.2431677,
+            14.1629587
+          ],
+          [
+            121.2432997,
+            14.1628602
+          ],
+          [
+            121.2433262,
+            14.1627806
+          ],
+          [
+            121.2433277,
+            14.1626862
+          ],
+          [
+            121.2433022,
+            14.1626091
+          ],
+          [
+            121.243254,
+            14.1624761
+          ],
+          [
+            121.2432609,
+            14.1623201
+          ],
+          [
+            121.2433094,
+            14.1621887
+          ],
+          [
+            121.2435481,
+            14.1619007
+          ],
+          [
+            121.2436447,
+            14.161796
+          ],
+          [
+            121.2437458,
+            14.1617223
+          ],
+          [
+            121.2438671,
+            14.1616672
+          ],
+          [
+            121.2440159,
+            14.1616812
+          ],
+          [
+            121.2441394,
+            14.1617123
+          ],
+          [
+            121.2442268,
+            14.1617602
+          ],
+          [
+            121.2442866,
+            14.1618351
+          ],
+          [
+            121.2443517,
+            14.1619244
+          ],
+          [
+            121.2444009,
+            14.1620415
+          ],
+          [
+            121.244445,
+            14.162152
+          ],
+          [
+            121.244461,
+            14.1622329
+          ],
+          [
+            121.2444487,
+            14.1623799
+          ],
+          [
+            121.2444309,
+            14.1624421
+          ],
+          [
+            121.2443808,
+            14.1626604
+          ],
+          [
+            121.244366,
+            14.1627363
+          ],
+          [
+            121.2443855,
+            14.1628226
+          ],
+          [
+            121.2444243,
+            14.1629115
+          ],
+          [
+            121.2445371,
+            14.1630947
+          ],
+          [
+            121.2446919,
+            14.1634097
+          ],
+          [
+            121.2447828,
+            14.1635891
+          ],
+          [
+            121.2448589,
+            14.1637042
+          ],
+          [
+            121.2449406,
+            14.1637532
+          ],
+          [
+            121.2450209,
+            14.16377
+          ],
+          [
+            121.2450949,
+            14.1637542
+          ],
+          [
+            121.2451788,
+            14.1636806
+          ],
+          [
+            121.2452947,
+            14.1636562
+          ],
+          [
+            121.2453721,
+            14.1636657
+          ],
+          [
+            121.2453977,
+            14.1636747
+          ],
+          [
+            121.2454379,
+            14.1636889
+          ],
+          [
+            121.2454674,
+            14.1637528
+          ],
+          [
+            121.2454809,
+            14.1638307
+          ],
+          [
+            121.2454632,
+            14.1639494
+          ],
+          [
+            121.2454503,
+            14.1640342
+          ],
+          [
+            121.2454718,
+            14.1640923
+          ],
+          [
+            121.2455164,
+            14.1641168
+          ],
+          [
+            121.245589,
+            14.1641399
+          ],
+          [
+            121.2456431,
+            14.164205
+          ],
+          [
+            121.2457116,
+            14.1642683
+          ],
+          [
+            121.2458132,
+            14.1642894
+          ],
+          [
+            121.2459297,
+            14.1642737
+          ],
+          [
+            121.2459968,
+            14.1642386
+          ],
+          [
+            121.2460726,
+            14.1641779
+          ],
+          [
+            121.2462246,
+            14.1641506
+          ]
+        ],
+        "type": "LineString"
+      },
+      "sourceGeometryHash": "sha256:dd09822a8fff24188d0d9c42dd60ea6877ce97c0b139ee6fde41ac53b0f55fd9"
+    },
+    {
+      "aliases": [
+        "Maulawin Creek"
+      ],
+      "approximatePosition": {
+        "lat": 14.1653886,
+        "lon": 121.2474426
+      },
+      "areaOrLength": {
+        "kind": "length",
+        "unit": "m",
+        "value": 471.209
+      },
+      "candidateId": "candidate:osm:way/23434683",
+      "category": "environmental",
+      "confidence": {
+        "facade": "unknown",
+        "footprint": "unknown",
+        "height": "unknown",
+        "position": "medium"
+      },
+      "currentDecision": "pending",
+      "evidenceAttributes": {
+        "geometryReason": "valid",
+        "geometryState": "valid",
+        "originalGeometryHash": "sha256:f928be62f8472b54e966bf7296da59006daf4cafda51112ded8324247f9fd9a2",
+        "osmTags": {
+          "alt_name": "Maulawin Creek",
+          "boat": "no",
+          "name": "Molawin Creek",
+          "waterway": "stream",
+          "wikipedia": "en:Molawin River"
+        },
+        "waterway": "stream"
+      },
+      "externalIds": {
+        "osm": "way/23434683"
+      },
+      "featureType": "waterway",
+      "geometryReason": "valid",
+      "geometryStatus": "valid",
+      "name": "Molawin Creek",
+      "priorityScore": [
+        1.0,
+        1.0,
+        16.0,
+        0.002321093,
+        -429.831594133
+      ],
+      "provenance": [
+        "source:osm:uplb-aoi@2026-08-17"
+      ],
+      "recommendedAction": "confirm candidate identity, geometry, aliases, and source rights before promotion",
+      "registryMatch": null,
+      "reviewHistory": [],
+      "reviewStatus": "pending",
+      "sourceGeometry": {
+        "coordinates": [
+          [
+            121.2462246,
+            14.1641506
+          ],
+          [
+            121.2463827,
+            14.1642426
+          ],
+          [
+            121.2464549,
+            14.1643608
+          ],
+          [
+            121.2464613,
+            14.1645
+          ],
+          [
+            121.2465541,
+            14.1645903
+          ],
+          [
+            121.2467515,
+            14.1646751
+          ],
+          [
+            121.2469379,
+            14.1646757
+          ],
+          [
+            121.2471156,
+            14.1647115
+          ],
+          [
+            121.2472087,
+            14.1647459
+          ],
+          [
+            121.2472799,
+            14.1649022
+          ],
+          [
+            121.2472815,
+            14.1650484
+          ],
+          [
+            121.2472843,
+            14.1651909
+          ],
+          [
+            121.2473216,
+            14.1652759
+          ],
+          [
+            121.2474426,
+            14.1653886
+          ],
+          [
+            121.248372,
+            14.1657963
+          ],
+          [
+            121.2487155,
+            14.165965
+          ],
+          [
+            121.2488725,
+            14.166089
+          ],
+          [
+            121.2491275,
+            14.1663024
+          ],
+          [
+            121.2491511,
+            14.1664225
+          ],
+          [
+            121.2491452,
+            14.1665606
+          ],
+          [
+            121.249171,
+            14.1666957
+          ]
+        ],
+        "type": "LineString"
+      },
+      "sourceGeometryHash": "sha256:f928be62f8472b54e966bf7296da59006daf4cafda51112ded8324247f9fd9a2"
+    }
+  ],
+  "sliceCandidateCount": 1911,
+  "sourceHash": "sha256:9f766739c1ad0088170c708d222c246b47b4dc684120f1f57f252d6f290f6142",
+  "version": 1
+}

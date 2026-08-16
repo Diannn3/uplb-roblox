@@ -5,7 +5,9 @@ on:
     paths:
       - "tools/geodata/**"
       - "data/canonical/**"
+      - "data/reviews/**"
       - "data/areas/**"
+      - "config/overture.json"
       - "tests/fixtures/geodata/**"
       - "tests/geodata/**"
       - "src/Shared/Generated/**"
@@ -15,7 +17,9 @@ on:
     paths:
       - "tools/geodata/**"
       - "data/canonical/**"
+      - "data/reviews/**"
       - "data/areas/**"
+      - "config/overture.json"
       - "tests/fixtures/geodata/**"
       - "tests/geodata/**"
       - "src/Shared/Generated/**"
@@ -40,3 +44,5 @@ jobs:
         run: python -m tools.geodata.ci_checks
       - name: Phase 1 hardening report
         run: python -m tools.geodata.phase_gate
+      - name: Pinned Overture release check (read-only)
+        run: python -m tools.geodata.overture_check_updates --offline

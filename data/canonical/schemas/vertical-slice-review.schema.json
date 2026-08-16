@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UPLB Vertical Slice Human Review Package",
+  "type": "object",
+  "required": ["version", "lifecycle", "areaSource", "counts", "rows", "humanReviewStatus"],
+  "properties": {
+    "version": {"type": "integer", "minimum": 1},
+    "lifecycle": {"const": "human-review"},
+    "generatedAt": {"type": "string"},
+    "areaSource": {"type": "string", "minLength": 1},
+    "candidateSource": {"type": "string"},
+    "sourceHash": {"type": ["string", "null"]},
+    "candidateCount": {"type": "integer", "minimum": 0},
+    "sliceCandidateCount": {"type": "integer", "minimum": 0},
+    "requiredHeroes": {"type": "array", "items": {"type": "string"}},
+    "missingRequiredHeroes": {"type": "array", "items": {"type": "string"}},
+    "quotas": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+    "counts": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+    "priorityStatus": {"enum": ["pass", "fail"]},
+    "humanReviewStatus": {"enum": ["pending", "complete"]},
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["candidateId", "category", "featureType", "name", "aliases", "externalIds", "geometryStatus", "sourceGeometry", "provenance", "confidence", "recommendedAction", "currentDecision"],
+        "properties": {
+          "candidateId": {"type": "string", "pattern": "^candidate:"},
+          "category": {"type": "string"},
+          "featureType": {"type": "string"},
+          "name": {"type": "string"},
+          "aliases": {"type": "array", "items": {"type": "string"}},
+          "externalIds": {"type": "object", "additionalProperties": {"type": "string"}},
+          "registryMatch": {"type": ["string", "null"]},
+          "geometryStatus": {"type": "string"},
+          "sourceGeometry": {"type": ["object", "null"]},
+          "provenance": {"type": "array", "items": {"type": "string", "pattern": "^source:"}},
+          "confidence": {"type": "object", "additionalProperties": {"type": "string"}},
+          "recommendedAction": {"type": "string"},
+          "currentDecision": {"enum": ["pending", "accept", "reject"]},
+          "reviewStatus": {"enum": ["pending", "reviewed"]},
+          "reviewHistory": {"type": "array"},
+          "review": {"type": "object"}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

@@ -23,6 +23,9 @@ DEFAULT_REVIEW_FILE = ROOT / "data" / "canonical" / "review-decisions.json"
 DEFAULT_REGISTRY = ROOT / "data" / "canonical" / "identity-registry.json"
 DEFAULT_CANONICAL = ROOT / "data" / "canonical" / "features.geojson"
 DEFAULT_CANDIDATE_ROOT = ROOT / "data" / "candidates"
+DEFAULT_PRIORITY_REVIEW = ROOT / "data" / "reviews" / "vertical-slice-review.json"
+VERIFICATION_VALUES = {"unknown", "provisional", "source-supported", "human-reviewed", "verified", "conflicting"}
+PRIORITY_CATEGORY_ORDER = ("hero/reference", "ordinary building", "road/intersection", "walkway/pedestrian", "environmental")
 
 
 def _review_rows(path: Path) -> list[dict[str, Any]]:
@@ -91,6 +94,118 @@ def _write_reviews(path: Path, rows: Iterable[dict[str, Any]]) -> None:
     write_json(path, {"version": 2, "decisions": sorted(rows, key=lambda row: str(row.get("id", "")))})
 
 
+def _priority_package(path: Path) -> dict[str, Any]:
+    payload = read_json(path)
+    if not isinstance(payload.get("rows"), list):
+        raise ValueError(f"priority review package must contain rows: {path}")
+    return payload
+
+
+def _write_priority_package(path: Path, package: dict[str, Any]) -> None:
+    package["rows"] = sorted(package.get("rows", []), key=lambda row: (PRIORITY_CATEGORY_ORDER.index(row.get("category", "environmental")) if row.get("category") in PRIORITY_CATEGORY_ORDER else len(PRIORITY_CATEGORY_ORDER), str(row.get("candidateId", ""))))
+    package["humanReviewStatus"] = "complete" if package["rows"] and all(row.get("currentDecision") != "pending" for row in package["rows"]) else "pending"
+    write_json(path, package)
+
+
+def _record_priority_history(row: dict[str, Any], action: str, changes: dict[str, Any], reviewed_at: str | None) -> None:
+    history = row.setdefault("reviewHistory", [])
+    history.append(
+        {
+            "action": action,
+            "at": reviewed_at,
+            "changes": changes,
+            "previousDecision": row.get("currentDecision", "pending"),
+        }
+    )
+
+
+def decide_priority(
+    review_id: str,
+    decision: str,
+    *,
+    review_path: Path = DEFAULT_PRIORITY_REVIEW,
+    reviewed_at: str | None = None,
+    review_method: str | None = None,
+    evidence_refs: Iterable[str] = (),
+    reason: str | None = None,
+) -> dict[str, Any]:
+    """Record a human decision without promoting or deleting source evidence."""
+
+    if decision not in {"accept", "reject"}:
+        raise ValueError("priority decision must be accept or reject")
+    package = _priority_package(review_path)
+    row = next((item for item in package["rows"] if item.get("candidateId") == review_id), None)
+    if row is None:
+        raise KeyError(f"priority review not found: {review_id}")
+    previous = row.get("currentDecision", "pending")
+    row["currentDecision"] = decision
+    row["reviewStatus"] = "reviewed"
+    changes: dict[str, Any] = {"currentDecision": {"from": previous, "to": decision}}
+    if reason is not None:
+        row["reviewNotes"] = reason
+        changes["reviewNotes"] = reason
+    refs = sorted({str(ref) for ref in evidence_refs if str(ref)})
+    if reviewed_at or review_method or refs:
+        if not (reviewed_at and review_method and refs):
+            raise ValueError("reviewedAt, reviewMethod, and at least one evidenceRef are required together")
+        row["review"] = {"reviewedAt": reviewed_at, "reviewMethod": review_method, "evidenceRefs": refs}
+        changes["review"] = row["review"]
+    _record_priority_history(row, decision, changes, reviewed_at)
+    _write_priority_package(review_path, package)
+    return {"candidateId": review_id, "decision": decision, "humanReviewStatus": package["humanReviewStatus"]}
+
+
+def modify_priority(
+    review_id: str,
+    *,
+    review_path: Path = DEFAULT_PRIORITY_REVIEW,
+    name: str | None = None,
+    aliases: Iterable[str] | None = None,
+    canonical_id: str | None = None,
+    verification: dict[str, str] | None = None,
+    selected_geometry_source: str | None = None,
+    notes: str | None = None,
+    reviewed_at: str | None = None,
+) -> dict[str, Any]:
+    """Apply an explicit correction while retaining the original provider record."""
+
+    package = _priority_package(review_path)
+    row = next((item for item in package["rows"] if item.get("candidateId") == review_id), None)
+    if row is None:
+        raise KeyError(f"priority review not found: {review_id}")
+    changes: dict[str, Any] = {}
+    if name is not None:
+        row.setdefault("sourceName", row.get("name"))
+        row["name"] = name
+        changes["name"] = name
+    if aliases is not None:
+        row.setdefault("sourceAliases", list(row.get("aliases", [])))
+        row["aliases"] = list(dict.fromkeys(str(alias) for alias in aliases))
+        changes["aliases"] = row["aliases"]
+    if canonical_id is not None:
+        row["registryMatch"] = canonical_id
+        row["canonicalIdentityCorrection"] = canonical_id
+        changes["canonicalIdentity"] = canonical_id
+    if verification is not None:
+        invalid = {key: value for key, value in verification.items() if value not in VERIFICATION_VALUES}
+        if invalid:
+            raise ValueError(f"unsupported verification values: {invalid}")
+        row["verification"] = dict(sorted(verification.items()))
+        changes["verification"] = row["verification"]
+    if selected_geometry_source is not None:
+        row["selectedGeometrySource"] = selected_geometry_source
+        changes["selectedGeometrySource"] = selected_geometry_source
+    if notes is not None:
+        row["reviewNotes"] = notes
+        changes["reviewNotes"] = notes
+    if not changes:
+        raise ValueError("modify requires at least one explicit correction")
+    row["reviewStatus"] = "reviewed"
+    _record_priority_history(row, "modify", changes, reviewed_at)
+    _write_priority_package(review_path, package)
+    return {"candidateId": review_id, "changes": changes, "humanReviewStatus": package["humanReviewStatus"]}
+
+
 def decide(
     review_id: str,
     decision: str,
@@ -155,7 +270,7 @@ def _print(value: Any) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("action", choices=("list", "show", "accept", "reject"))
+    parser.add_argument("action", choices=("list", "show", "accept", "reject", "modify"))
     parser.add_argument("review_id", nargs="?")
     parser.add_argument("--review-file", type=Path, default=DEFAULT_REVIEW_FILE)
     parser.add_argument("--registry", type=Path, default=DEFAULT_REGISTRY)
@@ -163,7 +278,40 @@ def main() -> int:
     parser.add_argument("--candidate-root", type=Path, default=DEFAULT_CANDIDATE_ROOT)
     parser.add_argument("--reviewed-at")
     parser.add_argument("--reason")
+    parser.add_argument("--priority", action="store_true", help="operate on the authoritative vertical-slice package")
+    parser.add_argument("--name")
+    parser.add_argument("--alias", action="append", dest="aliases")
+    parser.add_argument("--canonical-id")
+    parser.add_argument("--verification", action="append", help="property=value; may be repeated")
+    parser.add_argument("--selected-geometry-source")
+    parser.add_argument("--review-method")
+    parser.add_argument("--evidence-ref", action="append", default=[])
     args = parser.parse_args()
+    if args.priority:
+        priority_path = args.review_file if args.review_file != DEFAULT_REVIEW_FILE else DEFAULT_PRIORITY_REVIEW
+        package = _priority_package(priority_path)
+        if args.action == "list":
+            _print(package["rows"])
+            return 0
+        if not args.review_id:
+            parser.error(f"{args.action} requires <candidate-id> in priority mode")
+        if args.action == "show":
+            row = next((item for item in package["rows"] if item.get("candidateId") == args.review_id), None)
+            if row is None:
+                parser.error(f"priority review not found: {args.review_id}")
+            _print(row)
+            return 0
+        if args.action == "modify":
+            corrections: dict[str, str] = {}
+            for raw in args.verification or []:
+                if "=" not in raw:
+                    parser.error("--verification requires property=value")
+                key, value = raw.split("=", 1)
+                corrections[key] = value
+            _print(modify_priority(args.review_id, review_path=priority_path, name=args.name, aliases=args.aliases, canonical_id=args.canonical_id, verification=corrections or None, selected_geometry_source=args.selected_geometry_source, notes=args.reason, reviewed_at=args.reviewed_at))
+            return 0
+        _print(decide_priority(args.review_id, args.action, review_path=priority_path, reviewed_at=args.reviewed_at, review_method=args.review_method, evidence_refs=args.evidence_ref, reason=args.reason))
+        return 0
     if args.action == "list":
         _print(_review_rows(args.review_file))
         return 0
@@ -175,6 +323,8 @@ def main() -> int:
             parser.error(f"review not found: {args.review_id}")
         _print(row)
         return 0
+    if args.action == "modify":
+        parser.error("modify requires --priority")
     _print(
         decide(
             args.review_id,

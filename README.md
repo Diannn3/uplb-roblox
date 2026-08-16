@@ -61,12 +61,14 @@ python -B -m tools.geodata.pipeline
 python -B -m tools.geodata.overture_fallback --python <overture-venv-python>
 python -B -m tools.geodata.evidence_gate
 python -B -m tools.geodata.phase_gate
+python -B -m tools.geodata.overture_check_updates --offline
+python -B -m tools.geodata.review list --priority
 ```
 
 The Overture probe is network-opt-in and bounded. A blocked provider is recorded
-as a source-status warning; it is not treated as evidence of missing coverage.
-Permission requests under `docs/PERMISSION_REQUEST_TEMPLATES.md` are drafts only.
-The Phase 1 gate currently remains `conditional` because Overture access is
-blocked and DEM redistribution rights are unresolved; do not begin terrain,
-Blender, or persistent Roblox world-generation work until that report is
-reviewed and passes.
+as an explicit comparison status; it is not treated as evidence of missing
+coverage and does not by itself block the OSM-first greybox POC. Permission
+requests under `docs/PERMISSION_REQUEST_TEMPLATES.md` are drafts only. The
+authoritative Phase 1 closure report is `data/canonical/phase1-closure-report.json`.
+Do not begin terrain, Blender, or persistent Roblox world-generation work while
+`worldgenReady` is `false`; the current stop is the explicit human-review gate.
