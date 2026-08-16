@@ -1,0 +1,67 @@
+{
+  "blockers": [],
+  "checks": [
+    {
+      "details": "expected=9f766739c1ad0088170c708d222c246b47b4dc684120f1f57f252d6f290f6142 actual=sha256:9f766739c1ad0088170c708d222c246b47b4dc684120f1f57f252d6f290f6142",
+      "name": "osm-extract-pinned",
+      "status": "pass"
+    },
+    {
+      "details": "blocked; proceed OSM-first without coverage claim",
+      "name": "overture-provider-access",
+      "status": "warning"
+    },
+    {
+      "details": "Templates are drafted locally; no external requests were sent.",
+      "name": "permission-outreach",
+      "status": "pass"
+    },
+    {
+      "details": "SRTM/NASA 30 m remains a candidate until endpoint and redistribution terms are recorded.",
+      "name": "dem-license-gate",
+      "status": "warning"
+    },
+    {
+      "details": "Google imagery and restricted institutional material remain excluded from ingestion.",
+      "name": "restricted-source-policy",
+      "status": "pass"
+    }
+  ],
+  "decision": "conditional",
+  "discrepancies": [
+    {
+      "details": "Overture extract absent; see research/results/overture_fallback_probe.json for bounded client/direct-cloud diagnostics.",
+      "source": "overture"
+    }
+  ],
+  "id": "validation:evidence-gate-v1",
+  "inputRevisions": {
+    "comparison": "research\\results\\osm_overture_comparison.json",
+    "probe": "research\\results\\overture_fallback_probe.json",
+    "sourceMatrix": "data\\source-matrix.json"
+  },
+  "measurements": {
+    "osmSummary": {
+      "buildings": 7725,
+      "elements": 10319,
+      "highways": 2524,
+      "named": 814,
+      "waterways": 70
+    },
+    "overtureAttempts": [
+      {
+        "details": "Exception: Could not fetch STAC catalog: HTTP Error 404: Not Found",
+        "exitCode": 1,
+        "method": "official-cli",
+        "status": "blocked"
+      },
+      {
+        "details": "Direct cloud probe exceeded 12s timeout.",
+        "method": "direct-s3-geoparquet",
+        "release": "2026-06-17.0",
+        "status": "timeout"
+      }
+    ],
+    "sourceRows": 12
+  }
+}

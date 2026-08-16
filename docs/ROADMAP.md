@@ -11,6 +11,14 @@
 **Blockers:** institutional response time.  
 **Fallback:** proceed with OSM/Overture + legal 30 m DEM and mark confidence.
 
+### Current execution status (2026-08-17)
+
+- OSM AOI retrieval is complete and hash-pinned in `research/results/osm_overture_comparison.json`.
+- The official Overture client returned a STAC 404; the bounded direct-cloud probe timed out. Both outcomes are recorded as blocked provider access, not as missing coverage.
+- Permission requests are drafted locally in `docs/PERMISSION_REQUEST_TEMPLATES.md` and have not been sent.
+- Phase 1 contracts, CRS transforms, OSM normalization, Overture parsing adapter, provenance records, conflation review records, validation, canonical GeoJSON, and generated Luau are implemented on the feature branch.
+- The evidence gate is `conditional` until DEM rights are pinned and a human reviews the proposed source/ADR decisions.
+
 ## Phase 1 — Canonical geospatial foundation
 
 **Goal:** implement data schemas, CRS library, source ingest and canonical-feature registry.

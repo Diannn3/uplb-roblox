@@ -315,11 +315,11 @@ The core pipeline can remain mostly free/open. Biggest risks are not software pr
 
 ## What you should do tomorrow
 
-1. Complete Task 1's Overture leg in a network-enabled terminal; the OSM leg now has a live hashed result, while the installed Overture client requires a verified STAC/client retry.
-2. Send the three data/permission requests in Task 3 instead of waiting until modeling is blocked.
-3. Decide whether the proposed **Digital-twin-lite / one streaming outdoor place / EPSG:32651 / GeoJSON+JSON canonical** ADR set is approved.
-4. If approved, let Codex implement Phase 1 only; do not start hero modeling yet.
+1. Review `docs/EVIDENCE_GATE_REPORT.md`: OSM is pinned, while the official Overture client returned a STAC 404 and the bounded direct-cloud probe timed out. This is a provider-access warning, not a coverage conclusion.
+2. Review the three permission-request drafts in `docs/PERMISSION_REQUEST_TEMPLATES.md`; nothing is sent without human approval.
+3. Decide whether the proposed **Digital-twin-lite / one streaming outdoor place / EPSG:32651 / GeoJSON+JSON canonical** ADR set is approved for production use.
+4. Review the generated canonical feature registry and the Oblation/Freedom Park/Baker Hall vertical-slice export before any Roblox greybox work.
 
 ## What Codex should implement first after approval
 
-Implement **Phase 1, Tasks 4–8**: production schemas, deterministic CRS library/tests, OSM ingest, Overture ingest, and provenance-preserving candidate conflation. The first visible Roblox output should come only after that data foundation passes validation.
+Phase 1's deterministic CRS, canonical contracts, OSM ingest, Overture adapter, provenance records, review queue, and generated Luau handoff are implemented locally on the feature branch. The first visible Roblox output should come only after the conditional evidence gate and canonical-data review are accepted.

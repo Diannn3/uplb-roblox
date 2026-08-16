@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "generated": "2026-08-17",
+  "policy": "Fail closed on restricted, permission-required, or uncertain sources.",
+  "sources": [
+    {
+      "sourceId": "osm",
+      "provider": "OpenStreetMap contributors",
+      "coverage": "Buildings, roads, paths, waterways, named reference features",
+      "license": "ODbL-1.0",
+      "storeLocally": true,
+      "redistribute": "With attribution and ODbL obligations",
+      "status": "validated",
+      "nextAction": "Keep the pinned hash and refresh only through the reproducible harness"
+    },
+    {
+      "sourceId": "overture-buildings",
+      "provider": "Overture Maps Foundation",
+      "coverage": "Building footprints, names, heights, levels",
+      "license": "ODbL-1.0 plus upstream attribution",
+      "storeLocally": "conditional",
+      "redistribute": "With attribution and ODbL obligations",
+      "status": "blocked-provider-access",
+      "nextAction": "Retry a current client/direct-cloud path; do not claim missing coverage"
+    },
+    {
+      "sourceId": "uplb-official-gis",
+      "provider": "University of the Philippines Los Baños",
+      "coverage": "Campus boundary, building directory, planning/GIS layers",
+      "license": "Permission not assumed",
+      "storeLocally": false,
+      "redistribute": "Not assumed",
+      "status": "permission-request-draft",
+      "nextAction": "Human-review and send an access/licensing request"
+    },
+    {
+      "sourceId": "ims-floor-plans",
+      "provider": "UPLB IMS / building administrators",
+      "coverage": "Authorized floor plans, dimensions, entrances, room semantics",
+      "license": "Permission not assumed",
+      "storeLocally": false,
+      "redistribute": "Not assumed",
+      "status": "permission-request-draft",
+      "nextAction": "Request one calibrated Math Building reference set after exterior pilot"
+    },
+    {
+      "sourceId": "mapillary",
+      "provider": "Mapillary / Meta",
+      "coverage": "Street-level reference imagery and metadata",
+      "license": "CC BY-SA/use terms require review",
+      "storeLocally": "conditional",
+      "redistribute": "Review per image/API terms",
+      "status": "coverage-and-use-unverified",
+      "nextAction": "Check coverage without bulk downloading imagery"
+    },
+    {
+      "sourceId": "kartaview",
+      "provider": "KartaView",
+      "coverage": "Street imagery and spatial sequences",
+      "license": "CC BY-SA 4.0 per current terms",
+      "storeLocally": "conditional",
+      "redistribute": "Attribution/share-alike conditions",
+      "status": "coverage-unverified",
+      "nextAction": "Verify UPLB coverage and retain per-sequence rights records"
+    },
+    {
+      "sourceId": "geoportal-philippines",
+      "provider": "NAMRIA / Geoportal Philippines",
+      "coverage": "Elevation, land cover, orthophoto and government layers",
+      "license": "Dataset-specific",
+      "storeLocally": "conditional",
+      "redistribute": "Not assumed",
+      "status": "catalogue-only",
+      "nextAction": "Record dataset owner and download agreement before retrieval"
+    },
+    {
+      "sourceId": "lipad",
+      "provider": "UP DREAM / DOST",
+      "coverage": "LiDAR, DEM/DTM, orthophoto candidates",
+      "license": "Access/product-specific",
+      "storeLocally": "conditional",
+      "redistribute": "Not assumed",
+      "status": "permission-request-draft",
+      "nextAction": "Request Los Baños coverage and exact redistribution terms"
+    },
+    {
+      "sourceId": "srtm-30m",
+      "provider": "NASA Earthdata LP DAAC",
+      "coverage": "Macro terrain baseline",
+      "license": "Product/endpoint terms require verification",
+      "storeLocally": "conditional",
+      "redistribute": "Verify before publication",
+      "status": "fallback-candidate",
+      "nextAction": "Pin endpoint, access date, vertical metadata, and rights record"
+    },
+    {
+      "sourceId": "copernicus-dem",
+      "provider": "Copernicus Data Space Ecosystem",
+      "coverage": "30 m DSM terrain candidate",
+      "license": "Free-use notice and service terms apply",
+      "storeLocally": "conditional",
+      "redistribute": "Subject to notices/terms",
+      "status": "fallback-candidate",
+      "nextAction": "Compare access and vertical metadata against SRTM"
+    },
+    {
+      "sourceId": "google-imagery",
+      "provider": "Google Maps Platform",
+      "coverage": "Street View and map tiles",
+      "license": "Restricted platform terms",
+      "storeLocally": false,
+      "redistribute": false,
+      "status": "excluded",
+      "nextAction": "Do not scrape, bulk-store, or use for automated reconstruction"
+    },
+    {
+      "sourceId": "wikimedia-uplb-map",
+      "provider": "Wikimedia Commons contributors",
+      "coverage": "Historical map cross-check",
+      "license": "File-specific",
+      "storeLocally": "conditional",
+      "redistribute": "Per file license",
+      "status": "historical-reference-only",
+      "nextAction": "Use only as a labelled cross-check, never as current campus boundary"
+    }
+  ]
+}

@@ -232,6 +232,6 @@ For this project, copying a monolithic “OSM-to-game” generator would be less
 
 ## 9. Research limitations
 
-The 2026-08-17 network-enabled harness run fetched the OSM AOI successfully and recorded 10,319 elements (7,725 building-tagged, 2,524 highways, 70 waterways, 814 named) plus a SHA-256 in `research/results/osm_overture_comparison.json`. The installed Overture client failed while resolving its STAC catalog with HTTP 404, so no Overture coverage conclusion is drawn; the result records this as a provider failure and the next retry must use a verified current client/catalog or an explicitly documented direct cloud-data path.
+The 2026-08-17 network-enabled harness run fetched the OSM AOI successfully and recorded 10,319 elements (7,725 building-tagged, 2,524 highways, 70 waterways, 814 named) plus a SHA-256 in `research/results/osm_overture_comparison.json`. The installed Overture client failed while resolving its STAC catalog with HTTP 404, and the bounded direct-cloud/GeoParquet probe timed out; no Overture coverage conclusion is drawn. Diagnostics are pinned in `research/results/overture_fallback_probe.json` and the adapter remains available for a later verified client/catalog or explicitly documented direct cloud-data path.
 
-This provider failure does **not** change the architecture decision; it creates a concrete retry task for a verified current Overture client/catalog or documented direct cloud-data path.
+These provider-access failures do **not** change the architecture decision; they leave Overture as a blocked comparison source while the project proceeds OSM-first with explicit provenance and no coverage claim.

@@ -21,7 +21,6 @@
     }
   },
   "notes": [
-    "Overture fetch failed: RuntimeError: overturemaps failed with exit code 1: Exception: Could not fetch STAC catalog: HTTP Error 404: Not Found",
-    "Overture extract absent; install official overturemaps CLI then run --fetch."
+    "Overture extract absent; see research/results/overture_fallback_probe.json for bounded client/direct-cloud diagnostics."
   ]
 }

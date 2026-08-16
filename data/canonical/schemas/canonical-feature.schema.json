@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UPLB Canonical Campus Feature",
+  "type": "object",
+  "required": ["id", "featureType", "name", "provenance", "confidence", "verificationStatus"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^uplb:"},
+    "featureType": {"type": "string", "minLength": 1},
+    "name": {"type": "string", "minLength": 1},
+    "aliases": {"type": "array", "items": {"type": "string"}},
+    "geometry": {"type": ["object", "null"]},
+    "properties": {"type": "object"},
+    "externalIds": {"type": "object", "additionalProperties": {"type": "string"}},
+    "provenance": {"type": "array", "items": {"type": "string", "pattern": "^source:"}, "minItems": 1},
+    "confidence": {"type": "object", "minProperties": 1},
+    "verificationStatus": {"type": "string", "minLength": 1},
+    "assetBinding": {"type": ["string", "null"]}
+  },
+  "additionalProperties": false
+}

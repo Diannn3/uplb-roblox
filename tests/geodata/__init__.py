@@ -1,0 +1,1 @@
+"""Canonical geodata tests."""

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UPLB Conflation Review",
+  "type": "object",
+  "required": ["id", "canonicalId", "candidates", "decision", "reviewStatus"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^review:"},
+    "canonicalId": {"type": "string", "pattern": "^uplb:"},
+    "candidates": {"type": "array", "items": {"type": "object"}},
+    "decision": {"enum": ["pending", "accept", "reject"]},
+    "reason": {"type": "string"},
+    "reviewStatus": {"enum": ["needs-review", "reviewed"]}
+  },
+  "additionalProperties": false
+}

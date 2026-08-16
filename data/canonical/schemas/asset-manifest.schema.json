@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UPLB Asset Manifest",
+  "type": "object",
+  "required": ["assetId", "featureIds", "sourceSpecHash", "productionMethod", "rightsRecords", "verificationStatus"],
+  "properties": {
+    "assetId": {"type": "string", "pattern": "^asset:"},
+    "featureIds": {"type": "array", "items": {"type": "string", "pattern": "^uplb:"}},
+    "sourceSpecHash": {"type": "string"},
+    "productionMethod": {"type": "string"},
+    "sourceFiles": {"type": "array", "items": {"type": "string"}},
+    "robloxAssetIds": {"type": "array", "items": {"type": "string"}},
+    "triangleCounts": {"type": "object"},
+    "textures": {"type": "array"},
+    "collisionStrategy": {"type": "string"},
+    "lodStrategy": {"type": "string"},
+    "rightsRecords": {"type": "array", "items": {"type": "string", "pattern": "^source:"}},
+    "verificationStatus": {"type": "string"},
+    "approvedBy": {"type": ["string", "null"]},
+    "approvedAt": {"type": ["string", "null"]}
+  },
+  "additionalProperties": true
+}

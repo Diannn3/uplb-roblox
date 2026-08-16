@@ -19,6 +19,12 @@ research/raw/*
 research/cache/
 research/private/
 research/restricted/
+
+# Geodata source downloads (canonical data stays version-controlled)
+data/raw/*
+!data/raw/.gitkeep
+data/private/
+
 *.laz
 *.las
 *.tif

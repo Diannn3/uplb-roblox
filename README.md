@@ -19,3 +19,15 @@ This project is structured using [Rojo](https://rojo.space/), allowing developme
 ## Architecture Research
 
 The research branch `research/uplb-master-execution-plan` defines the proposed data, GIS, 3D asset, Roblox, MCP, licensing, automation, validation, and phased execution architecture. Start with [`docs/MASTER_PLAN.md`](docs/MASTER_PLAN.md). No production world-generation system is implemented by that research package.
+
+## Canonical geodata foundation
+
+The production geodata package lives in `tools/geodata/`. It keeps WGS84 GeoJSON/JSON as the canonical source and generates a derived Luau lookup for the approved vertical slice.
+
+```powershell
+python -B -m tools.geodata.pipeline
+python -B -m tools.geodata.overture_fallback --python <overture-venv-python>
+python -B -m tools.geodata.evidence_gate
+```
+
+The Overture probe is network-opt-in and bounded. A blocked provider is recorded as a source-status warning; it is not treated as evidence of missing coverage. Permission requests under `docs/PERMISSION_REQUEST_TEMPLATES.md` are drafts only.

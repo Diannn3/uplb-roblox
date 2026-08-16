@@ -1,0 +1,60 @@
+{
+  "sources": [
+    {
+      "accessedAt": "2026-08-17",
+      "attribution": "© OpenStreetMap contributors",
+      "contentHash": "sha256:9f766739c1ad0088170c708d222c246b47b4dc684120f1f57f252d6f290f6142",
+      "id": "source:osm:uplb-aoi@2026-08-17",
+      "intendedUse": [
+        "building-footprint",
+        "road",
+        "walkway",
+        "waterway",
+        "landmark-reference"
+      ],
+      "license": "ODbL-1.0",
+      "notes": [
+        "Research AOI only; not an official UPLB boundary."
+      ],
+      "provider": "OpenStreetMap contributors",
+      "redistribution": "allowed-with-conditions",
+      "rightsStatus": "open-attribution-required",
+      "sourceUrl": "https://overpass-api.de/api/interpreter"
+    },
+    {
+      "accessedAt": "2026-08-17",
+      "attribution": "Overture Maps Foundation and upstream contributors",
+      "id": "source:overture:buildings@2026-08-17",
+      "intendedUse": [
+        "building-footprint",
+        "building-height",
+        "conflation-candidate"
+      ],
+      "license": "ODbL-1.0",
+      "notes": [
+        "Provider access is currently blocked by STAC/catalog or direct-cloud availability; this is not a coverage claim.",
+        "Adapter remains available for a later pinned extract."
+      ],
+      "provider": "Overture Maps Foundation",
+      "redistribution": "allowed-with-conditions",
+      "rightsStatus": "open-attribution-required",
+      "sourceUrl": "https://docs.overturemaps.org/guides/buildings/"
+    },
+    {
+      "accessedAt": "2026-08-17",
+      "id": "source:dem:srtm-baseline",
+      "intendedUse": [
+        "30m-terrain-baseline"
+      ],
+      "license": "Product-specific; endpoint and redistribution terms require verification.",
+      "notes": [
+        "Fallback candidate only; no raster is ingested until the license gate passes."
+      ],
+      "provider": "NASA Earthdata LP DAAC",
+      "redistribution": "not-yet-verified",
+      "rightsStatus": "uncertain",
+      "sourceUrl": "https://www.earthdata.nasa.gov/centers/lp-daac"
+    }
+  ],
+  "version": 1
+}

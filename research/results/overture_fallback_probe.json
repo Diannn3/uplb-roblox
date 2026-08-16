@@ -1,0 +1,28 @@
+{
+  "attempts": [
+    {
+      "details": "Exception: Could not fetch STAC catalog: HTTP Error 404: Not Found",
+      "exitCode": 1,
+      "method": "official-cli",
+      "status": "blocked"
+    },
+    {
+      "details": "Direct cloud probe exceeded 12s timeout.",
+      "method": "direct-s3-geoparquet",
+      "release": "2026-06-17.0",
+      "status": "timeout"
+    }
+  ],
+  "bbox": {
+    "east": 121.265,
+    "north": 14.185,
+    "south": 14.145,
+    "west": 121.225
+  },
+  "decision": "blocked",
+  "notes": [
+    "A blocked provider probe is not evidence that Overture has no coverage.",
+    "Raw provider output remains gitignored and is deleted when a failed CLI creates an empty file."
+  ],
+  "version": 1
+}

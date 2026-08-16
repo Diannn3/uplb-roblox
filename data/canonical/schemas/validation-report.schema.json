@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UPLB Validation Report",
+  "type": "object",
+  "required": ["id", "inputRevisions", "checks", "decision"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^validation:"},
+    "inputRevisions": {"type": "object"},
+    "checks": {"type": "array", "items": {"type": "object", "required": ["name", "status"], "properties": {"name": {"type": "string"}, "status": {"enum": ["pass", "fail", "warning", "not-run"]}, "details": {"type": "string"}}, "additionalProperties": false}},
+    "measurements": {"type": "object"},
+    "discrepancies": {"type": "array"},
+    "blockers": {"type": "array", "items": {"type": "string"}},
+    "decision": {"enum": ["pass", "fail", "conditional"]}
+  },
+  "additionalProperties": false
+}

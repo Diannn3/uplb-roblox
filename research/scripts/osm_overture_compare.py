@@ -58,7 +58,7 @@ def main():
     if osm.exists() and osm_ok: r['inputs']['osm']={'path':str(osm.relative_to(ROOT)),'sha256':sha256(osm)}; r['summaries']['osm']=summarize_osm(osm)
     else: r['notes'].append('OSM extract absent; run --fetch in a network-enabled environment.')
     if ov.exists() and ov_ok: r['inputs']['overture']={'path':str(ov.relative_to(ROOT)),'sha256':sha256(ov)}; r['summaries']['overture']=summarize_ov(ov)
-    else: r['notes'].append('Overture extract absent; install official overturemaps CLI then run --fetch.')
+    else: r['notes'].append('Overture extract absent; see research/results/overture_fallback_probe.json for bounded client/direct-cloud diagnostics.')
     out=RESULTS/'osm_overture_comparison.json'; out.write_text(json.dumps(r,indent=2)+'\n', encoding='utf-8'); print(json.dumps(r,indent=2))
     return 0 if (not a.fetch or (osm_ok and ov_ok)) else 1
 if __name__=='__main__': raise SystemExit(main())
