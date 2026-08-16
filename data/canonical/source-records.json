@@ -4,13 +4,25 @@
       "accessedAt": "2026-08-17",
       "attribution": "© OpenStreetMap contributors",
       "contentHash": "sha256:9f766739c1ad0088170c708d222c246b47b4dc684120f1f57f252d6f290f6142",
+      "coverage": {
+        "bbox": [
+          121.2099966,
+          14.1290501,
+          121.2721856,
+          14.1921433
+        ],
+        "crs": "EPSG:4326"
+      },
       "id": "source:osm:uplb-aoi@2026-08-17",
       "intendedUse": [
         "building-footprint",
         "road",
         "walkway",
         "waterway",
-        "landmark-reference"
+        "water",
+        "entrance",
+        "barrier",
+        "landuse"
       ],
       "license": "ODbL-1.0",
       "notes": [
@@ -19,7 +31,8 @@
       "provider": "OpenStreetMap contributors",
       "redistribution": "allowed-with-conditions",
       "rightsStatus": "open-attribution-required",
-      "sourceUrl": "https://overpass-api.de/api/interpreter"
+      "sourceUrl": "https://overpass-api.de/api/interpreter",
+      "status": "validated"
     },
     {
       "accessedAt": "2026-08-17",
@@ -32,13 +45,14 @@
       ],
       "license": "ODbL-1.0",
       "notes": [
-        "Provider access is currently blocked by STAC/catalog or direct-cloud availability; this is not a coverage claim.",
-        "Adapter remains available for a later pinned extract."
+        "Provider access is blocked; no coverage conclusion is drawn.",
+        "Attempted release: 2026-06-17.0; optional overturemaps package was not installed in this run."
       ],
       "provider": "Overture Maps Foundation",
       "redistribution": "allowed-with-conditions",
       "rightsStatus": "open-attribution-required",
-      "sourceUrl": "https://docs.overturemaps.org/guides/buildings/"
+      "sourceUrl": "https://docs.overturemaps.org/guides/buildings/",
+      "status": "blocked"
     },
     {
       "accessedAt": "2026-08-17",
@@ -48,12 +62,13 @@
       ],
       "license": "Product-specific; endpoint and redistribution terms require verification.",
       "notes": [
-        "Fallback candidate only; no raster is ingested until the license gate passes."
+        "Fallback candidate only; no raster is ingested before rights validation."
       ],
       "provider": "NASA Earthdata LP DAAC",
       "redistribution": "not-yet-verified",
       "rightsStatus": "uncertain",
-      "sourceUrl": "https://www.earthdata.nasa.gov/centers/lp-daac"
+      "sourceUrl": "https://www.earthdata.nasa.gov/centers/lp-daac",
+      "status": "candidate"
     }
   ],
   "version": 1

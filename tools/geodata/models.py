@@ -32,6 +32,7 @@ class SourceRecord:
     accessed_at: str
     rights_status: RightsStatus
     intended_use: tuple[str, ...]
+    status: str = "validated"
     captured_at: str | None = None
     license: str | None = None
     attribution: str | None = None
@@ -47,6 +48,7 @@ class SourceRecord:
             "sourceUrl": self.source_url,
             "accessedAt": self.accessed_at,
             "rightsStatus": self.rights_status,
+            "status": self.status,
             "intendedUse": list(self.intended_use),
         }
         optional = {
@@ -113,21 +115,79 @@ class CanonicalFeature:
 
 
 @dataclass(frozen=True)
+class ProviderCandidate:
+    """A normalized provider record that has not been promoted to campus truth."""
+
+    id: str
+    provider: str
+    feature_type: str
+    name: str
+    geometry: dict[str, Any] | None
+    provenance: tuple[str, ...]
+    external_ids: dict[str, str]
+    confidence: dict[str, str]
+    properties: dict[str, Any] = field(default_factory=dict)
+    aliases: tuple[str, ...] = ()
+    verification_status: str = "candidate"
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "id": self.id,
+            "provider": self.provider,
+            "featureType": self.feature_type,
+            "name": self.name,
+            "aliases": list(self.aliases),
+            "geometry": self.geometry,
+            "properties": self.properties,
+            "externalIds": self.external_ids,
+            "provenance": list(self.provenance),
+            "confidence": self.confidence,
+            "verificationStatus": self.verification_status,
+        }
+
+    def to_geojson_feature(self) -> dict[str, Any]:
+        return {
+            "type": "Feature",
+            "id": self.id,
+            "geometry": self.geometry,
+            "properties": {
+                "provider": self.provider,
+                "featureType": self.feature_type,
+                "name": self.name,
+                "aliases": list(self.aliases),
+                "attributes": self.properties,
+                "externalIds": self.external_ids,
+                "provenance": list(self.provenance),
+                "confidence": self.confidence,
+                "verificationStatus": self.verification_status,
+            },
+        }
+
+
+@dataclass(frozen=True)
 class ConflationReview:
     """Human-review record for candidates that cannot be safely auto-merged."""
 
     id: str
-    canonical_id: str
-    candidates: tuple[dict[str, Any], ...]
+    canonical_id: str | None
+    candidate_ids: dict[str, str]
+    metrics: dict[str, float]
+    recommendation: Literal["probable-match", "possible-match", "no-match"]
     decision: Literal["pending", "accept", "reject"] = "pending"
     reason: str = ""
     review_status: Literal["needs-review", "reviewed"] = "needs-review"
+
+    @property
+    def candidates(self) -> tuple[dict[str, Any], ...]:
+        return tuple({"provider": key, "candidateId": value} for key, value in sorted(self.candidate_ids.items()))
 
     def to_dict(self) -> dict[str, Any]:
         return {
             "id": self.id,
             "canonicalId": self.canonical_id,
-            "candidates": list(self.candidates),
+            "candidateIds": self.candidate_ids,
+            "metrics": self.metrics,
+            "recommendation": self.recommendation,
             "decision": self.decision,
             "reason": self.reason,
             "reviewStatus": self.review_status,

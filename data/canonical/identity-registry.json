@@ -1,0 +1,60 @@
+{
+  "deletedIds": [],
+  "entities": {
+    "uplb:building:baker-hall": {
+      "aliases": [
+        "Baker Hall"
+      ],
+      "canonicalName": "Charles Fuller Baker Memorial Hall",
+      "createdFrom": "human-reviewed",
+      "externalIds": {
+        "osm": [
+          "way/37449973"
+        ],
+        "overture": []
+      },
+      "featureType": "building",
+      "identityStatus": "verified",
+      "supersedes": []
+    },
+    "uplb:landmark:freedom-park": {
+      "aliases": [
+        "Freedom Park"
+      ],
+      "canonicalName": "UPLB Freedom Park",
+      "createdFrom": "human-reviewed",
+      "externalIds": {
+        "osm": [
+          "way/33541968"
+        ],
+        "overture": []
+      },
+      "featureType": "landmark",
+      "identityStatus": "reference-only",
+      "supersedes": []
+    },
+    "uplb:landmark:oblation": {
+      "aliases": [
+        "Oblation"
+      ],
+      "canonicalName": "UPLB Oblation",
+      "createdFrom": "human-reviewed",
+      "externalIds": {
+        "osm": [
+          "node/382803333"
+        ],
+        "overture": []
+      },
+      "featureType": "landmark",
+      "identityStatus": "reference-only",
+      "supersedes": []
+    }
+  },
+  "nextNumbers": {
+    "building": 1,
+    "landmark": 1,
+    "road": 1,
+    "walkway": 1
+  },
+  "version": 1
+}

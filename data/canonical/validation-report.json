@@ -17,6 +17,11 @@
       "status": "pass"
     },
     {
+      "details": "rejected=0 needsReview=0",
+      "name": "geometry-validity",
+      "status": "pass"
+    },
+    {
       "details": "Restricted/uncertain sources are not permitted to silently enter canonical data: source:dem:srtm-baseline",
       "name": "rights-gate",
       "status": "warning"
@@ -30,14 +35,14 @@
     "osm": "sha256:9f766739c1ad0088170c708d222c246b47b4dc684120f1f57f252d6f290f6142"
   },
   "measurements": {
-    "featureCount": 10293,
+    "candidateCount": 10293,
+    "canonicalCount": 3,
+    "featureCount": 3,
     "featureTypes": {
-      "building": 7696,
-      "landmark": 3,
-      "road": 1574,
-      "walkway": 950,
-      "waterway": 70
+      "building": 1,
+      "landmark": 2
     },
-    "skippedOsmElements": 29
+    "pendingReviewCount": 0,
+    "sliceCandidateCount": 1911
   }
 }
