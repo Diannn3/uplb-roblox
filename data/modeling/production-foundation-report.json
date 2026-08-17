@@ -1,0 +1,530 @@
+{
+  "schemaVersion": "uplb-modeling-production-foundation-v0.1",
+  "status": "pass",
+  "summary": {
+    "sourceCount": 12,
+    "buildingCount": 15,
+    "canonicalBoundCount": 3,
+    "proposedBindingCount": 12,
+    "architectureFamilyCount": 10,
+    "componentCount": 24,
+    "materialClassCount": 10,
+    "strategyCounts": {
+      "environment-system": 1,
+      "existing-scan-with-permission": 2,
+      "procedural-accurate": 1,
+      "recover-existing": 11
+    },
+    "priorityCounts": {
+      "A": 8,
+      "B": 7
+    },
+    "statusCounts": {
+      "greybox-validated": 1,
+      "prototype-ready": 1,
+      "research": 1,
+      "source-recovery": 12
+    }
+  },
+  "classification": [
+    {
+      "productionId": "production:baker-hall",
+      "featureId": "uplb:building:baker-hall",
+      "name": "Charles Fuller Baker Memorial Hall",
+      "registeredStrategy": "recover-existing",
+      "recommendedStrategy": "recover-existing",
+      "confidence": "high",
+      "score": 85,
+      "reasons": [
+        "legacy UPLB 3D project evidence exists",
+        "at least one source is explicitly reusable",
+        "licensed photographic reference exists",
+        "priority A visual landmark"
+      ],
+      "budget": {
+        "lod0_triangles": 100000,
+        "lod1_triangles": 45000,
+        "lod2_triangles": 15000,
+        "lod3_triangles": 3000,
+        "max_texture_px": 1024,
+        "collision": "simple-custom",
+        "cast_shadow": true,
+        "roblox_level_of_detail": "SLIM",
+        "render_fidelity": "Automatic"
+      }
+    },
+    {
+      "productionId": "production:oblation",
+      "featureId": "uplb:landmark:oblation",
+      "name": "UPLB Oblation",
+      "registeredStrategy": "existing-scan-with-permission",
+      "recommendedStrategy": "existing-scan-with-permission",
+      "confidence": "high",
+      "score": 85,
+      "reasons": [
+        "legacy UPLB 3D project evidence exists",
+        "existing high-density scan lead exists",
+        "priority A visual landmark"
+      ],
+      "budget": {
+        "lod0_triangles": 100000,
+        "lod1_triangles": 45000,
+        "lod2_triangles": 15000,
+        "lod3_triangles": 3000,
+        "max_texture_px": 1024,
+        "collision": "simple-custom",
+        "cast_shadow": true,
+        "roblox_level_of_detail": "SLIM",
+        "render_fidelity": "Automatic"
+      }
+    },
+    {
+      "productionId": "production:physical-sciences",
+      "featureId": "uplb:building:physical-sciences",
+      "name": "Physical Sciences Building",
+      "registeredStrategy": "existing-scan-with-permission",
+      "recommendedStrategy": "existing-scan-with-permission",
+      "confidence": "high",
+      "score": 85,
+      "reasons": [
+        "legacy UPLB 3D project evidence exists",
+        "existing high-density scan lead exists",
+        "priority A visual landmark"
+      ],
+      "budget": {
+        "lod0_triangles": 100000,
+        "lod1_triangles": 45000,
+        "lod2_triangles": 15000,
+        "lod3_triangles": 3000,
+        "max_texture_px": 1024,
+        "collision": "simple-custom",
+        "cast_shadow": true,
+        "roblox_level_of_detail": "SLIM",
+        "render_fidelity": "Automatic"
+      }
+    },
+    {
+      "productionId": "production:main-library",
+      "featureId": "uplb:building:main-library",
+      "name": "University Library / Main Library",
+      "registeredStrategy": "recover-existing",
+      "recommendedStrategy": "recover-existing",
+      "confidence": "medium",
+      "score": 63,
+      "reasons": [
+        "legacy UPLB 3D project evidence exists",
+        "institutional building study provides factual constraints",
+        "priority A visual landmark"
+      ],
+      "budget": {
+        "lod0_triangles": 100000,
+        "lod1_triangles": 45000,
+        "lod2_triangles": 15000,
+        "lod3_triangles": 3000,
+        "max_texture_px": 1024,
+        "collision": "simple-custom",
+        "cast_shadow": true,
+        "roblox_level_of_detail": "SLIM",
+        "render_fidelity": "Automatic"
+      }
+    },
+    {
+      "productionId": "production:dl-umali",
+      "featureId": "uplb:building:dl-umali",
+      "name": "Dioscoro L. Umali Hall",
+      "registeredStrategy": "recover-existing",
+      "recommendedStrategy": "recover-existing",
+      "confidence": "medium",
+      "score": 55,
+      "reasons": [
+        "legacy UPLB 3D project evidence exists",
+        "priority A visual landmark"
+      ],
+      "budget": {
+        "lod0_triangles": 100000,
+        "lod1_triangles": 45000,
+        "lod2_triangles": 15000,
+        "lod3_triangles": 3000,
+        "max_texture_px": 1024,
+        "collision": "simple-custom",
+        "cast_shadow": true,
+        "roblox_level_of_detail": "SLIM",
+        "render_fidelity": "Automatic"
+      }
+    },
+    {
+      "productionId": "production:biological-sciences",
+      "featureId": "uplb:building:biological-sciences",
+      "name": "Biological Sciences Building",
+      "registeredStrategy": "recover-existing",
+      "recommendedStrategy": "recover-existing",
+      "confidence": "medium",
+      "score": 63,
+      "reasons": [
+        "legacy UPLB 3D project evidence exists",
+        "institutional building study provides factual constraints",
+        "priority A visual landmark"
+      ],
+      "budget": {
+        "lod0_triangles": 45000,
+        "lod1_triangles": 20000,
+        "lod2_triangles": 7500,
+        "lod3_triangles": 1500,
+        "max_texture_px": 512,
+        "collision": "simple-custom",
+        "cast_shadow": true,
+        "roblox_level_of_detail": "SLIM",
+        "render_fidelity": "Automatic"
+      }
+    },
+    {
+      "productionId": "production:cas-annex-1",
+      "featureId": "uplb:building:cas-annex-1",
+      "name": "CAS Annex 1",
+      "registeredStrategy": "recover-existing",
+      "recommendedStrategy": "recover-existing",
+      "confidence": "medium",
+      "score": 43,
+      "reasons": [
+        "legacy UPLB 3D project evidence exists",
+        "priority B campus building"
+      ],
+      "budget": {
+        "lod0_triangles": 45000,
+        "lod1_triangles": 20000,
+        "lod2_triangles": 7500,
+        "lod3_triangles": 1500,
+        "max_texture_px": 512,
+        "collision": "simple-custom",
+        "cast_shadow": true,
+        "roblox_level_of_detail": "SLIM",
+        "render_fidelity": "Automatic"
+      }
+    },
+    {
+      "productionId": "production:cas-annex-2",
+      "featureId": "uplb:building:cas-annex-2",
+      "name": "CAS Annex 2",
+      "registeredStrategy": "recover-existing",
+      "recommendedStrategy": "recover-existing",
+      "confidence": "medium",
+      "score": 43,
+      "reasons": [
+        "legacy UPLB 3D project evidence exists",
+        "priority B campus building"
+      ],
+      "budget": {
+        "lod0_triangles": 45000,
+        "lod1_triangles": 20000,
+        "lod2_triangles": 7500,
+        "lod3_triangles": 1500,
+        "max_texture_px": 512,
+        "collision": "simple-custom",
+        "cast_shadow": true,
+        "roblox_level_of_detail": "SLIM",
+        "render_fidelity": "Automatic"
+      }
+    },
+    {
+      "productionId": "production:student-union",
+      "featureId": "uplb:building:student-union",
+      "name": "Student Union Building",
+      "registeredStrategy": "recover-existing",
+      "recommendedStrategy": "recover-existing",
+      "confidence": "medium",
+      "score": 43,
+      "reasons": [
+        "legacy UPLB 3D project evidence exists",
+        "priority B campus building"
+      ],
+      "budget": {
+        "lod0_triangles": 45000,
+        "lod1_triangles": 20000,
+        "lod2_triangles": 7500,
+        "lod3_triangles": 1500,
+        "max_texture_px": 512,
+        "collision": "simple-custom",
+        "cast_shadow": true,
+        "roblox_level_of_detail": "SLIM",
+        "render_fidelity": "Automatic"
+      }
+    },
+    {
+      "productionId": "production:ceat",
+      "featureId": "uplb:building:ceat",
+      "name": "CEAT Building",
+      "registeredStrategy": "recover-existing",
+      "recommendedStrategy": "recover-existing",
+      "confidence": "medium",
+      "score": 43,
+      "reasons": [
+        "legacy UPLB 3D project evidence exists",
+        "priority B campus building"
+      ],
+      "budget": {
+        "lod0_triangles": 45000,
+        "lod1_triangles": 20000,
+        "lod2_triangles": 7500,
+        "lod3_triangles": 1500,
+        "max_texture_px": 512,
+        "collision": "simple-custom",
+        "cast_shadow": true,
+        "roblox_level_of_detail": "SLIM",
+        "render_fidelity": "Automatic"
+      }
+    },
+    {
+      "productionId": "production:cem",
+      "featureId": "uplb:building:cem",
+      "name": "CEM Building",
+      "registeredStrategy": "recover-existing",
+      "recommendedStrategy": "recover-existing",
+      "confidence": "medium",
+      "score": 43,
+      "reasons": [
+        "legacy UPLB 3D project evidence exists",
+        "priority B campus building"
+      ],
+      "budget": {
+        "lod0_triangles": 45000,
+        "lod1_triangles": 20000,
+        "lod2_triangles": 7500,
+        "lod3_triangles": 1500,
+        "max_texture_px": 512,
+        "collision": "simple-custom",
+        "cast_shadow": true,
+        "roblox_level_of_detail": "SLIM",
+        "render_fidelity": "Automatic"
+      }
+    },
+    {
+      "productionId": "production:cdc",
+      "featureId": "uplb:building:cdc",
+      "name": "CDC Building",
+      "registeredStrategy": "recover-existing",
+      "recommendedStrategy": "recover-existing",
+      "confidence": "medium",
+      "score": 43,
+      "reasons": [
+        "legacy UPLB 3D project evidence exists",
+        "priority B campus building"
+      ],
+      "budget": {
+        "lod0_triangles": 45000,
+        "lod1_triangles": 20000,
+        "lod2_triangles": 7500,
+        "lod3_triangles": 1500,
+        "max_texture_px": 512,
+        "collision": "simple-custom",
+        "cast_shadow": true,
+        "roblox_level_of_detail": "SLIM",
+        "render_fidelity": "Automatic"
+      }
+    },
+    {
+      "productionId": "production:uplb-gate",
+      "featureId": "uplb:landmark:main-gate",
+      "name": "UPLB Gate",
+      "registeredStrategy": "recover-existing",
+      "recommendedStrategy": "recover-existing",
+      "confidence": "medium",
+      "score": 55,
+      "reasons": [
+        "legacy UPLB 3D project evidence exists",
+        "priority A visual landmark"
+      ],
+      "budget": {
+        "lod0_triangles": 100000,
+        "lod1_triangles": 45000,
+        "lod2_triangles": 15000,
+        "lod3_triangles": 3000,
+        "max_texture_px": 1024,
+        "collision": "simple-custom",
+        "cast_shadow": true,
+        "roblox_level_of_detail": "SLIM",
+        "render_fidelity": "Automatic"
+      }
+    },
+    {
+      "productionId": "production:uhs-main",
+      "featureId": "uplb:building:uhs-main",
+      "name": "UPLB University Health Services Main Building",
+      "registeredStrategy": "procedural-accurate",
+      "recommendedStrategy": "procedural-accurate",
+      "confidence": "low",
+      "score": 16,
+      "reasons": [
+        "institutional building study provides factual constraints",
+        "priority B campus building"
+      ],
+      "budget": {
+        "lod0_triangles": 45000,
+        "lod1_triangles": 20000,
+        "lod2_triangles": 7500,
+        "lod3_triangles": 1500,
+        "max_texture_px": 512,
+        "collision": "simple-custom",
+        "cast_shadow": true,
+        "roblox_level_of_detail": "SLIM",
+        "render_fidelity": "Automatic"
+      }
+    },
+    {
+      "productionId": "production:freedom-park",
+      "featureId": "uplb:landmark:freedom-park",
+      "name": "UPLB Freedom Park",
+      "registeredStrategy": "environment-system",
+      "recommendedStrategy": "recover-existing",
+      "confidence": "medium",
+      "score": 55,
+      "reasons": [
+        "legacy UPLB 3D project evidence exists",
+        "priority A visual landmark"
+      ],
+      "budget": {
+        "lod0_triangles": 30000,
+        "lod1_triangles": 12000,
+        "lod2_triangles": 4000,
+        "lod3_triangles": 750,
+        "max_texture_px": 512,
+        "collision": "simple",
+        "cast_shadow": true,
+        "roblox_level_of_detail": "SLIM",
+        "render_fidelity": "Automatic"
+      }
+    }
+  ],
+  "recoveryActionCount": 17,
+  "topRecoveryActions": [
+    {
+      "production_id": "production:physical-sciences",
+      "building_name": "Physical Sciences Building",
+      "priority": "A",
+      "action": "request-scan-license-and-original",
+      "source_id": "source:scan:sketchfab-physci-2025",
+      "rationale": "An existing high-density model may avoid duplicate capture/modeling."
+    },
+    {
+      "production_id": "production:oblation",
+      "building_name": "UPLB Oblation",
+      "priority": "A",
+      "action": "request-scan-license-and-original",
+      "source_id": "source:scan:sketchfab-oblation-2025",
+      "rationale": "An existing high-density model may avoid duplicate capture/modeling."
+    },
+    {
+      "production_id": "production:biological-sciences",
+      "building_name": "Biological Sciences Building",
+      "priority": "A",
+      "action": "request-2014-original-model",
+      "source_id": "source:legacy:uplb-virtual-campus-2014",
+      "rationale": "The 2014 UPLB project may contain blueprint-patterned source geometry."
+    },
+    {
+      "production_id": "production:baker-hall",
+      "building_name": "Charles Fuller Baker Memorial Hall",
+      "priority": "A",
+      "action": "request-2014-original-model",
+      "source_id": "source:legacy:uplb-virtual-campus-2014",
+      "rationale": "The 2014 UPLB project may contain blueprint-patterned source geometry."
+    },
+    {
+      "production_id": "production:dl-umali",
+      "building_name": "Dioscoro L. Umali Hall",
+      "priority": "A",
+      "action": "request-2014-original-model",
+      "source_id": "source:legacy:uplb-virtual-campus-2014",
+      "rationale": "The 2014 UPLB project may contain blueprint-patterned source geometry."
+    },
+    {
+      "production_id": "production:physical-sciences",
+      "building_name": "Physical Sciences Building",
+      "priority": "A",
+      "action": "request-2014-original-model",
+      "source_id": "source:legacy:uplb-virtual-campus-2014",
+      "rationale": "The 2014 UPLB project may contain blueprint-patterned source geometry."
+    },
+    {
+      "production_id": "production:freedom-park",
+      "building_name": "UPLB Freedom Park",
+      "priority": "A",
+      "action": "request-2014-original-model",
+      "source_id": "source:legacy:uplb-virtual-campus-2014",
+      "rationale": "The 2014 UPLB project may contain blueprint-patterned source geometry."
+    },
+    {
+      "production_id": "production:uplb-gate",
+      "building_name": "UPLB Gate",
+      "priority": "A",
+      "action": "request-2014-original-model",
+      "source_id": "source:legacy:uplb-virtual-campus-2014",
+      "rationale": "The 2014 UPLB project may contain blueprint-patterned source geometry."
+    },
+    {
+      "production_id": "production:oblation",
+      "building_name": "UPLB Oblation",
+      "priority": "A",
+      "action": "request-2014-original-model",
+      "source_id": "source:legacy:uplb-virtual-campus-2014",
+      "rationale": "The 2014 UPLB project may contain blueprint-patterned source geometry."
+    },
+    {
+      "production_id": "production:main-library",
+      "building_name": "University Library / Main Library",
+      "priority": "A",
+      "action": "request-2014-original-model",
+      "source_id": "source:legacy:uplb-virtual-campus-2014",
+      "rationale": "The 2014 UPLB project may contain blueprint-patterned source geometry."
+    },
+    {
+      "production_id": "production:cas-annex-1",
+      "building_name": "CAS Annex 1",
+      "priority": "B",
+      "action": "request-2014-original-model",
+      "source_id": "source:legacy:uplb-virtual-campus-2014",
+      "rationale": "The 2014 UPLB project may contain blueprint-patterned source geometry."
+    },
+    {
+      "production_id": "production:cas-annex-2",
+      "building_name": "CAS Annex 2",
+      "priority": "B",
+      "action": "request-2014-original-model",
+      "source_id": "source:legacy:uplb-virtual-campus-2014",
+      "rationale": "The 2014 UPLB project may contain blueprint-patterned source geometry."
+    }
+  ],
+  "prototype": {
+    "schemaVersion": "uplb-prototype-mesh-v0.1",
+    "featureId": "uplb:building:baker-hall",
+    "sourceSnapshot": "data/modeling/reference/baker-canonical-snapshot.geojson",
+    "output": "assets/generated/prototypes/baker-hall-massing.obj",
+    "utmCentroidEastingM": 310341.832262,
+    "utmCentroidNorthingM": 1566327.46843,
+    "heightM": 8.0,
+    "vertexCount": 20,
+    "faceCount": 26,
+    "triangleEquivalent": 36,
+    "claim": "massing-only; footprint is source-supported, facade/roof/detail are not verified"
+  },
+  "kitPrototypeCount": 7,
+  "prototypeAssetCount": 8,
+  "inputs": {
+    "modelSourceRegistry": {
+      "path": "data/modeling/model-source-registry.json",
+      "sha256": "sha256:fc85da9fdbf761ff6a445c6c35fa2d92262676097f231c8fd7c34f939eefee46"
+    },
+    "buildingProductionRegistry": {
+      "path": "data/modeling/building-production-registry.json",
+      "sha256": "sha256:6a744b0f6fceb0f4abd9585e839a50ae87845bf31ea2593dc8b5c3598deefb4c"
+    },
+    "architectureKit": {
+      "path": "data/modeling/architecture-kit-v0.1.json",
+      "sha256": "sha256:a74b777921162052613d82e21328004f7d53bd4151562d2d239ea7363f8420cb"
+    },
+    "bakerSpec": {
+      "path": "data/modeling/building-specs/baker-hall.v0.1.json",
+      "sha256": "sha256:15e90b5dc80dbfa900220ab2a5e4c4bf7bfb9129e738363cdb735b5742b80fa3"
+    }
+  },
+  "nextGate": "Recover/verify source assets and approve UPLB Architecture Kit v0.1 before detailed hero facade production."
+}

@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UPLB Building Spec v0.2",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "featureId",
+    "name",
+    "productionTier",
+    "productionStatus",
+    "modelingStrategy",
+    "architecturalFamily",
+    "referenceIds",
+    "canonicalInput",
+    "prototype",
+    "targetProduction",
+    "openQuestions"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "uplb-building-spec-v0.2"
+    },
+    "featureId": {
+      "type": "string",
+      "pattern": "^uplb:"
+    },
+    "name": {
+      "type": "string"
+    },
+    "productionTier": {
+      "type": "string"
+    },
+    "productionStatus": {
+      "type": "string"
+    },
+    "modelingStrategy": {
+      "type": "string"
+    },
+    "architecturalFamily": {
+      "type": "string"
+    },
+    "referenceIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "canonicalInput": {
+      "type": "object"
+    },
+    "prototype": {
+      "type": "object",
+      "required": [
+        "heightM",
+        "heightMethod",
+        "purpose"
+      ]
+    },
+    "targetProduction": {
+      "type": "object"
+    },
+    "openQuestions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

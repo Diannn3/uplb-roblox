@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UPLB Architecture Kit",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "kitVersion",
+    "units",
+    "status",
+    "principles",
+    "families",
+    "components",
+    "materialClasses"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "uplb-architecture-kit-v0.1"
+    },
+    "kitVersion": {
+      "type": "string"
+    },
+    "units": {
+      "const": "meters"
+    },
+    "status": {
+      "enum": [
+        "prototype",
+        "reviewed",
+        "production"
+      ]
+    },
+    "principles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "families": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "description",
+          "defaultFloorHeightM",
+          "defaultBayWidthM",
+          "allowedRoofFamilies"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^uplb-"
+          },
+          "description": {
+            "type": "string"
+          },
+          "defaultFloorHeightM": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "defaultBayWidthM": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "allowedRoofFamilies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "category",
+          "sourceKind",
+          "defaultDimensionsM",
+          "materialClass",
+          "triangleBudget",
+          "collision"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "sourceKind": {
+            "type": "string"
+          },
+          "defaultDimensionsM": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          },
+          "materialClass": {
+            "type": "string"
+          },
+          "triangleBudget": {
+            "type": "object",
+            "required": [
+              "hero",
+              "standard",
+              "context"
+            ]
+          },
+          "collision": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "materialClasses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "robloxStrategy",
+          "targetMaxTexturePx"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "robloxStrategy": {
+            "type": "string"
+          },
+          "targetMaxTexturePx": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

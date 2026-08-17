@@ -1,0 +1,91 @@
+{
+  "snapshotVersion": "modeling-reference-v0.1",
+  "upstream": {
+    "branch": "feat/approved-roblox-validation-v0-1",
+    "commit": "b7a80eb06022241e4ffd85427e38d539dbb2c406",
+    "sourcePath": "data/canonical/features.geojson",
+    "sourceFileSha": "12cba8beb177ab3b60e5c5a03c2db5ba768ea603"
+  },
+  "feature": {
+    "type": "Feature",
+    "id": "uplb:building:baker-hall",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            121.2425717,
+            14.1616089
+          ],
+          [
+            121.2425392,
+            14.1615886
+          ],
+          [
+            121.2425096,
+            14.161633
+          ],
+          [
+            121.2424807,
+            14.1616762
+          ],
+          [
+            121.2425132,
+            14.1616965
+          ],
+          [
+            121.2424861,
+            14.161737
+          ],
+          [
+            121.242722,
+            14.1618863
+          ],
+          [
+            121.2429078,
+            14.1620018
+          ],
+          [
+            121.2430562,
+            14.1617797
+          ],
+          [
+            121.2426345,
+            14.1615149
+          ],
+          [
+            121.2425717,
+            14.1616089
+          ]
+        ]
+      ]
+    },
+    "properties": {
+      "featureType": "building",
+      "name": "Charles Fuller Baker Memorial Hall",
+      "aliases": [
+        "Baker Hall"
+      ],
+      "externalIds": {
+        "osm": "way/37449973"
+      },
+      "verificationStatus": "source-supported",
+      "attributes": {
+        "levels": 2.0,
+        "building": "yes",
+        "osmTags": {
+          "building:material": "concrete",
+          "start_date": "1938",
+          "roof:material": "eternit"
+        }
+      },
+      "verification": {
+        "footprint": "source-supported",
+        "height": "source-supported",
+        "facade": "unknown",
+        "interior": "unknown",
+        "position": "source-supported"
+      }
+    }
+  }
+}

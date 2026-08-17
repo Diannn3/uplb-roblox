@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "uplb-prototype-mesh-v0.1",
+  "featureId": "uplb:building:baker-hall",
+  "sourceSnapshot": "data/modeling/reference/baker-canonical-snapshot.geojson",
+  "output": "assets/generated/prototypes/baker-hall-massing.obj",
+  "utmCentroidEastingM": 310341.832262,
+  "utmCentroidNorthingM": 1566327.46843,
+  "heightM": 8.0,
+  "vertexCount": 20,
+  "faceCount": 26,
+  "triangleEquivalent": 36,
+  "claim": "massing-only; footprint is source-supported, facade/roof/detail are not verified"
+}

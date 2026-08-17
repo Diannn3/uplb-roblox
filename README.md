@@ -112,3 +112,23 @@ Do not begin persistent Roblox publication or detailed gameplay work from this
 POC alone. The controlled outdoor OSM-first slice is `worldgenReady`; long-
 distance navigation, campus-wide verification, and Overture coverage remain
 explicitly deferred or blocked.
+
+## Campus modeling production foundation
+
+The validated real-terrain vertical slice now feeds a separate content-production
+layer under `data/modeling/` and `tools/modeling/`. This layer tracks recoverable
+UPLB 3D sources, per-building production strategy, reusable architecture-kit
+modules, Roblox/LOD budgets, and deterministic prototype meshes without making
+Blender or Studio the source of truth.
+
+Validate it with:
+
+```powershell
+python -m tools.modeling.pipeline --check --generate-prototypes --write-report
+python -m pytest -q tests/modeling
+```
+
+Start with [`docs/CAMPUS_MODELING_IMPLEMENTATION_PLAN.md`](docs/CAMPUS_MODELING_IMPLEMENTATION_PLAN.md)
+and [`docs/UPLB_3D_SOURCE_RECOVERY.md`](docs/UPLB_3D_SOURCE_RECOVERY.md). Baker Hall is
+the first production prototype; its generated OBJ is explicitly massing-only until
+the legacy 2014 model/source archive and facade/roof evidence are resolved.

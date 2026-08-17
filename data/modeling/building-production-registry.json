@@ -1,0 +1,295 @@
+{
+  "schemaVersion": "uplb-building-production-registry-v0.1",
+  "generatedAt": "2026-08-17",
+  "productionPolicy": {
+    "heroTarget": "custom or recovered geometry with explicit evidence",
+    "standardTarget": "procedural-accurate from reviewed footprint, height/floors, architectural family, and facade evidence",
+    "contextTarget": "procedural-context with explicit uncertainty",
+    "interiors": "deferred unless gameplay/wayfinding requires them",
+    "sourceOfTruth": "canonical feature identity + production spec + asset manifest",
+    "neverCanonical": "Blender scene, Roblox Workspace, third-party marketplace state"
+  },
+  "buildings": [
+    {
+      "id": "production:baker-hall",
+      "canonicalFeatureId": "uplb:building:baker-hall",
+      "name": "Charles Fuller Baker Memorial Hall",
+      "priority": "A",
+      "productionTier": "hero-exterior",
+      "primaryStrategy": "recover-existing",
+      "fallbackStrategy": "custom-hero",
+      "architecturalFamily": "uplb-historic-prewar",
+      "sourceIds": [
+        "source:legacy:uplb-virtual-campus-2014",
+        "source:image:commons-baker-2017",
+        "source:image:commons-baker-2023"
+      ],
+      "status": "prototype-ready",
+      "openQuestions": [
+        "Can the 2014 model be recovered?",
+        "Can historical/architectural elevations be obtained?",
+        "Verify current roof geometry/material and all facade bays."
+      ]
+    },
+    {
+      "id": "production:oblation",
+      "canonicalFeatureId": "uplb:landmark:oblation",
+      "name": "UPLB Oblation",
+      "priority": "A",
+      "productionTier": "hero-exterior",
+      "primaryStrategy": "existing-scan-with-permission",
+      "fallbackStrategy": "custom-hero",
+      "architecturalFamily": "uplb-landmark-sculpture",
+      "sourceIds": [
+        "source:scan:sketchfab-oblation-2025",
+        "source:legacy:uplb-virtual-campus-2014"
+      ],
+      "status": "source-recovery",
+      "openQuestions": [
+        "Can the scan be licensed for derivative use?",
+        "Need pedestal and surrounding plaza measurements."
+      ]
+    },
+    {
+      "id": "production:physical-sciences",
+      "proposedFeatureId": "uplb:building:physical-sciences",
+      "name": "Physical Sciences Building",
+      "priority": "A",
+      "productionTier": "hero-exterior",
+      "primaryStrategy": "existing-scan-with-permission",
+      "fallbackStrategy": "recover-existing",
+      "architecturalFamily": "uplb-concrete-academic-midcentury",
+      "sourceIds": [
+        "source:scan:sketchfab-physci-2025",
+        "source:legacy:uplb-virtual-campus-2014"
+      ],
+      "status": "source-recovery",
+      "openQuestions": [
+        "Canonical identity/binding must be reviewed.",
+        "Can scan or 2014 model be recovered/licensed?"
+      ]
+    },
+    {
+      "id": "production:main-library",
+      "proposedFeatureId": "uplb:building:main-library",
+      "name": "University Library / Main Library",
+      "priority": "A",
+      "productionTier": "hero-exterior",
+      "primaryStrategy": "recover-existing",
+      "fallbackStrategy": "custom-hero",
+      "architecturalFamily": "uplb-concrete-academic-midcentury",
+      "sourceIds": [
+        "source:legacy:uplb-virtual-campus-2014",
+        "source:uplb:main-library-pushover-2016"
+      ],
+      "status": "source-recovery",
+      "knownFacts": {
+        "storeys": 4,
+        "structuralSystem": "reinforced-concrete",
+        "constructionYear": 1970
+      },
+      "openQuestions": [
+        "Canonical binding review.",
+        "Recover 2014 model and any current elevations/photos."
+      ]
+    },
+    {
+      "id": "production:dl-umali",
+      "proposedFeatureId": "uplb:building:dl-umali",
+      "name": "Dioscoro L. Umali Hall",
+      "priority": "A",
+      "productionTier": "hero-exterior",
+      "primaryStrategy": "recover-existing",
+      "fallbackStrategy": "custom-hero",
+      "architecturalFamily": "uplb-auditorium",
+      "sourceIds": [
+        "source:legacy:uplb-virtual-campus-2014"
+      ],
+      "status": "source-recovery",
+      "openQuestions": [
+        "Canonical binding review.",
+        "Recover 2014 model or build a fresh reference pack."
+      ]
+    },
+    {
+      "id": "production:biological-sciences",
+      "proposedFeatureId": "uplb:building:biological-sciences",
+      "name": "Biological Sciences Building",
+      "priority": "A",
+      "productionTier": "standard-exterior",
+      "primaryStrategy": "recover-existing",
+      "fallbackStrategy": "procedural-accurate",
+      "architecturalFamily": "uplb-concrete-academic-midcentury",
+      "sourceIds": [
+        "source:legacy:uplb-virtual-campus-2014",
+        "source:uplb:seismic-audit-2021"
+      ],
+      "status": "source-recovery",
+      "openQuestions": [
+        "Canonical binding review.",
+        "Recover legacy model and current footprint/height evidence."
+      ]
+    },
+    {
+      "id": "production:cas-annex-1",
+      "proposedFeatureId": "uplb:building:cas-annex-1",
+      "name": "CAS Annex 1",
+      "priority": "B",
+      "productionTier": "standard-exterior",
+      "primaryStrategy": "recover-existing",
+      "fallbackStrategy": "procedural-accurate",
+      "architecturalFamily": "uplb-concrete-academic-late20c",
+      "sourceIds": [
+        "source:legacy:uplb-virtual-campus-2014"
+      ],
+      "status": "source-recovery",
+      "openQuestions": [
+        "Canonical identity/binding review."
+      ]
+    },
+    {
+      "id": "production:cas-annex-2",
+      "proposedFeatureId": "uplb:building:cas-annex-2",
+      "name": "CAS Annex 2",
+      "priority": "B",
+      "productionTier": "standard-exterior",
+      "primaryStrategy": "recover-existing",
+      "fallbackStrategy": "procedural-accurate",
+      "architecturalFamily": "uplb-concrete-academic-late20c",
+      "sourceIds": [
+        "source:legacy:uplb-virtual-campus-2014"
+      ],
+      "status": "source-recovery",
+      "openQuestions": [
+        "Canonical identity/binding review."
+      ]
+    },
+    {
+      "id": "production:student-union",
+      "proposedFeatureId": "uplb:building:student-union",
+      "name": "Student Union Building",
+      "priority": "B",
+      "productionTier": "standard-exterior",
+      "primaryStrategy": "recover-existing",
+      "fallbackStrategy": "procedural-accurate",
+      "architecturalFamily": "uplb-concrete-academic-late20c",
+      "sourceIds": [
+        "source:legacy:uplb-virtual-campus-2014",
+        "source:news:cinterlabs-2014"
+      ],
+      "status": "source-recovery",
+      "openQuestions": [
+        "Canonical identity/binding review."
+      ]
+    },
+    {
+      "id": "production:ceat",
+      "proposedFeatureId": "uplb:building:ceat",
+      "name": "CEAT Building",
+      "priority": "B",
+      "productionTier": "standard-exterior",
+      "primaryStrategy": "recover-existing",
+      "fallbackStrategy": "procedural-accurate",
+      "architecturalFamily": "uplb-concrete-academic-late20c",
+      "sourceIds": [
+        "source:legacy:uplb-virtual-campus-2014"
+      ],
+      "status": "source-recovery",
+      "openQuestions": [
+        "Resolve exact historical figure/building identity versus modern CEAT complex."
+      ]
+    },
+    {
+      "id": "production:cem",
+      "proposedFeatureId": "uplb:building:cem",
+      "name": "CEM Building",
+      "priority": "B",
+      "productionTier": "standard-exterior",
+      "primaryStrategy": "recover-existing",
+      "fallbackStrategy": "procedural-accurate",
+      "architecturalFamily": "uplb-concrete-academic-late20c",
+      "sourceIds": [
+        "source:legacy:uplb-virtual-campus-2014"
+      ],
+      "status": "source-recovery",
+      "openQuestions": [
+        "Resolve exact building identity and present-day configuration."
+      ]
+    },
+    {
+      "id": "production:cdc",
+      "proposedFeatureId": "uplb:building:cdc",
+      "name": "CDC Building",
+      "priority": "B",
+      "productionTier": "standard-exterior",
+      "primaryStrategy": "recover-existing",
+      "fallbackStrategy": "procedural-accurate",
+      "architecturalFamily": "uplb-concrete-academic-late20c",
+      "sourceIds": [
+        "source:legacy:uplb-virtual-campus-2014"
+      ],
+      "status": "source-recovery",
+      "openQuestions": [
+        "Resolve exact building identity and present-day configuration."
+      ]
+    },
+    {
+      "id": "production:uplb-gate",
+      "proposedFeatureId": "uplb:landmark:main-gate",
+      "name": "UPLB Gate",
+      "priority": "A",
+      "productionTier": "hero-exterior",
+      "primaryStrategy": "recover-existing",
+      "fallbackStrategy": "custom-hero",
+      "architecturalFamily": "uplb-landmark-gate",
+      "sourceIds": [
+        "source:legacy:uplb-virtual-campus-2014"
+      ],
+      "status": "source-recovery",
+      "openQuestions": [
+        "Canonical landmark binding and current measurements."
+      ]
+    },
+    {
+      "id": "production:uhs-main",
+      "proposedFeatureId": "uplb:building:uhs-main",
+      "name": "UPLB University Health Services Main Building",
+      "priority": "B",
+      "productionTier": "standard-exterior",
+      "primaryStrategy": "procedural-accurate",
+      "fallbackStrategy": "photogrammetry",
+      "architecturalFamily": "uplb-concrete-service-1970s",
+      "sourceIds": [
+        "source:uplb:uhs-pushover-2016"
+      ],
+      "status": "research",
+      "knownFacts": {
+        "storeys": 2,
+        "heightM": 8,
+        "structuralSystem": "reinforced-concrete",
+        "constructionYear": 1971
+      },
+      "openQuestions": [
+        "Canonical identity/footprint binding.",
+        "Current facade and roof evidence."
+      ]
+    },
+    {
+      "id": "production:freedom-park",
+      "canonicalFeatureId": "uplb:landmark:freedom-park",
+      "name": "UPLB Freedom Park",
+      "priority": "A",
+      "productionTier": "environment-hero",
+      "primaryStrategy": "environment-system",
+      "fallbackStrategy": "custom-hero",
+      "architecturalFamily": "uplb-open-space",
+      "sourceIds": [
+        "source:legacy:uplb-virtual-campus-2014"
+      ],
+      "status": "greybox-validated",
+      "openQuestions": [
+        "Map lawn/edge/major-tree zones and permanent fixtures separately from the landmark point."
+      ]
+    }
+  ]
+}

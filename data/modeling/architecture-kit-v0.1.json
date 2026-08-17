@@ -1,0 +1,570 @@
+{
+  "schemaVersion": "uplb-architecture-kit-v0.1",
+  "kitVersion": "0.1.0",
+  "units": "meters",
+  "status": "prototype",
+  "principles": [
+    "Reusable modules over one-off meshes",
+    "Stable IDs and deterministic dimensions",
+    "UPLB-specific derivatives replace generic placeholders over time",
+    "Hero buildings may override every default",
+    "Texture/material reuse is preferred for Roblox batching and memory"
+  ],
+  "families": [
+    {
+      "id": "uplb-historic-prewar",
+      "description": "Historic/prewar landmark buildings such as Baker Hall; bespoke proportions and ornament are expected.",
+      "defaultFloorHeightM": 4.0,
+      "defaultBayWidthM": 3.0,
+      "allowedRoofFamilies": [
+        "roof:gable-metal",
+        "roof:hip-metal"
+      ]
+    },
+    {
+      "id": "uplb-concrete-academic-midcentury",
+      "description": "Mid-century reinforced-concrete academic buildings with repetitive bays, deep shade, and operable windows.",
+      "defaultFloorHeightM": 3.7,
+      "defaultBayWidthM": 3.2,
+      "allowedRoofFamilies": [
+        "roof:flat-parapet",
+        "roof:low-slope-metal"
+      ]
+    },
+    {
+      "id": "uplb-concrete-academic-late20c",
+      "description": "Later concrete academic/admin buildings with repeated grids and covered circulation.",
+      "defaultFloorHeightM": 3.5,
+      "defaultBayWidthM": 3.0,
+      "allowedRoofFamilies": [
+        "roof:flat-parapet",
+        "roof:low-slope-metal"
+      ]
+    },
+    {
+      "id": "uplb-concrete-service-1970s",
+      "description": "Service/health/support buildings emphasizing simple reinforced-concrete massing.",
+      "defaultFloorHeightM": 3.5,
+      "defaultBayWidthM": 3.0,
+      "allowedRoofFamilies": [
+        "roof:flat-parapet",
+        "roof:hip-metal"
+      ]
+    },
+    {
+      "id": "uplb-modern-glass-concrete",
+      "description": "Contemporary glass/concrete buildings.",
+      "defaultFloorHeightM": 3.8,
+      "defaultBayWidthM": 3.2,
+      "allowedRoofFamilies": [
+        "roof:flat-parapet"
+      ]
+    },
+    {
+      "id": "uplb-auditorium",
+      "description": "Auditoria/large assembly halls; geometry is typically bespoke but shares campus materials and circulation modules.",
+      "defaultFloorHeightM": 4.5,
+      "defaultBayWidthM": 4.0,
+      "allowedRoofFamilies": [
+        "roof:low-slope-metal",
+        "roof:flat-parapet"
+      ]
+    },
+    {
+      "id": "uplb-athletic",
+      "description": "Athletic/recreation buildings with long spans and bespoke roof structures.",
+      "defaultFloorHeightM": 4.0,
+      "defaultBayWidthM": 4.0,
+      "allowedRoofFamilies": [
+        "roof:gable-metal",
+        "roof:low-slope-metal"
+      ]
+    },
+    {
+      "id": "uplb-open-space",
+      "description": "Landscape/open-space landmark family; not a building facade generator.",
+      "defaultFloorHeightM": 1.0,
+      "defaultBayWidthM": 5.0,
+      "allowedRoofFamilies": []
+    },
+    {
+      "id": "uplb-landmark-sculpture",
+      "description": "Monuments/sculpture assemblies; always custom/recovered rather than procedural building generation.",
+      "defaultFloorHeightM": 1.0,
+      "defaultBayWidthM": 1.0,
+      "allowedRoofFamilies": []
+    },
+    {
+      "id": "uplb-landmark-gate",
+      "description": "Campus gate/portal landmark family; custom proportions and signage.",
+      "defaultFloorHeightM": 4.0,
+      "defaultBayWidthM": 4.0,
+      "allowedRoofFamilies": [
+        "roof:flat-parapet",
+        "roof:low-slope-metal"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "window:jalousie-a",
+      "category": "window",
+      "sourceKind": "custom-procedural",
+      "defaultDimensionsM": [
+        1.2,
+        0.12,
+        1.4
+      ],
+      "materialClass": "painted-metal-glass",
+      "triangleBudget": {
+        "hero": 220,
+        "standard": 80,
+        "context": 24
+      },
+      "collision": "none"
+    },
+    {
+      "id": "window:aluminum-glass-a",
+      "category": "window",
+      "sourceKind": "custom-procedural",
+      "defaultDimensionsM": [
+        1.5,
+        0.1,
+        1.5
+      ],
+      "materialClass": "aluminum-glass",
+      "triangleBudget": {
+        "hero": 160,
+        "standard": 48,
+        "context": 12
+      },
+      "collision": "none"
+    },
+    {
+      "id": "door:double-glass-a",
+      "category": "door",
+      "sourceKind": "custom-procedural",
+      "defaultDimensionsM": [
+        1.8,
+        0.12,
+        2.2
+      ],
+      "materialClass": "aluminum-glass",
+      "triangleBudget": {
+        "hero": 200,
+        "standard": 64,
+        "context": 12
+      },
+      "collision": "box"
+    },
+    {
+      "id": "door:service-a",
+      "category": "door",
+      "sourceKind": "custom-procedural",
+      "defaultDimensionsM": [
+        0.9,
+        0.12,
+        2.1
+      ],
+      "materialClass": "painted-metal",
+      "triangleBudget": {
+        "hero": 80,
+        "standard": 24,
+        "context": 12
+      },
+      "collision": "box"
+    },
+    {
+      "id": "column:concrete-square-a",
+      "category": "column",
+      "sourceKind": "custom-procedural",
+      "defaultDimensionsM": [
+        0.45,
+        0.45,
+        3.5
+      ],
+      "materialClass": "concrete-painted",
+      "triangleBudget": {
+        "hero": 48,
+        "standard": 24,
+        "context": 12
+      },
+      "collision": "box"
+    },
+    {
+      "id": "column:concrete-round-a",
+      "category": "column",
+      "sourceKind": "custom-procedural",
+      "defaultDimensionsM": [
+        0.5,
+        0.5,
+        3.5
+      ],
+      "materialClass": "concrete-painted",
+      "triangleBudget": {
+        "hero": 160,
+        "standard": 64,
+        "context": 24
+      },
+      "collision": "hull"
+    },
+    {
+      "id": "shade:horizontal-deep-a",
+      "category": "sunshade",
+      "sourceKind": "custom-procedural",
+      "defaultDimensionsM": [
+        1.8,
+        0.8,
+        0.15
+      ],
+      "materialClass": "concrete-painted",
+      "triangleBudget": {
+        "hero": 48,
+        "standard": 24,
+        "context": 12
+      },
+      "collision": "none"
+    },
+    {
+      "id": "shade:vertical-fin-a",
+      "category": "sunshade",
+      "sourceKind": "custom-procedural",
+      "defaultDimensionsM": [
+        0.18,
+        0.75,
+        1.8
+      ],
+      "materialClass": "concrete-painted",
+      "triangleBudget": {
+        "hero": 48,
+        "standard": 24,
+        "context": 12
+      },
+      "collision": "none"
+    },
+    {
+      "id": "roof:flat-parapet",
+      "category": "roof",
+      "sourceKind": "custom-procedural",
+      "defaultDimensionsM": [
+        1,
+        1,
+        0.25
+      ],
+      "materialClass": "concrete-weathered",
+      "triangleBudget": {
+        "hero": 0,
+        "standard": 0,
+        "context": 0
+      },
+      "collision": "source-building"
+    },
+    {
+      "id": "roof:gable-metal",
+      "category": "roof",
+      "sourceKind": "custom-procedural",
+      "defaultDimensionsM": [
+        1,
+        1,
+        1
+      ],
+      "materialClass": "corrugated-metal",
+      "triangleBudget": {
+        "hero": 0,
+        "standard": 0,
+        "context": 0
+      },
+      "collision": "source-building"
+    },
+    {
+      "id": "roof:hip-metal",
+      "category": "roof",
+      "sourceKind": "custom-procedural",
+      "defaultDimensionsM": [
+        1,
+        1,
+        1
+      ],
+      "materialClass": "corrugated-metal",
+      "triangleBudget": {
+        "hero": 0,
+        "standard": 0,
+        "context": 0
+      },
+      "collision": "source-building"
+    },
+    {
+      "id": "roof:low-slope-metal",
+      "category": "roof",
+      "sourceKind": "custom-procedural",
+      "defaultDimensionsM": [
+        1,
+        1,
+        0.5
+      ],
+      "materialClass": "corrugated-metal",
+      "triangleBudget": {
+        "hero": 0,
+        "standard": 0,
+        "context": 0
+      },
+      "collision": "source-building"
+    },
+    {
+      "id": "railing:steel-a",
+      "category": "railing",
+      "sourceKind": "custom-procedural",
+      "defaultDimensionsM": [
+        2.0,
+        0.08,
+        1.05
+      ],
+      "materialClass": "painted-steel",
+      "triangleBudget": {
+        "hero": 300,
+        "standard": 96,
+        "context": 24
+      },
+      "collision": "none"
+    },
+    {
+      "id": "stair:concrete-a",
+      "category": "stair",
+      "sourceKind": "custom-procedural",
+      "defaultDimensionsM": [
+        1.8,
+        4.0,
+        1.8
+      ],
+      "materialClass": "concrete",
+      "triangleBudget": {
+        "hero": 400,
+        "standard": 120,
+        "context": 24
+      },
+      "collision": "simple"
+    },
+    {
+      "id": "ramp:concrete-a",
+      "category": "ramp",
+      "sourceKind": "custom-procedural",
+      "defaultDimensionsM": [
+        1.5,
+        6.0,
+        0.8
+      ],
+      "materialClass": "concrete",
+      "triangleBudget": {
+        "hero": 80,
+        "standard": 40,
+        "context": 12
+      },
+      "collision": "simple"
+    },
+    {
+      "id": "walkway:covered-a",
+      "category": "covered-walkway",
+      "sourceKind": "custom-procedural",
+      "defaultDimensionsM": [
+        3.0,
+        6.0,
+        3.2
+      ],
+      "materialClass": "concrete-metal",
+      "triangleBudget": {
+        "hero": 900,
+        "standard": 360,
+        "context": 120
+      },
+      "collision": "simple"
+    },
+    {
+      "id": "curb:standard-a",
+      "category": "road-edge",
+      "sourceKind": "custom-procedural",
+      "defaultDimensionsM": [
+        0.18,
+        1.0,
+        0.15
+      ],
+      "materialClass": "concrete",
+      "triangleBudget": {
+        "hero": 12,
+        "standard": 12,
+        "context": 12
+      },
+      "collision": "box"
+    },
+    {
+      "id": "drain:open-a",
+      "category": "drainage",
+      "sourceKind": "custom-procedural",
+      "defaultDimensionsM": [
+        0.5,
+        1.0,
+        0.35
+      ],
+      "materialClass": "concrete",
+      "triangleBudget": {
+        "hero": 48,
+        "standard": 24,
+        "context": 12
+      },
+      "collision": "simple"
+    },
+    {
+      "id": "bench:campus-a",
+      "category": "street-furniture",
+      "sourceKind": "custom-procedural",
+      "defaultDimensionsM": [
+        1.8,
+        0.6,
+        0.85
+      ],
+      "materialClass": "wood-metal",
+      "triangleBudget": {
+        "hero": 900,
+        "standard": 300,
+        "context": 90
+      },
+      "collision": "box"
+    },
+    {
+      "id": "lamp:campus-a",
+      "category": "street-furniture",
+      "sourceKind": "custom-procedural",
+      "defaultDimensionsM": [
+        0.35,
+        0.35,
+        4.5
+      ],
+      "materialClass": "painted-metal",
+      "triangleBudget": {
+        "hero": 500,
+        "standard": 180,
+        "context": 60
+      },
+      "collision": "box"
+    },
+    {
+      "id": "bollard:campus-a",
+      "category": "street-furniture",
+      "sourceKind": "custom-procedural",
+      "defaultDimensionsM": [
+        0.18,
+        0.18,
+        0.9
+      ],
+      "materialClass": "painted-metal",
+      "triangleBudget": {
+        "hero": 120,
+        "standard": 48,
+        "context": 12
+      },
+      "collision": "box"
+    },
+    {
+      "id": "fence:campus-a",
+      "category": "fence",
+      "sourceKind": "custom-procedural",
+      "defaultDimensionsM": [
+        2.4,
+        0.1,
+        1.5
+      ],
+      "materialClass": "painted-metal",
+      "triangleBudget": {
+        "hero": 600,
+        "standard": 180,
+        "context": 48
+      },
+      "collision": "box"
+    },
+    {
+      "id": "sign:wayfinding-a",
+      "category": "signage",
+      "sourceKind": "custom-procedural",
+      "defaultDimensionsM": [
+        1.2,
+        0.12,
+        2.2
+      ],
+      "materialClass": "painted-metal",
+      "triangleBudget": {
+        "hero": 240,
+        "standard": 80,
+        "context": 24
+      },
+      "collision": "box"
+    },
+    {
+      "id": "utility:box-a",
+      "category": "utility",
+      "sourceKind": "custom-procedural",
+      "defaultDimensionsM": [
+        0.8,
+        0.5,
+        1.2
+      ],
+      "materialClass": "painted-metal",
+      "triangleBudget": {
+        "hero": 120,
+        "standard": 48,
+        "context": 12
+      },
+      "collision": "box"
+    }
+  ],
+  "materialClasses": [
+    {
+      "id": "concrete-painted",
+      "robloxStrategy": "shared-trim-sheet",
+      "targetMaxTexturePx": 512
+    },
+    {
+      "id": "concrete-weathered",
+      "robloxStrategy": "shared-trim-sheet",
+      "targetMaxTexturePx": 512
+    },
+    {
+      "id": "corrugated-metal",
+      "robloxStrategy": "tiling-material",
+      "targetMaxTexturePx": 512
+    },
+    {
+      "id": "painted-metal-glass",
+      "robloxStrategy": "shared-atlas",
+      "targetMaxTexturePx": 512
+    },
+    {
+      "id": "aluminum-glass",
+      "robloxStrategy": "shared-atlas",
+      "targetMaxTexturePx": 512
+    },
+    {
+      "id": "painted-metal",
+      "robloxStrategy": "shared-atlas",
+      "targetMaxTexturePx": 256
+    },
+    {
+      "id": "painted-steel",
+      "robloxStrategy": "shared-atlas",
+      "targetMaxTexturePx": 256
+    },
+    {
+      "id": "concrete-metal",
+      "robloxStrategy": "shared-trim-sheet",
+      "targetMaxTexturePx": 512
+    },
+    {
+      "id": "concrete",
+      "robloxStrategy": "roblox-material-or-trim",
+      "targetMaxTexturePx": 256
+    },
+    {
+      "id": "wood-metal",
+      "robloxStrategy": "shared-atlas",
+      "targetMaxTexturePx": 512
+    }
+  ]
+}

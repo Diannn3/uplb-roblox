@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "uplb-kit-prototype-manifest-v0.1",
+  "generated": [
+    {
+      "id": "window:jalousie-a",
+      "path": "assets/uplb-kit/prototypes/window_jalousie-a.obj",
+      "vertices": 8,
+      "triangleEquivalent": 12
+    },
+    {
+      "id": "column:concrete-square-a",
+      "path": "assets/uplb-kit/prototypes/column_concrete-square-a.obj",
+      "vertices": 8,
+      "triangleEquivalent": 12
+    },
+    {
+      "id": "column:concrete-round-a",
+      "path": "assets/uplb-kit/prototypes/column_concrete-round-a.obj",
+      "vertices": 24,
+      "triangleEquivalent": 44
+    },
+    {
+      "id": "shade:horizontal-deep-a",
+      "path": "assets/uplb-kit/prototypes/shade_horizontal-deep-a.obj",
+      "vertices": 8,
+      "triangleEquivalent": 12
+    },
+    {
+      "id": "bench:campus-a",
+      "path": "assets/uplb-kit/prototypes/bench_campus-a.obj",
+      "vertices": 8,
+      "triangleEquivalent": 12
+    },
+    {
+      "id": "bollard:campus-a",
+      "path": "assets/uplb-kit/prototypes/bollard_campus-a.obj",
+      "vertices": 24,
+      "triangleEquivalent": 44
+    },
+    {
+      "id": "utility:box-a",
+      "path": "assets/uplb-kit/prototypes/utility_box-a.obj",
+      "vertices": 8,
+      "triangleEquivalent": 12
+    }
+  ],
+  "claim": "Primitive dimension prototypes only; visual design pending reference validation."
+}

@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UPLB Model Source Registry",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "generatedAt",
+    "policy",
+    "sources"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "uplb-model-source-registry-v0.1"
+    },
+    "generatedAt": {
+      "type": "string"
+    },
+    "policy": {
+      "type": "object"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "kind",
+          "provider",
+          "url",
+          "rightsStatus",
+          "reuseStatus",
+          "evidence",
+          "nextAction"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^(source|tool):"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "type": "string"
+          },
+          "provider": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^https://"
+          },
+          "rightsStatus": {
+            "type": "string"
+          },
+          "reuseStatus": {
+            "type": "string"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "nextAction": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

@@ -16,6 +16,11 @@ on:
       - "tools/blender/**"
       - "tools/roblox/**"
       - "assets/manifests/**"
+      - "assets/uplb-kit/**"
+      - "assets/generated/prototypes/**"
+      - "data/modeling/**"
+      - "tools/modeling/**"
+      - "tests/modeling/**"
       - "tests/assets/**"
       - "tests/terrain/**"
       - "tests/worldgen/**"
@@ -40,6 +45,11 @@ on:
       - "tools/blender/**"
       - "tools/roblox/**"
       - "assets/manifests/**"
+      - "assets/uplb-kit/**"
+      - "assets/generated/prototypes/**"
+      - "data/modeling/**"
+      - "tools/modeling/**"
+      - "tests/modeling/**"
       - "tests/assets/**"
       - "tests/terrain/**"
       - "tests/worldgen/**"
@@ -74,5 +84,7 @@ jobs:
         run: python -m tools.geodata.ci_checks
       - name: Phase 1 hardening report
         run: python -m tools.geodata.phase_gate
+      - name: Campus modeling production foundation
+        run: python -m tools.modeling.pipeline --check
       - name: Pinned Overture release check (read-only)
         run: python -m tools.geodata.overture_check_updates --offline

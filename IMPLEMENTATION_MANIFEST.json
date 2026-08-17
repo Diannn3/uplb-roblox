@@ -1,0 +1,308 @@
+{
+  "schemaVersion": "uplb-campus-modeling-implementation-bundle-v0.1",
+  "preparedAt": "2026-08-17",
+  "base": {
+    "repository": "Diannn3/uplb-roblox",
+    "branch": "feat/approved-roblox-validation-v0-1",
+    "commit": "b7a80eb06022241e4ffd85427e38d539dbb2c406",
+    "treeSha": "3f30b5a05f5da8fd8d12e49de5375de8f8b25994"
+  },
+  "limitation": "Container DNS could not resolve github.com; exact base state was read through the connected GitHub API. Bundle contains an apply-ready patch/overlay rather than .git history.",
+  "implemented": [
+    "Phase 1: source recovery/model source registry foundation",
+    "Phase 1: per-building production registry with canonical vs proposed binding separation",
+    "Phase 3: UPLB Architecture Kit v0.1 with 10 families, 24 reusable component definitions, and 10 material classes",
+    "Phase 4: deterministic WGS84\u2192EPSG:32651 footprint projection and watertight extrusion core",
+    "Phase 4: deterministic facade-bay layout planner for standard buildings",
+    "Phase 4: Baker Hall first production specification and massing prototype",
+    "Phase 9 foundation: prototype asset manifests and Roblox/LOD budget policy",
+    "Phase 8 foundation: generated source-recovery action queue",
+    "CI integration and offline tests for modeling tooling"
+  ],
+  "validation": {
+    "newTests": "17 passed",
+    "compileall": "pass",
+    "pipeline": "pass",
+    "sourceCount": 12,
+    "buildingSeedCount": 15,
+    "architectureFamilyCount": 10,
+    "componentCount": 24,
+    "recoveryActionCount": 17,
+    "bakerPrototype": "watertight in local trimesh inspection; source-supported footprint only; facade/roof remain explicitly unverified",
+    "kitPrototypeCount": 7,
+    "prototypeAssetCount": 8
+  },
+  "files": [
+    {
+      "path": ".github/workflows/geodata.yml",
+      "sha256": "sha256:324a68d1c7803acbfba1fae808cca3d4fa28015309c4ad0d8fb78c3f844fce5f",
+      "bytes": 2748
+    },
+    {
+      "path": "README.md",
+      "sha256": "sha256:9be620c597fed591f3e62f56d8a04df2727c8d4a63ad7df144ce983a30097f8b",
+      "bytes": 6193
+    },
+    {
+      "path": "UPSTREAM_BASE.json",
+      "sha256": "sha256:3151d8694c76b877901d02949802283495c288a291a932ddb376ecaee0aa03a3",
+      "bytes": 382
+    },
+    {
+      "path": "assets/generated/prototypes/baker-hall-massing.meta.json",
+      "sha256": "sha256:84a312f1910b1bc192f753c7529c202318bb253949e97caa436cfec449cd9abc",
+      "bytes": 501
+    },
+    {
+      "path": "assets/generated/prototypes/baker-hall-massing.obj",
+      "sha256": "sha256:d4bda3b4dc2d839488504e7d1ea69e74ed746d60372d800dd21845b2b7870289",
+      "bytes": 1112
+    },
+    {
+      "path": "assets/manifests/modeling-prototypes.json",
+      "sha256": "sha256:4aff18a836bb02068d02dada218fab551e02c2b511911c6fd0d9d28cbf9f36a1",
+      "bytes": 5693
+    },
+    {
+      "path": "assets/uplb-kit/README.md",
+      "sha256": "sha256:86dd0285d903876e772658eabb2e239ff7bbe59260b19dc3eac9525fb01552f0",
+      "bytes": 629
+    },
+    {
+      "path": "assets/uplb-kit/prototypes/bench_campus-a.obj",
+      "sha256": "sha256:b826c45e67ef403a35eac032fe4abf813a0497fb0c33a188cc6300e6cd8f550b",
+      "bytes": 413
+    },
+    {
+      "path": "assets/uplb-kit/prototypes/bollard_campus-a.obj",
+      "sha256": "sha256:dddf61ab6a87c378c0985a5ca8ce60e6fb51cce0fa57f67ab3fbb94851c75f4f",
+      "bytes": 1060
+    },
+    {
+      "path": "assets/uplb-kit/prototypes/column_concrete-round-a.obj",
+      "sha256": "sha256:329dbbb0f0098d35b29d5aba483aa1563f1def77e5316bd03d44cb2a604a6acb",
+      "bytes": 1074
+    },
+    {
+      "path": "assets/uplb-kit/prototypes/column_concrete-square-a.obj",
+      "sha256": "sha256:cd68747ffb80dcbaaf388590fb7e08ca372570e8c98c742ed7cd8c6a6a55f35f",
+      "bytes": 433
+    },
+    {
+      "path": "assets/uplb-kit/prototypes/manifest.json",
+      "sha256": "sha256:2ae2916612f92b58fce17038c43b1260bbd261fb9c2ba0140df448d2abaa5aaa",
+      "bytes": 1346
+    },
+    {
+      "path": "assets/uplb-kit/prototypes/shade_horizontal-deep-a.obj",
+      "sha256": "sha256:2add40aad46aa9b33d6f456d3afe94a107e09c849fd071f51d6e97e48f9a7d0c",
+      "bytes": 431
+    },
+    {
+      "path": "assets/uplb-kit/prototypes/utility_box-a.obj",
+      "sha256": "sha256:5fd05fac64c3a91e235475c76b73de4afb2e8f3a6e35f3e58334742e47f16d15",
+      "bytes": 411
+    },
+    {
+      "path": "assets/uplb-kit/prototypes/window_jalousie-a.obj",
+      "sha256": "sha256:6ec3ec1d65050041bd3533c844c4acca3c849becf75e332652366b1351226eed",
+      "bytes": 419
+    },
+    {
+      "path": "data/canonical/schemas/architecture-kit.schema.json",
+      "sha256": "sha256:07fadd88388f0633dce12c50444e251cd45e47f0dfc277c935324a4b5d1b6208",
+      "bytes": 3229
+    },
+    {
+      "path": "data/canonical/schemas/building-production-registry.schema.json",
+      "sha256": "sha256:eac2e3d95109afd7bf8779ac0b17d8f99dc4f6e4e3973029b89b31169c9d6e61",
+      "bytes": 3048
+    },
+    {
+      "path": "data/canonical/schemas/building-spec-v0.2.schema.json",
+      "sha256": "sha256:810b61c05b7e851bb584fcecb9e8a6b837d8921a41bb43538b82a5ab3bbec43e",
+      "bytes": 1317
+    },
+    {
+      "path": "data/canonical/schemas/model-source-registry.schema.json",
+      "sha256": "sha256:d196f2776ca0abab9bf53caae096c2b8a830e3a664b5c6a6c1378a951585c893",
+      "bytes": 1620
+    },
+    {
+      "path": "data/modeling/README.md",
+      "sha256": "sha256:73aa6d72a4e688ee65a806f5fd661575fb5d012bf241b540092441b8b8103f55",
+      "bytes": 1196
+    },
+    {
+      "path": "data/modeling/architecture-kit-v0.1.json",
+      "sha256": "sha256:a74b777921162052613d82e21328004f7d53bd4151562d2d239ea7363f8420cb",
+      "bytes": 13444
+    },
+    {
+      "path": "data/modeling/building-production-registry.json",
+      "sha256": "sha256:6a744b0f6fceb0f4abd9585e839a50ae87845bf31ea2593dc8b5c3598deefb4c",
+      "bytes": 10214
+    },
+    {
+      "path": "data/modeling/building-specs/baker-hall.v0.1.json",
+      "sha256": "sha256:15e90b5dc80dbfa900220ab2a5e4c4bf7bfb9129e738363cdb735b5742b80fa3",
+      "bytes": 1921
+    },
+    {
+      "path": "data/modeling/model-source-registry.json",
+      "sha256": "sha256:fc85da9fdbf761ff6a445c6c35fa2d92262676097f231c8fd7c34f939eefee46",
+      "bytes": 9133
+    },
+    {
+      "path": "data/modeling/production-foundation-report.json",
+      "sha256": "sha256:f8b59d87319030277754469081d71a09dae6fff4d0239cc9ab8ce0c380f6027f",
+      "bytes": 17771
+    },
+    {
+      "path": "data/modeling/reference/baker-canonical-snapshot.geojson",
+      "sha256": "sha256:a2af95dce1bf1f29f853308d78d7fbcbebc4c9c59ff20a87166aaba554e4281e",
+      "bytes": 1986
+    },
+    {
+      "path": "data/modeling/source-recovery-queue.json",
+      "sha256": "sha256:6a19e4d74470076e2a75c3cc0af8b5951efcfc60a06e3d72d19ae22e2e18bf5b",
+      "bytes": 5643
+    },
+    {
+      "path": "docs/CAMPUS_MODELING_IMPLEMENTATION_PLAN.md",
+      "sha256": "sha256:ad2318e2e828bbc4e96f498fb1564fd24919fe2d5bec5ef27c7351cca7c5de5d",
+      "bytes": 4269
+    },
+    {
+      "path": "docs/LOCAL_LLM_HANDOFF.md",
+      "sha256": "sha256:ee136cb0e1d06c0511b34de8b5aec73e379b657eb3b20100d40a01b1e2b2a8b5",
+      "bytes": 1275
+    },
+    {
+      "path": "docs/UPLB_3D_SOURCE_RECOVERY.md",
+      "sha256": "sha256:8f399d3d5c0e87f6c40aab4926dfdde4325fe8f4932cce1cfd0e2f56bcc1362a",
+      "bytes": 5089
+    },
+    {
+      "path": "docs/UPLB_ARCHITECTURE_KIT_V0_1.md",
+      "sha256": "sha256:9df8f3657c4c3d4febf02adfc56f67a021589a632cf587096f747dd76911a2b2",
+      "bytes": 2839
+    },
+    {
+      "path": "tests/modeling/test_asset_manifest.py",
+      "sha256": "sha256:f8dca6dcb5700bfc5cdbb78e7d83a4337739a9a6edfcf97c76d2d8380bbd826d",
+      "bytes": 863
+    },
+    {
+      "path": "tests/modeling/test_budgets.py",
+      "sha256": "sha256:a282070bb6f20c021510607adfa0ab7dca4fd5097b425d481a21769e723ed1d1",
+      "bytes": 420
+    },
+    {
+      "path": "tests/modeling/test_building_generator.py",
+      "sha256": "sha256:6b57313d33964d0434710b54afafba19b817d1c7d8dfe8661a080fd119b3311e",
+      "bytes": 556
+    },
+    {
+      "path": "tests/modeling/test_classification.py",
+      "sha256": "sha256:b9aa8d61d26b90f7b7591274436f89132eafd1c8868b8e8c9ac5514aaf43a5f9",
+      "bytes": 927
+    },
+    {
+      "path": "tests/modeling/test_facade.py",
+      "sha256": "sha256:89573f4001018855423afc737b24086a2a7e6edbac5e2b20b6d858153c3f46c2",
+      "bytes": 812
+    },
+    {
+      "path": "tests/modeling/test_mesh.py",
+      "sha256": "sha256:d577f7b6f3d753a76029d38516e353e915c8f9afbd4b554c81c31d1d771b68cb",
+      "bytes": 1095
+    },
+    {
+      "path": "tests/modeling/test_pipeline.py",
+      "sha256": "sha256:2e4717d01f809c32ac01a319dc914d380e5bd251efc9827d7c764518436d8ce5",
+      "bytes": 338
+    },
+    {
+      "path": "tests/modeling/test_prototypes.py",
+      "sha256": "sha256:b7edd94bbc66a4d573f9692aa974216fe7b38bf90a895fac065e133b6d4186a3",
+      "bytes": 662
+    },
+    {
+      "path": "tests/modeling/test_recovery.py",
+      "sha256": "sha256:ce92c5a9e0078504fcec71f1890d22de09e3d9f5c8e6568a0d28aca7f13f175a",
+      "bytes": 488
+    },
+    {
+      "path": "tests/modeling/test_registry.py",
+      "sha256": "sha256:f58f3fd01d58595523916e29cb4d8fbbebcec19391527590160a63c00dadeb17",
+      "bytes": 826
+    },
+    {
+      "path": "tools/modeling/__init__.py",
+      "sha256": "sha256:e247c8e9f109c66be9cffe1aeaed7ebe8815d2277f00253a45afa5856ecfc1c5",
+      "bytes": 341
+    },
+    {
+      "path": "tools/modeling/__main__.py",
+      "sha256": "sha256:7a7beaaa82a6df0b77f113ee66bd9538f96a5a3e21edbe23afc42e43b494cc0c",
+      "bytes": 53
+    },
+    {
+      "path": "tools/modeling/asset_manifest.py",
+      "sha256": "sha256:4f550a63b8bb1fe40d8629e256e51aa40eca27e7d4cd9768503fe3a243cb5427",
+      "bytes": 3012
+    },
+    {
+      "path": "tools/modeling/budgets.py",
+      "sha256": "sha256:87345e063928f074322daa5e2f5b2a9fef16f2ad07a2a0211622ab33ce4e50a6",
+      "bytes": 1199
+    },
+    {
+      "path": "tools/modeling/building_generator.py",
+      "sha256": "sha256:a727c5dd8938bea35bfe0ad885f12f6c87bbb5cca49e54a05481d27dc837bf6d",
+      "bytes": 1732
+    },
+    {
+      "path": "tools/modeling/classification.py",
+      "sha256": "sha256:16b217f1f87a8bca2ac92b13045c053e1e8ecee0ecec3876bb0622b85a674aee",
+      "bytes": 2320
+    },
+    {
+      "path": "tools/modeling/facade.py",
+      "sha256": "sha256:b86337067ce0c994a9e9045bd00ef37afeedb1cf8ba05bb4cb9b20f0b35bf680",
+      "bytes": 3082
+    },
+    {
+      "path": "tools/modeling/mesh.py",
+      "sha256": "sha256:13428b8700d98b980d381ad99ed663bba2d1be1a6312556f200a2dec6fbb8bf9",
+      "bytes": 5131
+    },
+    {
+      "path": "tools/modeling/models.py",
+      "sha256": "sha256:a7811d114009df3de1d31ebc33faa8619a7318f916d7a942b55803fe19aa1e97",
+      "bytes": 1156
+    },
+    {
+      "path": "tools/modeling/pipeline.py",
+      "sha256": "sha256:36ce5b0983ee607e6699b72e87739c187454d9e053a6e61df3956632fcd25a96",
+      "bytes": 5114
+    },
+    {
+      "path": "tools/modeling/prototypes.py",
+      "sha256": "sha256:db0763ff58613182887b8b007985e382f720a2d4f517654b1238af5efbb3f700",
+      "bytes": 3808
+    },
+    {
+      "path": "tools/modeling/registry.py",
+      "sha256": "sha256:2d802e46887d6b9d64bc7f4151325eccdd21ce19536c17dca68edb1c3bce4cf9",
+      "bytes": 6400
+    },
+    {
+      "path": "tools/modeling/source_recovery.py",
+      "sha256": "sha256:d0e906e24a92e04c9a91cb959262d01e9a959651fddfee0d9035c9de3ca39133",
+      "bytes": 1907
+    }
+  ],
+  "nextMilestone": "Recover/verify the 2014 UPLB source models and assemble Baker Hall reference evidence before detailed facade production."
+}

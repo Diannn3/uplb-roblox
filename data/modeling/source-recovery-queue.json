@@ -1,0 +1,141 @@
+{
+  "schemaVersion": "uplb-source-recovery-queue-v0.1",
+  "actions": [
+    {
+      "production_id": "production:physical-sciences",
+      "building_name": "Physical Sciences Building",
+      "priority": "A",
+      "action": "request-scan-license-and-original",
+      "source_id": "source:scan:sketchfab-physci-2025",
+      "rationale": "An existing high-density model may avoid duplicate capture/modeling."
+    },
+    {
+      "production_id": "production:oblation",
+      "building_name": "UPLB Oblation",
+      "priority": "A",
+      "action": "request-scan-license-and-original",
+      "source_id": "source:scan:sketchfab-oblation-2025",
+      "rationale": "An existing high-density model may avoid duplicate capture/modeling."
+    },
+    {
+      "production_id": "production:biological-sciences",
+      "building_name": "Biological Sciences Building",
+      "priority": "A",
+      "action": "request-2014-original-model",
+      "source_id": "source:legacy:uplb-virtual-campus-2014",
+      "rationale": "The 2014 UPLB project may contain blueprint-patterned source geometry."
+    },
+    {
+      "production_id": "production:baker-hall",
+      "building_name": "Charles Fuller Baker Memorial Hall",
+      "priority": "A",
+      "action": "request-2014-original-model",
+      "source_id": "source:legacy:uplb-virtual-campus-2014",
+      "rationale": "The 2014 UPLB project may contain blueprint-patterned source geometry."
+    },
+    {
+      "production_id": "production:dl-umali",
+      "building_name": "Dioscoro L. Umali Hall",
+      "priority": "A",
+      "action": "request-2014-original-model",
+      "source_id": "source:legacy:uplb-virtual-campus-2014",
+      "rationale": "The 2014 UPLB project may contain blueprint-patterned source geometry."
+    },
+    {
+      "production_id": "production:physical-sciences",
+      "building_name": "Physical Sciences Building",
+      "priority": "A",
+      "action": "request-2014-original-model",
+      "source_id": "source:legacy:uplb-virtual-campus-2014",
+      "rationale": "The 2014 UPLB project may contain blueprint-patterned source geometry."
+    },
+    {
+      "production_id": "production:freedom-park",
+      "building_name": "UPLB Freedom Park",
+      "priority": "A",
+      "action": "request-2014-original-model",
+      "source_id": "source:legacy:uplb-virtual-campus-2014",
+      "rationale": "The 2014 UPLB project may contain blueprint-patterned source geometry."
+    },
+    {
+      "production_id": "production:uplb-gate",
+      "building_name": "UPLB Gate",
+      "priority": "A",
+      "action": "request-2014-original-model",
+      "source_id": "source:legacy:uplb-virtual-campus-2014",
+      "rationale": "The 2014 UPLB project may contain blueprint-patterned source geometry."
+    },
+    {
+      "production_id": "production:oblation",
+      "building_name": "UPLB Oblation",
+      "priority": "A",
+      "action": "request-2014-original-model",
+      "source_id": "source:legacy:uplb-virtual-campus-2014",
+      "rationale": "The 2014 UPLB project may contain blueprint-patterned source geometry."
+    },
+    {
+      "production_id": "production:main-library",
+      "building_name": "University Library / Main Library",
+      "priority": "A",
+      "action": "request-2014-original-model",
+      "source_id": "source:legacy:uplb-virtual-campus-2014",
+      "rationale": "The 2014 UPLB project may contain blueprint-patterned source geometry."
+    },
+    {
+      "production_id": "production:cas-annex-1",
+      "building_name": "CAS Annex 1",
+      "priority": "B",
+      "action": "request-2014-original-model",
+      "source_id": "source:legacy:uplb-virtual-campus-2014",
+      "rationale": "The 2014 UPLB project may contain blueprint-patterned source geometry."
+    },
+    {
+      "production_id": "production:cas-annex-2",
+      "building_name": "CAS Annex 2",
+      "priority": "B",
+      "action": "request-2014-original-model",
+      "source_id": "source:legacy:uplb-virtual-campus-2014",
+      "rationale": "The 2014 UPLB project may contain blueprint-patterned source geometry."
+    },
+    {
+      "production_id": "production:cdc",
+      "building_name": "CDC Building",
+      "priority": "B",
+      "action": "request-2014-original-model",
+      "source_id": "source:legacy:uplb-virtual-campus-2014",
+      "rationale": "The 2014 UPLB project may contain blueprint-patterned source geometry."
+    },
+    {
+      "production_id": "production:ceat",
+      "building_name": "CEAT Building",
+      "priority": "B",
+      "action": "request-2014-original-model",
+      "source_id": "source:legacy:uplb-virtual-campus-2014",
+      "rationale": "The 2014 UPLB project may contain blueprint-patterned source geometry."
+    },
+    {
+      "production_id": "production:cem",
+      "building_name": "CEM Building",
+      "priority": "B",
+      "action": "request-2014-original-model",
+      "source_id": "source:legacy:uplb-virtual-campus-2014",
+      "rationale": "The 2014 UPLB project may contain blueprint-patterned source geometry."
+    },
+    {
+      "production_id": "production:student-union",
+      "building_name": "Student Union Building",
+      "priority": "B",
+      "action": "request-2014-original-model",
+      "source_id": "source:legacy:uplb-virtual-campus-2014",
+      "rationale": "The 2014 UPLB project may contain blueprint-patterned source geometry."
+    },
+    {
+      "production_id": "production:uhs-main",
+      "building_name": "UPLB University Health Services Main Building",
+      "priority": "B",
+      "action": "build-reference-pack",
+      "source_id": null,
+      "rationale": "No recoverable 3D source is registered yet."
+    }
+  ]
+}

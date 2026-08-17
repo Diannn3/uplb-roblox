@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UPLB Building Production Registry",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "generatedAt",
+    "productionPolicy",
+    "buildings"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "uplb-building-production-registry-v0.1"
+    },
+    "generatedAt": {
+      "type": "string"
+    },
+    "productionPolicy": {
+      "type": "object"
+    },
+    "buildings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "priority",
+          "productionTier",
+          "primaryStrategy",
+          "fallbackStrategy",
+          "status",
+          "sourceIds",
+          "openQuestions"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^production:"
+          },
+          "canonicalFeatureId": {
+            "type": "string",
+            "pattern": "^uplb:"
+          },
+          "proposedFeatureId": {
+            "type": "string",
+            "pattern": "^uplb:"
+          },
+          "name": {
+            "type": "string"
+          },
+          "priority": {
+            "enum": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          "productionTier": {
+            "enum": [
+              "hero-exterior",
+              "standard-exterior",
+              "context-exterior",
+              "environment-hero",
+              "background"
+            ]
+          },
+          "primaryStrategy": {
+            "enum": [
+              "recover-existing",
+              "existing-scan-with-permission",
+              "photogrammetry",
+              "custom-hero",
+              "procedural-accurate",
+              "procedural-context",
+              "environment-system",
+              "background-only"
+            ]
+          },
+          "fallbackStrategy": {
+            "type": "string"
+          },
+          "architecturalFamily": {
+            "type": "string"
+          },
+          "sourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "status": {
+            "enum": [
+              "research",
+              "source-recovery",
+              "prototype-ready",
+              "greybox-validated",
+              "reference-ready",
+              "modeling",
+              "qa",
+              "complete"
+            ]
+          },
+          "knownFacts": {
+            "type": "object"
+          },
+          "openQuestions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "oneOf": [
+          {
+            "required": [
+              "canonicalFeatureId"
+            ]
+          },
+          {
+            "required": [
+              "proposedFeatureId"
+            ]
+          }
+        ],
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

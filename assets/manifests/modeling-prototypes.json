@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "uplb-modeling-prototype-assets-v0.1",
+  "status": "prototype-only",
+  "records": [
+    {
+      "id": "asset:prototype:baker-hall-massing",
+      "kind": "building-massing",
+      "featureId": "uplb:building:baker-hall",
+      "file": "assets/generated/prototypes/baker-hall-massing.obj",
+      "sha256": "sha256:d4bda3b4dc2d839488504e7d1ea69e74ed746d60372d800dd21845b2b7870289",
+      "rights": "project-generated-from-reviewed-canonical-footprint",
+      "productionDisposition": "NON_PRODUCTION_REFERENCE",
+      "geometry": {
+        "vertices": 20,
+        "faces": 26,
+        "triangleEquivalent": 36
+      },
+      "sourceEvidence": [
+        "data/modeling/reference/baker-canonical-snapshot.geojson",
+        "data/modeling/building-specs/baker-hall.v0.1.json"
+      ]
+    },
+    {
+      "id": "asset:kit-prototype:bench_campus-a",
+      "kind": "architecture-kit-dimension-prototype",
+      "file": "assets/uplb-kit/prototypes/bench_campus-a.obj",
+      "sha256": "sha256:b826c45e67ef403a35eac032fe4abf813a0497fb0c33a188cc6300e6cd8f550b",
+      "rights": "project-generated",
+      "productionDisposition": "NON_PRODUCTION_REFERENCE",
+      "geometry": {
+        "vertices": 8,
+        "faces": 6,
+        "triangleEquivalent": 12
+      },
+      "sourceEvidence": [
+        "data/modeling/architecture-kit-v0.1.json"
+      ],
+      "notes": "Stable source component is represented by prototype filename 'bench:campus-a'; visual design is unverified."
+    },
+    {
+      "id": "asset:kit-prototype:bollard_campus-a",
+      "kind": "architecture-kit-dimension-prototype",
+      "file": "assets/uplb-kit/prototypes/bollard_campus-a.obj",
+      "sha256": "sha256:dddf61ab6a87c378c0985a5ca8ce60e6fb51cce0fa57f67ab3fbb94851c75f4f",
+      "rights": "project-generated",
+      "productionDisposition": "NON_PRODUCTION_REFERENCE",
+      "geometry": {
+        "vertices": 24,
+        "faces": 14,
+        "triangleEquivalent": 44
+      },
+      "sourceEvidence": [
+        "data/modeling/architecture-kit-v0.1.json"
+      ],
+      "notes": "Stable source component is represented by prototype filename 'bollard:campus-a'; visual design is unverified."
+    },
+    {
+      "id": "asset:kit-prototype:column_concrete-round-a",
+      "kind": "architecture-kit-dimension-prototype",
+      "file": "assets/uplb-kit/prototypes/column_concrete-round-a.obj",
+      "sha256": "sha256:329dbbb0f0098d35b29d5aba483aa1563f1def77e5316bd03d44cb2a604a6acb",
+      "rights": "project-generated",
+      "productionDisposition": "NON_PRODUCTION_REFERENCE",
+      "geometry": {
+        "vertices": 24,
+        "faces": 14,
+        "triangleEquivalent": 44
+      },
+      "sourceEvidence": [
+        "data/modeling/architecture-kit-v0.1.json"
+      ],
+      "notes": "Stable source component is represented by prototype filename 'column:concrete-round-a'; visual design is unverified."
+    },
+    {
+      "id": "asset:kit-prototype:column_concrete-square-a",
+      "kind": "architecture-kit-dimension-prototype",
+      "file": "assets/uplb-kit/prototypes/column_concrete-square-a.obj",
+      "sha256": "sha256:cd68747ffb80dcbaaf388590fb7e08ca372570e8c98c742ed7cd8c6a6a55f35f",
+      "rights": "project-generated",
+      "productionDisposition": "NON_PRODUCTION_REFERENCE",
+      "geometry": {
+        "vertices": 8,
+        "faces": 6,
+        "triangleEquivalent": 12
+      },
+      "sourceEvidence": [
+        "data/modeling/architecture-kit-v0.1.json"
+      ],
+      "notes": "Stable source component is represented by prototype filename 'column:concrete-square-a'; visual design is unverified."
+    },
+    {
+      "id": "asset:kit-prototype:shade_horizontal-deep-a",
+      "kind": "architecture-kit-dimension-prototype",
+      "file": "assets/uplb-kit/prototypes/shade_horizontal-deep-a.obj",
+      "sha256": "sha256:2add40aad46aa9b33d6f456d3afe94a107e09c849fd071f51d6e97e48f9a7d0c",
+      "rights": "project-generated",
+      "productionDisposition": "NON_PRODUCTION_REFERENCE",
+      "geometry": {
+        "vertices": 8,
+        "faces": 6,
+        "triangleEquivalent": 12
+      },
+      "sourceEvidence": [
+        "data/modeling/architecture-kit-v0.1.json"
+      ],
+      "notes": "Stable source component is represented by prototype filename 'shade:horizontal-deep-a'; visual design is unverified."
+    },
+    {
+      "id": "asset:kit-prototype:utility_box-a",
+      "kind": "architecture-kit-dimension-prototype",
+      "file": "assets/uplb-kit/prototypes/utility_box-a.obj",
+      "sha256": "sha256:5fd05fac64c3a91e235475c76b73de4afb2e8f3a6e35f3e58334742e47f16d15",
+      "rights": "project-generated",
+      "productionDisposition": "NON_PRODUCTION_REFERENCE",
+      "geometry": {
+        "vertices": 8,
+        "faces": 6,
+        "triangleEquivalent": 12
+      },
+      "sourceEvidence": [
+        "data/modeling/architecture-kit-v0.1.json"
+      ],
+      "notes": "Stable source component is represented by prototype filename 'utility:box-a'; visual design is unverified."
+    },
+    {
+      "id": "asset:kit-prototype:window_jalousie-a",
+      "kind": "architecture-kit-dimension-prototype",
+      "file": "assets/uplb-kit/prototypes/window_jalousie-a.obj",
+      "sha256": "sha256:6ec3ec1d65050041bd3533c844c4acca3c849becf75e332652366b1351226eed",
+      "rights": "project-generated",
+      "productionDisposition": "NON_PRODUCTION_REFERENCE",
+      "geometry": {
+        "vertices": 8,
+        "faces": 6,
+        "triangleEquivalent": 12
+      },
+      "sourceEvidence": [
+        "data/modeling/architecture-kit-v0.1.json"
+      ],
+      "notes": "Stable source component is represented by prototype filename 'window:jalousie-a'; visual design is unverified."
+    }
+  ]
+}

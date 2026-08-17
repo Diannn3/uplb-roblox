@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "uplb-building-spec-v0.2",
+  "featureId": "uplb:building:baker-hall",
+  "name": "Charles Fuller Baker Memorial Hall",
+  "productionTier": "hero-exterior",
+  "productionStatus": "prototype",
+  "modelingStrategy": "recover-existing-then-custom",
+  "architecturalFamily": "uplb-historic-prewar",
+  "referenceIds": [
+    "source:legacy:uplb-virtual-campus-2014",
+    "source:image:commons-baker-2017",
+    "source:image:commons-baker-2023"
+  ],
+  "canonicalInput": {
+    "featurePath": "data/canonical/features.geojson",
+    "externalId": "osm:way/37449973",
+    "levels": 2,
+    "material": "concrete",
+    "startDate": "1938",
+    "verification": {
+      "footprint": "source-supported",
+      "height": "source-supported",
+      "facade": "unknown",
+      "interior": "unknown"
+    }
+  },
+  "prototype": {
+    "purpose": "Validate model-source registry, footprint-to-mesh conversion, stable IDs, scale, and asset handoff. Not an architectural likeness claim.",
+    "heightM": 8.0,
+    "heightMethod": "2 levels × provisional 4.0 m family default",
+    "roof": "flat-prototype-only",
+    "facadeDetail": "none",
+    "collision": "massing"
+  },
+  "targetProduction": {
+    "roofFamily": "roof:gable-metal",
+    "modules": [],
+    "materials": [
+      "concrete-painted",
+      "corrugated-metal"
+    ],
+    "lodBudgets": {
+      "lod0Triangles": 90000,
+      "lod1Triangles": 40000,
+      "lod2Triangles": 12000,
+      "lod3Triangles": 2500
+    },
+    "roblox": {
+      "modelLevelOfDetail": "SLIM",
+      "renderFidelity": "Automatic",
+      "streamingClass": "hero-static"
+    }
+  },
+  "openQuestions": [
+    "Recover and inspect the 2014 Baker Hall model before bespoke facade work.",
+    "Measure/verify roof ridge, eaves, facade bays, stair/door geometry, and current additions.",
+    "Resolve whether CC BY-SA imagery is used only as visual reference or becomes a direct derivative input."
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UPLB Modeling Prototype Asset Manifest",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "status",
+    "records"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "uplb-modeling-prototype-assets-v0.1"
+    },
+    "status": {
+      "const": "prototype-only"
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "file",
+          "sha256",
+          "rights",
+          "productionDisposition",
+          "geometry",
+          "sourceEvidence"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^asset:"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "featureId": {
+            "type": "string"
+          },
+          "file": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "rights": {
+            "type": "string"
+          },
+          "productionDisposition": {
+            "const": "NON_PRODUCTION_REFERENCE"
+          },
+          "geometry": {
+            "type": "object",
+            "required": [
+              "vertices",
+              "faces",
+              "triangleEquivalent"
+            ]
+          },
+          "sourceEvidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}
