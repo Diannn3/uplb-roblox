@@ -1,11 +1,12 @@
 {
   "canonicalFeatureCount": 3,
-  "contextFeatureCount": 92,
+  "contextFeatureCount": 95,
   "duplicateFeatureIds": false,
   "errors": [],
   "geometryState": "source geometry retained; no survey-grade claim",
+  "greenSpaceContextCount": 3,
   "requiredHeroesMissing": [],
-  "selectedFeatureCount": 95,
+  "selectedFeatureCount": 98,
   "sliceVersion": "v0.1",
   "status": "pass"
 }

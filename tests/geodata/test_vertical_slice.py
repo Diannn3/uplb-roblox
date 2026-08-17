@@ -37,6 +37,11 @@ class VerticalSliceTests(unittest.TestCase):
             if properties["sourceLifecycle"] == "candidate":
                 self.assertIsNone(properties.get("canonicalId"))
 
+    def test_slice_contains_bounded_candidate_green_space_context(self) -> None:
+        selection = json.loads((SLICE / "selection.json").read_text(encoding="utf-8"))
+        self.assertGreaterEqual(selection["roleCounts"]["green-space"], 1)
+        self.assertLessEqual(selection["selectedFeatureCount"], 120)
+
     def test_slice_generation_is_deterministic(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             first = build_vertical_slice(Path(directory) / "first")

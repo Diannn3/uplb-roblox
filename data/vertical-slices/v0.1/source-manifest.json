@@ -1,9 +1,15 @@
 {
   "approvedReviewHash": "sha256:b526f1a3798c85130723d04f3682000adc2a95b2c2ae04632bdef81718111b99",
   "candidateSourceHash": "sha256:9f766739c1ad0088170c708d222c246b47b4dc684120f1f57f252d6f290f6142",
+  "derivedContext": [
+    "candidate:derived:green-space/freedom-park-open-space",
+    "candidate:derived:green-space/central-lawn-west",
+    "candidate:derived:green-space/central-lawn-east"
+  ],
   "rightsNote": "Context features remain candidate lifecycle and are not canonical promotions.",
   "sliceVersion": "v0.1",
   "sourceIds": [
+    "source:derived:bounded-aoi-context",
     "source:osm:uplb-aoi@2026-08-17"
   ],
   "sources": [

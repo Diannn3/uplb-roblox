@@ -8,6 +8,8 @@ import json
 from pathlib import Path
 from typing import Any
 
+from shapely.geometry import shape
+
 from .geometry import distance_m, inspect_geometry, select_intersecting
 from .io import read_json, sha256, write_feature_collection, write_json
 from .review_priority import DEFAULT_AREA, DEFAULT_CANDIDATES, _candidate_from_geojson
@@ -23,6 +25,79 @@ SLICE_VERSION = "v0.1"
 GENERATOR_VERSION = "vertical-slice-v0.1"
 ROLE_ORDER = ("hero", "context-building", "road", "walkway", "water", "green-space", "landmark-placeholder")
 TARGETS = {"context-building": 35, "road": 25, "walkway": 25, "water": 5, "green-space": 5}
+
+
+def _local_rectangle(transform: CoordinateTransform, east: float, north: float, width: float, depth: float) -> dict[str, Any]:
+    corners = [
+        (east - width / 2.0, north - depth / 2.0),
+        (east + width / 2.0, north - depth / 2.0),
+        (east + width / 2.0, north + depth / 2.0),
+        (east - width / 2.0, north + depth / 2.0),
+        (east - width / 2.0, north - depth / 2.0),
+    ]
+    return {"type": "Polygon", "coordinates": [[[round(transform.local_to_wgs84(e, n)[0], 9), round(transform.local_to_wgs84(e, n)[1], 9)] for e, n in corners]]}
+
+
+def _environment_context_features(
+    heroes: list[Any],
+    area_geometry: dict[str, Any],
+    transform: CoordinateTransform,
+    *,
+    candidate_source_hash: str,
+) -> list[dict[str, Any]]:
+    """Add a few bounded, explicitly derived green-space diagnostics.
+
+    OSM did not provide green-space candidates in this AOI snapshot. These
+    placeholders are therefore candidate lifecycle only and carry no official
+    land-use or survey claim.
+    """
+
+    freedom = next((hero for hero in heroes if hero.name == "UPLB Freedom Park" and hero.geometry), None)
+    freedom_point = shape(freedom.geometry).representative_point() if freedom else shape(area_geometry).representative_point()
+    area_point = shape(area_geometry).representative_point()
+    freedom_east, freedom_north, _ = transform.wgs84_to_local(float(freedom_point.x), float(freedom_point.y))
+    area_east, area_north, _ = transform.wgs84_to_local(float(area_point.x), float(area_point.y))
+    definitions = [
+        ("candidate:derived:green-space/freedom-park-open-space", "Freedom Park open-space context", freedom_east, freedom_north, 42.0, 32.0),
+        ("candidate:derived:green-space/central-lawn-west", "Central campus lawn west context", area_east - 55.0, area_north + 45.0, 52.0, 34.0),
+        ("candidate:derived:green-space/central-lawn-east", "Central campus lawn east context", area_east + 65.0, area_north - 35.0, 48.0, 30.0),
+    ]
+    features: list[dict[str, Any]] = []
+    for candidate_id, name, east, north, width, depth in definitions:
+        geometry = _local_rectangle(transform, east, north, width, depth)
+        geometry_json = json.dumps(geometry, sort_keys=True, separators=(",", ":"))
+        geometry_hash = f"sha256:{hashlib.sha256(geometry_json.encode('utf-8')).hexdigest()}"
+        features.append(
+            {
+                "type": "Feature",
+                "id": candidate_id,
+                "geometry": geometry,
+                "properties": {
+                    "featureId": candidate_id,
+                    "candidateId": candidate_id,
+                    "canonicalId": None,
+                    "sourceLifecycle": "candidate",
+                    "worldgenRole": "green-space",
+                    "detailTier": 1,
+                    "name": name,
+                    "aliases": [],
+                    "provider": "derived-context",
+                    "featureType": "green-space",
+                    "externalIds": {"derived": candidate_id.removeprefix("candidate:derived:")},
+                    "attributes": {"contextKind": "bounded-diagnostic-placeholder", "landUseClaim": "none"},
+                    "provenance": ["source:derived:bounded-aoi-context"],
+                    "confidence": {"footprint": "low", "position": "low", "height": "not-applicable"},
+                    "verification": {"identity": "candidate", "position": "derived-placeholder", "footprint": "derived-placeholder"},
+                    "verificationStatus": "candidate",
+                    "geometryConfidence": "derived-placeholder",
+                    "sourceGeometryHash": geometry_hash,
+                    "canonicalRevision": None,
+                    "candidateSourceHash": candidate_source_hash,
+                    "generatorVersion": GENERATOR_VERSION,
+                },
+            }
+        )
+    return features
 
 
 def _relative(path: Path) -> str:
@@ -183,7 +258,10 @@ def build_vertical_slice(
         features.append({"type": "Feature", "id": feature_id, "geometry": candidate.geometry, "properties": properties})
         if canonical_id:
             bindings.append({"canonicalId": canonical_id, "candidateId": candidate.id, "featureId": feature_id, "sourceLifecycle": lifecycle})
+    environment_features = _environment_context_features(heroes, area_geometry, CoordinateTransform(), candidate_source_hash=candidate_source_hash)
+    features.extend(environment_features)
     role_counts = {role: sum(1 for _, selected_role, _ in selected if selected_role == role) for role in ROLE_ORDER}
+    role_counts["green-space"] += len(environment_features)
     hero_names = {str(row.get("name")) for row in hero_rows}
     selected_names = {str(feature["properties"].get("name")) for feature in features}
     required_missing = sorted(hero_names - selected_names)
@@ -202,6 +280,8 @@ def build_vertical_slice(
         "requiredHeroes": sorted(hero_names),
         "requiredHeroesMissing": required_missing,
         "selectionPolicy": "required approved heroes plus deterministic nearest context by role; context remains candidate lifecycle",
+        "environmentContextCount": len(environment_features),
+        "environmentContextPolicy": "bounded derived placeholders remain candidate lifecycle and carry no official land-use claim",
     }
     source_records = read_json(sources_path).get("sources", [])
     source_ids = sorted({source for feature in features for source in feature["properties"]["provenance"]})
@@ -211,6 +291,7 @@ def build_vertical_slice(
         "approvedReviewHash": approved.get("sourcePackageHash"),
         "sources": [record for record in source_records if record.get("id") in source_ids],
         "sourceIds": source_ids,
+        "derivedContext": [feature["id"] for feature in environment_features],
         "rightsNote": "Context features remain candidate lifecycle and are not canonical promotions.",
     }
     validation = {
@@ -223,6 +304,7 @@ def build_vertical_slice(
         "geometryState": "source geometry retained; no survey-grade claim",
         "canonicalFeatureCount": sum(1 for feature in features if feature["properties"]["sourceLifecycle"] == "canonical"),
         "contextFeatureCount": sum(1 for feature in features if feature["properties"]["sourceLifecycle"] == "candidate"),
+        "greenSpaceContextCount": len(environment_features),
     }
     output_dir.mkdir(parents=True, exist_ok=True)
     area_output = dict(area_payload)

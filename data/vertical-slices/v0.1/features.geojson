@@ -4,6 +4,213 @@
       "geometry": {
         "coordinates": [
           [
+            [
+              121.242633229,
+              14.162800902
+            ],
+            [
+              121.243077816,
+              14.162804158
+            ],
+            [
+              121.24307573,
+              14.163075286
+            ],
+            [
+              121.242631143,
+              14.16307203
+            ],
+            [
+              121.242633229,
+              14.162800902
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "id": "candidate:derived:green-space/central-lawn-east",
+      "properties": {
+        "aliases": [],
+        "attributes": {
+          "contextKind": "bounded-diagnostic-placeholder",
+          "landUseClaim": "none"
+        },
+        "candidateId": "candidate:derived:green-space/central-lawn-east",
+        "candidateSourceHash": "sha256:9f766739c1ad0088170c708d222c246b47b4dc684120f1f57f252d6f290f6142",
+        "canonicalId": null,
+        "canonicalRevision": null,
+        "confidence": {
+          "footprint": "low",
+          "height": "not-applicable",
+          "position": "low"
+        },
+        "detailTier": 1,
+        "externalIds": {
+          "derived": "green-space/central-lawn-east"
+        },
+        "featureId": "candidate:derived:green-space/central-lawn-east",
+        "featureType": "green-space",
+        "generatorVersion": "vertical-slice-v0.1",
+        "geometryConfidence": "derived-placeholder",
+        "name": "Central campus lawn east context",
+        "provenance": [
+          "source:derived:bounded-aoi-context"
+        ],
+        "provider": "derived-context",
+        "sourceGeometryHash": "sha256:74915db8beeb5dc5f7b0ad2e458e46fa425dfb61c276afa838f8a0f535be6ec9",
+        "sourceLifecycle": "candidate",
+        "verification": {
+          "footprint": "derived-placeholder",
+          "identity": "candidate",
+          "position": "derived-placeholder"
+        },
+        "verificationStatus": "candidate",
+        "worldgenRole": "green-space"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              121.24149781,
+              14.163497554
+            ],
+            [
+              121.241979447,
+              14.163501084
+            ],
+            [
+              121.241977082,
+              14.163808363
+            ],
+            [
+              121.241495444,
+              14.163804833
+            ],
+            [
+              121.24149781,
+              14.163497554
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "id": "candidate:derived:green-space/central-lawn-west",
+      "properties": {
+        "aliases": [],
+        "attributes": {
+          "contextKind": "bounded-diagnostic-placeholder",
+          "landUseClaim": "none"
+        },
+        "candidateId": "candidate:derived:green-space/central-lawn-west",
+        "candidateSourceHash": "sha256:9f766739c1ad0088170c708d222c246b47b4dc684120f1f57f252d6f290f6142",
+        "canonicalId": null,
+        "canonicalRevision": null,
+        "confidence": {
+          "footprint": "low",
+          "height": "not-applicable",
+          "position": "low"
+        },
+        "detailTier": 1,
+        "externalIds": {
+          "derived": "green-space/central-lawn-west"
+        },
+        "featureId": "candidate:derived:green-space/central-lawn-west",
+        "featureType": "green-space",
+        "generatorVersion": "vertical-slice-v0.1",
+        "geometryConfidence": "derived-placeholder",
+        "name": "Central campus lawn west context",
+        "provenance": [
+          "source:derived:bounded-aoi-context"
+        ],
+        "provider": "derived-context",
+        "sourceGeometryHash": "sha256:84f989f148548d9b987a716e3893ff30d3561ca40d0811121febf4053a26df57",
+        "sourceLifecycle": "candidate",
+        "verification": {
+          "footprint": "derived-placeholder",
+          "identity": "candidate",
+          "position": "derived-placeholder"
+        },
+        "verificationStatus": "candidate",
+        "worldgenRole": "green-space"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              121.241536608,
+              14.161133973
+            ],
+            [
+              121.241925618,
+              14.161136824
+            ],
+            [
+              121.241923393,
+              14.161426027
+            ],
+            [
+              121.241534382,
+              14.161423176
+            ],
+            [
+              121.241536608,
+              14.161133973
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "id": "candidate:derived:green-space/freedom-park-open-space",
+      "properties": {
+        "aliases": [],
+        "attributes": {
+          "contextKind": "bounded-diagnostic-placeholder",
+          "landUseClaim": "none"
+        },
+        "candidateId": "candidate:derived:green-space/freedom-park-open-space",
+        "candidateSourceHash": "sha256:9f766739c1ad0088170c708d222c246b47b4dc684120f1f57f252d6f290f6142",
+        "canonicalId": null,
+        "canonicalRevision": null,
+        "confidence": {
+          "footprint": "low",
+          "height": "not-applicable",
+          "position": "low"
+        },
+        "detailTier": 1,
+        "externalIds": {
+          "derived": "green-space/freedom-park-open-space"
+        },
+        "featureId": "candidate:derived:green-space/freedom-park-open-space",
+        "featureType": "green-space",
+        "generatorVersion": "vertical-slice-v0.1",
+        "geometryConfidence": "derived-placeholder",
+        "name": "Freedom Park open-space context",
+        "provenance": [
+          "source:derived:bounded-aoi-context"
+        ],
+        "provider": "derived-context",
+        "sourceGeometryHash": "sha256:835475cf3fc5c12bffee91c5ee5c1904c54e5180649c76df24d98bdabb7e77bb",
+        "sourceLifecycle": "candidate",
+        "verification": {
+          "footprint": "derived-placeholder",
+          "identity": "candidate",
+          "position": "derived-placeholder"
+        },
+        "verificationStatus": "candidate",
+        "worldgenRole": "green-space"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
             121.2382975,
             14.1647522
           ],
