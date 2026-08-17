@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "roblox-poc-validation-v0.1",
+  "status": "pass_with_blockers",
+  "generatedAt": "2026-08-17",
+  "source": {
+    "sceneRevision": "worldgen-v0.1",
+    "sceneSpecHash": "sha256:2812e9e9c9dca13b63c015f20c7ece9a85bc144918dd50c5ed28f6398fc32442",
+    "sceneSpecFileSha256": "sha256:35cc7350e65c71a97fb82310530fc7deca32739a6dbac53c691a7132160e9160",
+    "worldgenStatus": "blocked-fixture-terrain",
+    "terrainRevision": "terrain-v0.1-fixture",
+    "verticalReference": "EGM96-relative-world-base-98m"
+  },
+  "robloxMcp": {
+    "status": "verified-local-disposable-edit-place",
+    "dataModel": "Edit_and_Play",
+    "placeId": 0,
+    "worldRoot": "Workspace.GeneratedVerticalSlice_v01",
+    "requiredFolders": [
+      "Buildings",
+      "Roads",
+      "Walkways",
+      "Water",
+      "GreenSpaceDebug",
+      "Landmarks",
+      "Debug",
+      "Metadata"
+    ],
+    "objectCount": 43,
+    "routeSegmentCount": 574,
+    "terrainChunks": 272,
+    "terrainCells": {
+      "x": 1071,
+      "y": 17,
+      "z": 983
+    },
+    "regeneration": {
+      "secondRunStatus": "pass",
+      "secondRunSceneSpecHashMatches": true,
+      "secondRunObjectCount": 43,
+      "secondRunRouteSegmentCount": 574,
+      "secondRunTerrainChunks": 272
+    }
+  },
+  "playtest": {
+    "serverAndClientScriptsInitialized": true,
+    "generatedSpawnCreated": true,
+    "spawnGroundOccupancyObserved": true,
+    "shortCharacterNavigation": "pass",
+    "longCrossSliceCharacterNavigation": "blocked-no-route",
+    "visualCapture": "captured-pending-human-review"
+  },
+  "blockers": [
+    "Fixture terrain is not production geodata and must not be presented as real campus elevation.",
+    "Earthdata credentials are not present in the local runtime; SRTM/NASADEM download and comparison remain pending.",
+    "The long cross-slice navigation probe needs a future navmesh/pathing pass after real terrain and route tuning.",
+    "Hero visual approval remains a human review gate."
+  ]
+}
