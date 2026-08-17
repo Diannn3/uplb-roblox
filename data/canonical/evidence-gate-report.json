@@ -59,16 +59,16 @@
     },
     "overtureAttempts": [
       {
-        "details": "Exception: Could not fetch STAC catalog: HTTP Error 404: Not Found",
-        "exitCode": 1,
+        "details": "overturemaps executable not found; provide --cli or OVERTUREMAPS_BIN.",
         "method": "official-cli",
-        "status": "blocked"
+        "status": "not-run"
       },
       {
-        "details": "Direct cloud probe exceeded 12s timeout.",
+        "details": "ModuleNotFoundError: No module named 'overturemaps'",
+        "exitCode": 1,
         "method": "direct-s3-geoparquet",
         "release": "2026-06-17.0",
-        "status": "timeout"
+        "status": "blocked"
       }
     ],
     "sourceMatrix": [
