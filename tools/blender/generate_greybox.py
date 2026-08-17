@@ -29,6 +29,7 @@ from .terrain import ground_height, load_terrain
 from .validate import validate_manifest
 from .walkways import resolve_walkway_width
 from .environment import environment_dimensions
+from .gates import build_execution_gates
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -127,9 +128,20 @@ def generate_world(
     qa = validate_manifest(manifest)
     manifest["determinism"] = "pass"
     manifest["qaStatus"] = qa["status"]
+    execution_gates = build_execution_gates(
+        semantic_status="pass" if qa["status"] == "pass" else "fail",
+        terrain_source_kind=terrain.source_kind,
+        blender_available=bool(blender_path),
+        mesh_status="not-run",
+        render_status="not-run",
+        visual_status="pending-human",
+        roblox_status="not-run",
+    )
+    manifest["executionGates"] = execution_gates
     output_dir.mkdir(parents=True, exist_ok=True)
     write_json(output_dir / "world-manifest.json", manifest)
     write_json(output_dir / "blender-qa.json", qa)
+    write_json(output_dir / "execution-gates.json", execution_gates)
     write_json(output_dir / "input-manifest.json", {"slice": str(slice_dir), "terrain": str(terrain_path), "sliceHash": f"sha256:{sha256(slice_dir / 'features.geojson')}", "terrainRevision": "terrain-v0.1-fixture"})
     write_camera_config(output_dir / "cameras.json")
     preview_paths = render_python_previews(objects, output_dir / "previews")

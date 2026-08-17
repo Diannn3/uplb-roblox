@@ -9,8 +9,8 @@ from typing import Any
 
 from shapely.geometry import shape
 
-from .compare import compare_products
-from .preprocess import build_fixture_heightfield
+from .compare import choose_baseline, compare_products
+from .preprocess import build_fixture_heightfield, preprocess_hgt
 from .preview import render_preview
 from .sample import HeightField
 from .sources import PRODUCT_SOURCES
@@ -54,7 +54,16 @@ def generate_outputs(
     *,
     slice_path: Path = DEFAULT_SLICE,
     config_path: Path = DEFAULT_CONFIG,
+    raw_root: Path | None = None,
 ) -> dict[str, Any]:
+    if raw_root is not None:
+        raw_root = Path(raw_root)
+        raw_files = {
+            "srtm": sorted((raw_root / "srtm").rglob("*.hgt")) + sorted((raw_root / "srtm").rglob("*.zip")),
+            "nasadem": sorted((raw_root / "nasadem").rglob("*.hgt")) + sorted((raw_root / "nasadem").rglob("*.zip")),
+        }
+        if all(raw_files[key] for key in raw_files):
+            return generate_real_outputs(comparison_dir, output_dir, raw_files=raw_files, slice_path=slice_path, config_path=config_path)
     comparison_dir.mkdir(parents=True, exist_ok=True)
     srtm_dir, nasadem_dir = comparison_dir / "srtm", comparison_dir / "nasadem"
     srtm = build_fixture_heightfield("srtm", srtm_dir)
@@ -124,14 +133,57 @@ def generate_outputs(
     return {"comparison": comparison, "terrainReport": terrain_report, "config": config}
 
 
+def generate_real_outputs(
+    comparison_dir: Path,
+    output_dir: Path,
+    *,
+    raw_files: dict[str, list[Path]],
+    slice_path: Path = DEFAULT_SLICE,
+    config_path: Path = DEFAULT_CONFIG,
+) -> dict[str, Any]:
+    """Run both acquired NASA HGT products through identical local processing."""
+
+    comparison_dir = Path(comparison_dir)
+    output_dir = Path(output_dir)
+    comparison_dir.mkdir(parents=True, exist_ok=True)
+    aoi_path = Path(slice_path).parent / "area.geojson"
+    fields: dict[str, HeightField] = {}
+    reports: dict[str, dict[str, Any]] = {}
+    for key, product in (("srtm", "SRTMGL1.003"), ("nasadem", "NASADEM_HGT.001")):
+        product_dir = comparison_dir / key
+        report = preprocess_hgt(raw_files[key][0], product_dir, product=product, aoi_path=aoi_path)
+        fields[key] = HeightField.read(product_dir / "heightfield.json")
+        reports[key] = report
+        render_preview(fields[key], product_dir / "preview.png")
+        write_json(comparison_dir / f"{key}-report.json", report)
+    points = _hero_points(slice_path)
+    comparison = compare_products(fields["srtm"], fields["nasadem"], points)
+    decision = choose_baseline(comparison)
+    comparison.update({"comparisonRevision": "terrain-comparison-v0.2-real", "sourceStatus": "validated-raster", "officialSources": {key: {"product": value["product"], "doi": value["doi"], "landingPage": value["landingPage"]} for key, value in PRODUCT_SOURCES.items()}, "pointsCRS": "project-local metres (EPSG:32651 origin contract)", "baselineDecision": decision})
+    write_json(comparison_dir / "comparison.json", comparison)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    baseline_key = "srtm" if decision["baseline"] == PRODUCT_SOURCES["srtm"]["product"] else "nasadem"
+    selected = fields[baseline_key]
+    selected_report = reports[baseline_key]
+    selected_report = {**selected_report, "selectedDEM": decision["baseline"], "selectionReason": decision["selectionReason"]}
+    selected.write(output_dir / "heightfield.json")
+    render_preview(selected, output_dir / "preview.png")
+    write_json(output_dir / "terrain-report.json", selected_report)
+    write_json(output_dir / "terrain-manifest.json", {**PRODUCT_SOURCES[baseline_key], "revision": "terrain-v0.2-real", "sourceKind": "real-nasa-raster", "sourceHash": selected_report.get("sourceHash"), "heightfield": "heightfield.json", "report": "terrain-report.json", "status": "validated-raster"})
+    config = {**PRODUCT_SOURCES[baseline_key], "status": "selected-real-baseline", "baseline": decision["baseline"], "selectionReason": decision["selectionReason"], "sourceHash": selected_report.get("sourceHash"), "terrainRevision": "terrain-v0.2-real", "verticalExaggeration": 1.0}
+    write_json(config_path, config)
+    return {"comparison": comparison, "terrainReport": selected_report, "config": config}
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--comparison", type=Path, default=DEFAULT_COMPARISON)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--slice", type=Path, default=DEFAULT_SLICE)
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
+    parser.add_argument("--raw-root", type=Path, default=None)
     args = parser.parse_args()
-    result = generate_outputs(args.comparison, args.output, slice_path=args.slice, config_path=args.config)
+    result = generate_outputs(args.comparison, args.output, slice_path=args.slice, config_path=args.config, raw_root=args.raw_root)
     print(json.dumps({"status": result["terrainReport"]["status"], "selectedDEM": result["terrainReport"]["selectedDEM"]}, indent=2, sort_keys=True))
     return 0
 

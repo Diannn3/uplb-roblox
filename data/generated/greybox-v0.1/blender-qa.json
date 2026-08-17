@@ -1,7 +1,10 @@
 {
   "errors": [],
-  "meshValidation": "not-run-blender-unavailable",
-  "objectCount": 95,
+  "meshValidation": "not-run",
+  "objectCount": 98,
+  "productionReady": false,
+  "realBlenderGate": "not-run",
   "requiredHeroesMissing": [],
+  "semanticGate": "pass",
   "status": "pass"
 }

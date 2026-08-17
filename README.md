@@ -10,6 +10,10 @@ This project is structured using [Rojo](https://rojo.space/), allowing developme
 * `src/Shared/` - Code shared between the client and server (constants, utility functions). Syncs to `ReplicatedStorage`.
 
 ## Getting Started
+
+World-generation tooling targets Python 3.12+ (the current official
+`earthaccess` release requires it). Offline geodata tests do not need
+Earthdata credentials, Blender, or Roblox Studio.
 1. Install [Rojo](https://rojo.space/docs/v7/getting-started/installation/).
 2. Run `rojo serve` in this directory to start the Rojo server.
 3. Open a new place in Roblox Studio.
@@ -31,7 +35,7 @@ canonical identity; new identities require an explicit promotion/review action.
 ### Clean-clone workflow
 
 ```powershell
-python -m venv .venv
+py -3.12 -m venv .venv
 .\.venv\Scripts\python -m pip install -e ".[dev]"
 .\.venv\Scripts\python -m pytest
 .\.venv\Scripts\python -m tools.geodata.bootstrap --raw tests/fixtures/geodata/osm-small.json --fixture
@@ -64,6 +68,37 @@ python -B -m tools.geodata.phase_gate
 python -B -m tools.geodata.overture_check_updates --offline
 python -B -m tools.geodata.review list --priority
 ```
+
+Run the safe capability check before world-generation work:
+
+```powershell
+python -B -m tools.worldgen.preflight
+```
+
+The real terrain path is credentialed and writes only ignored inputs under
+`data/raw/terrain/`:
+
+```powershell
+python -m pip install -e ".[dev,worldgen,earthdata]"
+python -B -m tools.terrain.acquire srtm
+python -B -m tools.terrain.acquire nasadem
+python -B -m tools.terrain.generate_outputs --raw-root data/raw/terrain
+python -B -m tools.worldgen.compile_scene
+```
+
+`--fixture` remains available for deterministic offline tests. Fixture terrain
+must never be used to select a production baseline or claim real visual QA.
+
+When Blender is installed, consume the same scene specification from a
+PowerShell invocation (Blender's argument separator is required):
+
+```powershell
+blender --background --python-exit-code 10 --python tools/blender/build_scene.py -- --scene-spec data/generated/worldgen-v0.1/scene-spec.json --output data/generated/blender-v0.1
+```
+
+The Blender build produces the `.blend`, QA report, determinism report, and six
+real renders. Roblox is intentionally deferred until those renders receive
+explicit human approval.
 
 The Overture probe is network-opt-in and bounded. A blocked provider is recorded
 as an explicit comparison status; it is not treated as evidence of missing

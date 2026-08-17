@@ -6,11 +6,13 @@ This is the required hard stop before any Roblox Studio or MCP handoff.
 
 - Phase 1 revision: `validation:phase1-closure-v1`
 - Approved review: `v1`, project-owner snapshot
-- Selected features: `95` (`5` heroes plus deterministic candidate context)
+- Selected features: `98` (`5` heroes, deterministic candidate context, and `3` bounded derived green-space placeholders)
 - Canonical features: `3`; context candidates retain `sourceLifecycle: candidate`
 - Semantic world manifest: `data/generated/greybox-v0.1/world-manifest.json`
 - Structural QA: `pass`; duplicate IDs, missing source IDs, non-finite values, negative dimensions, and absurd local extents were checked
 - Determinism: semantic manifest comparison `pass`
+- Shared scene spec: `data/generated/worldgen-v0.1/scene-spec.json` (`blocked-fixture-terrain` until a real NASA baseline is selected)
+- Explicit execution gates: `data/generated/greybox-v0.1/execution-gates.json`
 
 ## Terrain state
 
@@ -38,7 +40,7 @@ Fixed-camera preview paths:
 
 ## Human stop
 
-Visual approval is **pending**. Do not proceed to Roblox Studio/MCP until the
+Visual approval is **pending-human**. Do not proceed to Roblox Studio/MCP until the
 project owner has reviewed the terrain comparison, world manifest, structural
 QA, and all six previews. AI inspection can record uncertainties, but cannot
 replace the owner’s visual approval.

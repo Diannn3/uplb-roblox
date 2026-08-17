@@ -19,6 +19,13 @@ Both products are recorded at 30 m, EPSG:4326/WGS84 horizontally, and EGM96
 metres vertically. Acquisition is fail-closed through current Earthdata
 Search/Earthdata Cloud routes; the retired LP DAAC Data Pool is not used.
 
+`tools/terrain/acquire.py` derives the query bounding box from the frozen
+vertical-slice AOI, validates product/version and granule overlap, then records
+retrieval metadata and hashes under ignored `data/raw/terrain/`. The lightweight
+`tools/terrain/hgt.py` reader preserves big-endian EGM96 values without GDAL.
+Both real products are run through the same local EPSG:32651 sampling path
+before `tools/terrain/compare.py` chooses a baseline from measured evidence.
+
 `config/terrain.json` intentionally has `baseline: null`. A synthetic fixture
 must not select a NASA baseline. A credentialed acquisition can run:
 
@@ -47,5 +54,17 @@ blender.exe --background --python tools/blender/generate_greybox.py -- --slice d
 Until Blender is installed, the Python semantic fallback produces a traceable
 world manifest, structural QA, fixed-camera semantic previews, and a
 determinism record. It does not create a `.blend` file or pass the human visual
-gate. Review the paths in `data/generated/greybox-v0.1/` and approve the
-greybox visually before any Roblox Studio/MCP handoff.
+gate. Its explicit execution states are in
+`data/generated/greybox-v0.1/execution-gates.json`; semantic determinism is not
+equivalent to real terrain, Blender mesh, render, or visual approval. Review
+those paths only as a dry run.
+
+The authoritative generated-world input for both consumers is
+`data/generated/worldgen-v0.1/scene-spec.json`. The real Blender command is:
+
+```powershell
+blender.exe --background --python-exit-code 10 --python tools/blender/build_scene.py -- --scene-spec data/generated/worldgen-v0.1/scene-spec.json --output data/generated/blender-v0.1
+```
+
+Do not start Roblox Studio/MCP handoff until the actual Blender mesh and render
+gates pass and the project owner explicitly approves all six real renders.

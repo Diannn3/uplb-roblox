@@ -31,4 +31,14 @@ def validate_manifest(manifest: dict[str, Any]) -> dict[str, Any]:
             errors.append(f"negative dimensions: {obj.get('objectId')}")
         if obj.get("worldgenRole") in {"hero", "context-building"} and float(obj.get("heightM", 0)) <= 0:
             errors.append(f"non-positive building height: {obj.get('objectId')}")
-    return {"status": "pass" if not errors else "fail", "errors": errors, "objectCount": len(objects), "requiredHeroesMissing": missing, "meshValidation": "not-run-blender-unavailable"}
+    semantic_status = "pass" if not errors else "fail"
+    return {
+        "status": semantic_status,
+        "semanticGate": semantic_status,
+        "errors": errors,
+        "objectCount": len(objects),
+        "requiredHeroesMissing": missing,
+        "meshValidation": "not-run",
+        "realBlenderGate": "not-run",
+        "productionReady": False,
+    }

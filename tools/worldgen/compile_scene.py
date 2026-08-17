@@ -161,6 +161,8 @@ def _object(feature: dict[str, Any], transform: CoordinateTransform, field: Heig
         "sourceLifecycle": props.get("sourceLifecycle"),
         "role": role,
         "name": props.get("name"),
+        "detailTier": props.get("detailTier", 1),
+        "geometryConfidence": props.get("geometryConfidence", "unknown"),
         "geometry": {
             "type": geometry.get("type"),
             "coordinatesLocalMeters": local_geometry,

@@ -4,8 +4,19 @@
   "canonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
   "coordinateContract": "Blender units are local UPLB metres; Roblox conversion is a later handoff",
   "determinism": "pass",
+  "executionGates": {
+    "blenderAvailableGate": "blocked",
+    "blenderMeshGate": "not-run",
+    "blenderRenderGate": "not-run",
+    "blenderVisualGate": "pending-human",
+    "robloxGenerationGate": "not-run",
+    "robloxPlaytestGate": "not-run",
+    "robloxSpatialGate": "not-run",
+    "semanticGate": "pass",
+    "terrainRealDataGate": "blocked"
+  },
   "generatorVersion": "greybox-v0.1",
-  "objectCount": 95,
+  "objectCount": 98,
   "objects": [
     {
       "candidateId": "candidate:osm:way/109244752",
@@ -1511,6 +1522,135 @@
       "widthM": 19.13979,
       "widthMethod": null,
       "worldgenRole": "context-building"
+    },
+    {
+      "candidateId": "candidate:derived:green-space/central-lawn-east",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 30.000033,
+        "heightM": 1.0,
+        "widthM": 48.000009
+      },
+      "featureId": "candidate:derived:green-space/central-lawn-east",
+      "heightConfidence": "unknown",
+      "heightM": 1.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:derived:green-space/central-lawn-east",
+        "CanonicalRevision": null,
+        "DetailTier": 1,
+        "FeatureId": "candidate:derived:green-space/central-lawn-east",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "derived-placeholder",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:8ef1d24cd07b82066934473621dbb69d0261852911d6e9bd233fb409683ed308",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "green-space"
+      },
+      "name": "Central campus lawn east context",
+      "objectId": "GREEN__candidate_derived_green_space_central_lawn_east",
+      "provenance": [
+        "source:derived:bounded-aoi-context"
+      ],
+      "sourceGeometryHash": "sha256:74915db8beeb5dc5f7b0ad2e458e46fa425dfb61c276afa838f8a0f535be6ec9",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 139.116835,
+        "northM": -229.19237,
+        "upM": 107.260996
+      },
+      "widthConfidence": null,
+      "widthM": 48.000009,
+      "widthMethod": "green-space-placeholder",
+      "worldgenRole": "green-space"
+    },
+    {
+      "candidateId": "candidate:derived:green-space/central-lawn-west",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 34.0001,
+        "heightM": 1.0,
+        "widthM": 52.000038
+      },
+      "featureId": "candidate:derived:green-space/central-lawn-west",
+      "heightConfidence": "unknown",
+      "heightM": 1.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:derived:green-space/central-lawn-west",
+        "CanonicalRevision": null,
+        "DetailTier": 1,
+        "FeatureId": "candidate:derived:green-space/central-lawn-west",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "derived-placeholder",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:4151d1c8e22e03a332e28de57bfd641eaadbf1fa9cd75c4b455a3a0158c825ce",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "green-space"
+      },
+      "name": "Central campus lawn west context",
+      "objectId": "GREEN__candidate_derived_green_space_central_lawn_west",
+      "provenance": [
+        "source:derived:bounded-aoi-context"
+      ],
+      "sourceGeometryHash": "sha256:84f989f148548d9b987a716e3893ff30d3561ca40d0811121febf4053a26df57",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 19.116778,
+        "northM": -149.192338,
+        "upM": 106.834329
+      },
+      "widthConfidence": null,
+      "widthM": 52.000038,
+      "widthMethod": "green-space-placeholder",
+      "worldgenRole": "green-space"
+    },
+    {
+      "candidateId": "candidate:derived:green-space/freedom-park-open-space",
+      "detailTier": 1,
+      "dimensionsMeters": {
+        "depthM": 32.000031,
+        "heightM": 1.0,
+        "widthM": 42.000024
+      },
+      "featureId": "candidate:derived:green-space/freedom-park-open-space",
+      "heightConfidence": "unknown",
+      "heightM": 1.0,
+      "heightMethod": "not-applicable",
+      "metadata": {
+        "CandidateId": "candidate:derived:green-space/freedom-park-open-space",
+        "CanonicalRevision": null,
+        "DetailTier": 1,
+        "FeatureId": "candidate:derived:green-space/freedom-park-open-space",
+        "GeneratorVersion": "greybox-v0.1",
+        "GeometryConfidence": "derived-placeholder",
+        "HeightConfidence": "unknown",
+        "InputHash": "sha256:e7a482112ece4137751d6263d884b9c3f915cf2f27f7bc71b3948ff76d6c9a69",
+        "SourceLifecycle": "candidate",
+        "TerrainRevision": "terrain-v0.1-fixture",
+        "VerificationStatus": "candidate",
+        "WorldgenRole": "green-space"
+      },
+      "name": "Freedom Park open-space context",
+      "objectId": "GREEN__candidate_derived_green_space_freedom_park_open_space",
+      "provenance": [
+        "source:derived:bounded-aoi-context"
+      ],
+      "sourceGeometryHash": "sha256:835475cf3fc5c12bffee91c5ee5c1904c54e5180649c76df24d98bdabb7e77bb",
+      "sourceLifecycle": "candidate",
+      "transformLocalMeters": {
+        "eastM": 16.341004,
+        "northM": -411.736808,
+        "upM": 105.855011
+      },
+      "widthConfidence": null,
+      "widthM": 42.000024,
+      "widthMethod": "green-space-placeholder",
+      "worldgenRole": "green-space"
     },
     {
       "candidateId": "candidate:osm:way/1098780830",

@@ -1,0 +1,11 @@
+{
+  "blenderAvailableGate": "blocked",
+  "blenderMeshGate": "not-run",
+  "blenderRenderGate": "not-run",
+  "blenderVisualGate": "pending-human",
+  "robloxGenerationGate": "not-run",
+  "robloxPlaytestGate": "not-run",
+  "robloxSpatialGate": "not-run",
+  "semanticGate": "pass",
+  "terrainRealDataGate": "blocked"
+}

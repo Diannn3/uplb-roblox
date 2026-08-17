@@ -6,7 +6,7 @@ import unittest
 from pathlib import Path
 
 from tools.terrain.acquire import acquire_product
-from tools.terrain.compare import compare_products
+from tools.terrain.compare import choose_baseline, compare_products
 from tools.terrain.preprocess import build_fixture_heightfield
 from tools.terrain.sample import HeightField
 from tools.terrain.sources import PRODUCT_SOURCES
@@ -45,6 +45,16 @@ class TerrainPipelineTests(unittest.TestCase):
             self.assertEqual(set(first["samples"]), set(points))
             self.assertEqual(first["status"], "fixture-only")
             self.assertFalse(first["baselineSelected"])
+
+    def test_real_baseline_selection_is_evidence_based_not_product_age(self) -> None:
+        srtm = HeightField(product="SRTMGL1.003", origin_east_m=-10.0, origin_north_m=-10.0, spacing_m=10.0, values=((100.0, 100.2, 100.4), (100.1, 100.3, 100.5), (100.2, 100.4, 100.6)), source_kind="real-nasa-raster")
+        nasadem = HeightField(product="NASADEM_HGT.001", origin_east_m=-10.0, origin_north_m=-10.0, spacing_m=10.0, values=((100.1, 100.3, 100.5), (100.2, 100.4, 100.6), (100.3, 100.5, 100.7)), source_kind="real-nasa-raster")
+        comparison = compare_products(srtm, nasadem, {"oblation": (0.0, 0.0)})
+        decision = choose_baseline(comparison)
+        self.assertEqual(comparison["status"], "validated-raster")
+        self.assertIn(decision["baseline"], {"SRTMGL1.003", "NASADEM_HGT.001"})
+        self.assertTrue(decision["selectionReason"])
+        self.assertIn("evidence", decision["selectionReason"].lower())
 
 
 if __name__ == "__main__":

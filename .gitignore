@@ -35,6 +35,8 @@ data/generated/*
 !data/generated/terrain-v0.1/**
 !data/generated/greybox-v0.1/
 !data/generated/greybox-v0.1/**
+!data/generated/worldgen-v0.1/
+!data/generated/worldgen-v0.1/**
 data/private/
 
 # Credentials and local environment files

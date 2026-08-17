@@ -1,0 +1,9 @@
+{
+  "bindingsHash": "sha256:982aca5ac16e024680511a7d1813fc88146bc7829fff785104f93a5aa9011b0f",
+  "sceneRevision": "worldgen-v0.1",
+  "selectionHash": "sha256:6695d748f60e544f77ef9e6f7178cb06142382e455f2d7082712444c33f7f522",
+  "sliceFeaturesHash": "sha256:7d1261ba184e29850214e28c2cd089422fe6c2bfd1ef983296e4c29e51a64504",
+  "sliceVersion": "v0.1",
+  "terrainHash": "sha256:fb85bc5b8f53b2030716326a008bf0b7ef613bc55e69dfaca601515bc0108b3a",
+  "terrainSourceHash": null
+}

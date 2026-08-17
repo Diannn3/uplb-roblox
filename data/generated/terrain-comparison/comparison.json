@@ -3,6 +3,10 @@
   "baselineSelected": false,
   "comparisonRevision": "terrain-comparison-v0.1-fixture",
   "continuity": "fixture-grid-continuous",
+  "differenceSummary": {
+    "maxAbsM": 0.65,
+    "meanAbsM": 0.65
+  },
   "elevationMinMaxM": {
     "nasadem": [
       100.65,
@@ -12,6 +16,20 @@
       100.0,
       112.76
     ]
+  },
+  "metrics": {
+    "nasadem": {
+      "maxAdjacentDeltaM": 0.18,
+      "maxElevationM": 113.41,
+      "minElevationM": 100.65,
+      "nodataCount": 0
+    },
+    "srtm": {
+      "maxAdjacentDeltaM": 0.18,
+      "maxElevationM": 112.76,
+      "minElevationM": 100.0,
+      "nodataCount": 0
+    }
   },
   "officialSources": {
     "nasadem": {
