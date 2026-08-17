@@ -49,6 +49,7 @@ RENDER_FILENAMES = {
     "CAM_BAKER": "baker-context.png",
     "CAM_DL_UMALI": "dl-umali-context.png",
     "CAM_ROAD_LEVEL": "road-level.png",
+    "CAM_LIBRARY_CONTEXT": "library-context.png",
 }
 MATERIAL_COLORS = {
     "hero-diagnostic": (0.75, 0.08, 0.08, 1.0),
@@ -79,6 +80,7 @@ def terrain_faces(rows: int, columns: int) -> list[tuple[int, int, int]]:
 def build_custom_properties(feature: dict[str, Any], *, scene_spec_hash: str, generator_version: str = GENERATOR_VERSION) -> dict[str, Any]:
     metadata = feature.get("metadata") or {}
     height = feature.get("height") or {}
+    proxy = feature.get("proxy") or {}
     return {
         "FeatureId": feature.get("featureId") or "",
         "CandidateId": feature.get("candidateId") or "",
@@ -92,6 +94,12 @@ def build_custom_properties(feature: dict[str, Any], *, scene_spec_hash: str, ge
         "InputHash": metadata.get("inputHash") or "",
         "GeometryConfidence": feature.get("geometryConfidence") or metadata.get("geometryConfidence") or "unknown",
         "HeightConfidence": height.get("confidence") or "unknown",
+        "ProxyCenterEastM": float(proxy.get("centerEastM", 0.0)),
+        "ProxyCenterNorthM": float(proxy.get("centerNorthM", 0.0)),
+        "ProxyWidthM": float(proxy.get("widthM", 0.0)),
+        "ProxyDepthM": float(proxy.get("depthM", 0.0)),
+        "ProxyYawDegrees": float(proxy.get("yawDegrees", 0.0)),
+        "ProxySource": proxy.get("source") or "unknown",
     }
 
 
@@ -314,11 +322,16 @@ def _build_feature(feature: dict[str, Any], collections: dict[str, Any], scene_h
         return _mesh_object(name, vertices, faces, collection, "road-diagnostic" if role == "road" else "walkway-diagnostic", properties)
     local = geometry.get("coordinatesLocalMeters")
     point = local if isinstance(local, list) and len(local) >= 2 and all(isinstance(item, (int, float)) for item in local[:2]) else [0.0, 0.0]
-    size = 2.0 if role in {"hero", "landmark-placeholder"} else 1.0
+    proxy = feature.get("proxy") or {}
+    width = max(float(proxy.get("widthM", 0.0)) / 2.0, 2.0 if role in {"hero", "landmark-placeholder"} else 1.0)
+    depth = max(float(proxy.get("depthM", 0.0)) / 2.0, 2.0 if role in {"hero", "landmark-placeholder"} else 1.0)
+    height = max(float((feature.get("height") or {}).get("meters", 0.0)), width * 2.0)
     x, y = float(point[0]), float(point[1])
-    vertices = [(x - size, y - size, base), (x + size, y - size, base), (x + size, y + size, base), (x - size, y + size, base), (x - size, y - size, base + size * 2), (x + size, y - size, base + size * 2), (x + size, y + size, base + size * 2), (x - size, y + size, base + size * 2)]
+    vertices = [(x - width, y - depth, base), (x + width, y - depth, base), (x + width, y + depth, base), (x - width, y + depth, base), (x - width, y - depth, base + height), (x + width, y - depth, base + height), (x + width, y + depth, base + height), (x - width, y + depth, base + height)]
     faces = [(0, 1, 2, 3), (4, 7, 6, 5), (0, 4, 5, 1), (1, 5, 6, 2), (2, 6, 7, 3), (4, 0, 3, 7)]
-    return _mesh_object(name, vertices, faces, collection, "hero-diagnostic" if role == "hero" else "landmark-diagnostic", properties)
+    obj = _mesh_object(name, vertices, faces, collection, "hero-diagnostic" if role == "hero" else "landmark-diagnostic", properties)
+    obj.rotation_euler[2] = math.radians(float(proxy.get("yawDegrees", 0.0)))
+    return obj
 
 
 def _build_cameras(scene_spec: dict[str, Any], collections: dict[str, Any]) -> dict[str, Any]:
@@ -340,6 +353,7 @@ def _build_cameras(scene_spec: dict[str, Any], collections: dict[str, Any]) -> d
         "CAM_BAKER": (target_for("Charles Fuller Baker Memorial Hall"), position_for("Charles Fuller Baker Memorial Hall", 100.0, 0.0, 50.0)),
         "CAM_DL_UMALI": (target_for("Dioscoro L. Umali Hall"), position_for("Dioscoro L. Umali Hall", -50.0, -60.0, 50.0)),
         "CAM_ROAD_LEVEL": ((center_x, center_y - 200.0, 0.0), (center_x + 150.0, center_y - 350.0, 35.0)),
+        "CAM_LIBRARY_CONTEXT": (target_for("University Library and Knowledge Center"), position_for("University Library and Knowledge Center", 60.0, -45.0, 45.0)),
     }
     cameras: dict[str, Any] = {}
     for name, (target, position) in definitions.items():
@@ -455,7 +469,7 @@ def build_real_scene(scene_spec_path: Path, output_dir: Path, *, render: bool = 
         "nonFiniteTransforms": any(not all(math.isfinite(value) for value in item["location"]) for item in second_state),
         "negativeScales": False,
         "impossibleDimensions": any(any(value < 0 or not math.isfinite(value) for value in item["dimensions"]) for item in second_state),
-        "missingCameras": [name for name in ("CAM_TOPDOWN", "CAM_OBLATION", "CAM_FREEDOM_PARK", "CAM_BAKER", "CAM_DL_UMALI", "CAM_ROAD_LEVEL") if name not in cameras],
+        "missingCameras": [name for name in RENDER_FILENAMES if name not in cameras],
         "requiredCollectionsMissing": [name for name in ("Terrain", "Buildings", "Roads", "Walkways", "Water", "GreenSpace", "Landmarks", "Debug") if name not in collections],
         "renderPaths": render_paths,
         "blenderVersion": getattr(blender.app, "version_string", "unknown"),

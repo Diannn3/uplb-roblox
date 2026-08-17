@@ -31,7 +31,7 @@ class BlenderBuilderContractTests(unittest.TestCase):
         self.assertEqual(properties["SceneSpecHash"], "hash-scene")
         self.assertEqual(properties["GeneratorVersion"], "blender-v0.2")
         self.assertEqual(properties["HeightConfidence"], "placeholder")
-        self.assertEqual(set(properties), {"FeatureId", "CandidateId", "SourceLifecycle", "WorldgenRole", "DetailTier", "CanonicalRevision", "TerrainRevision", "SceneSpecHash", "GeneratorVersion", "InputHash", "GeometryConfidence", "HeightConfidence"})
+        self.assertEqual(set(properties), {"FeatureId", "CandidateId", "SourceLifecycle", "WorldgenRole", "DetailTier", "CanonicalRevision", "TerrainRevision", "SceneSpecHash", "GeneratorVersion", "InputHash", "GeometryConfidence", "HeightConfidence", "ProxyCenterEastM", "ProxyCenterNorthM", "ProxyWidthM", "ProxyDepthM", "ProxyYawDegrees", "ProxySource"})
 
     def test_all_scene_roles_have_diagnostic_collections(self) -> None:
         for role in {"hero", "context-building", "road", "walkway", "water", "green-space", "landmark-placeholder"}:
@@ -40,7 +40,7 @@ class BlenderBuilderContractTests(unittest.TestCase):
     def test_real_render_filenames_match_the_visual_gate_contract(self) -> None:
         self.assertEqual(
             set(RENDER_FILENAMES.values()),
-            {"topdown.png", "oblation.png", "freedom-park.png", "baker-context.png", "dl-umali-context.png", "road-level.png"},
+            {"topdown.png", "oblation.png", "freedom-park.png", "baker-context.png", "dl-umali-context.png", "road-level.png", "library-context.png"},
         )
 
 

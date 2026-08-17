@@ -38,9 +38,20 @@ def test_generation_is_byte_deterministic() -> None:
 
 
 def test_checked_in_runtime_module_is_ascii_and_has_contract_header() -> None:
-    runtime = ROOT / "src/Shared/Generated/WorldScene.lua"
+    runtime = ROOT / "src/Server/Generated/WorldScene.lua"
     source = runtime.read_text(encoding="utf-8")
     assert source.startswith("-- GENERATED FILE.")
     assert "Source SHA256: sha256:" in source
     assert all(ord(char) < 128 for char in source)
     assert "[\"runtimeContract\"]" in source
+
+
+def test_runtime_projection_contains_oriented_proxy_for_footprints() -> None:
+    import json
+
+    scene = json.loads(SCENE.read_text(encoding="utf-8"))
+    prepared = prepare_scene(scene)
+    building = next(item for item in prepared["objects"] if item["role"] == "context-building")
+    assert building["proxy"]["widthM"] > 0
+    assert building["proxy"]["depthM"] > 0
+    assert "yawDegrees" in building["proxy"]

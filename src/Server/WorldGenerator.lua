@@ -5,10 +5,11 @@ local Workspace = game:GetService("Workspace")
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Shared = ReplicatedStorage:WaitForChild("Shared")
-local Generated = Shared:WaitForChild("Generated")
 
 local CoordinateTransform = require(Shared:WaitForChild("CoordinateTransform"))
-local Scene = require(Generated:WaitForChild("WorldScene"))
+-- WorldScene is intentionally server-only: it contains the authoritative
+-- terrain heightfield and placement projection.
+local Scene = require(script.Parent:WaitForChild("Generated"):WaitForChild("WorldScene"))
 
 local WorldGenerator = {}
 
@@ -91,6 +92,34 @@ local function resetRoot()
     return root
 end
 
+local function clearOwnedTerrain(existing)
+    if not ownedRoot(existing) then
+        return
+    end
+    local minX = tonumber(existing:GetAttribute("TerrainMinX"))
+    local maxX = tonumber(existing:GetAttribute("TerrainMaxX"))
+    local minY = tonumber(existing:GetAttribute("TerrainMinY"))
+    local maxY = tonumber(existing:GetAttribute("TerrainMaxY"))
+    local minZ = tonumber(existing:GetAttribute("TerrainMinZ"))
+    local maxZ = tonumber(existing:GetAttribute("TerrainMaxZ"))
+    if not (minX and maxX and minY and maxY and minZ and maxZ) then
+        return
+    end
+    local terrain = Workspace.Terrain
+    local chunkSize = TERRAIN_CHUNK_CELLS * TERRAIN_RESOLUTION
+    for x = minX, maxX - 0.01, chunkSize do
+        local width = math.min(chunkSize, maxX - x)
+        for z = minZ, maxZ - 0.01, chunkSize do
+            local depth = math.min(chunkSize, maxZ - z)
+            terrain:FillBlock(
+                CFrame.new(x + width / 2, (minY + maxY) / 2, z + depth / 2),
+                Vector3.new(width, maxY - minY, depth),
+                Enum.Material.Air
+            )
+        end
+    end
+end
+
 local function makePart(parent, name, size, cframe, material, color, feature, role)
     local part = Instance.new("Part")
     part.Name = name
@@ -132,9 +161,10 @@ end
 
 local function placeFootprint(root, feature)
     local bounds = feature.runtime and feature.runtime.footprintBoundsLocalMeters
+    local proxy = feature.proxy or {}
     local placement = feature.placement or {}
-    local eastM = tonumber(placement.eastM) or 0
-    local northM = tonumber(placement.northM) or 0
+    local eastM = tonumber(proxy.centerEastM) or tonumber(placement.eastM) or 0
+    local northM = tonumber(proxy.centerNorthM) or tonumber(placement.northM) or 0
     local half = feature.role == "hero" and 4 or 2
     local minEast = bounds and tonumber(bounds.minEastM) or eastM - half
     local maxEast = bounds and tonumber(bounds.maxEastM) or eastM + half
@@ -147,12 +177,13 @@ local function placeFootprint(root, feature)
         minNorth, maxNorth = northM - half, northM + half
     end
 
-    local width = math.max(CoordinateTransform.MetersToStuds(maxEast - minEast), 2)
-    local depth = math.max(CoordinateTransform.MetersToStuds(maxNorth - minNorth), 2)
+    local width = math.max(CoordinateTransform.MetersToStuds(tonumber(proxy.widthM) or (maxEast - minEast)), 2)
+    local depth = math.max(CoordinateTransform.MetersToStuds(tonumber(proxy.depthM) or (maxNorth - minNorth)), 2)
     local heightM = tonumber(feature.heightM) or 0
     local height = math.max(CoordinateTransform.MetersToStuds(heightM), 0.35)
     local baseM = tonumber(placement.relativeElevationM) or tonumber(placement.baseElevationM) or 0
-    local center = CoordinateTransform.LocalToStuds((minEast + maxEast) / 2, (minNorth + maxNorth) / 2, baseM + heightM / 2)
+    local center = CoordinateTransform.LocalToStuds(eastM, northM, baseM + heightM / 2)
+    local yawDegrees = tonumber(proxy.yawDegrees) or 0
 
     local material = Enum.Material.Concrete
     local color = Color3.fromRGB(150, 150, 155)
@@ -167,12 +198,17 @@ local function placeFootprint(root, feature)
         color = Color3.fromRGB(125, 135, 150)
     end
 
-    local part = makePart(featureFolder(root, feature), feature.id or feature.featureId, Vector3.new(width, height, depth), CFrame.new(center), material, color, feature, feature.role)
+    local part = makePart(featureFolder(root, feature), feature.id or feature.featureId, Vector3.new(width, height, depth), CFrame.new(center) * CFrame.Angles(0, math.rad(yawDegrees), 0), material, color, feature, feature.role)
     part:SetAttribute("BaseElevationM", baseM)
     part:SetAttribute("FootprintMinEastM", minEast)
     part:SetAttribute("FootprintMaxEastM", maxEast)
     part:SetAttribute("FootprintMinNorthM", minNorth)
     part:SetAttribute("FootprintMaxNorthM", maxNorth)
+    part:SetAttribute("ProxyCenterEastM", eastM)
+    part:SetAttribute("ProxyCenterNorthM", northM)
+    part:SetAttribute("ProxyWidthM", tonumber(proxy.widthM) or (maxEast - minEast))
+    part:SetAttribute("ProxyDepthM", tonumber(proxy.depthM) or (maxNorth - minNorth))
+    part:SetAttribute("ProxyYawDegrees", yawDegrees)
     return 1
 end
 
@@ -267,6 +303,7 @@ local function sampleTerrain(eastM, northM)
 end
 
 local function writeTerrain()
+    local started = os.clock()
     local terrain = Workspace.Terrain
     local minEast, maxEast, minNorth, maxNorth = terrainBounds()
     local scale = CoordinateTransform.MetersPerStud
@@ -315,6 +352,7 @@ local function writeTerrain()
         end
     end
 
+    local totalCells = xCells * yCells * zCells
     return {
         chunks = chunks,
         minX = minX,
@@ -326,6 +364,9 @@ local function writeTerrain()
         xCells = xCells,
         yCells = yCells,
         zCells = zCells,
+        totalCells = totalCells,
+        writeVoxelsDurationSeconds = os.clock() - started,
+        bounds = {minX = minX, maxX = maxX, minY = minY, maxY = maxY, minZ = minZ, maxZ = maxZ},
     }
 end
 
@@ -342,6 +383,9 @@ local function writeMetadata(root, terrainReport, counts)
         TerrainChunks = tostring(terrainReport.chunks),
         ObjectCount = tostring(counts.objects),
         RouteSegmentCount = tostring(counts.routeSegments),
+        TerrainTotalCells = tostring(terrainReport.totalCells),
+        TerrainWriteVoxelsSeconds = string.format("%.6f", terrainReport.writeVoxelsDurationSeconds),
+        TerrainBounds = string.format("%s,%s,%s,%s,%s,%s", terrainReport.minX, terrainReport.maxX, terrainReport.minY, terrainReport.maxY, terrainReport.minZ, terrainReport.maxZ),
     }
     for name, value in pairs(values) do
         local item = Instance.new("StringValue")
@@ -357,7 +401,22 @@ local function writeSpawn(root)
     spawn.Anchored = true
     spawn.Neutral = true
     spawn.Size = Vector3.new(10, 1, 10)
-    local placement = CoordinateTransform.LocalToStuds(0, 0, 9.266667)
+    local oblation
+    for _, feature in ipairs(Scene.objects or {}) do
+        if feature.featureId == "uplb:landmark:oblation" or feature.name == "UPLB Oblation" then
+            oblation = feature
+            break
+        end
+    end
+    if not oblation then
+        error("authoritative Oblation feature is missing; spawn cannot use a hardcoded coordinate")
+    end
+    local placementData = oblation.placement or {}
+    local eastM = tonumber(placementData.eastM) or 0
+    local northM = tonumber(placementData.northM) or 0
+    local absoluteElevationM = tonumber(placementData.absoluteElevationM) or 0
+    local relativeElevationM = tonumber(placementData.relativeElevationM) or tonumber(placementData.baseElevationM) or 0
+    local placement = CoordinateTransform.LocalToStuds(eastM, northM, relativeElevationM)
     spawn.Position = placement + Vector3.new(0, 3, 0)
     spawn.Material = Enum.Material.Neon
     spawn.Color = Color3.fromRGB(120, 180, 255)
@@ -370,19 +429,33 @@ local function writeSpawn(root)
         detailTier = 0,
         provenance = { verificationStatus = "generated" },
     }, "spawn")
-    spawn:SetAttribute("SpawnEastM", 0)
-    spawn:SetAttribute("SpawnNorthM", 0)
-    spawn:SetAttribute("SpawnElevationM", 9.266667)
+    spawn:SetAttribute("SpawnEastM", eastM)
+    spawn:SetAttribute("SpawnNorthM", northM)
+    spawn:SetAttribute("SpawnAbsoluteElevationM", absoluteElevationM)
+    spawn:SetAttribute("SpawnRelativeElevationM", relativeElevationM)
+    spawn:SetAttribute("SpawnGroundStuds", string.format("%.6f,%.6f,%.6f", placement.X, placement.Y, placement.Z))
+    spawn:SetAttribute("SpawnSourceFeatureId", oblation.featureId or oblation.id or "")
     return spawn
 end
 
 function WorldGenerator.Generate()
+    local started = os.clock()
+    local existing = Workspace:FindFirstChild(ROOT_NAME)
+    if existing then
+        clearOwnedTerrain(existing)
+    end
     local root = resetRoot()
     for _, name in ipairs(FOLDER_NAMES) do
         createFolder(root, name)
     end
 
     local terrainReport = writeTerrain()
+    root:SetAttribute("TerrainMinX", terrainReport.minX)
+    root:SetAttribute("TerrainMaxX", terrainReport.maxX)
+    root:SetAttribute("TerrainMinY", terrainReport.minY)
+    root:SetAttribute("TerrainMaxY", terrainReport.maxY)
+    root:SetAttribute("TerrainMinZ", terrainReport.minZ)
+    root:SetAttribute("TerrainMaxZ", terrainReport.maxZ)
     local counts = { objects = 0, routeSegments = 0 }
     for _, feature in ipairs(Scene.objects or {}) do
         local role = feature.role
@@ -403,6 +476,11 @@ function WorldGenerator.Generate()
         routeSegmentCount = counts.routeSegments,
         terrainChunks = terrainReport.chunks,
         terrainCells = { x = terrainReport.xCells, y = terrainReport.yCells, z = terrainReport.zCells },
+        terrainTotalCells = terrainReport.totalCells,
+        terrainBounds = terrainReport.bounds,
+        terrainWriteVoxelsDurationSeconds = terrainReport.writeVoxelsDurationSeconds,
+        generationDurationSeconds = os.clock() - started,
+        mode = Workspace:GetAttribute("UPLBWorldgenMode") or "explicit",
     }
     print(string.format("UPLB world generated: %d objects, %d route segments, %d terrain chunks (%s)", report.objectCount, report.routeSegmentCount, report.terrainChunks, report.worldgenStatus))
     return report

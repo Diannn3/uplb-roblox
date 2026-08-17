@@ -1,8 +1,9 @@
-"""Generate the shared Luau scene module from a canonical scene specification.
+"""Generate the server-owned Luau scene module from a canonical scene specification.
 
-The generator intentionally emits plain Luau data only.  Runtime placement and
-terrain writes remain server-owned in ``WorldGenerator.lua``; this module is
-safe to require from both server and client code for read-only presentation.
+The generator intentionally emits plain Luau data only. Runtime placement and
+terrain writes remain server-owned in ``WorldGenerator.lua``. The generated
+module is intentionally not placed in ReplicatedStorage because it contains a
+large terrain heightfield and authoritative placement data.
 """
 
 from __future__ import annotations
@@ -209,6 +210,7 @@ def prepare_scene(scene: dict[str, Any]) -> dict[str, Any]:
                 "verificationStatus": source_metadata.get("verificationStatus", "unknown"),
             },
             "runtime": _round_tree(runtime),
+            "proxy": _round_tree(feature.get("proxy") or {}),
             "geometry": {"type": geometry.get("type", "")},
         }
         if role in {"road", "walkway", "water"}:
@@ -291,8 +293,9 @@ def generate(scene_spec_path: Path, output_path: Path) -> dict[str, Any]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--scene-spec", type=Path, required=True)
-    parser.add_argument("--output", type=Path, required=True)
+    root = Path(__file__).resolve().parents[2]
+    parser.add_argument("--scene-spec", type=Path, default=root / "data" / "generated" / "worldgen-v0.1" / "scene-spec.json")
+    parser.add_argument("--output", type=Path, default=root / "src" / "Server" / "Generated" / "WorldScene.lua")
     args = parser.parse_args()
     print(json.dumps(generate(args.scene_spec, args.output), sort_keys=True))
     return 0

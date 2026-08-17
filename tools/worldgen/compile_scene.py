@@ -64,6 +64,67 @@ def _flatten_points(value: Any) -> list[list[float]]:
     return points
 
 
+def _diagnostic_proxy(east: float, north: float, role: str) -> dict[str, Any]:
+    """Return a stable proxy for point features without an approved footprint."""
+
+    size = 8.0 if role == "hero" else 4.0
+    return {
+        "centerEastM": round(east, 6),
+        "centerNorthM": round(north, 6),
+        "widthM": size,
+        "depthM": size,
+        "yawDegrees": 0.0,
+        "source": "diagnostic-point-proxy",
+    }
+
+
+def _oriented_proxy(local_geometry: dict[str, Any], east: float, north: float, role: str) -> dict[str, Any]:
+    """Compute a deterministic minimum-rotated-rectangle placement proxy.
+
+    The proxy is deliberately separate from source geometry: it is a runtime
+    placement aid, not a claim that a point landmark has a surveyed footprint.
+    Width is the longest rectangle edge and yaw is measured from local east
+    toward local north in degrees.
+    """
+
+    geometry_type = str(local_geometry.get("type"))
+    if geometry_type in {"Point", "MultiPoint"}:
+        return _diagnostic_proxy(east, north, role)
+    try:
+        geometry = shape(local_geometry)
+        if geometry.is_empty or not geometry.is_valid:
+            return _diagnostic_proxy(east, north, role)
+        rectangle = geometry.minimum_rotated_rectangle
+        coordinates = list(rectangle.exterior.coords)
+        edges: list[tuple[float, int, float, float]] = []
+        for index, (first, second) in enumerate(zip(coordinates, coordinates[1:])):
+            dx = float(second[0] - first[0])
+            dy = float(second[1] - first[1])
+            length = math.hypot(dx, dy)
+            if length > 1e-9:
+                edges.append((length, index, dx, dy))
+        if not edges:
+            return _diagnostic_proxy(east, north, role)
+        longest = max(edges, key=lambda item: (item[0], -item[1]))
+        shortest = min(edges, key=lambda item: (item[0], item[1]))
+        yaw = math.degrees(math.atan2(longest[3], longest[2]))
+        while yaw > 180.0:
+            yaw -= 360.0
+        while yaw <= -180.0:
+            yaw += 360.0
+        centroid = rectangle.centroid
+        return {
+            "centerEastM": round(float(centroid.x), 6),
+            "centerNorthM": round(float(centroid.y), 6),
+            "widthM": round(float(longest[0]), 6),
+            "depthM": round(float(shortest[0]), 6),
+            "yawDegrees": round(yaw, 6),
+            "source": "minimum-rotated-rectangle",
+        }
+    except (TypeError, ValueError, AttributeError):
+        return _diagnostic_proxy(east, north, role)
+
+
 def _densify(points: list[list[float]], maximum_spacing_m: float) -> list[list[float]]:
     """Subdivide long source segments before terrain sampling."""
 
@@ -254,6 +315,7 @@ def _object(feature: dict[str, Any], transform: CoordinateTransform, field: Heig
             "medianGroundElevationM": round(base, 6),
             "baseElevationM": round(relative_base, 6),
         }
+    proxy = _oriented_proxy({"type": geometry.get("type"), "coordinates": local_geometry}, east, north, role)
     input_hash = _hash_payload(feature)
     return {
         "id": f"scene:{feature.get('id')}",
@@ -281,6 +343,7 @@ def _object(feature: dict[str, Any], transform: CoordinateTransform, field: Heig
             "baseElevationM": round(relative_base, 6),
             "terrainSampling": terrain_sampling,
         },
+        "proxy": proxy,
         "foundation": foundation,
         "height": {"meters": round(max(height, 0.0), 6), "method": height_method, "confidence": height_confidence},
         "width": {"meters": round(max(width, 0.0), 6), "method": width_method, "confidence": width_confidence},
@@ -342,6 +405,12 @@ def validate_scene_spec(scene_spec: dict[str, Any]) -> dict[str, Any]:
             errors.append(f"absurd placement: {obj.get('id')}")
         if obj.get("placement", {}).get("terrainSampling") == "outside-fixture-extent":
             warnings.append(f"fixture terrain does not cover {obj.get('id')}")
+        proxy = obj.get("proxy") or {}
+        proxy_values = [proxy.get(key) for key in ("centerEastM", "centerNorthM", "widthM", "depthM", "yawDegrees")]
+        if any(not isinstance(value, (int, float)) or not math.isfinite(float(value)) for value in proxy_values):
+            errors.append(f"non-finite placement proxy: {obj.get('id')}")
+        if float(proxy.get("widthM", 0.0)) <= 0 or float(proxy.get("depthM", 0.0)) <= 0:
+            errors.append(f"non-positive placement proxy: {obj.get('id')}")
         geometry = obj.get("geometry") or {}
         geometry_points = list(points(geometry.get("coordinatesLocalMeters"))) + list(points(geometry.get("ribbonCoordinatesLocalMeters3D")))
         outside = [point for point in geometry_points if not (terrain_bounds[0] <= point[0] <= terrain_bounds[2] and terrain_bounds[1] <= point[1] <= terrain_bounds[3])]

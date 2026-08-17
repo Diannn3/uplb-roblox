@@ -18,7 +18,7 @@
     "candidateSourceHash": "sha256:9f766739c1ad0088170c708d222c246b47b4dc684120f1f57f252d6f290f6142",
     "canonicalRevision": "sha256:e2ba928c66a1b392d7688e81950ea35086ec9c67a16ef992c1ee92072c8a2978",
     "inputHash": "sha256:85572f829c73af1ba386e79243c2821c0c055a0786f8f7acddce9085e2876914",
-    "sceneSpecHash": "sha256:2812e9e9c9dca13b63c015f20c7ece9a85bc144918dd50c5ed28f6398fc32442"
+    "sceneSpecHash": "sha256:500c31ab44e79ce0d8a60b98bec9ef62feb024f5d4ff8e8040498d25f9a9e076"
   },
   "objects": [
     {
@@ -81,6 +81,14 @@
         "northM": -229.19237,
         "relativeElevationM": 9.260996,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": 139.116849,
+        "centerNorthM": -229.192356,
+        "depthM": 30.00001,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 48.000023,
+        "yawDegrees": -2.7e-05
       },
       "role": "green-space",
       "sourceLifecycle": "candidate",
@@ -151,6 +159,14 @@
         "relativeElevationM": 8.834329,
         "terrainSampling": "sampled"
       },
+      "proxy": {
+        "centerEastM": 19.116774,
+        "centerNorthM": -149.192327,
+        "depthM": 34.0001,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 52.000038,
+        "yawDegrees": 179.999993
+      },
       "role": "green-space",
       "sourceLifecycle": "candidate",
       "width": {
@@ -219,6 +235,14 @@
         "northM": -411.736808,
         "relativeElevationM": 7.855011,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": 16.341018,
+        "centerNorthM": -411.736801,
+        "depthM": 32.000002,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 42.000045,
+        "yawDegrees": -179.99996
       },
       "role": "green-space",
       "sourceLifecycle": "candidate",
@@ -591,6 +615,14 @@
         "relativeElevationM": 9.500475,
         "terrainSampling": "sampled"
       },
+      "proxy": {
+        "centerEastM": 65.801742,
+        "centerNorthM": -205.374746,
+        "depthM": 303.22334,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 858.341678,
+        "yawDegrees": -4.169972
+      },
       "role": "water",
       "sourceLifecycle": "candidate",
       "width": {
@@ -665,6 +697,14 @@
         "northM": -350.932646,
         "relativeElevationM": 7.059806,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": -153.351326,
+        "centerNorthM": -350.932638,
+        "depthM": 19.867884,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 35.399386,
+        "yawDegrees": 24.495565
       },
       "role": "context-building",
       "sourceLifecycle": "candidate",
@@ -765,6 +805,14 @@
         "relativeElevationM": 6.671095,
         "terrainSampling": "sampled"
       },
+      "proxy": {
+        "centerEastM": -283.476439,
+        "centerNorthM": -233.98354,
+        "depthM": 17.182702,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 37.074795,
+        "yawDegrees": 19.555446
+      },
       "role": "context-building",
       "sourceLifecycle": "candidate",
       "width": {
@@ -856,6 +904,14 @@
         "relativeElevationM": 8.317196,
         "terrainSampling": "sampled"
       },
+      "proxy": {
+        "centerEastM": -144.94361,
+        "centerNorthM": -14.555102,
+        "depthM": 26.765068,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 35.861916,
+        "yawDegrees": 172.150446
+      },
       "role": "context-building",
       "sourceLifecycle": "candidate",
       "width": {
@@ -942,6 +998,14 @@
         "northM": -4.71132,
         "relativeElevationM": 8.252965,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": -165.922846,
+        "centerNorthM": -4.711346,
+        "depthM": 12.063288,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 13.386061,
+        "yawDegrees": -102.504496
       },
       "role": "context-building",
       "sourceLifecycle": "candidate",
@@ -1042,6 +1106,14 @@
         "relativeElevationM": 8.135052,
         "terrainSampling": "sampled"
       },
+      "proxy": {
+        "centerEastM": -190.819151,
+        "centerNorthM": -0.357161,
+        "depthM": 21.874546,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 23.36454,
+        "yawDegrees": 75.672097
+      },
       "role": "context-building",
       "sourceLifecycle": "candidate",
       "width": {
@@ -1141,6 +1213,14 @@
         "relativeElevationM": 8.164255,
         "terrainSampling": "sampled"
       },
+      "proxy": {
+        "centerEastM": -174.199006,
+        "centerNorthM": -10.011738,
+        "depthM": 23.231038,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 23.382939,
+        "yawDegrees": -7.932838
+      },
       "role": "context-building",
       "sourceLifecycle": "candidate",
       "width": {
@@ -1223,6 +1303,14 @@
         "northM": 2.204789,
         "relativeElevationM": 7.939567,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": -216.59606,
+        "centerNorthM": -1.846188,
+        "depthM": 21.353869,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 35.337052,
+        "yawDegrees": -96.239215
       },
       "role": "context-building",
       "sourceLifecycle": "candidate",
@@ -1318,6 +1406,14 @@
         "northM": -231.048388,
         "relativeElevationM": 7.392664,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": -185.251499,
+        "centerNorthM": -229.095031,
+        "depthM": 53.470427,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 67.436013,
+        "yawDegrees": -68.078615
       },
       "role": "hero",
       "sourceLifecycle": "candidate",
@@ -1436,6 +1532,14 @@
         "relativeElevationM": 7.644875,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -158.830357,
+        "centerNorthM": -184.309347,
+        "depthM": 4.0,
+        "source": "diagnostic-point-proxy",
+        "widthM": 4.0,
+        "yawDegrees": 0.0
+      },
       "role": "walkway",
       "sourceLifecycle": "candidate",
       "width": {
@@ -1510,6 +1614,14 @@
         "northM": -291.693779,
         "relativeElevationM": 9.435966,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": 206.47928,
+        "centerNorthM": -291.693791,
+        "depthM": 7.997908,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 14.739784,
+        "yawDegrees": -57.880136
       },
       "role": "context-building",
       "sourceLifecycle": "candidate",
@@ -1686,6 +1798,14 @@
         "relativeElevationM": 7.919616,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -139.637438,
+        "centerNorthM": -139.198667,
+        "depthM": 0.004791,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 4.563319,
+        "yawDegrees": -78.829517
+      },
       "role": "walkway",
       "sourceLifecycle": "candidate",
       "width": {
@@ -1802,6 +1922,14 @@
         "northM": -126.759698,
         "relativeElevationM": 8.022498,
         "terrainSampling": "sampled-per-vertex"
+      },
+      "proxy": {
+        "centerEastM": -129.538617,
+        "centerNorthM": -126.759698,
+        "depthM": 4.0,
+        "source": "diagnostic-point-proxy",
+        "widthM": 4.0,
+        "yawDegrees": 0.0
       },
       "role": "walkway",
       "sourceLifecycle": "candidate",
@@ -1920,6 +2048,14 @@
         "relativeElevationM": 7.984532,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -135.743862,
+        "centerNorthM": -127.830605,
+        "depthM": 4.0,
+        "source": "diagnostic-point-proxy",
+        "widthM": 4.0,
+        "yawDegrees": 0.0
+      },
       "role": "walkway",
       "sourceLifecycle": "candidate",
       "width": {
@@ -2037,6 +2173,14 @@
         "relativeElevationM": 7.924197,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -152.252855,
+        "centerNorthM": -133.725799,
+        "depthM": 4.0,
+        "source": "diagnostic-point-proxy",
+        "widthM": 4.0,
+        "yawDegrees": 0.0
+      },
       "role": "walkway",
       "sourceLifecycle": "candidate",
       "width": {
@@ -2153,6 +2297,14 @@
         "northM": -133.582999,
         "relativeElevationM": 7.925006,
         "terrainSampling": "sampled-per-vertex"
+      },
+      "proxy": {
+        "centerEastM": -141.811557,
+        "centerNorthM": -133.582999,
+        "depthM": 4.0,
+        "source": "diagnostic-point-proxy",
+        "widthM": 4.0,
+        "yawDegrees": 0.0
       },
       "role": "walkway",
       "sourceLifecycle": "candidate",
@@ -2387,6 +2539,14 @@
         "relativeElevationM": 7.919372,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -142.824865,
+        "centerNorthM": -133.660039,
+        "depthM": 3.968309,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 15.457097,
+        "yawDegrees": -153.243837
+      },
       "role": "walkway",
       "sourceLifecycle": "candidate",
       "width": {
@@ -2619,6 +2779,14 @@
         "northM": -128.408977,
         "relativeElevationM": 7.979211,
         "terrainSampling": "sampled-per-vertex"
+      },
+      "proxy": {
+        "centerEastM": -140.790606,
+        "centerNorthM": -130.512034,
+        "depthM": 0.019263,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 21.929286,
+        "yawDegrees": 28.013458
       },
       "role": "walkway",
       "sourceLifecycle": "candidate",
@@ -3309,6 +3477,14 @@
         "relativeElevationM": 7.909621,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -148.979995,
+        "centerNorthM": -119.604812,
+        "depthM": 18.640944,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 31.418023,
+        "yawDegrees": 116.944834
+      },
       "role": "walkway",
       "sourceLifecycle": "candidate",
       "width": {
@@ -3832,6 +4008,14 @@
         "relativeElevationM": 8.145758,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -107.32031,
+        "centerNorthM": -124.620131,
+        "depthM": 3.465568,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 44.507454,
+        "yawDegrees": 9.952824
+      },
       "role": "walkway",
       "sourceLifecycle": "candidate",
       "width": {
@@ -3966,6 +4150,14 @@
         "northM": -136.274823,
         "relativeElevationM": 8.318521,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": -74.410145,
+        "centerNorthM": -136.484896,
+        "depthM": 4.810805,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 4.85583,
+        "yawDegrees": -9.147886
       },
       "role": "context-building",
       "sourceLifecycle": "candidate",
@@ -4141,6 +4333,14 @@
         "northM": -210.635734,
         "relativeElevationM": 7.596718,
         "terrainSampling": "sampled-per-vertex"
+      },
+      "proxy": {
+        "centerEastM": -153.062637,
+        "centerNorthM": -212.082854,
+        "depthM": 0.003259,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 14.407484,
+        "yawDegrees": 22.723232
       },
       "role": "walkway",
       "sourceLifecycle": "candidate",
@@ -4491,6 +4691,14 @@
         "relativeElevationM": 7.554197,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -157.569397,
+        "centerNorthM": -205.668141,
+        "depthM": 5.738441,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 17.989406,
+        "yawDegrees": -120.783427
+      },
       "role": "road",
       "sourceLifecycle": "candidate",
       "width": {
@@ -4840,6 +5048,14 @@
         "relativeElevationM": 7.531212,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -151.752967,
+        "centerNorthM": -220.13162,
+        "depthM": 6.072896,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 18.089563,
+        "yawDegrees": 165.045661
+      },
       "role": "road",
       "sourceLifecycle": "candidate",
       "width": {
@@ -4957,6 +5173,14 @@
         "relativeElevationM": 7.512667,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -161.809014,
+        "centerNorthM": -215.744473,
+        "depthM": 4.0,
+        "source": "diagnostic-point-proxy",
+        "widthM": 4.0,
+        "yawDegrees": 0.0
+      },
       "role": "walkway",
       "sourceLifecycle": "candidate",
       "width": {
@@ -5073,6 +5297,14 @@
         "northM": -194.600205,
         "relativeElevationM": 7.428799,
         "terrainSampling": "sampled-per-vertex"
+      },
+      "proxy": {
+        "centerEastM": -194.08284,
+        "centerNorthM": -194.600205,
+        "depthM": 4.0,
+        "source": "diagnostic-point-proxy",
+        "widthM": 4.0,
+        "yawDegrees": 0.0
       },
       "role": "walkway",
       "sourceLifecycle": "candidate",
@@ -5356,6 +5588,14 @@
         "northM": -138.721667,
         "relativeElevationM": 7.919616,
         "terrainSampling": "sampled-per-vertex"
+      },
+      "proxy": {
+        "centerEastM": -141.044417,
+        "centerNorthM": -139.020581,
+        "depthM": 0.533721,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 56.592344,
+        "yawDegrees": 24.302869
       },
       "role": "walkway",
       "sourceLifecycle": "candidate",
@@ -6838,6 +7078,14 @@
         "relativeElevationM": 7.467466,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -105.932135,
+        "centerNorthM": -308.04381,
+        "depthM": 2.507163,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 303.910832,
+        "yawDegrees": 114.63933
+      },
       "role": "walkway",
       "sourceLifecycle": "candidate",
       "width": {
@@ -7012,6 +7260,14 @@
         "northM": -152.327533,
         "relativeElevationM": 7.681125,
         "terrainSampling": "sampled-per-vertex"
+      },
+      "proxy": {
+        "centerEastM": -171.312941,
+        "centerNorthM": -152.389763,
+        "depthM": 0.005422,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 9.584519,
+        "yawDegrees": 24.198577
       },
       "role": "walkway",
       "sourceLifecycle": "candidate",
@@ -7346,6 +7602,14 @@
         "relativeElevationM": 8.431796,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": 117.146441,
+        "centerNorthM": -419.265385,
+        "depthM": 4.0,
+        "source": "diagnostic-point-proxy",
+        "widthM": 4.0,
+        "yawDegrees": 0.0
+      },
       "role": "walkway",
       "sourceLifecycle": "candidate",
       "width": {
@@ -7462,6 +7726,14 @@
         "northM": -206.08253,
         "relativeElevationM": 7.645772,
         "terrainSampling": "sampled-per-vertex"
+      },
+      "proxy": {
+        "centerEastM": -140.035329,
+        "centerNorthM": -206.08253,
+        "depthM": 4.0,
+        "source": "diagnostic-point-proxy",
+        "widthM": 4.0,
+        "yawDegrees": 0.0
       },
       "role": "walkway",
       "sourceLifecycle": "candidate",
@@ -8542,6 +8814,14 @@
         "relativeElevationM": 7.708341,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -229.690236,
+        "centerNorthM": -99.277099,
+        "depthM": 45.243931,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 195.324112,
+        "yawDegrees": 149.588078
+      },
       "role": "walkway",
       "sourceLifecycle": "candidate",
       "width": {
@@ -8621,6 +8901,14 @@
         "relativeElevationM": 7.482826,
         "terrainSampling": "sampled"
       },
+      "proxy": {
+        "centerEastM": -140.92424,
+        "centerNorthM": -246.877881,
+        "depthM": 15.515719,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 38.961834,
+        "yawDegrees": 112.837311
+      },
       "role": "context-building",
       "sourceLifecycle": "candidate",
       "width": {
@@ -8699,6 +8987,14 @@
         "northM": -313.941468,
         "relativeElevationM": 7.416245,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": -130.115394,
+        "centerNorthM": -311.932013,
+        "depthM": 26.940875,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 43.075529,
+        "yawDegrees": 113.887292
       },
       "role": "context-building",
       "sourceLifecycle": "candidate",
@@ -8816,6 +9112,14 @@
         "northM": -129.782721,
         "relativeElevationM": 7.929597,
         "terrainSampling": "sampled-per-vertex"
+      },
+      "proxy": {
+        "centerEastM": -154.252953,
+        "centerNorthM": -129.782721,
+        "depthM": 4.0,
+        "source": "diagnostic-point-proxy",
+        "widthM": 4.0,
+        "yawDegrees": 0.0
       },
       "role": "walkway",
       "sourceLifecycle": "candidate",
@@ -9050,6 +9354,14 @@
         "relativeElevationM": 7.952212,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -155.532672,
+        "centerNorthM": -106.256482,
+        "depthM": 0.802977,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 14.646598,
+        "yawDegrees": 23.502349
+      },
       "role": "walkway",
       "sourceLifecycle": "candidate",
       "width": {
@@ -9132,6 +9444,14 @@
         "northM": -434.682224,
         "relativeElevationM": 8.962374,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": 223.478011,
+        "centerNorthM": -451.405798,
+        "depthM": 25.538606,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 166.535603,
+        "yawDegrees": 82.232765
       },
       "role": "water",
       "sourceLifecycle": "candidate",
@@ -10158,6 +10478,14 @@
         "relativeElevationM": 7.303494,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": 14.12623,
+        "centerNorthM": -561.871831,
+        "depthM": 3.557653,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 226.740593,
+        "yawDegrees": 114.24016
+      },
       "role": "road",
       "sourceLifecycle": "candidate",
       "width": {
@@ -10564,6 +10892,14 @@
         "northM": -177.123736,
         "relativeElevationM": 7.589424,
         "terrainSampling": "sampled-per-vertex"
+      },
+      "proxy": {
+        "centerEastM": -175.406206,
+        "centerNorthM": -175.908583,
+        "depthM": 0.507308,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 29.201675,
+        "yawDegrees": -137.114261
       },
       "role": "walkway",
       "sourceLifecycle": "candidate",
@@ -11184,6 +11520,14 @@
         "relativeElevationM": 7.889935,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": 29.396573,
+        "centerNorthM": -421.061972,
+        "depthM": 0.09331,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 141.004234,
+        "yawDegrees": 31.335925
+      },
       "role": "road",
       "sourceLifecycle": "candidate",
       "width": {
@@ -11761,6 +12105,14 @@
         "relativeElevationM": 9.365232,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": 18.93775,
+        "centerNorthM": -0.824448,
+        "depthM": 2.012275,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 79.699896,
+        "yawDegrees": 114.724885
+      },
       "role": "walkway",
       "sourceLifecycle": "candidate",
       "width": {
@@ -11843,6 +12195,14 @@
         "northM": -107.548255,
         "relativeElevationM": 7.970203,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": -153.650998,
+        "centerNorthM": -111.08517,
+        "depthM": 30.319313,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 59.987651,
+        "yawDegrees": 113.772784
       },
       "role": "hero",
       "sourceLifecycle": "candidate",
@@ -12018,6 +12378,14 @@
         "northM": -106.325707,
         "relativeElevationM": 8.517024,
         "terrainSampling": "sampled-per-vertex"
+      },
+      "proxy": {
+        "centerEastM": -61.696052,
+        "centerNorthM": -107.589385,
+        "depthM": 0.003219,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 35.440494,
+        "yawDegrees": -143.936142
       },
       "role": "road",
       "sourceLifecycle": "candidate",
@@ -12712,6 +13080,14 @@
         "relativeElevationM": 9.258393,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -18.320092,
+        "centerNorthM": 37.076796,
+        "depthM": 12.088228,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 127.307503,
+        "yawDegrees": 8.181927
+      },
       "role": "road",
       "sourceLifecycle": "candidate",
       "width": {
@@ -13292,6 +13668,14 @@
         "northM": -10.585304,
         "relativeElevationM": 9.197236,
         "terrainSampling": "sampled-per-vertex"
+      },
+      "proxy": {
+        "centerEastM": -8.406248,
+        "centerNorthM": -3.453099,
+        "depthM": 21.110993,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 67.755754,
+        "yawDegrees": -64.625152
       },
       "role": "road",
       "sourceLifecycle": "candidate",
@@ -14206,6 +14590,14 @@
         "relativeElevationM": 9.3061,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": 16.049166,
+        "centerNorthM": -20.478153,
+        "depthM": 11.883017,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 181.874168,
+        "yawDegrees": 56.139088
+      },
       "role": "road",
       "sourceLifecycle": "candidate",
       "width": {
@@ -14341,6 +14733,14 @@
         "relativeElevationM": 9.757177,
         "terrainSampling": "sampled"
       },
+      "proxy": {
+        "centerEastM": 78.021225,
+        "centerNorthM": 4.616662,
+        "depthM": 36.040438,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 55.943049,
+        "yawDegrees": -122.338428
+      },
       "role": "context-building",
       "sourceLifecycle": "candidate",
       "width": {
@@ -14459,6 +14859,14 @@
         "northM": -18.125925,
         "relativeElevationM": 8.961151,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": -32.00996,
+        "centerNorthM": -17.313067,
+        "depthM": 28.681454,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 50.183346,
+        "yawDegrees": -62.476083
       },
       "role": "context-building",
       "sourceLifecycle": "candidate",
@@ -15040,6 +15448,14 @@
         "northM": -141.436636,
         "relativeElevationM": 8.042059,
         "terrainSampling": "sampled-per-vertex"
+      },
+      "proxy": {
+        "centerEastM": -136.657292,
+        "centerNorthM": -141.167917,
+        "depthM": 5.916382,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 71.966635,
+        "yawDegrees": -162.947891
       },
       "role": "road",
       "sourceLifecycle": "candidate",
@@ -16058,6 +16474,14 @@
         "relativeElevationM": 8.405837,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": 152.76046,
+        "centerNorthM": -481.772594,
+        "depthM": 6.926865,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 231.918664,
+        "yawDegrees": 124.673868
+      },
       "role": "road",
       "sourceLifecycle": "candidate",
       "width": {
@@ -16340,6 +16764,14 @@
         "northM": -166.757561,
         "relativeElevationM": 7.708797,
         "terrainSampling": "sampled-per-vertex"
+      },
+      "proxy": {
+        "centerEastM": -137.031704,
+        "centerNorthM": -156.536149,
+        "depthM": 0.157222,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 58.1331,
+        "yawDegrees": -153.531711
       },
       "role": "road",
       "sourceLifecycle": "candidate",
@@ -16922,6 +17354,14 @@
         "relativeElevationM": 7.491428,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -112.492848,
+        "centerNorthM": -300.045466,
+        "depthM": 14.247758,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 62.922358,
+        "yawDegrees": -64.724419
+      },
       "role": "road",
       "sourceLifecycle": "candidate",
       "width": {
@@ -17017,6 +17457,14 @@
         "relativeElevationM": 8.680618,
         "terrainSampling": "sampled"
       },
+      "proxy": {
+        "centerEastM": 145.862136,
+        "centerNorthM": -406.642101,
+        "depthM": 13.93018,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 25.657611,
+        "yawDegrees": -146.916746
+      },
       "role": "context-building",
       "sourceLifecycle": "candidate",
       "width": {
@@ -17103,6 +17551,14 @@
         "northM": -322.176898,
         "relativeElevationM": 8.595315,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": 82.181701,
+        "centerNorthM": -318.573721,
+        "depthM": 21.0918,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 22.478397,
+        "yawDegrees": -148.833136
       },
       "role": "context-building",
       "sourceLifecycle": "candidate",
@@ -19493,6 +19949,14 @@
         "relativeElevationM": 7.614528,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -162.097544,
+        "centerNorthM": -208.001555,
+        "depthM": 85.559067,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 413.060555,
+        "yawDegrees": 130.275011
+      },
       "role": "road",
       "sourceLifecycle": "candidate",
       "width": {
@@ -19704,6 +20168,14 @@
         "relativeElevationM": 0.0,
         "terrainSampling": "outside-fixture-extent"
       },
+      "proxy": {
+        "centerEastM": -916.174874,
+        "centerNorthM": -421.131465,
+        "depthM": 151.922327,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 1371.661865,
+        "yawDegrees": -138.62173
+      },
       "role": "water",
       "sourceLifecycle": "candidate",
       "width": {
@@ -19890,6 +20362,14 @@
         "northM": -470.221776,
         "relativeElevationM": 3.841285,
         "terrainSampling": "outside-fixture-extent"
+      },
+      "proxy": {
+        "centerEastM": -596.322562,
+        "centerNorthM": -449.130564,
+        "depthM": 65.056428,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 979.239473,
+        "yawDegrees": -122.231102
       },
       "role": "water",
       "sourceLifecycle": "candidate",
@@ -20174,6 +20654,14 @@
         "relativeElevationM": 7.482598,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -205.878907,
+        "centerNorthM": -149.589011,
+        "depthM": 0.199788,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 42.259436,
+        "yawDegrees": -68.262107
+      },
       "role": "road",
       "sourceLifecycle": "candidate",
       "width": {
@@ -20398,6 +20886,14 @@
         "northM": -164.033946,
         "relativeElevationM": 7.578872,
         "terrainSampling": "sampled-per-vertex"
+      },
+      "proxy": {
+        "centerEastM": -185.917547,
+        "centerNorthM": -164.033946,
+        "depthM": 4.0,
+        "source": "diagnostic-point-proxy",
+        "widthM": 4.0,
+        "yawDegrees": 0.0
       },
       "role": "road",
       "sourceLifecycle": "candidate",
@@ -21212,6 +21708,14 @@
         "relativeElevationM": 7.490819,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -198.052152,
+        "centerNorthM": -146.558843,
+        "depthM": 42.932152,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 46.030408,
+        "yawDegrees": -158.225757
+      },
       "role": "road",
       "sourceLifecycle": "candidate",
       "width": {
@@ -21298,6 +21802,14 @@
         "northM": -162.572831,
         "relativeElevationM": 6.987634,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": -262.500605,
+        "centerNorthM": -166.662642,
+        "depthM": 16.873787,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 55.069036,
+        "yawDegrees": 179.894294
       },
       "role": "context-building",
       "sourceLifecycle": "candidate",
@@ -21390,6 +21902,14 @@
         "relativeElevationM": 7.321057,
         "terrainSampling": "sampled"
       },
+      "proxy": {
+        "centerEastM": -241.293713,
+        "centerNorthM": -142.88428,
+        "depthM": 25.951927,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 26.933797,
+        "yawDegrees": 89.904949
+      },
       "role": "context-building",
       "sourceLifecycle": "candidate",
       "width": {
@@ -21468,6 +21988,14 @@
         "northM": -190.194552,
         "relativeElevationM": 7.31213,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": -225.958869,
+        "centerNorthM": -190.194543,
+        "depthM": 13.056334,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 41.481194,
+        "yawDegrees": 179.79835
       },
       "role": "context-building",
       "sourceLifecycle": "candidate",
@@ -21809,6 +22337,14 @@
         "northM": -129.128826,
         "relativeElevationM": 7.309288,
         "terrainSampling": "sampled-per-vertex"
+      },
+      "proxy": {
+        "centerEastM": -257.056911,
+        "centerNorthM": -120.781024,
+        "depthM": 0.372144,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 66.534571,
+        "yawDegrees": -90.98883
       },
       "role": "road",
       "sourceLifecycle": "candidate",
@@ -22217,6 +22753,14 @@
         "relativeElevationM": 8.221324,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -78.931764,
+        "centerNorthM": -161.284617,
+        "depthM": 5.84967,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 37.219073,
+        "yawDegrees": 23.379725
+      },
       "role": "road",
       "sourceLifecycle": "candidate",
       "width": {
@@ -22367,6 +22911,14 @@
         "northM": -190.017431,
         "relativeElevationM": 8.406366,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": -23.450746,
+        "centerNorthM": -189.244095,
+        "depthM": 34.084702,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 100.112633,
+        "yawDegrees": 133.917833
       },
       "role": "context-building",
       "sourceLifecycle": "candidate",
@@ -22999,6 +23551,14 @@
         "relativeElevationM": 8.075012,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -88.349205,
+        "centerNorthM": -183.761422,
+        "depthM": 5.86018,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 92.018073,
+        "yawDegrees": -58.086471
+      },
       "role": "road",
       "sourceLifecycle": "candidate",
       "width": {
@@ -23193,6 +23753,14 @@
         "northM": -81.648309,
         "relativeElevationM": 9.285052,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": 55.146459,
+        "centerNorthM": -85.688236,
+        "depthM": 91.752624,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 97.455103,
+        "yawDegrees": -68.189544
       },
       "role": "context-building",
       "sourceLifecycle": "candidate",
@@ -23941,6 +24509,14 @@
         "relativeElevationM": 8.379147,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": 42.588962,
+        "centerNorthM": -319.925802,
+        "depthM": 15.266775,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 158.960568,
+        "yawDegrees": -48.409556
+      },
       "role": "road",
       "sourceLifecycle": "candidate",
       "width": {
@@ -24079,6 +24655,14 @@
         "northM": 11.582247,
         "relativeElevationM": 8.438183,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": -145.146078,
+        "centerNorthM": 12.347338,
+        "depthM": 26.890734,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 73.882149,
+        "yawDegrees": -7.315813
       },
       "role": "context-building",
       "sourceLifecycle": "candidate",
@@ -24545,6 +25129,14 @@
         "relativeElevationM": 9.039028,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -65.771901,
+        "centerNorthM": 45.231222,
+        "depthM": 3.140839,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 32.938025,
+        "yawDegrees": 125.679001
+      },
       "role": "road",
       "sourceLifecycle": "candidate",
       "width": {
@@ -24619,6 +25211,14 @@
         "northM": -128.27946,
         "relativeElevationM": 7.148184,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": -274.687496,
+        "centerNorthM": -128.279453,
+        "depthM": 31.622362,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 57.263219,
+        "yawDegrees": 89.795793
       },
       "role": "context-building",
       "sourceLifecycle": "candidate",
@@ -24738,6 +25338,14 @@
         "northM": 74.943272,
         "relativeElevationM": 9.658491,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": 22.642259,
+        "centerNorthM": 81.165143,
+        "depthM": 26.082583,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 58.485474,
+        "yawDegrees": -153.241015
       },
       "role": "context-building",
       "sourceLifecycle": "candidate",
@@ -28164,6 +28772,14 @@
         "relativeElevationM": 8.256359,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -44.875904,
+        "centerNorthM": -298.767654,
+        "depthM": 132.305764,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 281.274592,
+        "yawDegrees": 121.412415
+      },
       "role": "walkway",
       "sourceLifecycle": "candidate",
       "width": {
@@ -28275,6 +28891,14 @@
         "relativeElevationM": 9.41832,
         "terrainSampling": "sampled"
       },
+      "proxy": {
+        "centerEastM": -17.956853,
+        "centerNorthM": 72.01313,
+        "depthM": 23.385821,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 56.130695,
+        "yawDegrees": 108.510291
+      },
       "role": "context-building",
       "sourceLifecycle": "candidate",
       "width": {
@@ -28349,6 +28973,14 @@
         "northM": -450.505465,
         "relativeElevationM": 8.643735,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": 171.483496,
+        "centerNorthM": -450.50548,
+        "depthM": 8.204809,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 36.587403,
+        "yawDegrees": -148.15071
       },
       "role": "context-building",
       "sourceLifecycle": "candidate",
@@ -28432,6 +29064,14 @@
         "northM": -344.415282,
         "relativeElevationM": 8.57073,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": 94.985961,
+        "centerNorthM": -342.358798,
+        "depthM": 21.342765,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 22.125171,
+        "yawDegrees": 123.489473
       },
       "role": "context-building",
       "sourceLifecycle": "candidate",
@@ -28720,6 +29360,14 @@
         "relativeElevationM": 8.198745,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -94.255718,
+        "centerNorthM": -129.803627,
+        "depthM": 2.562504,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 43.345934,
+        "yawDegrees": -143.752851
+      },
       "role": "road",
       "sourceLifecycle": "candidate",
       "width": {
@@ -28830,6 +29478,14 @@
         "northM": -307.388774,
         "relativeElevationM": 6.656312,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": -251.376336,
+        "centerNorthM": -305.894433,
+        "depthM": 14.572799,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 20.405855,
+        "yawDegrees": 106.470981
       },
       "role": "context-building",
       "sourceLifecycle": "candidate",
@@ -29114,6 +29770,14 @@
         "relativeElevationM": 7.434203,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -50.396764,
+        "centerNorthM": -416.765817,
+        "depthM": 0.475666,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 51.812593,
+        "yawDegrees": 115.227529
+      },
       "role": "road",
       "sourceLifecycle": "candidate",
       "width": {
@@ -29289,6 +29953,14 @@
         "relativeElevationM": 7.413431,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -34.967058,
+        "centerNorthM": -448.932565,
+        "depthM": 0.003557,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 19.537649,
+        "yawDegrees": -64.722451
+      },
       "role": "road",
       "sourceLifecycle": "candidate",
       "width": {
@@ -29456,6 +30128,14 @@
         "relativeElevationM": 9.612548,
         "terrainSampling": "sampled"
       },
+      "proxy": {
+        "centerEastM": 228.602109,
+        "centerNorthM": -277.807595,
+        "depthM": 28.520858,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 40.136114,
+        "yawDegrees": 32.774572
+      },
       "role": "context-building",
       "sourceLifecycle": "candidate",
       "width": {
@@ -29563,6 +30243,14 @@
         "relativeElevationM": 6.546547,
         "terrainSampling": "sampled"
       },
+      "proxy": {
+        "centerEastM": -235.564695,
+        "centerNorthM": -362.04879,
+        "depthM": 54.618869,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 73.412117,
+        "yawDegrees": -143.3173
+      },
       "role": "context-building",
       "sourceLifecycle": "candidate",
       "width": {
@@ -29625,6 +30313,14 @@
         "northM": -245.406988,
         "relativeElevationM": 11.139888,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": 476.057711,
+        "centerNorthM": -267.550233,
+        "depthM": 8.727177,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 265.875507,
+        "yawDegrees": -60.450311
       },
       "role": "water",
       "sourceLifecycle": "candidate",
@@ -29742,6 +30438,14 @@
         "northM": -328.856053,
         "relativeElevationM": 8.745584,
         "terrainSampling": "sampled-per-vertex"
+      },
+      "proxy": {
+        "centerEastM": 114.445759,
+        "centerNorthM": -328.856053,
+        "depthM": 4.0,
+        "source": "diagnostic-point-proxy",
+        "widthM": 4.0,
+        "yawDegrees": 0.0
       },
       "role": "walkway",
       "sourceLifecycle": "candidate",
@@ -30672,6 +31376,14 @@
         "relativeElevationM": 7.329807,
         "terrainSampling": "sampled-per-vertex"
       },
+      "proxy": {
+        "centerEastM": -60.704746,
+        "centerNorthM": -421.622436,
+        "depthM": 23.265247,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 51.812593,
+        "yawDegrees": 115.227529
+      },
       "role": "road",
       "sourceLifecycle": "candidate",
       "width": {
@@ -30747,6 +31459,14 @@
         "relativeElevationM": 7.107577,
         "terrainSampling": "sampled"
       },
+      "proxy": {
+        "centerEastM": -165.861063,
+        "centerNorthM": -317.433657,
+        "depthM": 20.585803,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 37.355283,
+        "yawDegrees": 114.486567
+      },
       "role": "context-building",
       "sourceLifecycle": "candidate",
       "width": {
@@ -30821,6 +31541,14 @@
         "northM": -275.58201,
         "relativeElevationM": 7.235616,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": -170.097186,
+        "centerNorthM": -275.582004,
+        "depthM": 20.475831,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 40.406587,
+        "yawDegrees": -157.465023
       },
       "role": "context-building",
       "sourceLifecycle": "candidate",
@@ -30904,6 +31632,14 @@
         "northM": -125.263187,
         "relativeElevationM": 7.448324,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": -232.187673,
+        "centerNorthM": -123.340606,
+        "depthM": 12.198989,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 25.225106,
+        "yawDegrees": -0.104162
       },
       "role": "context-building",
       "sourceLifecycle": "candidate",
@@ -30992,6 +31728,14 @@
         "relativeElevationM": 7.149383,
         "terrainSampling": "sampled"
       },
+      "proxy": {
+        "centerEastM": -54.180923,
+        "centerNorthM": -470.721232,
+        "depthM": 18.884655,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 42.018237,
+        "yawDegrees": -64.317579
+      },
       "role": "context-building",
       "sourceLifecycle": "candidate",
       "width": {
@@ -31071,6 +31815,14 @@
         "relativeElevationM": 8.906591,
         "terrainSampling": "sampled"
       },
+      "proxy": {
+        "centerEastM": 126.440517,
+        "centerNorthM": -295.087534,
+        "depthM": 11.382042,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 26.691779,
+        "yawDegrees": -56.568032
+      },
       "role": "context-building",
       "sourceLifecycle": "candidate",
       "width": {
@@ -31145,6 +31897,14 @@
         "northM": -358.489044,
         "relativeElevationM": 9.037917,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": 180.951625,
+        "centerNorthM": -358.489042,
+        "depthM": 11.333846,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 17.843693,
+        "yawDegrees": 122.458538
       },
       "role": "context-building",
       "sourceLifecycle": "candidate",
@@ -31245,6 +32005,14 @@
         "relativeElevationM": 8.531927,
         "terrainSampling": "sampled"
       },
+      "proxy": {
+        "centerEastM": 127.366557,
+        "centerNorthM": -360.713466,
+        "depthM": 29.444276,
+        "source": "minimum-rotated-rectangle",
+        "widthM": 58.445729,
+        "yawDegrees": 32.33281
+      },
       "role": "hero",
       "sourceLifecycle": "canonical",
       "width": {
@@ -31300,6 +32068,14 @@
         "relativeElevationM": 7.855011,
         "terrainSampling": "sampled"
       },
+      "proxy": {
+        "centerEastM": 16.340977,
+        "centerNorthM": -411.736807,
+        "depthM": 8.0,
+        "source": "diagnostic-point-proxy",
+        "widthM": 8.0,
+        "yawDegrees": 0.0
+      },
       "role": "hero",
       "sourceLifecycle": "canonical",
       "width": {
@@ -31354,6 +32130,14 @@
         "northM": 0.0,
         "relativeElevationM": 9.266667,
         "terrainSampling": "sampled"
+      },
+      "proxy": {
+        "centerEastM": 0.0,
+        "centerNorthM": 0.0,
+        "depthM": 8.0,
+        "source": "diagnostic-point-proxy",
+        "widthM": 8.0,
+        "yawDegrees": 0.0
       },
       "role": "hero",
       "sourceLifecycle": "canonical",

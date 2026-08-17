@@ -6,50 +6,48 @@ local Players = game:GetService("Players")
 local Shared = ReplicatedStorage:WaitForChild("Shared")
 local Constants = require(Shared:WaitForChild("Constants"))
 local WorldGenerator = require(script.Parent:WaitForChild("WorldGenerator"))
+local WorldgenMode = require(script.Parent:WaitForChild("WorldgenMode"))
 
 print("UPLB Server initialized! Running " .. Constants.PROJECT_NAME)
-WorldGenerator.Generate()
+local mode = WorldgenMode.Get()
+if WorldgenMode.ShouldGenerate() then
+    print("UPLB world-generation mode: " .. mode)
+    WorldGenerator.Generate()
+else
+    print("UPLB world-generation mode: " .. mode .. " (using existing baked world)")
+end
 
 -- The generated terrain sits above the blank-place default spawn.  Move each
 -- character to the owned Oblation spawn after the authoritative world exists.
-local function placeCharacter(character)
-    local spawn = workspace.GeneratedVerticalSlice_v01.Debug:FindFirstChild("GeneratedSpawnLocation")
-    if spawn and character then
-        character:PivotTo(CFrame.new(spawn.Position + Vector3.new(0, 4, 0)))
+local function placeCharacterOnce(player, character)
+    if not character or character:GetAttribute("UPLBSpawnPlaced") then
+        return
     end
+    local root = workspace:FindFirstChild("GeneratedVerticalSlice_v01")
+    local debugFolder = root and root:FindFirstChild("Debug")
+    local spawn = debugFolder and debugFolder:FindFirstChild("GeneratedSpawnLocation")
+    if not spawn then
+        return
+    end
+    local rootPart = character:FindFirstChild("HumanoidRootPart") or character:WaitForChild("HumanoidRootPart", 5)
+    if not rootPart then
+        return
+    end
+    character:PivotTo(CFrame.new(spawn.Position + Vector3.new(0, 4, 0)))
+    character:SetAttribute("UPLBSpawnPlaced", true)
+    player:SetAttribute("UPLBSpawnPlacementStatus", "placed")
 end
 
 local function bindPlayer(player)
     player.CharacterAdded:Connect(function(character)
-        task.delay(1, placeCharacter, character)
+        task.defer(placeCharacterOnce, player, character)
     end)
-    task.spawn(function()
-        for _ = 1, 50 do
-            if player.Character then
-                task.wait(1)
-                placeCharacter(player.Character)
-                return
-            end
-            task.wait(0.1)
-        end
-    end)
+    if player.Character then
+        task.defer(placeCharacterOnce, player, player.Character)
+    end
 end
 
 Players.PlayerAdded:Connect(bindPlayer)
 for _, player in ipairs(Players:GetPlayers()) do
     bindPlayer(player)
 end
-
--- Studio can finish attaching the test character after PlayerAdded has
--- already fired.  Keep a short bounded reconciliation loop so the first
--- client still lands on the generated terrain without an unbounded heartbeat.
-task.spawn(function()
-    for _ = 1, 20 do
-        for _, player in ipairs(Players:GetPlayers()) do
-            if player.Character then
-                placeCharacter(player.Character)
-            end
-        end
-        task.wait(0.5)
-    end
-end)
