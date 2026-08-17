@@ -10,6 +10,7 @@ from tools.geodata.vertical_slice import build_vertical_slice
 
 ROOT = Path(__file__).resolve().parents[2]
 SLICE = ROOT / "data" / "vertical-slices" / "v0.1"
+FIXTURE_CANDIDATES = ROOT / "tests" / "fixtures" / "geodata" / "candidate-osm.geojson"
 
 
 class VerticalSliceTests(unittest.TestCase):
@@ -44,8 +45,8 @@ class VerticalSliceTests(unittest.TestCase):
 
     def test_slice_generation_is_deterministic(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
-            first = build_vertical_slice(Path(directory) / "first")
-            second = build_vertical_slice(Path(directory) / "second")
+            first = build_vertical_slice(Path(directory) / "first", candidate_path=FIXTURE_CANDIDATES)
+            second = build_vertical_slice(Path(directory) / "second", candidate_path=FIXTURE_CANDIDATES)
             self.assertEqual(first["selection"], second["selection"])
             first_features = json.loads((Path(directory) / "first" / "features.geojson").read_text(encoding="utf-8"))
             second_features = json.loads((Path(directory) / "second" / "features.geojson").read_text(encoding="utf-8"))

@@ -16,6 +16,7 @@ from tools.geodata.models import ProviderCandidate
 
 
 ROOT = Path(__file__).resolve().parents[2]
+FIXTURE_CANDIDATES = ROOT / "tests" / "fixtures" / "geodata" / "candidate-osm.geojson"
 
 
 class PhaseOneClosureTests(unittest.TestCase):
@@ -88,6 +89,7 @@ class PhaseOneClosureTests(unittest.TestCase):
                 reason="Accepted for POC greybox",
             )
             build_priority_package(
+                candidate_path=FIXTURE_CANDIDATES,
                 output_path=review_path,
                 markdown_path=markdown_path,
                 generated_at="2026-08-17",
