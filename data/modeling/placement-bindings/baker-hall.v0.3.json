@@ -1,0 +1,54 @@
+{
+  "assetId": "uplb-baker-hall-v0.3",
+  "bindingHash": "sha256:af26a524e2febdd2a907732674f6636d11ffc6ca437f934246c5559a77c0da06",
+  "featureId": "uplb:building:baker-hall",
+  "modelSpace": {
+    "originPolicy": "projected-footprint-centroid",
+    "originUtm51": [
+      310341.832262,
+      1566327.46843
+    ],
+    "units": "meters",
+    "x": "east",
+    "y": "north",
+    "z": "up"
+  },
+  "robloxTransformContract": {
+    "east": "+X",
+    "metersPerStud": 0.28,
+    "north": "-Z",
+    "translationStuds": [
+      458.389274,
+      52.628554,
+      1285.721046
+    ],
+    "up": "+Y"
+  },
+  "sceneFeatureId": "uplb:building:baker-hall",
+  "sceneTransform": {
+    "authority": "canonical-scene-placement",
+    "rotationDegrees": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "translationLocalMeters": [
+      128.348997,
+      -360.001893,
+      14.735995
+    ]
+  },
+  "schemaVersion": "uplb-building-placement-binding-v0.1",
+  "softwareTransformValidation": {
+    "errors": [],
+    "maxPlanarErrorM": 0.0,
+    "status": "pass"
+  },
+  "sourceFeatureId": "uplb:building:baker-hall",
+  "sourceUncertaintySeparated": true
+}

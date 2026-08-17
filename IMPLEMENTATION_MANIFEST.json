@@ -1,308 +1,381 @@
 {
-  "schemaVersion": "uplb-campus-modeling-implementation-bundle-v0.1",
-  "preparedAt": "2026-08-17",
-  "base": {
-    "repository": "Diannn3/uplb-roblox",
-    "branch": "feat/approved-roblox-validation-v0-1",
-    "commit": "b7a80eb06022241e4ffd85427e38d539dbb2c406",
-    "treeSha": "3f30b5a05f5da8fd8d12e49de5375de8f8b25994"
-  },
-  "limitation": "Container DNS could not resolve github.com; exact base state was read through the connected GitHub API. Bundle contains an apply-ready patch/overlay rather than .git history.",
-  "implemented": [
-    "Phase 1: source recovery/model source registry foundation",
-    "Phase 1: per-building production registry with canonical vs proposed binding separation",
-    "Phase 3: UPLB Architecture Kit v0.1 with 10 families, 24 reusable component definitions, and 10 material classes",
-    "Phase 4: deterministic WGS84\u2192EPSG:32651 footprint projection and watertight extrusion core",
-    "Phase 4: deterministic facade-bay layout planner for standard buildings",
-    "Phase 4: Baker Hall first production specification and massing prototype",
-    "Phase 9 foundation: prototype asset manifests and Roblox/LOD budget policy",
-    "Phase 8 foundation: generated source-recovery action queue",
-    "CI integration and offline tests for modeling tooling"
-  ],
-  "validation": {
-    "newTests": "17 passed",
-    "compileall": "pass",
-    "pipeline": "pass",
-    "sourceCount": 12,
-    "buildingSeedCount": 15,
-    "architectureFamilyCount": 10,
-    "componentCount": 24,
-    "recoveryActionCount": 17,
-    "bakerPrototype": "watertight in local trimesh inspection; source-supported footprint only; facade/roof remain explicitly unverified",
-    "kitPrototypeCount": 7,
-    "prototypeAssetCount": 8
+  "bakerV03": {
+    "collisionTriangleEquivalent": 36,
+    "lod0MeshPartCount": 7,
+    "lod0TriangleEquivalent": 904,
+    "lod1TriangleEquivalent": 520,
+    "lod2TriangleEquivalent": 44,
+    "lod3TriangleEquivalent": 36,
+    "orientationPolicy": "longest-edge-proxy",
+    "orientationReviewStatus": "unreviewed",
+    "perMeshTriangleLimit": 20000,
+    "productionStage": "prototype",
+    "stableMeshNames": [
+      "Baker__Shell_A",
+      "Baker__Portico",
+      "Baker__FrontWindows",
+      "Baker__FrontAwnings",
+      "Baker__Bands",
+      "Baker__Parapet",
+      "Baker__Roof",
+      "Baker__Collision"
+    ],
+    "visualReviewGate": "pending-human"
   },
   "files": [
     {
+      "bytes": 2971,
       "path": ".github/workflows/geodata.yml",
-      "sha256": "sha256:324a68d1c7803acbfba1fae808cca3d4fa28015309c4ad0d8fb78c3f844fce5f",
-      "bytes": 2748
+      "sha256": "sha256:c588a8fc7875a13fb96f9565cd1bc3309a8519d903fdc7f076d3351b73c6dfb1"
     },
     {
+      "bytes": 7331,
       "path": "README.md",
-      "sha256": "sha256:9be620c597fed591f3e62f56d8a04df2727c8d4a63ad7df144ce983a30097f8b",
-      "bytes": 6193
+      "sha256": "sha256:3914316dbbac445d3b583cbed9cd7133968ba9d649b6382e27d6a848ac1b487a"
     },
     {
+      "bytes": 409,
       "path": "UPSTREAM_BASE.json",
-      "sha256": "sha256:3151d8694c76b877901d02949802283495c288a291a932ddb376ecaee0aa03a3",
-      "bytes": 382
+      "sha256": "sha256:7e2e665e78a8d853cdafbbe0b6bc698b24c68c68853e2a2bf7fb94789f4afd54"
     },
     {
-      "path": "assets/generated/prototypes/baker-hall-massing.meta.json",
-      "sha256": "sha256:84a312f1910b1bc192f753c7529c202318bb253949e97caa436cfec449cd9abc",
-      "bytes": 501
+      "bytes": 26613,
+      "path": "assets/generated/production/baker-hall-v0.3/asset-manifest.json",
+      "sha256": "sha256:eb631768400c8b24164b8c714e45fa25256320186b05ee676545c93b754cefbd"
     },
     {
-      "path": "assets/generated/prototypes/baker-hall-massing.obj",
-      "sha256": "sha256:d4bda3b4dc2d839488504e7d1ea69e74ed746d60372d800dd21845b2b7870289",
-      "bytes": 1112
+      "bytes": 1328,
+      "path": "assets/generated/production/baker-hall-v0.3/baker-hall-v0.3-collision.obj",
+      "sha256": "sha256:478f005df981e842655adbc98fedb6a22c29e85310e0778b763cb981136ccd94"
     },
     {
-      "path": "assets/manifests/modeling-prototypes.json",
-      "sha256": "sha256:4aff18a836bb02068d02dada218fab551e02c2b511911c6fd0d9d28cbf9f36a1",
-      "bytes": 5693
+      "bytes": 27925,
+      "path": "assets/generated/production/baker-hall-v0.3/baker-hall-v0.3-lod0.obj",
+      "sha256": "sha256:e31396c513c65f42f44c22867f0ec7f59725319bc49e86117b32b1301c989625"
     },
     {
-      "path": "assets/uplb-kit/README.md",
-      "sha256": "sha256:86dd0285d903876e772658eabb2e239ff7bbe59260b19dc3eac9525fb01552f0",
-      "bytes": 629
+      "bytes": 15796,
+      "path": "assets/generated/production/baker-hall-v0.3/baker-hall-v0.3-lod1.obj",
+      "sha256": "sha256:041c8037d013c07047c84dda6d4908abf5555c72fd3cc465ca30d8ecd24d506c"
     },
     {
-      "path": "assets/uplb-kit/prototypes/bench_campus-a.obj",
-      "sha256": "sha256:b826c45e67ef403a35eac032fe4abf813a0497fb0c33a188cc6300e6cd8f550b",
-      "bytes": 413
+      "bytes": 1918,
+      "path": "assets/generated/production/baker-hall-v0.3/baker-hall-v0.3-lod2.obj",
+      "sha256": "sha256:684ff9a1ffb040595bbecfaed2f2ee841fa59d0dad5bdde437e7746e542b2973"
     },
     {
-      "path": "assets/uplb-kit/prototypes/bollard_campus-a.obj",
-      "sha256": "sha256:dddf61ab6a87c378c0985a5ca8ce60e6fb51cce0fa57f67ab3fbb94851c75f4f",
-      "bytes": 1060
+      "bytes": 1363,
+      "path": "assets/generated/production/baker-hall-v0.3/baker-hall-v0.3-lod3.obj",
+      "sha256": "sha256:0619a61cc38f16ac694813526518421e5bf61b6c25f03d269cc3a4caede56e15"
     },
     {
-      "path": "assets/uplb-kit/prototypes/column_concrete-round-a.obj",
-      "sha256": "sha256:329dbbb0f0098d35b29d5aba483aa1563f1def77e5316bd03d44cb2a604a6acb",
-      "bytes": 1074
+      "bytes": 1182,
+      "path": "assets/generated/production/baker-hall-v0.3/meshparts/collision/Baker__Collision.obj",
+      "sha256": "sha256:01756f03ee55e4571cf66b5a56374bd059c048bfe1ca5ffbbd898268523d5de8"
     },
     {
-      "path": "assets/uplb-kit/prototypes/column_concrete-square-a.obj",
-      "sha256": "sha256:cd68747ffb80dcbaaf388590fb7e08ca372570e8c98c742ed7cd8c6a6a55f35f",
-      "bytes": 433
+      "bytes": 986,
+      "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod0/Baker__Bands.obj",
+      "sha256": "sha256:2fd1b37e6650b94de5328ad67735410833d3344b814c49e919121cadd8915b26"
     },
     {
-      "path": "assets/uplb-kit/prototypes/manifest.json",
-      "sha256": "sha256:2ae2916612f92b58fce17038c43b1260bbd261fb9c2ba0140df448d2abaa5aaa",
-      "bytes": 1346
+      "bytes": 5791,
+      "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod0/Baker__FrontAwnings.obj",
+      "sha256": "sha256:a9857c05ca668ed1c77fe366ee107be4c28eea76fff9dd069720c32dfa8be000"
     },
     {
-      "path": "assets/uplb-kit/prototypes/shade_horizontal-deep-a.obj",
-      "sha256": "sha256:2add40aad46aa9b33d6f456d3afe94a107e09c849fd071f51d6e97e48f9a7d0c",
-      "bytes": 431
+      "bytes": 5794,
+      "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod0/Baker__FrontWindows.obj",
+      "sha256": "sha256:cac03e550a74edb3957058098d87d724671f2210731d9c831768dd97a366d0bf"
     },
     {
-      "path": "assets/uplb-kit/prototypes/utility_box-a.obj",
-      "sha256": "sha256:5fd05fac64c3a91e235475c76b73de4afb2e8f3a6e35f3e58334742e47f16d15",
-      "bytes": 411
+      "bytes": 651,
+      "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod0/Baker__Parapet.obj",
+      "sha256": "sha256:50869d809d326f09532942cdd047ccd3886d88abee12c1fe1d5d03e982ae4371"
     },
     {
-      "path": "assets/uplb-kit/prototypes/window_jalousie-a.obj",
-      "sha256": "sha256:6ec3ec1d65050041bd3533c844c4acca3c849becf75e332652366b1351226eed",
-      "bytes": 419
+      "bytes": 12203,
+      "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod0/Baker__Portico.obj",
+      "sha256": "sha256:0170beced3b34e3d8c79b718f802a5be59abb7d4c1da4cbc331ed783e750099e"
     },
     {
-      "path": "data/canonical/schemas/architecture-kit.schema.json",
-      "sha256": "sha256:07fadd88388f0633dce12c50444e251cd45e47f0dfc277c935324a4b5d1b6208",
-      "bytes": 3229
+      "bytes": 554,
+      "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod0/Baker__Roof.obj",
+      "sha256": "sha256:f8b7de3061453b162f17de5a9e7f2294f12377e5fa7ab4289ce52fdfa4d86517"
     },
     {
-      "path": "data/canonical/schemas/building-production-registry.schema.json",
-      "sha256": "sha256:eac2e3d95109afd7bf8779ac0b17d8f99dc4f6e4e3973029b89b31169c9d6e61",
-      "bytes": 3048
+      "bytes": 1205,
+      "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod0/Baker__Shell_A.obj",
+      "sha256": "sha256:30c50aeef54a5350783899309b53ff9569a61e6e4409f3ed128d86dc3796bc32"
     },
     {
-      "path": "data/canonical/schemas/building-spec-v0.2.schema.json",
-      "sha256": "sha256:810b61c05b7e851bb584fcecb9e8a6b837d8921a41bb43538b82a5ab3bbec43e",
-      "bytes": 1317
+      "bytes": 986,
+      "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod1/Baker__Bands.obj",
+      "sha256": "sha256:d41321d67e84f464c6679bad1dcbb4b59629fd310c38e4882bd5f5ffd3a7da59"
     },
     {
-      "path": "data/canonical/schemas/model-source-registry.schema.json",
-      "sha256": "sha256:d196f2776ca0abab9bf53caae096c2b8a830e3a664b5c6a6c1378a951585c893",
-      "bytes": 1620
+      "bytes": 651,
+      "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod1/Baker__Parapet.obj",
+      "sha256": "sha256:c700f42d073ee09d3ba89ab7559df6ee1a74b491dcb175e8c1829283146ae118"
     },
     {
+      "bytes": 12203,
+      "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod1/Baker__Portico.obj",
+      "sha256": "sha256:966764e61070a4b438fc9702d1d919ab0afa4a6733e43e276c0e11a4af153710"
+    },
+    {
+      "bytes": 554,
+      "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod1/Baker__Roof.obj",
+      "sha256": "sha256:5c18acc018b4fb4c6f05753675b951fbd7826a87972a4f6b1254ec1aa42d9069"
+    },
+    {
+      "bytes": 1205,
+      "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod1/Baker__Shell_A.obj",
+      "sha256": "sha256:6ab1a8fd8ee88962eff94d9c43579aa0cc3b2c3a40c81474e69c924fdbc8f0bf"
+    },
+    {
+      "bytes": 554,
+      "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod2/Baker__Roof.obj",
+      "sha256": "sha256:7cf19834d2732d967d3ca407035b0fc52882c594e7afbb080bab469cc7bae835"
+    },
+    {
+      "bytes": 1205,
+      "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod2/Baker__Shell_A.obj",
+      "sha256": "sha256:aeb0d55efa1d99ea171d03003528e7d617b70d614fb33bc8dd1d8b804e49e731"
+    },
+    {
+      "bytes": 1205,
+      "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod3/Baker__Shell_A.obj",
+      "sha256": "sha256:dfa1111d5e8f69f58d6c32b8a6fe4955a4ad9b0f546a7cc7bbc36cd462552b44"
+    },
+    {
+      "bytes": 26577,
+      "path": "assets/generated/production/baker-hall-v0.3/production-report.json",
+      "sha256": "sha256:21ee55f100365c67952978940565cf2d57830ab216c890a3561f3544b79cd2ff"
+    },
+    {
+      "bytes": 945,
+      "path": "data/canonical/schemas/building-placement-binding.schema.json",
+      "sha256": "sha256:c7fe6311feb023b3bb88cc8f0aa25bd3c2d8cdb73f04cdff3af69fa9b1649630"
+    },
+    {
+      "bytes": 3190,
+      "path": "data/canonical/schemas/building-reference-profile-v0.2.schema.json",
+      "sha256": "sha256:6c871393d14339fcd3b450c828c171f3db02e935195e0458a5250bf3cd5ea34f"
+    },
+    {
+      "bytes": 1658,
+      "path": "data/canonical/schemas/production-asset-binding-registry.schema.json",
+      "sha256": "sha256:f647136c8be4fbbff177aa3201a56ab5ffee94cb30cb6f425b08c8919e5bb7d0"
+    },
+    {
+      "bytes": 969,
+      "path": "data/canonical/schemas/production-asset-manifest-v0.2.schema.json",
+      "sha256": "sha256:8aa460dd0afa8fef3f2b68e6744dd97541b5ff587d8b0aa79a495c70577d9d51"
+    },
+    {
+      "bytes": 3813,
+      "path": "data/canonical/schemas/reference-building-production-spec-v0.2.schema.json",
+      "sha256": "sha256:d1ef0aab94ffa89f3e4397bea803b80e3096b2605c5e8f748ffe03e8cf46dec1"
+    },
+    {
+      "bytes": 3836,
       "path": "data/modeling/README.md",
-      "sha256": "sha256:73aa6d72a4e688ee65a806f5fd661575fb5d012bf241b540092441b8b8103f55",
-      "bytes": 1196
+      "sha256": "sha256:773eff35e4c1c3f3fba999553ed0a28ec5492e731594c39c0b8fd0eb787ca864"
     },
     {
-      "path": "data/modeling/architecture-kit-v0.1.json",
-      "sha256": "sha256:a74b777921162052613d82e21328004f7d53bd4151562d2d239ea7363f8420cb",
-      "bytes": 13444
+      "bytes": 3949,
+      "path": "data/modeling/building-specs/baker-hall.v0.3.json",
+      "sha256": "sha256:fc8b4813b945abf2855f7d641987fdeab8b1abf9c9d67b58bd15edb256658ecf"
     },
     {
-      "path": "data/modeling/building-production-registry.json",
-      "sha256": "sha256:6a744b0f6fceb0f4abd9585e839a50ae87845bf31ea2593dc8b5c3598deefb4c",
-      "bytes": 10214
+      "bytes": 622,
+      "path": "data/modeling/identifier-migrations.json",
+      "sha256": "sha256:635ccead3b88fc4a5871933963dd05aeba25e550f2ebaded46d7774195dc25c9"
     },
     {
-      "path": "data/modeling/building-specs/baker-hall.v0.1.json",
-      "sha256": "sha256:15e90b5dc80dbfa900220ab2a5e4c4bf7bfb9129e738363cdb735b5742b80fa3",
-      "bytes": 1921
+      "bytes": 9653,
+      "path": "data/modeling/reference/baker-hall.reference-profile.v0.2.json",
+      "sha256": "sha256:c0d5c7d51f0409665b77076a06fafa83d13aa6c7c2bc7dcca8c45c46d7e72fb3"
     },
     {
-      "path": "data/modeling/model-source-registry.json",
-      "sha256": "sha256:fc85da9fdbf761ff6a445c6c35fa2d92262676097f231c8fd7c34f939eefee46",
-      "bytes": 9133
+      "bytes": 7356,
+      "path": "docs/MODELING_WAVE_02_IMPLEMENTATION.md",
+      "sha256": "sha256:a88727770491607691650426a29c05b211aeb2bb21df7fcf4708486324c4d661"
     },
     {
-      "path": "data/modeling/production-foundation-report.json",
-      "sha256": "sha256:f8b59d87319030277754469081d71a09dae6fff4d0239cc9ab8ce0c380f6027f",
-      "bytes": 17771
+      "bytes": 836,
+      "path": "docs/WAVE02_LOCAL_LLM_HANDOFF.md",
+      "sha256": "sha256:0329a38645f67fd637a30b24c04a954b8af8d90b57a0ec3ec18dfdc29cfac471"
     },
     {
-      "path": "data/modeling/reference/baker-canonical-snapshot.geojson",
-      "sha256": "sha256:a2af95dce1bf1f29f853308d78d7fbcbebc4c9c59ff20a87166aaba554e4281e",
-      "bytes": 1986
+      "bytes": 1268,
+      "path": "tests/modeling/test_baker_v03.py",
+      "sha256": "sha256:670250fc567955d28c4fb9891d6a97e7ff6d3ee70b73043f76cf029d964cdb17"
     },
     {
-      "path": "data/modeling/source-recovery-queue.json",
-      "sha256": "sha256:6a19e4d74470076e2a75c3cc0af8b5951efcfc60a06e3d72d19ae22e2e18bf5b",
-      "bytes": 5643
+      "bytes": 1366,
+      "path": "tests/modeling/test_budgets_v2.py",
+      "sha256": "sha256:7ad0ef96deab816141778a9f4177b0b9152ba3b7c08da92f0cb6c3339f892e5e"
     },
     {
-      "path": "docs/CAMPUS_MODELING_IMPLEMENTATION_PLAN.md",
-      "sha256": "sha256:ad2318e2e828bbc4e96f498fb1564fd24919fe2d5bec5ef27c7351cca7c5de5d",
-      "bytes": 4269
+      "bytes": 2236,
+      "path": "tests/modeling/test_evidence_v2.py",
+      "sha256": "sha256:f946be0103478c208faa856dbcda1a5a2b01f98029bc24eac4d57ec1305d0fd4"
     },
     {
-      "path": "docs/LOCAL_LLM_HANDOFF.md",
-      "sha256": "sha256:ee136cb0e1d06c0511b34de8b5aec73e379b657eb3b20100d40a01b1e2b2a8b5",
-      "bytes": 1275
+      "bytes": 1506,
+      "path": "tests/modeling/test_exchange_contract_v2.py",
+      "sha256": "sha256:54086e9a86a0c7ad8681afd0de1f7d5991c48ba9c948ee6c1bfe00ae48acd2dc"
     },
     {
-      "path": "docs/UPLB_3D_SOURCE_RECOVERY.md",
-      "sha256": "sha256:8f399d3d5c0e87f6c40aab4926dfdde4325fe8f4932cce1cfd0e2f56bcc1362a",
-      "bytes": 5089
+      "bytes": 964,
+      "path": "tests/modeling/test_freshness_v2.py",
+      "sha256": "sha256:cafd26e831cf16b87de972210c431da994ed1a0cc3e7934040d7a7b54cb62b17"
     },
     {
-      "path": "docs/UPLB_ARCHITECTURE_KIT_V0_1.md",
-      "sha256": "sha256:9df8f3657c4c3d4febf02adfc56f67a021589a632cf587096f747dd76911a2b2",
-      "bytes": 2839
+      "bytes": 1172,
+      "path": "tests/modeling/test_geometry_v2.py",
+      "sha256": "sha256:695514b535eeb754929e7cecfdb200f39b9befbe67afa4a7c740d0ade6869587"
     },
     {
-      "path": "tests/modeling/test_asset_manifest.py",
-      "sha256": "sha256:f8dca6dcb5700bfc5cdbb78e7d83a4337739a9a6edfcf97c76d2d8380bbd826d",
-      "bytes": 863
+      "bytes": 1567,
+      "path": "tests/modeling/test_orientation_v2.py",
+      "sha256": "sha256:36a79180ad2273ea881b563d8638390ce6f0b877456077d987d0e38ac25fcd43"
     },
     {
-      "path": "tests/modeling/test_budgets.py",
-      "sha256": "sha256:a282070bb6f20c021510607adfa0ab7dca4fd5097b425d481a21769e723ed1d1",
-      "bytes": 420
+      "bytes": 1545,
+      "path": "tests/modeling/test_placement_v2.py",
+      "sha256": "sha256:2b89478a17462f1bc39ac654536a8f6961517fa3cc93ce32880248975886fce7"
     },
     {
-      "path": "tests/modeling/test_building_generator.py",
-      "sha256": "sha256:6b57313d33964d0434710b54afafba19b817d1c7d8dfe8661a080fd119b3311e",
-      "bytes": 556
+      "bytes": 1441,
+      "path": "tests/modeling/test_production_scene.py",
+      "sha256": "sha256:7e93a57e929da4ce7b086ccb9cfcfce8d0159d056e312c921ecd0abe03e4834b"
     },
     {
-      "path": "tests/modeling/test_classification.py",
-      "sha256": "sha256:b9aa8d61d26b90f7b7591274436f89132eafd1c8868b8e8c9ac5514aaf43a5f9",
-      "bytes": 927
+      "bytes": 659,
+      "path": "tests/modeling/test_topology_v2.py",
+      "sha256": "sha256:b796a2704bb1c4f2ab8d8e66625db47eb7eaca97f3fee8f48b6b6b43015f4c58"
     },
     {
-      "path": "tests/modeling/test_facade.py",
-      "sha256": "sha256:89573f4001018855423afc737b24086a2a7e6edbac5e2b20b6d858153c3f46c2",
-      "bytes": 812
+      "bytes": 2208,
+      "path": "tests/modeling/test_wave02.py",
+      "sha256": "sha256:988fc86afd092b2360c288830dc5d13387cf47a5399b24f3052a187d770567dd"
     },
     {
-      "path": "tests/modeling/test_mesh.py",
-      "sha256": "sha256:d577f7b6f3d753a76029d38516e353e915c8f9afbd4b554c81c31d1d771b68cb",
-      "bytes": 1095
+      "bytes": 16810,
+      "path": "tools/blender/__pycache__/build_production_asset.cpython-313.pyc",
+      "sha256": "sha256:4456a016fd17c48b3148066f04208ab6b26533593e578c50eb637840d9caaab8"
     },
     {
-      "path": "tests/modeling/test_pipeline.py",
-      "sha256": "sha256:2e4717d01f809c32ac01a319dc914d380e5bd251efc9827d7c764518436d8ce5",
-      "bytes": 338
+      "bytes": 12409,
+      "path": "tools/blender/build_production_asset.py",
+      "sha256": "sha256:a41da13c6c9abef079a62ee14d250a9028b8f08e9f40d9a0d6397ed9c0f6a745"
     },
     {
-      "path": "tests/modeling/test_prototypes.py",
-      "sha256": "sha256:b7edd94bbc66a4d573f9692aa974216fe7b38bf90a895fac065e133b6d4186a3",
-      "bytes": 662
+      "bytes": 16807,
+      "path": "tools/modeling/baker_hall_v03.py",
+      "sha256": "sha256:e3737df6ca3f528cd6404c50389576605142435ac034f9e72c5467ab8b83e55f"
     },
     {
-      "path": "tests/modeling/test_recovery.py",
-      "sha256": "sha256:ce92c5a9e0078504fcec71f1890d22de09e3d9f5c8e6568a0d28aca7f13f175a",
-      "bytes": 488
-    },
-    {
-      "path": "tests/modeling/test_registry.py",
-      "sha256": "sha256:f58f3fd01d58595523916e29cb4d8fbbebcec19391527590160a63c00dadeb17",
-      "bytes": 826
-    },
-    {
-      "path": "tools/modeling/__init__.py",
-      "sha256": "sha256:e247c8e9f109c66be9cffe1aeaed7ebe8815d2277f00253a45afa5856ecfc1c5",
-      "bytes": 341
-    },
-    {
-      "path": "tools/modeling/__main__.py",
-      "sha256": "sha256:7a7beaaa82a6df0b77f113ee66bd9538f96a5a3e21edbe23afc42e43b494cc0c",
-      "bytes": 53
-    },
-    {
-      "path": "tools/modeling/asset_manifest.py",
-      "sha256": "sha256:4f550a63b8bb1fe40d8629e256e51aa40eca27e7d4cd9768503fe3a243cb5427",
-      "bytes": 3012
-    },
-    {
+      "bytes": 3225,
       "path": "tools/modeling/budgets.py",
-      "sha256": "sha256:87345e063928f074322daa5e2f5b2a9fef16f2ad07a2a0211622ab33ce4e50a6",
-      "bytes": 1199
+      "sha256": "sha256:6e2a3c9cd4c80830eff7901da1002a7acda25a6a3d0f4f6633e7c577aadfc669"
     },
     {
-      "path": "tools/modeling/building_generator.py",
-      "sha256": "sha256:a727c5dd8938bea35bfe0ad885f12f6c87bbb5cca49e54a05481d27dc837bf6d",
-      "bytes": 1732
+      "bytes": 5840,
+      "path": "tools/modeling/evidence.py",
+      "sha256": "sha256:adb48d89486d67d640ff40e0ba5124fc075bf8a8d7351930ba1a6d69fc17f245"
     },
     {
-      "path": "tools/modeling/classification.py",
-      "sha256": "sha256:16b217f1f87a8bca2ac92b13045c053e1e8ecee0ecec3876bb0622b85a674aee",
-      "bytes": 2320
+      "bytes": 1953,
+      "path": "tools/modeling/freshness.py",
+      "sha256": "sha256:0ad29ec28dd91ac54b8606155fd792e23a6504199a2211a834fc9b92ac1c684b"
     },
     {
-      "path": "tools/modeling/facade.py",
-      "sha256": "sha256:b86337067ce0c994a9e9045bd00ef37afeedb1cf8ba05bb4cb9b20f0b35bf680",
-      "bytes": 3082
+      "bytes": 7079,
+      "path": "tools/modeling/geometry_v2.py",
+      "sha256": "sha256:4f0454fcad3a2d7799d6593e6d25ef545e2274baa01bb77fcaf8a12ccc8f306c"
     },
     {
-      "path": "tools/modeling/mesh.py",
-      "sha256": "sha256:13428b8700d98b980d381ad99ed663bba2d1be1a6312556f200a2dec6fbb8bf9",
-      "bytes": 5131
+      "bytes": 6004,
+      "path": "tools/modeling/orientation.py",
+      "sha256": "sha256:22582f058f5d565e39ecf0c3f928d6a07f9c26a77b51a873a825a99744cca12d"
     },
     {
-      "path": "tools/modeling/models.py",
-      "sha256": "sha256:a7811d114009df3de1d31ebc33faa8619a7318f916d7a942b55803fe19aa1e97",
-      "bytes": 1156
+      "bytes": 7132,
+      "path": "tools/modeling/placement.py",
+      "sha256": "sha256:5768dd70e146505c2233d57bd22eecc79347e4ff0d0ae48c12559666a83dc952"
     },
     {
-      "path": "tools/modeling/pipeline.py",
-      "sha256": "sha256:36ce5b0983ee607e6699b72e87739c187454d9e053a6e61df3956632fcd25a96",
-      "bytes": 5114
+      "bytes": 3489,
+      "path": "tools/modeling/production_scene.py",
+      "sha256": "sha256:056388363604afe77a61f64e58145f7a986377d9ba3105160fbdea544a869b47"
     },
     {
-      "path": "tools/modeling/prototypes.py",
-      "sha256": "sha256:db0763ff58613182887b8b007985e382f720a2d4f517654b1238af5efbb3f700",
-      "bytes": 3808
+      "bytes": 3581,
+      "path": "tools/modeling/qa.py",
+      "sha256": "sha256:844ca505f7ef4d4b3bc14e321bffa1acd1c200229a2a2be66bfb69949d7d9206"
     },
     {
-      "path": "tools/modeling/registry.py",
-      "sha256": "sha256:2d802e46887d6b9d64bc7f4151325eccdd21ce19536c17dca68edb1c3bce4cf9",
-      "bytes": 6400
+      "bytes": 5155,
+      "path": "tools/modeling/topology.py",
+      "sha256": "sha256:f6377e551fe52a6b1198e9d1da0a0e8b0196101344390d9630387c8bfd7570a1"
     },
     {
-      "path": "tools/modeling/source_recovery.py",
-      "sha256": "sha256:d0e906e24a92e04c9a91cb959262d01e9a959651fddfee0d9035c9de3ca39133",
-      "bytes": 1907
+      "bytes": 15459,
+      "path": "tools/modeling/wave02.py",
+      "sha256": "sha256:e22aace4a9a3bd26398423b04402bb7d5327eb9bf0f3392f718f149065510fab"
     }
   ],
-  "nextMilestone": "Recover/verify the 2014 UPLB source models and assemble Baker Hall reference evidence before detailed facade production."
+  "hardStops": [
+    "Do not mark Baker visual/architectural review passed until the project owner reviews real Blender renders and stronger orientation evidence is recorded.",
+    "Do not claim Blender structural/export QA from this bundle; Blender was not available on the implementation host.",
+    "Do not claim Roblox import/reimport/playtest validation from this bundle.",
+    "Do not move canonical scene placement to make production art fit.",
+    "Do not reuse permission-required external scans/models without permission."
+  ],
+  "implemented": [
+    "Evidence/reference profile v0.2 with typed capabilities, confidence, rights, and referential-integrity validation",
+    "Review-gated facade orientation policies beyond longest-edge-proxy",
+    "Polygon/MultiPolygon production geometry including holes/courtyards",
+    "Per-MeshPart topology/watertight/manifold QA",
+    "Roblox aggregate-vs-per-MeshPart triangle/material/count budgets with 20,000-triangle ceiling per importable mesh",
+    "Formal model-local EPSG:32651 / canonical scene-local / Roblox placement binding",
+    "Compact production asset binding registry instead of duplicating the multi-megabyte scene spec",
+    "Baker Hall v0.3 stable MeshPart, LOD0-LOD3, collision, manifest, and report artifacts",
+    "Individual deterministic OBJ files for every prospective Roblox MeshPart",
+    "Blender production consumer with .blend + GLB/FBX diagnostic export contract and Z Forward / Y Up exchange settings",
+    "Draft Studio import preset kept pending until disposable-Studio bakeoff",
+    "Clean-regeneration/freshness gates and CI integration",
+    "Project-state/README refresh and safe ULKC identifier migration note"
+  ],
+  "localDerivedFiles": [
+    "data/modeling/placement-bindings/baker-hall.v0.3.json",
+    "data/modeling/production-asset-bindings.json",
+    "data/modeling/modeling-wave02-report.json"
+  ],
+  "preparedAt": "2026-08-17",
+  "recommendedBranch": "feat/modeling-wave02-evidence-integration",
+  "retrievalLimitation": "A literal git clone was blocked by container DNS. The exact source branch/head and critical repository files were inspected through the connected GitHub API; implementation compatibility was tested on a local reconstruction of the previously validated modeling overlays. apply_wave02.py verifies the real local checkout is exactly at the audited source commit before writing anything.",
+  "schemaVersion": "uplb-modeling-wave02-implementation-bundle-v0.1",
+  "source": {
+    "branch": "feat/modeling-wave01-continuation",
+    "commit": "43cb34ad567ebbdecccee258413351fa00658dda",
+    "repository": "Diannn3/uplb-roblox",
+    "treeSha": "915c34f1b1773513e184f65dfaedd148649700ba"
+  },
+  "validation": {
+    "blender": "not run; Blender executable absent on implementation host",
+    "compileall": "pass",
+    "independentTrimesh": "16 Baker MeshPart OBJ artifacts all watertight",
+    "modelingTests": "55 passed on reconstructed Wave01+Wave02 compatibility workspace",
+    "patchApplyCheck": "pass on a fresh synthetic Wave01 overlay base",
+    "robloxStudio": "not run; Studio/MCP unavailable on implementation host",
+    "sourceGitHubActions": "run 32042277332 success at audited source commit",
+    "wave01ModelingPipeline": "pass after Wave02 code overlay",
+    "wave02Freshness": "pass in isolated compatibility workspace",
+    "wave02OfflineGeneration": "pass with --allow-missing-scene; exact scene-backed binding intentionally deferred to apply_wave02.py on the real checkout"
+  }
 }

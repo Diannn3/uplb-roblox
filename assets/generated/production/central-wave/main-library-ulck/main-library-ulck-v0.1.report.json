@@ -71,15 +71,15 @@
   "inputs": {
     "featureSnapshot": {
       "path": "data/modeling/reference/features/main-library-ulck.geojson",
-      "sha256": "sha256:6fd0a4c0f57e4278d381837b3a83cb330f728e4e5b998e76d6855262fbdb1aaa"
+      "sha256": "sha256:67ff43dc1fb0a10cca1fc46a639bbf0c3e16807e6d012a24d4fe1f7eed641eea"
     },
     "referenceProfile": {
       "path": "data/modeling/reference/main-library-ulck.reference-profile.json",
-      "sha256": "sha256:1ac1e75e30d9883031ec13eb74519eda2a042191a9f4637c5d96c859766205aa"
+      "sha256": "sha256:9c010590453a1e1ca2d63e491ef97de47b88f2800441386cdef721071b86d611"
     },
     "spec": {
       "path": "data/modeling/building-specs/central-wave/main-library-ulck.v0.1.json",
-      "sha256": "sha256:8070fdf3c699a3516ed03afde31cb0eac4857b43bbd1c4816d68815611b6dd06"
+      "sha256": "sha256:97bcaac004c6aec6775895d6e6870636e7e99e6abad7ea95b530ab70fcd3a943"
     }
   },
   "modelVersion": "main-library-ulck.v0.1-reference-production",
@@ -101,10 +101,49 @@
     "featureId": "uplb:building:university-library-knowledge-center",
     "identityStatus": "reviewed-candidate",
     "invalidFaceIndexCount": 0,
+    "maxMeshParts": null,
     "nonFiniteVertexCount": 0,
     "partCount": 1,
+    "perMeshPartTriangleBudget": 20000,
     "sourceFeatureId": "candidate:osm:way/1098780830",
     "status": "pass",
+    "topology": {
+      "aggregateTriangleBudget": 100000,
+      "aggregateTriangleBudgetGate": "pass",
+      "aggregateTriangleEquivalent": 32,
+      "failedParts": [],
+      "featureId": "uplb:building:university-library-knowledge-center",
+      "maxMeshParts": null,
+      "meshPartCountGate": "not-set",
+      "partCount": 1,
+      "parts": [
+        {
+          "name": "body-source-footprint",
+          "topology": {
+            "boundaryEdgeCount": 0,
+            "boundaryEdgeSample": [],
+            "connectedComponentCount": 1,
+            "degenerateFaceCount": 0,
+            "faceCount": 23,
+            "invalidFaceIndexCount": 0,
+            "isolatedVertexCount": 0,
+            "manifoldEdgeCount": 39,
+            "overconnectedEdgeCount": 0,
+            "overconnectedEdgeSample": [],
+            "status": "pass",
+            "triangleEquivalent": 32,
+            "uniqueEdgeCount": 39,
+            "vertexCount": 18,
+            "watertight": true
+          },
+          "triangleBudget": 20000,
+          "triangleBudgetGate": "pass",
+          "triangleEquivalent": 32
+        }
+      ],
+      "perMeshPartTriangleBudget": 20000,
+      "status": "pass"
+    },
     "triangleBudget": 100000,
     "triangleBudgetGate": "pass",
     "triangleEquivalent": 32,

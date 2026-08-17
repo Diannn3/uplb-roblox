@@ -1,0 +1,58 @@
+{
+  "baker": {
+    "assetManifestSha256": "sha256:43cec81fc6fd2b5f6974a9038a6cf838cf9d5b237bb18864e4b5cfc54435d4f3",
+    "orientationPolicy": "longest-edge-proxy",
+    "orientationReviewStatus": "unreviewed",
+    "productionStage": "prototype",
+    "visualReviewGate": "pending-human"
+  },
+  "blender": {
+    "claim": "No Blender QA/render/export pass is claimed unless build_production_asset.py completes successfully.",
+    "executable": "C:\\Program Files\\Blender Foundation\\Blender 5.0\\blender.EXE",
+    "script": "tools/blender/build_production_asset.py",
+    "status": "available"
+  },
+  "evidenceIntegrity": {
+    "errors": [],
+    "observationCount": 7,
+    "sourceCount": 9,
+    "status": "pass",
+    "targetEpoch": "2026-current-recognizable-exterior",
+    "warnings": []
+  },
+  "freshness": null,
+  "generatedThisRun": true,
+  "hardStops": [
+    "Baker front facade orientation remains a proxy and is not human-reviewed.",
+    "No visual-review or production-ready promotion may occur until reviewed orientation evidence is recorded.",
+    "No Blender export/QA claim is made on hosts without Blender.",
+    "No Roblox Studio import/reimport/playtest claim is made by this offline wave.",
+    "Canonical scene placement remains authoritative; art assets may not move geodata."
+  ],
+  "implemented": [
+    "typed evidence/reference contracts v0.2",
+    "review-gated facade orientation policies",
+    "Polygon holes and MultiPolygon production extrusion",
+    "per-MeshPart topology and 20k-triangle Roblox import gate",
+    "formal model-local to canonical-scene placement binding",
+    "production asset binding registry",
+    "Baker Hall v0.3 stable MeshPart/LOD/collision artifact contract",
+    "clean-regeneration freshness checks",
+    "Blender production asset/export handoff script"
+  ],
+  "nextGate": "Project-owner visual review of real Blender Baker v0.3 renders after orientation is explicitly reviewed, followed by disposable Studio GLB-vs-FBX import/reimport bakeoff.",
+  "orientationGate": {
+    "policy": "longest-edge-proxy",
+    "reasons": [],
+    "reviewStatus": "unreviewed",
+    "status": "pass"
+  },
+  "schemaVersion": "uplb-modeling-wave02-report-v0.1",
+  "sourceGit": {
+    "branch": "feat/modeling-wave01-continuation",
+    "commit": "43cb34ad567ebbdecccee258413351fa00658dda",
+    "treeSha": "915c34f1b1773513e184f65dfaedd148649700ba"
+  },
+  "status": "pass",
+  "waveId": "modeling-wave02-evidence-integration-v0.1"
+}

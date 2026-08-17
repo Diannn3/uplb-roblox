@@ -1,0 +1,24 @@
+{
+  "records": [
+    {
+      "assetId": "uplb-baker-hall-v0.3",
+      "assetManifestPath": "assets/generated/production/baker-hall-v0.3/asset-manifest.json",
+      "assetManifestSha256": "sha256:43cec81fc6fd2b5f6974a9038a6cf838cf9d5b237bb18864e4b5cfc54435d4f3",
+      "featureId": "uplb:building:baker-hall",
+      "placementBindingHash": "sha256:af26a524e2febdd2a907732674f6636d11ffc6ca437f934246c5559a77c0da06",
+      "placementBindingPath": "data/modeling/placement-bindings/baker-hall.v0.3.json",
+      "productionStage": "prototype",
+      "scenePlacementAuthority": "canonical-scene",
+      "sourceFeatureId": "uplb:building:baker-hall",
+      "visualReviewGate": "pending-human"
+    }
+  ],
+  "registryHash": "sha256:bfd6015b8ae545a89148ec41b2cac1ec329628b1724da3a7eb902518e4e51bcd",
+  "schemaVersion": "uplb-production-asset-binding-registry-v0.1",
+  "sourceGit": {
+    "branch": "feat/modeling-wave01-continuation",
+    "commit": "43cb34ad567ebbdecccee258413351fa00658dda",
+    "treeSha": "915c34f1b1773513e184f65dfaedd148649700ba"
+  },
+  "waveId": "modeling-wave02-evidence-integration-v0.1"
+}

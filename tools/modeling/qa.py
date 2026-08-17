@@ -4,6 +4,7 @@ import math
 from typing import Any
 
 from .assembly import BuildingAssembly
+from .topology import assembly_topology_report
 
 
 def _face_area(vertices: tuple[tuple[float, float, float], ...], face: tuple[int, ...]) -> float:
@@ -21,7 +22,20 @@ def _face_area(vertices: tuple[tuple[float, float, float], ...], face: tuple[int
     return 0.5 * math.sqrt(nx * nx + ny * ny + nz * nz)
 
 
-def validate_assembly_geometry(assembly: BuildingAssembly, *, triangle_budget: int | None = None) -> dict[str, Any]:
+def validate_assembly_geometry(
+    assembly: BuildingAssembly,
+    *,
+    triangle_budget: int | None = None,
+    per_meshpart_triangle_budget: int = 20_000,
+    max_meshparts: int | None = None,
+    require_part_watertight: bool = True,
+) -> dict[str, Any]:
+    """Validate numerical geometry plus Roblox-oriented per-part topology.
+
+    ``triangle_budget`` remains the aggregate building budget for Wave 01
+    callers.  ``per_meshpart_triangle_budget`` is the hard import-facing gate.
+    """
+
     assembly.validate()
     mesh = assembly.mesh
     vertex_count = len(mesh.vertices)
@@ -40,14 +54,30 @@ def validate_assembly_geometry(assembly: BuildingAssembly, *, triangle_budget: i
             continue
         if _face_area(mesh.vertices, face) <= 1e-10:
             degenerate_faces += 1
+
     part_names = [part.name for part in assembly.parts]
     triangle_equivalent = mesh.triangle_equivalent
-    budget_status = "not-set" if triangle_budget is None else ("pass" if triangle_equivalent <= triangle_budget else "fail")
+    aggregate_budget_status = (
+        "not-set" if triangle_budget is None else ("pass" if triangle_equivalent <= triangle_budget else "fail")
+    )
+    topology = assembly_topology_report(
+        assembly,
+        aggregate_triangle_budget=triangle_budget,
+        per_meshpart_triangle_budget=per_meshpart_triangle_budget,
+        max_meshparts=max_meshparts,
+    )
+
     status = "pass"
     if nonfinite_vertices or invalid_face_indices or degenerate_faces or len(part_names) != len(set(part_names)):
         status = "fail"
-    if budget_status == "fail":
+    if aggregate_budget_status == "fail":
         status = "fail"
+    if topology["status"] != "pass":
+        if require_part_watertight:
+            status = "fail"
+        elif any(row["triangleBudgetGate"] == "fail" for row in topology["parts"]):
+            status = "fail"
+
     return {
         "status": status,
         "featureId": assembly.feature_id,
@@ -62,5 +92,8 @@ def validate_assembly_geometry(assembly: BuildingAssembly, *, triangle_budget: i
         "degenerateFaceCount": degenerate_faces,
         "duplicatePartNames": len(part_names) != len(set(part_names)),
         "triangleBudget": triangle_budget,
-        "triangleBudgetGate": budget_status,
+        "triangleBudgetGate": aggregate_budget_status,
+        "perMeshPartTriangleBudget": per_meshpart_triangle_budget,
+        "maxMeshParts": max_meshparts,
+        "topology": topology,
     }

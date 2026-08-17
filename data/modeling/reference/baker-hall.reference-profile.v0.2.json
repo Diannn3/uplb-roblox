@@ -1,0 +1,190 @@
+{
+  "schemaVersion": "uplb-building-reference-profile-v0.2",
+  "featureId": "uplb:building:baker-hall",
+  "buildingName": "Charles Fuller Baker Memorial Hall",
+  "targetEpoch": "2026-current-recognizable-exterior",
+  "generatedAt": "2026-08-17",
+  "policy": {
+    "photoBinaryPolicy": "No third-party reference photo binaries are committed.",
+    "derivativePolicy": "Licensed photographs are evidentiary references only in this revision; they are not used as textures.",
+    "epochPolicy": "Current recognizable exterior is the target. Historical evidence may explain retained morphology but must not silently overwrite current conditions.",
+    "accuracyPolicy": "Photo-derived proportions remain replaceable until measured, recovered-model, drawing, or field evidence supersedes them."
+  },
+  "sources": [
+    {
+      "id": "source:canonical:osm-baker-way-37449973",
+      "kind": "canonical-geodata",
+      "title": "Canonical Baker Hall project feature derived from OSM way/37449973",
+      "path": "data/modeling/reference/baker-canonical-snapshot.geojson",
+      "sourceUri": "https://www.openstreetmap.org/way/37449973",
+      "rightsStatus": "project-canonical-provenance",
+      "license": "ODbL provenance retained upstream",
+      "retrievedAt": "2026-08-17",
+      "evidenceCapabilities": ["identity", "footprint", "levels", "materials", "historical-state", "geometry"]
+    },
+    {
+      "id": "source:legacy:uplb-virtual-campus-2014",
+      "kind": "legacy-3d-project-evidence",
+      "title": "2014 UPLB 3D Virtual Interactive Multi-user Campus System",
+      "sourceUri": "https://id.scribd.com/document/990184030/ISCE2014-Proceedings-FINAL3",
+      "rightsStatus": "reference-only-permission-required",
+      "license": null,
+      "retrievedAt": "2026-08-17",
+      "evidenceCapabilities": ["identity", "historical-state", "geometry", "facade", "roof"]
+    },
+    {
+      "id": "source:image:commons-baker-2008",
+      "kind": "licensed-photography",
+      "title": "Baker hall.jpg",
+      "sourceUri": "https://commons.wikimedia.org/wiki/File:Baker_hall.jpg",
+      "author": "Kea Guevarra",
+      "license": "CC BY-SA 2.0",
+      "rightsStatus": "open-cc-by-sa",
+      "retrievedAt": "2026-08-17",
+      "evidenceCapabilities": ["facade", "orientation", "roof", "materials", "historical-state"]
+    },
+    {
+      "id": "source:image:commons-baker-2009",
+      "kind": "licensed-photography",
+      "title": "Baker Hall.JPG",
+      "sourceUri": "https://commons.wikimedia.org/wiki/File:Baker_Hall.JPG",
+      "author": "Mjuadiong",
+      "license": "CC BY-SA 3.0",
+      "rightsStatus": "open-cc-by-sa",
+      "retrievedAt": "2026-08-17",
+      "evidenceCapabilities": ["facade", "orientation", "roof", "materials", "historical-state"]
+    },
+    {
+      "id": "source:image:commons-baker-2017",
+      "kind": "licensed-photography",
+      "title": "University of the Philippines (UPLB) - Baker Hall (2017-02-16)",
+      "sourceUri": "https://commons.wikimedia.org/wiki/File:University_of_the_Philippines_(UPLB)_-_Baker_Hall_(Los_Ba%C3%B1os,_Laguna;_2017-02-16).jpg",
+      "author": "Patrick Roque",
+      "license": "CC BY-SA 4.0",
+      "rightsStatus": "open-cc-by-sa",
+      "retrievedAt": "2026-08-17",
+      "evidenceCapabilities": ["facade", "orientation", "roof", "materials", "historical-state"]
+    },
+    {
+      "id": "source:image:commons-baker-2023",
+      "kind": "licensed-photography",
+      "title": "UPLB Baker Memorial Hall, June 2023",
+      "sourceUri": "https://commons.wikimedia.org/wiki/File:UPLB_Baker_Memorial_Hall,_June_2023.jpg",
+      "author": "Ralff Nestor Nacor",
+      "license": "CC BY-SA 4.0",
+      "rightsStatus": "open-cc-by-sa",
+      "retrievedAt": "2026-08-17",
+      "evidenceCapabilities": ["facade", "orientation", "roof", "materials", "historical-state"]
+    },
+    {
+      "id": "source:index:commons-baker-category",
+      "kind": "photo-index",
+      "title": "Wikimedia Commons category: Baker Memorial Hall",
+      "sourceUri": "https://commons.wikimedia.org/wiki/Category:Baker_Memorial_Hall",
+      "rightsStatus": "metadata-reference-only",
+      "retrievedAt": "2026-08-17",
+      "evidenceCapabilities": ["identity", "historical-state"]
+    },
+    {
+      "id": "source:uplb:baker-conservation-dissertation-2017",
+      "kind": "institutional-conservation-study",
+      "title": "Properties and conservation methods of selected wooden artifacts and structure in the Philippines",
+      "sourceUri": "https://www.ukdr.uplb.edu.ph/etd-grad/4110/",
+      "rightsStatus": "institutional-consultation-required",
+      "retrievedAt": "2026-08-17",
+      "evidenceCapabilities": ["identity", "historical-state", "materials", "geometry"]
+    },
+    {
+      "id": "source:history:lbtimes-baker-2024",
+      "kind": "institutional-local-history",
+      "title": "Unzipped: 4031 Episode 1: UPLB Charles Fuller Baker Memorial Hall",
+      "sourceUri": "https://lbtimes.ph/unzipped-4031-episode-1-uplb-charles-fuller-baker-memorial-hall/",
+      "rightsStatus": "metadata-reference-only",
+      "retrievedAt": "2026-08-17",
+      "evidenceCapabilities": ["identity", "historical-state"]
+    }
+  ],
+  "evidenceGroups": {
+    "canonicalGeometry": ["source:canonical:osm-baker-way-37449973"],
+    "frontFacade": ["source:image:commons-baker-2008", "source:image:commons-baker-2009", "source:image:commons-baker-2017", "source:image:commons-baker-2023"],
+    "orientationResearch": ["source:image:commons-baker-2008", "source:image:commons-baker-2009", "source:image:commons-baker-2017", "source:image:commons-baker-2023"],
+    "roofEnvelope": ["source:image:commons-baker-2009", "source:image:commons-baker-2017", "source:image:commons-baker-2023"],
+    "legacyModelRecovery": ["source:legacy:uplb-virtual-campus-2014"],
+    "institutionalResearch": ["source:uplb:baker-conservation-dissertation-2017", "source:history:lbtimes-baker-2024"]
+  },
+  "observations": [
+    {
+      "id": "obs:baker-footprint",
+      "capability": "footprint",
+      "feature": "current project footprint",
+      "value": "canonical polygon from project geodata",
+      "confidence": "source-supported",
+      "evidenceIds": ["source:canonical:osm-baker-way-37449973"],
+      "implementation": "production shell footprint"
+    },
+    {
+      "id": "obs:baker-levels",
+      "capability": "levels",
+      "feature": "visible/source-tagged level count",
+      "value": 2,
+      "confidence": "source-supported",
+      "evidenceIds": ["source:canonical:osm-baker-way-37449973"],
+      "implementation": "height/floor-break prior; total height remains provisional"
+    },
+    {
+      "id": "obs:baker-portico",
+      "capability": "facade",
+      "feature": "central projecting portico/balcony with prominent upper columns",
+      "value": "present across multi-era frontal imagery",
+      "confidence": "high",
+      "evidenceIds": ["source:image:commons-baker-2008", "source:image:commons-baker-2009", "source:image:commons-baker-2017", "source:image:commons-baker-2023"],
+      "implementation": "stable Baker__Portico module"
+    },
+    {
+      "id": "obs:baker-front-rhythm",
+      "capability": "facade",
+      "feature": "repeated wing openings, horizontal bands, and projecting awnings",
+      "value": "broad visual rhythm only",
+      "confidence": "medium-high",
+      "evidenceIds": ["source:image:commons-baker-2008", "source:image:commons-baker-2017", "source:image:commons-baker-2023"],
+      "implementation": "stable front-window/awning/band modules with provisional dimensions"
+    },
+    {
+      "id": "obs:baker-roof-envelope",
+      "capability": "roof",
+      "feature": "visible sloped central roof envelope",
+      "value": "gable-like envelope visible; exact ridge/eave network unresolved",
+      "confidence": "medium-low",
+      "evidenceIds": ["source:image:commons-baker-2009", "source:image:commons-baker-2017", "source:image:commons-baker-2023"],
+      "implementation": "replaceable Baker__Roof envelope for visual QA"
+    },
+    {
+      "id": "obs:baker-orientation-unresolved",
+      "capability": "orientation",
+      "feature": "front facade orientation relative to source footprint edge segmentation",
+      "value": "not yet promoted from proxy; photographed facade and footprint edge segmentation require explicit human/recovered-model review",
+      "confidence": "medium-low",
+      "evidenceIds": ["source:image:commons-baker-2008", "source:image:commons-baker-2009", "source:image:commons-baker-2017", "source:image:commons-baker-2023"],
+      "implementation": "keep longest-edge-proxy only at prototype stage; block visual-review promotion until reviewed"
+    },
+    {
+      "id": "obs:baker-history",
+      "capability": "historical-state",
+      "feature": "construction/heritage timeline",
+      "value": "built 1927-1938; current target is recognizable present-day exterior",
+      "confidence": "high",
+      "evidenceIds": ["source:canonical:osm-baker-way-37449973", "source:history:lbtimes-baker-2024"],
+      "implementation": "record target epoch; do not silently mix historical reconstruction states"
+    }
+  ],
+  "unresolved": [
+    "Reviewed front-facade orientation/baseline against the canonical footprint",
+    "Surveyed or recovered total height and floor-to-floor dimensions",
+    "Exact portico projection, column spacing/diameter, and balustrade spacing",
+    "Side and rear facade opening layouts",
+    "Exact roof ridge/eave geometry and current roofing specification",
+    "Basement/underground geometry and any alleged tunnel claims",
+    "Interior layout",
+    "Any post-2023 exterior alterations that materially affect the 2026 target epoch"
+  ]
+}

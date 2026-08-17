@@ -132,3 +132,18 @@ Start with [`docs/CAMPUS_MODELING_IMPLEMENTATION_PLAN.md`](docs/CAMPUS_MODELING_
 and [`docs/UPLB_3D_SOURCE_RECOVERY.md`](docs/UPLB_3D_SOURCE_RECOVERY.md). Baker Hall is
 the first production prototype; its generated OBJ is explicitly massing-only until
 the legacy 2014 model/source archive and facade/roof evidence are resolved.
+
+### Modeling Wave 02 — evidence integration
+
+The next content-production layer is implemented by `tools/modeling/wave02.py`. It hardens source/evidence contracts, distinguishes aggregate building budgets from Roblox's per-MeshPart import budget, adds topology/watertight gates, binds centroid-local production geometry back to the authoritative scene coordinate contract, and generates Baker Hall v0.3 with stable reimport-oriented MeshPart names and LOD/collision artifacts.
+
+Baker v0.3 remains a **prototype**, not an architectural approval: facade orientation is still an explicit `longest-edge-proxy`, Blender export/render is pending a local Blender run, and Roblox GLB/FBX import/reimport validation is pending a disposable Studio test.
+
+Run the scene-backed generation and freshness gates on a real checkout with the authoritative scene spec:
+
+```powershell
+python -m tools.modeling.wave02 --generate --write-report
+python -m tools.modeling.wave02 --check --check-freshness
+```
+
+See [`docs/MODELING_WAVE_02_IMPLEMENTATION.md`](docs/MODELING_WAVE_02_IMPLEMENTATION.md) before advancing any hero building beyond prototype status.

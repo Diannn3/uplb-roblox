@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UPLB Building Reference Profile v0.2",
+  "type": "object",
+  "required": ["schemaVersion", "featureId", "buildingName", "targetEpoch", "policy", "sources", "evidenceGroups", "observations", "unresolved"],
+  "properties": {
+    "schemaVersion": {"const": "uplb-building-reference-profile-v0.2"},
+    "featureId": {"type": "string", "pattern": "^uplb:"},
+    "buildingName": {"type": "string", "minLength": 1},
+    "targetEpoch": {"type": "string", "minLength": 1},
+    "generatedAt": {"type": "string"},
+    "policy": {"type": "object"},
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "title", "rightsStatus", "evidenceCapabilities"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "kind": {"type": "string", "minLength": 1},
+          "title": {"type": "string", "minLength": 1},
+          "sourceUri": {"type": ["string", "null"]},
+          "path": {"type": ["string", "null"]},
+          "author": {"type": ["string", "null"]},
+          "license": {"type": ["string", "null"]},
+          "retrievedAt": {"type": ["string", "null"]},
+          "sourceHash": {"type": ["string", "null"]},
+          "rightsStatus": {
+            "enum": [
+              "project-canonical-provenance",
+              "open-cc-by-sa",
+              "open-cc-by",
+              "public-domain",
+              "reference-only-permission-required",
+              "metadata-reference-only",
+              "institutional-consultation-required",
+              "unknown-review-required"
+            ]
+          },
+          "evidenceCapabilities": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "enum": ["identity", "footprint", "height", "levels", "facade", "orientation", "roof", "materials", "interior", "historical-state", "geometry", "landscaping"]
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "evidenceGroups": {
+      "type": "object",
+      "additionalProperties": {"type": "array", "items": {"type": "string"}}
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "capability", "feature", "value", "confidence", "evidenceIds", "implementation"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "capability": {"enum": ["identity", "footprint", "height", "levels", "facade", "orientation", "roof", "materials", "interior", "historical-state", "geometry", "landscaping"]},
+          "feature": {"type": "string", "minLength": 1},
+          "value": {},
+          "confidence": {"enum": ["unknown", "low", "medium-low", "medium", "medium-high", "high", "source-supported", "field-measured"]},
+          "evidenceIds": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+          "implementation": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "unresolved": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

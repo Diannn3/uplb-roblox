@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "uplb-reference-building-production-spec-v0.2",
+  "sourceFeatureId": "uplb:building:baker-hall",
+  "proposedFeatureId": "uplb:building:baker-hall",
+  "name": "Charles Fuller Baker Memorial Hall",
+  "productionTier": "hero-exterior",
+  "productionStage": "prototype",
+  "identityStatus": "canonical",
+  "architecturalFamily": "uplb-historic-prewar",
+  "referenceIds": [
+    "source:canonical:osm-baker-way-37449973",
+    "source:legacy:uplb-virtual-campus-2014",
+    "source:image:commons-baker-2008",
+    "source:image:commons-baker-2009",
+    "source:image:commons-baker-2017",
+    "source:image:commons-baker-2023",
+    "source:uplb:baker-conservation-dissertation-2017",
+    "source:history:lbtimes-baker-2024"
+  ],
+  "featureSnapshot": "data/modeling/reference/baker-canonical-snapshot.geojson",
+  "referenceProfile": "data/modeling/reference/baker-hall.reference-profile.v0.2.json",
+  "height": {
+    "meters": 8.2,
+    "method": "Two source-supported levels plus multi-era visual proportion carried forward from v0.2; replace with measured/recovered evidence.",
+    "confidence": "medium-provisional"
+  },
+  "orientation": {
+    "policy": "longest-edge-proxy",
+    "confidence": "proxy",
+    "reviewStatus": "unreviewed",
+    "evidenceIds": [
+      "source:image:commons-baker-2008",
+      "source:image:commons-baker-2009",
+      "source:image:commons-baker-2017",
+      "source:image:commons-baker-2023"
+    ]
+  },
+  "facade": {
+    "preset": "baker-reference-modular",
+    "confidence": "multi-era-visual-provisional",
+    "sideRearPolicy": "shell-only-until-supported"
+  },
+  "roof": {
+    "sourceShape": "sloped-central-envelope",
+    "geometryPolicy": "replaceable-visual-envelope",
+    "confidence": "medium-low"
+  },
+  "materials": [
+    "concrete-painted",
+    "painted-metal-green",
+    "painted-metal-glass-dark",
+    "corrugated-metal-green"
+  ],
+  "referenceDerivedApproximation": {
+    "bodyHeightM": 8.2,
+    "groundFloorHeightM": 3.8,
+    "porticoWidthM": 17.2,
+    "porticoProjectionM": 2.3,
+    "wingBayCountEachSide": 4,
+    "centralRoofWidthM": 18.5,
+    "centralRoofDepthM": 24.0,
+    "ridgeHeightM": 10.2,
+    "status": "provisional-replaceable"
+  },
+  "artifactContract": {
+    "assetId": "uplb-baker-hall-v0.3",
+    "stableMeshNames": [
+      "Baker__Shell_A",
+      "Baker__Portico",
+      "Baker__FrontWindows",
+      "Baker__FrontAwnings",
+      "Baker__Bands",
+      "Baker__Parapet",
+      "Baker__Roof",
+      "Baker__Collision"
+    ],
+    "aggregateLodBudgets": {
+      "lod0": 100000,
+      "lod1": 45000,
+      "lod2": 15000,
+      "lod3": 3000
+    },
+    "perMeshPartTriangleLimit": 20000,
+    "maxMeshParts": 24,
+    "preferredExchangeFormat": "GLB",
+    "reimportNamingPolicy": "Stable mesh object names and hierarchy are immutable after first Studio production import; renamed geometry requires an explicit migration.",
+    "studioImportPresetDraft": {
+      "worldForward": "Front",
+      "worldUp": "Top",
+      "scaleUnitPolicy": "metric-source; confirm exact Scale Unit during GLB/FBX disposable-Studio bakeoff",
+      "mergeMeshes": false,
+      "insertUsingScenePosition": false,
+      "useImportedPivot": true,
+      "status": "pending-disposable-studio-bakeoff"
+    }
+  },
+  "accuracyClaims": {
+    "footprint": "canonical-source-supported",
+    "identity": "canonical",
+    "height": "provisional",
+    "frontFacadeComposition": "multi-era-photo-reference-derived",
+    "frontFacadeOrientation": "proxy-only; visual-review promotion blocked",
+    "sideRearFacade": "not detailed",
+    "roof": "replaceable envelope",
+    "interior": "not modeled"
+  },
+  "openQuestions": [
+    "Resolve front facade orientation/baseline before visual-review promotion",
+    "Recover 2014 Baker model or institutional drawings if possible",
+    "Measure total height and portico dimensions",
+    "Resolve side/rear facades and roof ridges",
+    "Determine any 2024-2026 exterior changes"
+  ]
+}

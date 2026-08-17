@@ -59,3 +59,18 @@ Important constraints:
 - ULKC/Main Library remains massing-only because the current candidate is tagged construction
   and legacy Main Library evidence must not be silently transferred to a potentially different
   building state.
+
+## Production wave 02 — evidence integration and scene binding
+
+Wave 02 hardens the production contract before more buildings are detailed. It adds typed evidence, reviewable facade orientation, formal model-local → canonical-scene placement bindings, Polygon/MultiPolygon extrusion with holes, per-MeshPart topology/Roblox budgets, stable reimport names, and clean-regeneration checks.
+
+Baker Hall v0.3 is deliberately still a **prototype**. Its stable MeshPart outputs live under `assets/generated/production/baker-hall-v0.3/`; its orientation remains a `longest-edge-proxy` until reviewed evidence replaces it.
+
+On a real local checkout with the authoritative scene spec, run:
+
+```powershell
+python -m tools.modeling.wave02 --generate --write-report
+python -m tools.modeling.wave02 --check --check-freshness
+```
+
+The first command creates the exact scene-backed Baker placement binding and compact production-asset binding registry. Blender/Roblox approval is a later explicit gate.

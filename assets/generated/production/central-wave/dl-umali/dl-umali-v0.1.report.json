@@ -72,15 +72,15 @@
   "inputs": {
     "featureSnapshot": {
       "path": "data/modeling/reference/features/dl-umali.geojson",
-      "sha256": "sha256:3e2681ef2fb7b92ad1ff8e7d33191b2dfe16f32980ba38f553700996c61874f5"
+      "sha256": "sha256:78216483abc78cbc5e7e0a2d42348bdcfb67fa4fba7ffc21c15a0bad3235ff5e"
     },
     "referenceProfile": {
       "path": "data/modeling/reference/dl-umali.reference-profile.json",
-      "sha256": "sha256:f02c2e7ff6472f5008afff565b39faf7b1342f9424a2a0f8e323d4b376dc10bc"
+      "sha256": "sha256:79d7fb1ce55d2206dddd7544a1b235d5a238313ff73e886b436c02b05f1e428d"
     },
     "spec": {
       "path": "data/modeling/building-specs/central-wave/dl-umali.v0.1.json",
-      "sha256": "sha256:6a8965ab2e8558ea1afc14a77ea113196181f03918c11290da675e43cbb7a12d"
+      "sha256": "sha256:9f25216e06cc43f390cfc18a0f40113926535a27c74570bd47c705245ffdd810"
     }
   },
   "modelVersion": "dl-umali.v0.1-reference-production",
@@ -102,10 +102,302 @@
     "featureId": "uplb:building:dl-umali-hall",
     "identityStatus": "reviewed-candidate",
     "invalidFaceIndexCount": 0,
+    "maxMeshParts": null,
     "nonFiniteVertexCount": 0,
     "partCount": 12,
+    "perMeshPartTriangleBudget": 20000,
     "sourceFeatureId": "candidate:osm:way/33541381",
     "status": "pass",
+    "topology": {
+      "aggregateTriangleBudget": 100000,
+      "aggregateTriangleBudgetGate": "pass",
+      "aggregateTriangleEquivalent": 152,
+      "failedParts": [],
+      "featureId": "uplb:building:dl-umali-hall",
+      "maxMeshParts": null,
+      "meshPartCountGate": "not-set",
+      "partCount": 12,
+      "parts": [
+        {
+          "name": "body-source-footprint",
+          "topology": {
+            "boundaryEdgeCount": 0,
+            "boundaryEdgeSample": [],
+            "connectedComponentCount": 1,
+            "degenerateFaceCount": 0,
+            "faceCount": 14,
+            "invalidFaceIndexCount": 0,
+            "isolatedVertexCount": 0,
+            "manifoldEdgeCount": 24,
+            "overconnectedEdgeCount": 0,
+            "overconnectedEdgeSample": [],
+            "status": "pass",
+            "triangleEquivalent": 20,
+            "uniqueEdgeCount": 24,
+            "vertexCount": 12,
+            "watertight": true
+          },
+          "triangleBudget": 20000,
+          "triangleBudgetGate": "pass",
+          "triangleEquivalent": 20
+        },
+        {
+          "name": "front-glass-b01",
+          "topology": {
+            "boundaryEdgeCount": 0,
+            "boundaryEdgeSample": [],
+            "connectedComponentCount": 1,
+            "degenerateFaceCount": 0,
+            "faceCount": 6,
+            "invalidFaceIndexCount": 0,
+            "isolatedVertexCount": 0,
+            "manifoldEdgeCount": 12,
+            "overconnectedEdgeCount": 0,
+            "overconnectedEdgeSample": [],
+            "status": "pass",
+            "triangleEquivalent": 12,
+            "uniqueEdgeCount": 12,
+            "vertexCount": 8,
+            "watertight": true
+          },
+          "triangleBudget": 20000,
+          "triangleBudgetGate": "pass",
+          "triangleEquivalent": 12
+        },
+        {
+          "name": "front-glass-b02",
+          "topology": {
+            "boundaryEdgeCount": 0,
+            "boundaryEdgeSample": [],
+            "connectedComponentCount": 1,
+            "degenerateFaceCount": 0,
+            "faceCount": 6,
+            "invalidFaceIndexCount": 0,
+            "isolatedVertexCount": 0,
+            "manifoldEdgeCount": 12,
+            "overconnectedEdgeCount": 0,
+            "overconnectedEdgeSample": [],
+            "status": "pass",
+            "triangleEquivalent": 12,
+            "uniqueEdgeCount": 12,
+            "vertexCount": 8,
+            "watertight": true
+          },
+          "triangleBudget": 20000,
+          "triangleBudgetGate": "pass",
+          "triangleEquivalent": 12
+        },
+        {
+          "name": "front-glass-b03",
+          "topology": {
+            "boundaryEdgeCount": 0,
+            "boundaryEdgeSample": [],
+            "connectedComponentCount": 1,
+            "degenerateFaceCount": 0,
+            "faceCount": 6,
+            "invalidFaceIndexCount": 0,
+            "isolatedVertexCount": 0,
+            "manifoldEdgeCount": 12,
+            "overconnectedEdgeCount": 0,
+            "overconnectedEdgeSample": [],
+            "status": "pass",
+            "triangleEquivalent": 12,
+            "uniqueEdgeCount": 12,
+            "vertexCount": 8,
+            "watertight": true
+          },
+          "triangleBudget": 20000,
+          "triangleBudgetGate": "pass",
+          "triangleEquivalent": 12
+        },
+        {
+          "name": "front-glass-b04",
+          "topology": {
+            "boundaryEdgeCount": 0,
+            "boundaryEdgeSample": [],
+            "connectedComponentCount": 1,
+            "degenerateFaceCount": 0,
+            "faceCount": 6,
+            "invalidFaceIndexCount": 0,
+            "isolatedVertexCount": 0,
+            "manifoldEdgeCount": 12,
+            "overconnectedEdgeCount": 0,
+            "overconnectedEdgeSample": [],
+            "status": "pass",
+            "triangleEquivalent": 12,
+            "uniqueEdgeCount": 12,
+            "vertexCount": 8,
+            "watertight": true
+          },
+          "triangleBudget": 20000,
+          "triangleBudgetGate": "pass",
+          "triangleEquivalent": 12
+        },
+        {
+          "name": "front-glass-b05",
+          "topology": {
+            "boundaryEdgeCount": 0,
+            "boundaryEdgeSample": [],
+            "connectedComponentCount": 1,
+            "degenerateFaceCount": 0,
+            "faceCount": 6,
+            "invalidFaceIndexCount": 0,
+            "isolatedVertexCount": 0,
+            "manifoldEdgeCount": 12,
+            "overconnectedEdgeCount": 0,
+            "overconnectedEdgeSample": [],
+            "status": "pass",
+            "triangleEquivalent": 12,
+            "uniqueEdgeCount": 12,
+            "vertexCount": 8,
+            "watertight": true
+          },
+          "triangleBudget": 20000,
+          "triangleBudgetGate": "pass",
+          "triangleEquivalent": 12
+        },
+        {
+          "name": "front-support-01",
+          "topology": {
+            "boundaryEdgeCount": 0,
+            "boundaryEdgeSample": [],
+            "connectedComponentCount": 1,
+            "degenerateFaceCount": 0,
+            "faceCount": 6,
+            "invalidFaceIndexCount": 0,
+            "isolatedVertexCount": 0,
+            "manifoldEdgeCount": 12,
+            "overconnectedEdgeCount": 0,
+            "overconnectedEdgeSample": [],
+            "status": "pass",
+            "triangleEquivalent": 12,
+            "uniqueEdgeCount": 12,
+            "vertexCount": 8,
+            "watertight": true
+          },
+          "triangleBudget": 20000,
+          "triangleBudgetGate": "pass",
+          "triangleEquivalent": 12
+        },
+        {
+          "name": "front-support-02",
+          "topology": {
+            "boundaryEdgeCount": 0,
+            "boundaryEdgeSample": [],
+            "connectedComponentCount": 1,
+            "degenerateFaceCount": 0,
+            "faceCount": 6,
+            "invalidFaceIndexCount": 0,
+            "isolatedVertexCount": 0,
+            "manifoldEdgeCount": 12,
+            "overconnectedEdgeCount": 0,
+            "overconnectedEdgeSample": [],
+            "status": "pass",
+            "triangleEquivalent": 12,
+            "uniqueEdgeCount": 12,
+            "vertexCount": 8,
+            "watertight": true
+          },
+          "triangleBudget": 20000,
+          "triangleBudgetGate": "pass",
+          "triangleEquivalent": 12
+        },
+        {
+          "name": "front-support-03",
+          "topology": {
+            "boundaryEdgeCount": 0,
+            "boundaryEdgeSample": [],
+            "connectedComponentCount": 1,
+            "degenerateFaceCount": 0,
+            "faceCount": 6,
+            "invalidFaceIndexCount": 0,
+            "isolatedVertexCount": 0,
+            "manifoldEdgeCount": 12,
+            "overconnectedEdgeCount": 0,
+            "overconnectedEdgeSample": [],
+            "status": "pass",
+            "triangleEquivalent": 12,
+            "uniqueEdgeCount": 12,
+            "vertexCount": 8,
+            "watertight": true
+          },
+          "triangleBudget": 20000,
+          "triangleBudgetGate": "pass",
+          "triangleEquivalent": 12
+        },
+        {
+          "name": "front-support-04",
+          "topology": {
+            "boundaryEdgeCount": 0,
+            "boundaryEdgeSample": [],
+            "connectedComponentCount": 1,
+            "degenerateFaceCount": 0,
+            "faceCount": 6,
+            "invalidFaceIndexCount": 0,
+            "isolatedVertexCount": 0,
+            "manifoldEdgeCount": 12,
+            "overconnectedEdgeCount": 0,
+            "overconnectedEdgeSample": [],
+            "status": "pass",
+            "triangleEquivalent": 12,
+            "uniqueEdgeCount": 12,
+            "vertexCount": 8,
+            "watertight": true
+          },
+          "triangleBudget": 20000,
+          "triangleBudgetGate": "pass",
+          "triangleEquivalent": 12
+        },
+        {
+          "name": "front-support-05",
+          "topology": {
+            "boundaryEdgeCount": 0,
+            "boundaryEdgeSample": [],
+            "connectedComponentCount": 1,
+            "degenerateFaceCount": 0,
+            "faceCount": 6,
+            "invalidFaceIndexCount": 0,
+            "isolatedVertexCount": 0,
+            "manifoldEdgeCount": 12,
+            "overconnectedEdgeCount": 0,
+            "overconnectedEdgeSample": [],
+            "status": "pass",
+            "triangleEquivalent": 12,
+            "uniqueEdgeCount": 12,
+            "vertexCount": 8,
+            "watertight": true
+          },
+          "triangleBudget": 20000,
+          "triangleBudgetGate": "pass",
+          "triangleEquivalent": 12
+        },
+        {
+          "name": "front-support-06",
+          "topology": {
+            "boundaryEdgeCount": 0,
+            "boundaryEdgeSample": [],
+            "connectedComponentCount": 1,
+            "degenerateFaceCount": 0,
+            "faceCount": 6,
+            "invalidFaceIndexCount": 0,
+            "isolatedVertexCount": 0,
+            "manifoldEdgeCount": 12,
+            "overconnectedEdgeCount": 0,
+            "overconnectedEdgeSample": [],
+            "status": "pass",
+            "triangleEquivalent": 12,
+            "uniqueEdgeCount": 12,
+            "vertexCount": 8,
+            "watertight": true
+          },
+          "triangleBudget": 20000,
+          "triangleBudgetGate": "pass",
+          "triangleEquivalent": 12
+        }
+      ],
+      "perMeshPartTriangleBudget": 20000,
+      "status": "pass"
+    },
     "triangleBudget": 100000,
     "triangleBudgetGate": "pass",
     "triangleEquivalent": 152,

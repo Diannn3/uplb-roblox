@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "uplb-modeling-identifier-migrations-v0.1",
+  "migrations": [
+    {
+      "kind": "artifact-slug",
+      "from": "main-library-ulck",
+      "to": "main-library-ulkc",
+      "canonicalName": "University Library and Knowledge Center",
+      "status": "deferred-safe-migration",
+      "reason": "Wave 01 generated artifacts already reference the legacy ULCK typo. Renaming those committed paths inside the evidence-integration wave would create unnecessary hash churn. New code and documentation must use ULKC; a later explicit regeneration/migration may rename the legacy paths atomically."
+    }
+  ]
+}

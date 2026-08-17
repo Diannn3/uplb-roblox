@@ -18,6 +18,7 @@ on:
       - "assets/manifests/**"
       - "assets/uplb-kit/**"
       - "assets/generated/prototypes/**"
+      - "assets/generated/production/**"
       - "data/modeling/**"
       - "tools/modeling/**"
       - "tests/modeling/**"
@@ -47,6 +48,7 @@ on:
       - "assets/manifests/**"
       - "assets/uplb-kit/**"
       - "assets/generated/prototypes/**"
+      - "assets/generated/production/**"
       - "data/modeling/**"
       - "tools/modeling/**"
       - "tests/modeling/**"
@@ -86,5 +88,7 @@ jobs:
         run: python -m tools.geodata.phase_gate
       - name: Campus modeling production foundation
         run: python -m tools.modeling.pipeline --check
+      - name: Modeling Wave 02 evidence, binding, and freshness gates
+        run: python -m tools.modeling.wave02 --check --check-freshness
       - name: Pinned Overture release check (read-only)
         run: python -m tools.geodata.overture_check_updates --offline

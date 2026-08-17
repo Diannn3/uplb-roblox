@@ -1,0 +1,755 @@
+{
+  "assetId": "uplb-baker-hall-v0.3",
+  "collision": {
+    "meshParts": [
+      {
+        "materialClass": "collision-proxy",
+        "name": "Baker__Collision",
+        "path": "assets/generated/production/baker-hall-v0.3/meshparts/collision/Baker__Collision.obj",
+        "sha256": "sha256:01756f03ee55e4571cf66b5a56374bd059c048bfe1ca5ffbbd898268523d5de8",
+        "triangleEquivalent": 36
+      }
+    ],
+    "partNames": [
+      "Baker__Collision"
+    ],
+    "path": "assets/generated/production/baker-hall-v0.3/baker-hall-v0.3-collision.obj",
+    "sha256": "sha256:478f005df981e842655adbc98fedb6a22c29e85310e0778b763cb981136ccd94",
+    "triangleEquivalent": 36
+  },
+  "exchange": {
+    "blenderExportStatus": "pending-local-blender",
+    "preferred": "GLB",
+    "reimportNamingPolicy": "Stable mesh object names and hierarchy are immutable after first Studio production import; renamed geometry requires an explicit migration.",
+    "robloxBakeoff": [
+      "GLB",
+      "FBX"
+    ],
+    "studioImportPresetDraft": {
+      "insertUsingScenePosition": false,
+      "mergeMeshes": false,
+      "scaleUnitPolicy": "metric-source; confirm exact Scale Unit during GLB/FBX disposable-Studio bakeoff",
+      "status": "pending-disposable-studio-bakeoff",
+      "useImportedPivot": true,
+      "worldForward": "Front",
+      "worldUp": "Top"
+    }
+  },
+  "featureId": "uplb:building:baker-hall",
+  "inputs": {
+    "featureSnapshot": {
+      "path": "data/modeling/reference/baker-canonical-snapshot.geojson",
+      "sha256": "sha256:3af709efac8d3fdaaa393d56d7f35ae2a5d43355bc265b55aa747fde7596b709"
+    },
+    "referenceProfile": {
+      "path": "data/modeling/reference/baker-hall.reference-profile.v0.2.json",
+      "sha256": "sha256:c0d5c7d51f0409665b77076a06fafa83d13aa6c7c2bc7dcca8c45c46d7e72fb3"
+    },
+    "spec": {
+      "path": "data/modeling/building-specs/baker-hall.v0.3.json",
+      "sha256": "sha256:fc8b4813b945abf2855f7d641987fdeab8b1abf9c9d67b58bd15edb256658ecf"
+    }
+  },
+  "lods": {
+    "lod0": {
+      "meshParts": [
+        {
+          "materialClass": "concrete-painted",
+          "name": "Baker__Shell_A",
+          "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod0/Baker__Shell_A.obj",
+          "sha256": "sha256:30c50aeef54a5350783899309b53ff9569a61e6e4409f3ed128d86dc3796bc32",
+          "triangleEquivalent": 36
+        },
+        {
+          "materialClass": "concrete-painted",
+          "name": "Baker__Portico",
+          "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod0/Baker__Portico.obj",
+          "sha256": "sha256:0170beced3b34e3d8c79b718f802a5be59abb7d4c1da4cbc331ed783e750099e",
+          "triangleEquivalent": 440
+        },
+        {
+          "materialClass": "painted-metal-glass-dark",
+          "name": "Baker__FrontWindows",
+          "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod0/Baker__FrontWindows.obj",
+          "sha256": "sha256:cac03e550a74edb3957058098d87d724671f2210731d9c831768dd97a366d0bf",
+          "triangleEquivalent": 192
+        },
+        {
+          "materialClass": "painted-metal-green",
+          "name": "Baker__FrontAwnings",
+          "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod0/Baker__FrontAwnings.obj",
+          "sha256": "sha256:a9857c05ca668ed1c77fe366ee107be4c28eea76fff9dd069720c32dfa8be000",
+          "triangleEquivalent": 192
+        },
+        {
+          "materialClass": "concrete-painted",
+          "name": "Baker__Bands",
+          "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod0/Baker__Bands.obj",
+          "sha256": "sha256:2fd1b37e6650b94de5328ad67735410833d3344b814c49e919121cadd8915b26",
+          "triangleEquivalent": 24
+        },
+        {
+          "materialClass": "concrete-painted",
+          "name": "Baker__Parapet",
+          "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod0/Baker__Parapet.obj",
+          "sha256": "sha256:50869d809d326f09532942cdd047ccd3886d88abee12c1fe1d5d03e982ae4371",
+          "triangleEquivalent": 12
+        },
+        {
+          "materialClass": "corrugated-metal-green",
+          "name": "Baker__Roof",
+          "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod0/Baker__Roof.obj",
+          "sha256": "sha256:f8b7de3061453b162f17de5a9e7f2294f12377e5fa7ab4289ce52fdfa4d86517",
+          "triangleEquivalent": 8
+        }
+      ],
+      "partNames": [
+        "Baker__Shell_A",
+        "Baker__Portico",
+        "Baker__FrontWindows",
+        "Baker__FrontAwnings",
+        "Baker__Bands",
+        "Baker__Parapet",
+        "Baker__Roof"
+      ],
+      "path": "assets/generated/production/baker-hall-v0.3/baker-hall-v0.3-lod0.obj",
+      "sha256": "sha256:e31396c513c65f42f44c22867f0ec7f59725319bc49e86117b32b1301c989625",
+      "triangleEquivalent": 904
+    },
+    "lod1": {
+      "meshParts": [
+        {
+          "materialClass": "concrete-painted",
+          "name": "Baker__Shell_A",
+          "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod1/Baker__Shell_A.obj",
+          "sha256": "sha256:6ab1a8fd8ee88962eff94d9c43579aa0cc3b2c3a40c81474e69c924fdbc8f0bf",
+          "triangleEquivalent": 36
+        },
+        {
+          "materialClass": "concrete-painted",
+          "name": "Baker__Portico",
+          "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod1/Baker__Portico.obj",
+          "sha256": "sha256:966764e61070a4b438fc9702d1d919ab0afa4a6733e43e276c0e11a4af153710",
+          "triangleEquivalent": 440
+        },
+        {
+          "materialClass": "concrete-painted",
+          "name": "Baker__Bands",
+          "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod1/Baker__Bands.obj",
+          "sha256": "sha256:d41321d67e84f464c6679bad1dcbb4b59629fd310c38e4882bd5f5ffd3a7da59",
+          "triangleEquivalent": 24
+        },
+        {
+          "materialClass": "concrete-painted",
+          "name": "Baker__Parapet",
+          "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod1/Baker__Parapet.obj",
+          "sha256": "sha256:c700f42d073ee09d3ba89ab7559df6ee1a74b491dcb175e8c1829283146ae118",
+          "triangleEquivalent": 12
+        },
+        {
+          "materialClass": "corrugated-metal-green",
+          "name": "Baker__Roof",
+          "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod1/Baker__Roof.obj",
+          "sha256": "sha256:5c18acc018b4fb4c6f05753675b951fbd7826a87972a4f6b1254ec1aa42d9069",
+          "triangleEquivalent": 8
+        }
+      ],
+      "partNames": [
+        "Baker__Shell_A",
+        "Baker__Portico",
+        "Baker__Bands",
+        "Baker__Parapet",
+        "Baker__Roof"
+      ],
+      "path": "assets/generated/production/baker-hall-v0.3/baker-hall-v0.3-lod1.obj",
+      "sha256": "sha256:041c8037d013c07047c84dda6d4908abf5555c72fd3cc465ca30d8ecd24d506c",
+      "triangleEquivalent": 520
+    },
+    "lod2": {
+      "meshParts": [
+        {
+          "materialClass": "concrete-painted",
+          "name": "Baker__Shell_A",
+          "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod2/Baker__Shell_A.obj",
+          "sha256": "sha256:aeb0d55efa1d99ea171d03003528e7d617b70d614fb33bc8dd1d8b804e49e731",
+          "triangleEquivalent": 36
+        },
+        {
+          "materialClass": "corrugated-metal-green",
+          "name": "Baker__Roof",
+          "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod2/Baker__Roof.obj",
+          "sha256": "sha256:7cf19834d2732d967d3ca407035b0fc52882c594e7afbb080bab469cc7bae835",
+          "triangleEquivalent": 8
+        }
+      ],
+      "partNames": [
+        "Baker__Shell_A",
+        "Baker__Roof"
+      ],
+      "path": "assets/generated/production/baker-hall-v0.3/baker-hall-v0.3-lod2.obj",
+      "sha256": "sha256:684ff9a1ffb040595bbecfaed2f2ee841fa59d0dad5bdde437e7746e542b2973",
+      "triangleEquivalent": 44
+    },
+    "lod3": {
+      "meshParts": [
+        {
+          "materialClass": "concrete-painted",
+          "name": "Baker__Shell_A",
+          "path": "assets/generated/production/baker-hall-v0.3/meshparts/lod3/Baker__Shell_A.obj",
+          "sha256": "sha256:dfa1111d5e8f69f58d6c32b8a6fe4955a4ad9b0f546a7cc7bbc36cd462552b44",
+          "triangleEquivalent": 36
+        }
+      ],
+      "partNames": [
+        "Baker__Shell_A"
+      ],
+      "path": "assets/generated/production/baker-hall-v0.3/baker-hall-v0.3-lod3.obj",
+      "sha256": "sha256:0619a61cc38f16ac694813526518421e5bf61b6c25f03d269cc3a4caede56e15",
+      "triangleEquivalent": 36
+    }
+  },
+  "productionStage": "prototype",
+  "qa": {
+    "collision": {
+      "degenerateFaceCount": 0,
+      "duplicatePartNames": false,
+      "faceCount": 26,
+      "featureId": "uplb:building:baker-hall",
+      "identityStatus": "canonical",
+      "invalidFaceIndexCount": 0,
+      "maxMeshParts": 24,
+      "nonFiniteVertexCount": 0,
+      "partCount": 1,
+      "perMeshPartTriangleBudget": 20000,
+      "sourceFeatureId": "uplb:building:baker-hall",
+      "status": "pass",
+      "topology": {
+        "aggregateTriangleBudget": 15000,
+        "aggregateTriangleBudgetGate": "pass",
+        "aggregateTriangleEquivalent": 36,
+        "failedParts": [],
+        "featureId": "uplb:building:baker-hall",
+        "maxMeshParts": 24,
+        "meshPartCountGate": "pass",
+        "partCount": 1,
+        "parts": [
+          {
+            "name": "Baker__Collision",
+            "topology": {
+              "boundaryEdgeCount": 0,
+              "boundaryEdgeSample": [],
+              "connectedComponentCount": 1,
+              "degenerateFaceCount": 0,
+              "faceCount": 26,
+              "invalidFaceIndexCount": 0,
+              "isolatedVertexCount": 0,
+              "manifoldEdgeCount": 44,
+              "overconnectedEdgeCount": 0,
+              "overconnectedEdgeSample": [],
+              "status": "pass",
+              "triangleEquivalent": 36,
+              "uniqueEdgeCount": 44,
+              "vertexCount": 20,
+              "watertight": true
+            },
+            "triangleBudget": 20000,
+            "triangleBudgetGate": "pass",
+            "triangleEquivalent": 36
+          }
+        ],
+        "perMeshPartTriangleBudget": 20000,
+        "status": "pass"
+      },
+      "triangleBudget": 15000,
+      "triangleBudgetGate": "pass",
+      "triangleEquivalent": 36,
+      "vertexCount": 20
+    },
+    "lod0": {
+      "degenerateFaceCount": 0,
+      "duplicatePartNames": false,
+      "faceCount": 429,
+      "featureId": "uplb:building:baker-hall",
+      "identityStatus": "canonical",
+      "invalidFaceIndexCount": 0,
+      "maxMeshParts": 24,
+      "nonFiniteVertexCount": 0,
+      "partCount": 7,
+      "perMeshPartTriangleBudget": 20000,
+      "sourceFeatureId": "uplb:building:baker-hall",
+      "status": "pass",
+      "topology": {
+        "aggregateTriangleBudget": 100000,
+        "aggregateTriangleBudgetGate": "pass",
+        "aggregateTriangleEquivalent": 904,
+        "failedParts": [],
+        "featureId": "uplb:building:baker-hall",
+        "maxMeshParts": 24,
+        "meshPartCountGate": "pass",
+        "partCount": 7,
+        "parts": [
+          {
+            "name": "Baker__Shell_A",
+            "topology": {
+              "boundaryEdgeCount": 0,
+              "boundaryEdgeSample": [],
+              "connectedComponentCount": 1,
+              "degenerateFaceCount": 0,
+              "faceCount": 26,
+              "invalidFaceIndexCount": 0,
+              "isolatedVertexCount": 0,
+              "manifoldEdgeCount": 44,
+              "overconnectedEdgeCount": 0,
+              "overconnectedEdgeSample": [],
+              "status": "pass",
+              "triangleEquivalent": 36,
+              "uniqueEdgeCount": 44,
+              "vertexCount": 20,
+              "watertight": true
+            },
+            "triangleBudget": 20000,
+            "triangleBudgetGate": "pass",
+            "triangleEquivalent": 36
+          },
+          {
+            "name": "Baker__Portico",
+            "topology": {
+              "boundaryEdgeCount": 0,
+              "boundaryEdgeSample": [],
+              "connectedComponentCount": 26,
+              "degenerateFaceCount": 0,
+              "faceCount": 188,
+              "invalidFaceIndexCount": 0,
+              "isolatedVertexCount": 0,
+              "manifoldEdgeCount": 408,
+              "overconnectedEdgeCount": 0,
+              "overconnectedEdgeSample": [],
+              "status": "pass",
+              "triangleEquivalent": 440,
+              "uniqueEdgeCount": 408,
+              "vertexCount": 272,
+              "watertight": true
+            },
+            "triangleBudget": 20000,
+            "triangleBudgetGate": "pass",
+            "triangleEquivalent": 440
+          },
+          {
+            "name": "Baker__FrontWindows",
+            "topology": {
+              "boundaryEdgeCount": 0,
+              "boundaryEdgeSample": [],
+              "connectedComponentCount": 16,
+              "degenerateFaceCount": 0,
+              "faceCount": 96,
+              "invalidFaceIndexCount": 0,
+              "isolatedVertexCount": 0,
+              "manifoldEdgeCount": 192,
+              "overconnectedEdgeCount": 0,
+              "overconnectedEdgeSample": [],
+              "status": "pass",
+              "triangleEquivalent": 192,
+              "uniqueEdgeCount": 192,
+              "vertexCount": 128,
+              "watertight": true
+            },
+            "triangleBudget": 20000,
+            "triangleBudgetGate": "pass",
+            "triangleEquivalent": 192
+          },
+          {
+            "name": "Baker__FrontAwnings",
+            "topology": {
+              "boundaryEdgeCount": 0,
+              "boundaryEdgeSample": [],
+              "connectedComponentCount": 16,
+              "degenerateFaceCount": 0,
+              "faceCount": 96,
+              "invalidFaceIndexCount": 0,
+              "isolatedVertexCount": 0,
+              "manifoldEdgeCount": 192,
+              "overconnectedEdgeCount": 0,
+              "overconnectedEdgeSample": [],
+              "status": "pass",
+              "triangleEquivalent": 192,
+              "uniqueEdgeCount": 192,
+              "vertexCount": 128,
+              "watertight": true
+            },
+            "triangleBudget": 20000,
+            "triangleBudgetGate": "pass",
+            "triangleEquivalent": 192
+          },
+          {
+            "name": "Baker__Bands",
+            "topology": {
+              "boundaryEdgeCount": 0,
+              "boundaryEdgeSample": [],
+              "connectedComponentCount": 2,
+              "degenerateFaceCount": 0,
+              "faceCount": 12,
+              "invalidFaceIndexCount": 0,
+              "isolatedVertexCount": 0,
+              "manifoldEdgeCount": 24,
+              "overconnectedEdgeCount": 0,
+              "overconnectedEdgeSample": [],
+              "status": "pass",
+              "triangleEquivalent": 24,
+              "uniqueEdgeCount": 24,
+              "vertexCount": 16,
+              "watertight": true
+            },
+            "triangleBudget": 20000,
+            "triangleBudgetGate": "pass",
+            "triangleEquivalent": 24
+          },
+          {
+            "name": "Baker__Parapet",
+            "topology": {
+              "boundaryEdgeCount": 0,
+              "boundaryEdgeSample": [],
+              "connectedComponentCount": 1,
+              "degenerateFaceCount": 0,
+              "faceCount": 6,
+              "invalidFaceIndexCount": 0,
+              "isolatedVertexCount": 0,
+              "manifoldEdgeCount": 12,
+              "overconnectedEdgeCount": 0,
+              "overconnectedEdgeSample": [],
+              "status": "pass",
+              "triangleEquivalent": 12,
+              "uniqueEdgeCount": 12,
+              "vertexCount": 8,
+              "watertight": true
+            },
+            "triangleBudget": 20000,
+            "triangleBudgetGate": "pass",
+            "triangleEquivalent": 12
+          },
+          {
+            "name": "Baker__Roof",
+            "topology": {
+              "boundaryEdgeCount": 0,
+              "boundaryEdgeSample": [],
+              "connectedComponentCount": 1,
+              "degenerateFaceCount": 0,
+              "faceCount": 5,
+              "invalidFaceIndexCount": 0,
+              "isolatedVertexCount": 0,
+              "manifoldEdgeCount": 9,
+              "overconnectedEdgeCount": 0,
+              "overconnectedEdgeSample": [],
+              "status": "pass",
+              "triangleEquivalent": 8,
+              "uniqueEdgeCount": 9,
+              "vertexCount": 6,
+              "watertight": true
+            },
+            "triangleBudget": 20000,
+            "triangleBudgetGate": "pass",
+            "triangleEquivalent": 8
+          }
+        ],
+        "perMeshPartTriangleBudget": 20000,
+        "status": "pass"
+      },
+      "triangleBudget": 100000,
+      "triangleBudgetGate": "pass",
+      "triangleEquivalent": 904,
+      "vertexCount": 578
+    },
+    "lod1": {
+      "degenerateFaceCount": 0,
+      "duplicatePartNames": false,
+      "faceCount": 237,
+      "featureId": "uplb:building:baker-hall",
+      "identityStatus": "canonical",
+      "invalidFaceIndexCount": 0,
+      "maxMeshParts": 24,
+      "nonFiniteVertexCount": 0,
+      "partCount": 5,
+      "perMeshPartTriangleBudget": 20000,
+      "sourceFeatureId": "uplb:building:baker-hall",
+      "status": "pass",
+      "topology": {
+        "aggregateTriangleBudget": 45000,
+        "aggregateTriangleBudgetGate": "pass",
+        "aggregateTriangleEquivalent": 520,
+        "failedParts": [],
+        "featureId": "uplb:building:baker-hall",
+        "maxMeshParts": 24,
+        "meshPartCountGate": "pass",
+        "partCount": 5,
+        "parts": [
+          {
+            "name": "Baker__Shell_A",
+            "topology": {
+              "boundaryEdgeCount": 0,
+              "boundaryEdgeSample": [],
+              "connectedComponentCount": 1,
+              "degenerateFaceCount": 0,
+              "faceCount": 26,
+              "invalidFaceIndexCount": 0,
+              "isolatedVertexCount": 0,
+              "manifoldEdgeCount": 44,
+              "overconnectedEdgeCount": 0,
+              "overconnectedEdgeSample": [],
+              "status": "pass",
+              "triangleEquivalent": 36,
+              "uniqueEdgeCount": 44,
+              "vertexCount": 20,
+              "watertight": true
+            },
+            "triangleBudget": 20000,
+            "triangleBudgetGate": "pass",
+            "triangleEquivalent": 36
+          },
+          {
+            "name": "Baker__Portico",
+            "topology": {
+              "boundaryEdgeCount": 0,
+              "boundaryEdgeSample": [],
+              "connectedComponentCount": 26,
+              "degenerateFaceCount": 0,
+              "faceCount": 188,
+              "invalidFaceIndexCount": 0,
+              "isolatedVertexCount": 0,
+              "manifoldEdgeCount": 408,
+              "overconnectedEdgeCount": 0,
+              "overconnectedEdgeSample": [],
+              "status": "pass",
+              "triangleEquivalent": 440,
+              "uniqueEdgeCount": 408,
+              "vertexCount": 272,
+              "watertight": true
+            },
+            "triangleBudget": 20000,
+            "triangleBudgetGate": "pass",
+            "triangleEquivalent": 440
+          },
+          {
+            "name": "Baker__Bands",
+            "topology": {
+              "boundaryEdgeCount": 0,
+              "boundaryEdgeSample": [],
+              "connectedComponentCount": 2,
+              "degenerateFaceCount": 0,
+              "faceCount": 12,
+              "invalidFaceIndexCount": 0,
+              "isolatedVertexCount": 0,
+              "manifoldEdgeCount": 24,
+              "overconnectedEdgeCount": 0,
+              "overconnectedEdgeSample": [],
+              "status": "pass",
+              "triangleEquivalent": 24,
+              "uniqueEdgeCount": 24,
+              "vertexCount": 16,
+              "watertight": true
+            },
+            "triangleBudget": 20000,
+            "triangleBudgetGate": "pass",
+            "triangleEquivalent": 24
+          },
+          {
+            "name": "Baker__Parapet",
+            "topology": {
+              "boundaryEdgeCount": 0,
+              "boundaryEdgeSample": [],
+              "connectedComponentCount": 1,
+              "degenerateFaceCount": 0,
+              "faceCount": 6,
+              "invalidFaceIndexCount": 0,
+              "isolatedVertexCount": 0,
+              "manifoldEdgeCount": 12,
+              "overconnectedEdgeCount": 0,
+              "overconnectedEdgeSample": [],
+              "status": "pass",
+              "triangleEquivalent": 12,
+              "uniqueEdgeCount": 12,
+              "vertexCount": 8,
+              "watertight": true
+            },
+            "triangleBudget": 20000,
+            "triangleBudgetGate": "pass",
+            "triangleEquivalent": 12
+          },
+          {
+            "name": "Baker__Roof",
+            "topology": {
+              "boundaryEdgeCount": 0,
+              "boundaryEdgeSample": [],
+              "connectedComponentCount": 1,
+              "degenerateFaceCount": 0,
+              "faceCount": 5,
+              "invalidFaceIndexCount": 0,
+              "isolatedVertexCount": 0,
+              "manifoldEdgeCount": 9,
+              "overconnectedEdgeCount": 0,
+              "overconnectedEdgeSample": [],
+              "status": "pass",
+              "triangleEquivalent": 8,
+              "uniqueEdgeCount": 9,
+              "vertexCount": 6,
+              "watertight": true
+            },
+            "triangleBudget": 20000,
+            "triangleBudgetGate": "pass",
+            "triangleEquivalent": 8
+          }
+        ],
+        "perMeshPartTriangleBudget": 20000,
+        "status": "pass"
+      },
+      "triangleBudget": 45000,
+      "triangleBudgetGate": "pass",
+      "triangleEquivalent": 520,
+      "vertexCount": 322
+    },
+    "lod2": {
+      "degenerateFaceCount": 0,
+      "duplicatePartNames": false,
+      "faceCount": 31,
+      "featureId": "uplb:building:baker-hall",
+      "identityStatus": "canonical",
+      "invalidFaceIndexCount": 0,
+      "maxMeshParts": 24,
+      "nonFiniteVertexCount": 0,
+      "partCount": 2,
+      "perMeshPartTriangleBudget": 20000,
+      "sourceFeatureId": "uplb:building:baker-hall",
+      "status": "pass",
+      "topology": {
+        "aggregateTriangleBudget": 15000,
+        "aggregateTriangleBudgetGate": "pass",
+        "aggregateTriangleEquivalent": 44,
+        "failedParts": [],
+        "featureId": "uplb:building:baker-hall",
+        "maxMeshParts": 24,
+        "meshPartCountGate": "pass",
+        "partCount": 2,
+        "parts": [
+          {
+            "name": "Baker__Shell_A",
+            "topology": {
+              "boundaryEdgeCount": 0,
+              "boundaryEdgeSample": [],
+              "connectedComponentCount": 1,
+              "degenerateFaceCount": 0,
+              "faceCount": 26,
+              "invalidFaceIndexCount": 0,
+              "isolatedVertexCount": 0,
+              "manifoldEdgeCount": 44,
+              "overconnectedEdgeCount": 0,
+              "overconnectedEdgeSample": [],
+              "status": "pass",
+              "triangleEquivalent": 36,
+              "uniqueEdgeCount": 44,
+              "vertexCount": 20,
+              "watertight": true
+            },
+            "triangleBudget": 20000,
+            "triangleBudgetGate": "pass",
+            "triangleEquivalent": 36
+          },
+          {
+            "name": "Baker__Roof",
+            "topology": {
+              "boundaryEdgeCount": 0,
+              "boundaryEdgeSample": [],
+              "connectedComponentCount": 1,
+              "degenerateFaceCount": 0,
+              "faceCount": 5,
+              "invalidFaceIndexCount": 0,
+              "isolatedVertexCount": 0,
+              "manifoldEdgeCount": 9,
+              "overconnectedEdgeCount": 0,
+              "overconnectedEdgeSample": [],
+              "status": "pass",
+              "triangleEquivalent": 8,
+              "uniqueEdgeCount": 9,
+              "vertexCount": 6,
+              "watertight": true
+            },
+            "triangleBudget": 20000,
+            "triangleBudgetGate": "pass",
+            "triangleEquivalent": 8
+          }
+        ],
+        "perMeshPartTriangleBudget": 20000,
+        "status": "pass"
+      },
+      "triangleBudget": 15000,
+      "triangleBudgetGate": "pass",
+      "triangleEquivalent": 44,
+      "vertexCount": 26
+    },
+    "lod3": {
+      "degenerateFaceCount": 0,
+      "duplicatePartNames": false,
+      "faceCount": 26,
+      "featureId": "uplb:building:baker-hall",
+      "identityStatus": "canonical",
+      "invalidFaceIndexCount": 0,
+      "maxMeshParts": 24,
+      "nonFiniteVertexCount": 0,
+      "partCount": 1,
+      "perMeshPartTriangleBudget": 20000,
+      "sourceFeatureId": "uplb:building:baker-hall",
+      "status": "pass",
+      "topology": {
+        "aggregateTriangleBudget": 3000,
+        "aggregateTriangleBudgetGate": "pass",
+        "aggregateTriangleEquivalent": 36,
+        "failedParts": [],
+        "featureId": "uplb:building:baker-hall",
+        "maxMeshParts": 24,
+        "meshPartCountGate": "pass",
+        "partCount": 1,
+        "parts": [
+          {
+            "name": "Baker__Shell_A",
+            "topology": {
+              "boundaryEdgeCount": 0,
+              "boundaryEdgeSample": [],
+              "connectedComponentCount": 1,
+              "degenerateFaceCount": 0,
+              "faceCount": 26,
+              "invalidFaceIndexCount": 0,
+              "isolatedVertexCount": 0,
+              "manifoldEdgeCount": 44,
+              "overconnectedEdgeCount": 0,
+              "overconnectedEdgeSample": [],
+              "status": "pass",
+              "triangleEquivalent": 36,
+              "uniqueEdgeCount": 44,
+              "vertexCount": 20,
+              "watertight": true
+            },
+            "triangleBudget": 20000,
+            "triangleBudgetGate": "pass",
+            "triangleEquivalent": 36
+          }
+        ],
+        "perMeshPartTriangleBudget": 20000,
+        "status": "pass"
+      },
+      "triangleBudget": 3000,
+      "triangleBudgetGate": "pass",
+      "triangleEquivalent": 36,
+      "vertexCount": 20
+    }
+  },
+  "schemaVersion": "uplb-production-asset-manifest-v0.2",
+  "sourceFeatureId": "uplb:building:baker-hall",
+  "stableMeshNames": [
+    "Baker__Shell_A",
+    "Baker__Portico",
+    "Baker__FrontWindows",
+    "Baker__FrontAwnings",
+    "Baker__Bands",
+    "Baker__Parapet",
+    "Baker__Roof",
+    "Baker__Collision"
+  ],
+  "visualReviewGate": "pending-human"
+}

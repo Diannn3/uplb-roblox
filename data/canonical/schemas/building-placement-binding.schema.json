@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UPLB Production Building Placement Binding",
+  "type": "object",
+  "required": ["schemaVersion", "featureId", "sourceFeatureId", "assetId", "modelSpace", "sceneTransform", "robloxTransformContract", "sourceUncertaintySeparated", "bindingHash"],
+  "properties": {
+    "schemaVersion": {"const": "uplb-building-placement-binding-v0.1"},
+    "featureId": {"type": "string", "pattern": "^uplb:"},
+    "sourceFeatureId": {"type": "string", "pattern": "^(candidate:|uplb:)"},
+    "assetId": {"type": "string", "minLength": 1},
+    "modelSpace": {"type": "object"},
+    "sceneTransform": {"type": "object"},
+    "robloxTransformContract": {"type": "object"},
+    "softwareTransformValidation": {"type": "object"},
+    "sourceUncertaintySeparated": {"const": true},
+    "bindingHash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+  },
+  "additionalProperties": true
+}
