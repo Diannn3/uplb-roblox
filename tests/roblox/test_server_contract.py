@@ -11,7 +11,7 @@ def test_server_generation_keeps_authority_and_regeneration_guards() -> None:
     for required in (
         "Terrain:WriteVoxels",
         "TERRAIN_RESOLUTION",
-        "GeneratedVerticalSlice_v01",
+        "Scene.runtimeContract.regenerationRoot",
         "Refusing to replace an unowned",
         "ParentFeatureId",
         "SegmentIndex",

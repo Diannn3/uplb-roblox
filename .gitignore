@@ -41,6 +41,7 @@ data/generated/*
 !data/generated/worldgen-v0.1/**
 !data/generated/roblox-v0.1/
 !data/generated/roblox-v0.1/**
+data/generated/roblox-v0.1/mcp-session.json
 data/private/
 
 # Credentials and local environment files

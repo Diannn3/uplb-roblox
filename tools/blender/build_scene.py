@@ -328,12 +328,17 @@ def _build_cameras(scene_spec: dict[str, Any], collections: dict[str, Any]) -> d
     center_y = sum(float(item.get("northM", 0.0)) for item in placements) / max(len(placements), 1)
     targets = {str(obj.get("name")): obj.get("placement") or {} for obj in scene_spec.get("objects", [])}
     target_for = lambda name: (float(targets.get(name, {}).get("eastM", center_x)), float(targets.get(name, {}).get("northM", center_y)), float(targets.get(name, {}).get("baseElevationM", 0.0)))
+    position_for = lambda name, east_offset, north_offset, elevation: (
+        target_for(name)[0] + east_offset,
+        target_for(name)[1] + north_offset,
+        elevation,
+    )
     definitions = {
         "CAM_TOPDOWN": (target_for("UPLB Oblation"), (center_x, center_y, 900.0)),
-        "CAM_OBLATION": (target_for("UPLB Oblation"), (center_x + 120.0, center_y - 120.0, 80.0)),
-        "CAM_FREEDOM_PARK": (target_for("UPLB Freedom Park"), (center_x + 130.0, center_y - 130.0, 80.0)),
-        "CAM_BAKER": (target_for("Charles Fuller Baker Memorial Hall"), (center_x + 250.0, center_y, 70.0)),
-        "CAM_DL_UMALI": (target_for("Dioscoro L. Umali Hall"), (center_x - 30.0, center_y - 80.0, 70.0)),
+        "CAM_OBLATION": (target_for("UPLB Oblation"), position_for("UPLB Oblation", 35.0, -35.0, 35.0)),
+        "CAM_FREEDOM_PARK": (target_for("UPLB Freedom Park"), position_for("UPLB Freedom Park", 45.0, -45.0, 40.0)),
+        "CAM_BAKER": (target_for("Charles Fuller Baker Memorial Hall"), position_for("Charles Fuller Baker Memorial Hall", 100.0, 0.0, 50.0)),
+        "CAM_DL_UMALI": (target_for("Dioscoro L. Umali Hall"), position_for("Dioscoro L. Umali Hall", -50.0, -60.0, 50.0)),
         "CAM_ROAD_LEVEL": ((center_x, center_y - 200.0, 0.0), (center_x + 150.0, center_y - 350.0, 35.0)),
     }
     cameras: dict[str, Any] = {}
