@@ -4,12 +4,12 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from PIL import Image
-
 from .sample import HeightField
 
 
 def render_preview(field: HeightField, output_path: Path, scale: int = 24) -> Path:
+    from PIL import Image
+
     minimum, maximum = field.min_elevation_m, field.max_elevation_m
     span = max(maximum - minimum, 1e-9)
     image = Image.new("L", (field.columns * scale, field.rows * scale))

@@ -4,9 +4,6 @@ import math
 from pathlib import Path
 from typing import Any
 
-from PIL import Image, ImageDraw
-
-
 CAMERAS = {
     "CAM_TOPDOWN": {"target": [0.0, 0.0, 0.0], "position": [0.0, 900.0, 0.0]},
     "CAM_OBLATION": {"target": [0.0, 0.0, 0.0], "position": [120.0, 80.0, 120.0]},
@@ -25,6 +22,8 @@ def write_camera_config(path: Path) -> None:
 
 
 def render_python_previews(objects: list[dict[str, Any]], output_dir: Path) -> list[str]:
+    from PIL import Image, ImageDraw
+
     output_dir.mkdir(parents=True, exist_ok=True)
     names = ["topdown.png", "oblation.png", "freedom-park.png", "baker-context.png", "dl-umali-context.png", "road-level.png"]
     east_values = [float(obj["transformLocalMeters"]["eastM"]) for obj in objects]
