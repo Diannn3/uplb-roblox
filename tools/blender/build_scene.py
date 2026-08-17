@@ -42,6 +42,14 @@ REQUIRED_HERO_NAMES = {
     "Dioscoro L. Umali Hall",
     "University Library and Knowledge Center",
 }
+RENDER_FILENAMES = {
+    "CAM_TOPDOWN": "topdown.png",
+    "CAM_OBLATION": "oblation.png",
+    "CAM_FREEDOM_PARK": "freedom-park.png",
+    "CAM_BAKER": "baker-context.png",
+    "CAM_DL_UMALI": "dl-umali-context.png",
+    "CAM_ROAD_LEVEL": "road-level.png",
+}
 MATERIAL_COLORS = {
     "hero-diagnostic": (0.75, 0.08, 0.08, 1.0),
     "context-building-diagnostic": (0.38, 0.24, 0.14, 1.0),
@@ -341,9 +349,9 @@ def _render(scene: Any, cameras: dict[str, Any], output_dir: Path) -> list[str]:
     scene.render.resolution_y = 640
     scene.render.resolution_percentage = 100
     paths: list[str] = []
-    for camera_name in ("CAM_TOPDOWN", "CAM_OBLATION", "CAM_FREEDOM_PARK", "CAM_BAKER", "CAM_DL_UMALI", "CAM_ROAD_LEVEL"):
+    for camera_name in RENDER_FILENAMES:
         scene.camera = cameras[camera_name]
-        path = output_dir / f"{camera_name.removeprefix('CAM_').lower()}.png"
+        path = output_dir / RENDER_FILENAMES[camera_name]
         scene.render.filepath = str(path)
         bpy.ops.render.render(write_still=True)
         paths.append(path.as_posix())

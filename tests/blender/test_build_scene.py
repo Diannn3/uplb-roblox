@@ -4,6 +4,7 @@ import unittest
 
 from tools.blender.build_scene import (
     COLLECTIONS_BY_ROLE,
+    RENDER_FILENAMES,
     build_custom_properties,
     terrain_faces,
 )
@@ -35,6 +36,12 @@ class BlenderBuilderContractTests(unittest.TestCase):
     def test_all_scene_roles_have_diagnostic_collections(self) -> None:
         for role in {"hero", "context-building", "road", "walkway", "water", "green-space", "landmark-placeholder"}:
             self.assertIn(role, COLLECTIONS_BY_ROLE)
+
+    def test_real_render_filenames_match_the_visual_gate_contract(self) -> None:
+        self.assertEqual(
+            set(RENDER_FILENAMES.values()),
+            {"topdown.png", "oblation.png", "freedom-park.png", "baker-context.png", "dl-umali-context.png", "road-level.png"},
+        )
 
 
 if __name__ == "__main__":
