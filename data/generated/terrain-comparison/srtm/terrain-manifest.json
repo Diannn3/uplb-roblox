@@ -1,29 +1,32 @@
 {
   "acquisitionRoute": "Earthdata Search/Earthdata Cloud supported route; retired LP DAAC Data Pool is not used",
+  "archiveSha256": "sha256:3169d32283271c39307371ee01a6cbb66c32143e4f1e1c55c152f44809dd2d81",
   "authRequirement": "Earthdata Login required for download; no credentials stored",
   "citation": "NASA JPL; NASA Land Processes Distributed Active Archive Center (LP DAAC), SRTMGL1.003",
   "doi": "10.5067/MEASURES/SRTM/SRTMGL1.003",
   "heightfield": "heightfield.json",
+  "hgtPayloadSha256": "sha256:f4761f7b97ef7e78dff39e9f8b3a649ebddce19479bbd316a6f018d85305260c",
   "horizontalCRS": "EPSG:4326",
   "horizontalDatum": "WGS84",
   "landingPage": "https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl1-003",
   "nodata": "Version 3.0 has no voids; historical -32768 is not expected",
-  "processing": {
-    "crop": "fixture-only",
-    "localCoordinates": true,
-    "targetCRS": "EPSG:32651",
-    "verticalExaggeration": 1.0
-  },
+  "processedHeightfieldSha256": "sha256:c7eae8e38b5bfbd92873a1c8c86cbddee38b058e64db26648b805cd994aa011d",
   "product": "SRTMGL1.003",
   "provider": "NASA JPL / NASA Earthdata LP DAAC",
   "redistribution": "Allowed with citation; do not imply NASA endorsement",
+  "report": "terrain-report.json",
   "resolutionM": 30,
   "rights": "NASA Earthdata open data policy; cite the DOI; no credentials or raw bulk data committed",
   "shortName": "SRTMGL1",
-  "sourceHash": null,
-  "sourceKind": "synthetic-fixture",
-  "status": "fixture-only",
+  "sourceHash": "sha256:f4761f7b97ef7e78dff39e9f8b3a649ebddce19479bbd316a6f018d85305260c",
+  "sourceKind": "real-nasa-raster",
+  "status": "pass",
   "version": "003",
   "verticalDatum": "EGM96",
+  "verticalReference": {
+    "policy": "floor-minimum-minus-padding",
+    "sourceDatum": "EGM96",
+    "worldBaseElevationM": 25
+  },
   "verticalUnits": "metres"
 }

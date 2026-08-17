@@ -318,8 +318,8 @@ The core pipeline can remain mostly free/open. Biggest risks are not software pr
 1. Review `docs/EVIDENCE_GATE_REPORT.md`: OSM is pinned, while the official Overture client returned a STAC 404 and the bounded direct-cloud probe timed out. This is a provider-access warning, not a coverage conclusion.
 2. Review the three permission-request drafts in `docs/PERMISSION_REQUEST_TEMPLATES.md`; nothing is sent without human approval.
 3. Decide whether the proposed **Digital-twin-lite / one streaming outdoor place / EPSG:32651 / GeoJSON+JSON canonical** ADR set is approved for production use.
-4. Review the generated canonical feature registry and the Oblation/Freedom Park/Baker Hall vertical-slice export before any Roblox greybox work. The current hardening gate is conditional: Overture access remains blocked and DEM redistribution rights are unresolved, so terrain, Blender, and persistent Roblox world generation must stop until the Phase 1 report is accepted.
+4. Review the generated canonical feature registry and the Oblation/Freedom Park/Baker Hall vertical-slice export. The controlled outdoor evidence gate is now accepted with NASADEM_HGT.001 as the hash-recorded 30 m baseline; Overture remains blocked without a coverage claim, and campus-wide production remains gated on institutional/licensing review.
 
 ## What Codex should implement first after approval
 
-Phase 1's deterministic CRS, canonical contracts, OSM ingest, Overture adapter, provenance records, review queue, and generated Luau handoff are implemented locally on the feature branch. The first visible Roblox output should come only after the conditional evidence gate and canonical-data review are accepted.
+Phase 1's deterministic CRS, canonical contracts, OSM ingest, Overture adapter, provenance records, review queue, and generated Luau handoff are implemented locally on the feature branch. The first real-terrain Blender/Roblox greybox output has been generated and validated in a disposable place; the next gate is human visual/performance review before authored assets, mechanics, or publication.

@@ -1,34 +1,66 @@
 {
-  "artifactBehavior": "not-assessed-on-synthetic-fixture",
-  "baselineSelected": false,
-  "comparisonRevision": "terrain-comparison-v0.1-fixture",
-  "continuity": "fixture-grid-continuous",
+  "artifactBehavior": "real-raster-compared",
+  "baselineDecision": {
+    "baseline": "NASADEM_HGT.001",
+    "selectionReason": "Evidence comparison selected the product with the lower maximum adjacent elevation discontinuity in the UPLB AOI."
+  },
+  "baselineSelected": true,
+  "comparisonRevision": "terrain-comparison-v0.2-real",
+  "continuity": "measured-adjacent-deltas",
+  "coverage": {
+    "nasadem": {
+      "eastM": 612.6689,
+      "northM": 189.092309,
+      "southM": -950.907691,
+      "westM": -1517.3311
+    },
+    "overlap": {
+      "eastM": 612.6689,
+      "northM": 189.092309,
+      "southM": -950.907691,
+      "westM": -1517.3311
+    },
+    "srtm": {
+      "eastM": 612.6689,
+      "northM": 189.092309,
+      "southM": -950.907691,
+      "westM": -1517.3311
+    }
+  },
   "differenceSummary": {
-    "maxAbsM": 0.65,
-    "meanAbsM": 0.65
+    "maxAbsM": 3.403766,
+    "meanAbsM": 2.250719
   },
   "elevationMinMaxM": {
     "nasadem": [
-      100.65,
-      113.41
+      24.39318,
+      155.550398
     ],
     "srtm": [
-      100.0,
-      112.76
+      27.39318,
+      158.016431
     ]
   },
   "metrics": {
     "nasadem": {
-      "maxAdjacentDeltaM": 0.18,
-      "maxElevationM": 113.41,
-      "minElevationM": 100.65,
-      "nodataCount": 0
+      "maxAdjacentDeltaM": 10.427534,
+      "maxElevationM": 155.550398,
+      "medianAdjacentDeltaM": 1.55531,
+      "minElevationM": 24.39318,
+      "nodataCount": 0,
+      "p95AdjacentDeltaM": 5.243241,
+      "spikeCount": 151,
+      "spikeThresholdM": 6.221241
     },
     "srtm": {
-      "maxAdjacentDeltaM": 0.18,
-      "maxElevationM": 112.76,
-      "minElevationM": 100.0,
-      "nodataCount": 0
+      "maxAdjacentDeltaM": 11.056161,
+      "maxElevationM": 158.016431,
+      "medianAdjacentDeltaM": 1.540926,
+      "minElevationM": 27.39318,
+      "nodataCount": 0,
+      "p95AdjacentDeltaM": 5.760314,
+      "spikeCount": 217,
+      "spikeThresholdM": 6.163706
     }
   },
   "officialSources": {
@@ -48,59 +80,899 @@
     "SRTMGL1.003",
     "NASADEM_HGT.001"
   ],
+  "regularGrid": {
+    "bounds": {
+      "eastM": 612.6689,
+      "northM": 189.092309,
+      "southM": -950.907691,
+      "westM": -1517.3311
+    },
+    "columns": 9,
+    "differenceSummary": {
+      "maxAbsM": 3.403766,
+      "meanAbsM": 2.246369
+    },
+    "nodataCount": 0,
+    "rows": 9,
+    "samples": [
+      {
+        "differenceM": -2.781414,
+        "localEastM": -1487.3311,
+        "localNorthM": -920.907691,
+        "nasademElevationM": 150.393896,
+        "nasademSlope": 0.1872530459194904,
+        "nodata": false,
+        "srtmElevationM": 153.17531,
+        "srtmSlope": 0.1813526564837449
+      },
+      {
+        "differenceM": -1.634629,
+        "localEastM": -1228.5811,
+        "localNorthM": -920.907691,
+        "nasademElevationM": 127.326832,
+        "nasademSlope": 0.12109022395290626,
+        "nodata": false,
+        "srtmElevationM": 128.961461,
+        "srtmSlope": 0.11601554195036684
+      },
+      {
+        "differenceM": -2.420026,
+        "localEastM": -969.8311,
+        "localNorthM": -920.907691,
+        "nasademElevationM": 104.490095,
+        "nasademSlope": 0.07465175348709606,
+        "nodata": false,
+        "srtmElevationM": 106.910121,
+        "srtmSlope": 0.08124253680030308
+      },
+      {
+        "differenceM": -1.179767,
+        "localEastM": -711.0811,
+        "localNorthM": -920.907691,
+        "nasademElevationM": 106.637214,
+        "nasademSlope": 0.10766617216124347,
+        "nodata": false,
+        "srtmElevationM": 107.81698,
+        "srtmSlope": 0.12130470628338061
+      },
+      {
+        "differenceM": -1.763848,
+        "localEastM": -452.3311,
+        "localNorthM": -920.907691,
+        "nasademElevationM": 97.999599,
+        "nasademSlope": 0.08482794478184422,
+        "nodata": false,
+        "srtmElevationM": 99.763446,
+        "srtmSlope": 0.06646788667245274
+      },
+      {
+        "differenceM": -3.00927,
+        "localEastM": -193.5811,
+        "localNorthM": -920.907691,
+        "nasademElevationM": 71.247892,
+        "nasademSlope": 0.16421092430082548,
+        "nodata": false,
+        "srtmElevationM": 74.257162,
+        "srtmSlope": 0.19196605621128296
+      },
+      {
+        "differenceM": -2.175223,
+        "localEastM": 65.1689,
+        "localNorthM": -920.907691,
+        "nasademElevationM": 44.225527,
+        "nasademSlope": 0.06909490148414463,
+        "nodata": false,
+        "srtmElevationM": 46.40075,
+        "srtmSlope": 0.0634018235709091
+      },
+      {
+        "differenceM": -2.867601,
+        "localEastM": 323.9189,
+        "localNorthM": -920.907691,
+        "nasademElevationM": 46.896016,
+        "nasademSlope": 0.04643016555621028,
+        "nodata": false,
+        "srtmElevationM": 49.763617,
+        "srtmSlope": 0.04430703869480131
+      },
+      {
+        "differenceM": -2.0,
+        "localEastM": 582.6689,
+        "localNorthM": -920.907691,
+        "nasademElevationM": 45.41872,
+        "nasademSlope": 0.05692042661302772,
+        "nodata": false,
+        "srtmElevationM": 47.41872,
+        "srtmSlope": 0.059284981327953186
+      },
+      {
+        "differenceM": -1.738822,
+        "localEastM": -1487.3311,
+        "localNorthM": -785.907691,
+        "nasademElevationM": 147.153793,
+        "nasademSlope": 0.20269096826980987,
+        "nodata": false,
+        "srtmElevationM": 148.892615,
+        "srtmSlope": 0.225244536592804
+      },
+      {
+        "differenceM": -2.428317,
+        "localEastM": -1228.5811,
+        "localNorthM": -785.907691,
+        "nasademElevationM": 112.698789,
+        "nasademSlope": 0.11384353337948601,
+        "nodata": false,
+        "srtmElevationM": 115.127106,
+        "srtmSlope": 0.11632378021860301
+      },
+      {
+        "differenceM": -2.340358,
+        "localEastM": -969.8311,
+        "localNorthM": -785.907691,
+        "nasademElevationM": 100.01664,
+        "nasademSlope": 0.04747731857663163,
+        "nodata": false,
+        "srtmElevationM": 102.356998,
+        "srtmSlope": 0.04611517234981216
+      },
+      {
+        "differenceM": -1.962501,
+        "localEastM": -711.0811,
+        "localNorthM": -785.907691,
+        "nasademElevationM": 97.200956,
+        "nasademSlope": 0.09417804241061634,
+        "nodata": false,
+        "srtmElevationM": 99.163457,
+        "srtmSlope": 0.10453934814906957
+      },
+      {
+        "differenceM": -1.100193,
+        "localEastM": -452.3311,
+        "localNorthM": -785.907691,
+        "nasademElevationM": 94.618796,
+        "nasademSlope": 0.1302190968889004,
+        "nodata": false,
+        "srtmElevationM": 95.718989,
+        "srtmSlope": 0.13326202561730022
+      },
+      {
+        "differenceM": -2.793865,
+        "localEastM": -193.5811,
+        "localNorthM": -785.907691,
+        "nasademElevationM": 77.196818,
+        "nasademSlope": 0.17786450261724493,
+        "nodata": false,
+        "srtmElevationM": 79.990683,
+        "srtmSlope": 0.18656456682461883
+      },
+      {
+        "differenceM": -1.926721,
+        "localEastM": 65.1689,
+        "localNorthM": -785.907691,
+        "nasademElevationM": 42.801543,
+        "nasademSlope": 0.015946700286440827,
+        "nodata": false,
+        "srtmElevationM": 44.728264,
+        "srtmSlope": 0.017808488368041164
+      },
+      {
+        "differenceM": -3.255516,
+        "localEastM": 323.9189,
+        "localNorthM": -785.907691,
+        "nasademElevationM": 40.459755,
+        "nasademSlope": 0.01964284644200056,
+        "nodata": false,
+        "srtmElevationM": 43.715271,
+        "srtmSlope": 0.011425174030967503
+      },
+      {
+        "differenceM": -2.667606,
+        "localEastM": 582.6689,
+        "localNorthM": -785.907691,
+        "nasademElevationM": 40.518059,
+        "nasademSlope": 0.09845667611529597,
+        "nodata": false,
+        "srtmElevationM": 43.185665,
+        "srtmSlope": 0.10031638417293186
+      },
+      {
+        "differenceM": -2.529584,
+        "localEastM": -1487.3311,
+        "localNorthM": -650.907691,
+        "nasademElevationM": 133.852815,
+        "nasademSlope": 0.11836275525085282,
+        "nodata": false,
+        "srtmElevationM": 136.382399,
+        "srtmSlope": 0.11630130028712572
+      },
+      {
+        "differenceM": -2.677694,
+        "localEastM": -1228.5811,
+        "localNorthM": -650.907691,
+        "nasademElevationM": 109.841778,
+        "nasademSlope": 0.06513480789468275,
+        "nodata": false,
+        "srtmElevationM": 112.519472,
+        "srtmSlope": 0.05468450701604864
+      },
+      {
+        "differenceM": -2.735947,
+        "localEastM": -969.8311,
+        "localNorthM": -650.907691,
+        "nasademElevationM": 101.31783,
+        "nasademSlope": 0.07077761203426118,
+        "nodata": false,
+        "srtmElevationM": 104.053777,
+        "srtmSlope": 0.0692856233141041
+      },
+      {
+        "differenceM": -3.403766,
+        "localEastM": -711.0811,
+        "localNorthM": -650.907691,
+        "nasademElevationM": 86.766241,
+        "nasademSlope": 0.06737204547036055,
+        "nodata": false,
+        "srtmElevationM": 90.170007,
+        "srtmSlope": 0.08065211305102739
+      },
+      {
+        "differenceM": -0.942433,
+        "localEastM": -452.3311,
+        "localNorthM": -650.907691,
+        "nasademElevationM": 97.252854,
+        "nasademSlope": 0.059639760895488225,
+        "nodata": false,
+        "srtmElevationM": 98.195287,
+        "srtmSlope": 0.049095830500558386
+      },
+      {
+        "differenceM": -2.50727,
+        "localEastM": -193.5811,
+        "localNorthM": -650.907691,
+        "nasademElevationM": 87.545827,
+        "nasademSlope": 0.06190040319441092,
+        "nodata": false,
+        "srtmElevationM": 90.053097,
+        "srtmSlope": 0.06250462358586405
+      },
+      {
+        "differenceM": -1.210754,
+        "localEastM": 65.1689,
+        "localNorthM": -650.907691,
+        "nasademElevationM": 46.309514,
+        "nasademSlope": 0.024817194063540823,
+        "nodata": false,
+        "srtmElevationM": 47.520267,
+        "srtmSlope": 0.009118283435978576
+      },
+      {
+        "differenceM": -2.0,
+        "localEastM": 323.9189,
+        "localNorthM": -650.907691,
+        "nasademElevationM": 38.591401,
+        "nasademSlope": 0.028092973670757564,
+        "nodata": false,
+        "srtmElevationM": 40.591401,
+        "srtmSlope": 0.023779607234969306
+      },
+      {
+        "differenceM": -2.828751,
+        "localEastM": 582.6689,
+        "localNorthM": -650.907691,
+        "nasademElevationM": 35.9707,
+        "nasademSlope": 0.013866573645307561,
+        "nodata": false,
+        "srtmElevationM": 38.799451,
+        "srtmSlope": 0.020784977436448346
+      },
+      {
+        "differenceM": -2.66192,
+        "localEastM": -1487.3311,
+        "localNorthM": -515.907691,
+        "nasademElevationM": 132.703693,
+        "nasademSlope": 0.1413594039261293,
+        "nodata": false,
+        "srtmElevationM": 135.365614,
+        "srtmSlope": 0.15809203194497642
+      },
+      {
+        "differenceM": -2.392766,
+        "localEastM": -1228.5811,
+        "localNorthM": -515.907691,
+        "nasademElevationM": 107.799234,
+        "nasademSlope": 0.06933031314350993,
+        "nodata": false,
+        "srtmElevationM": 110.192,
+        "srtmSlope": 0.0687615490908477
+      },
+      {
+        "differenceM": -1.63686,
+        "localEastM": -969.8311,
+        "localNorthM": -515.907691,
+        "nasademElevationM": 89.507545,
+        "nasademSlope": 0.1288150022666003,
+        "nodata": false,
+        "srtmElevationM": 91.144404,
+        "srtmSlope": 0.1383101899225896
+      },
+      {
+        "differenceM": -2.779248,
+        "localEastM": -711.0811,
+        "localNorthM": -515.907691,
+        "nasademElevationM": 86.5431,
+        "nasademSlope": 0.1612340510474096,
+        "nodata": false,
+        "srtmElevationM": 89.322348,
+        "srtmSlope": 0.16187804654904456
+      },
+      {
+        "differenceM": -2.378492,
+        "localEastM": -452.3311,
+        "localNorthM": -515.907691,
+        "nasademElevationM": 89.943528,
+        "nasademSlope": 0.10211988195135867,
+        "nodata": false,
+        "srtmElevationM": 92.32202,
+        "srtmSlope": 0.10885590147525401
+      },
+      {
+        "differenceM": -2.864484,
+        "localEastM": -193.5811,
+        "localNorthM": -515.907691,
+        "nasademElevationM": 77.377378,
+        "nasademSlope": 0.18739619031590196,
+        "nodata": false,
+        "srtmElevationM": 80.241861,
+        "srtmSlope": 0.18129160287941162
+      },
+      {
+        "differenceM": -1.672097,
+        "localEastM": 65.1689,
+        "localNorthM": -515.907691,
+        "nasademElevationM": 33.453893,
+        "nasademSlope": 0.0770308810118022,
+        "nodata": false,
+        "srtmElevationM": 35.125989,
+        "srtmSlope": 0.06781976655186393
+      },
+      {
+        "differenceM": -2.092154,
+        "localEastM": 323.9189,
+        "localNorthM": -515.907691,
+        "nasademElevationM": 37.94647,
+        "nasademSlope": 0.0461187343473739,
+        "nodata": false,
+        "srtmElevationM": 40.038624,
+        "srtmSlope": 0.04691828319262767
+      },
+      {
+        "differenceM": -2.065551,
+        "localEastM": 582.6689,
+        "localNorthM": -515.907691,
+        "nasademElevationM": 32.643071,
+        "nasademSlope": 0.037228385521178416,
+        "nodata": false,
+        "srtmElevationM": 34.708622,
+        "srtmSlope": 0.045729569076620305
+      },
+      {
+        "differenceM": -1.464383,
+        "localEastM": -1487.3311,
+        "localNorthM": -380.907691,
+        "nasademElevationM": 114.53713,
+        "nasademSlope": 0.1823181714363046,
+        "nodata": false,
+        "srtmElevationM": 116.001512,
+        "srtmSlope": 0.2202074216953535
+      },
+      {
+        "differenceM": -2.859851,
+        "localEastM": -1228.5811,
+        "localNorthM": -380.907691,
+        "nasademElevationM": 110.816191,
+        "nasademSlope": 0.08306118430237655,
+        "nodata": false,
+        "srtmElevationM": 113.676041,
+        "srtmSlope": 0.08688927138811377
+      },
+      {
+        "differenceM": -2.307425,
+        "localEastM": -969.8311,
+        "localNorthM": -380.907691,
+        "nasademElevationM": 92.541947,
+        "nasademSlope": 0.12453233664152176,
+        "nodata": false,
+        "srtmElevationM": 94.849371,
+        "srtmSlope": 0.11482223149049635
+      },
+      {
+        "differenceM": -2.034295,
+        "localEastM": -711.0811,
+        "localNorthM": -380.907691,
+        "nasademElevationM": 74.288281,
+        "nasademSlope": 0.1097383278656015,
+        "nodata": false,
+        "srtmElevationM": 76.322576,
+        "srtmSlope": 0.11214733863587417
+      },
+      {
+        "differenceM": -1.726474,
+        "localEastM": -452.3311,
+        "localNorthM": -380.907691,
+        "nasademElevationM": 76.179651,
+        "nasademSlope": 0.04452375243281517,
+        "nodata": false,
+        "srtmElevationM": 77.906125,
+        "srtmSlope": 0.028148809000651715
+      },
+      {
+        "differenceM": -2.796518,
+        "localEastM": -193.5811,
+        "localNorthM": -380.907691,
+        "nasademElevationM": 58.436727,
+        "nasademSlope": 0.16046125792255836,
+        "nodata": false,
+        "srtmElevationM": 61.233245,
+        "srtmSlope": 0.16956962948283627
+      },
+      {
+        "differenceM": -2.027709,
+        "localEastM": 65.1689,
+        "localNorthM": -380.907691,
+        "nasademElevationM": 37.111506,
+        "nasademSlope": 0.02805894705857885,
+        "nodata": false,
+        "srtmElevationM": 39.139215,
+        "srtmSlope": 0.029084118927594896
+      },
+      {
+        "differenceM": -2.863998,
+        "localEastM": 323.9189,
+        "localNorthM": -380.907691,
+        "nasademElevationM": 33.420486,
+        "nasademSlope": 0.054592050254721414,
+        "nodata": false,
+        "srtmElevationM": 36.284484,
+        "srtmSlope": 0.06561669341486637
+      },
+      {
+        "differenceM": -2.9222,
+        "localEastM": 582.6689,
+        "localNorthM": -380.907691,
+        "nasademElevationM": 32.498425,
+        "nasademSlope": 0.06907724452530117,
+        "nodata": false,
+        "srtmElevationM": 35.420625,
+        "srtmSlope": 0.047940869433832904
+      },
+      {
+        "differenceM": -2.618701,
+        "localEastM": -1487.3311,
+        "localNorthM": -245.907691,
+        "nasademElevationM": 118.699309,
+        "nasademSlope": 0.07786211246401166,
+        "nodata": false,
+        "srtmElevationM": 121.31801,
+        "srtmSlope": 0.0686073458674795
+      },
+      {
+        "differenceM": -1.891576,
+        "localEastM": -1228.5811,
+        "localNorthM": -245.907691,
+        "nasademElevationM": 93.126036,
+        "nasademSlope": 0.07812359346743382,
+        "nodata": false,
+        "srtmElevationM": 95.017612,
+        "srtmSlope": 0.07155104297943157
+      },
+      {
+        "differenceM": -2.129935,
+        "localEastM": -969.8311,
+        "localNorthM": -245.907691,
+        "nasademElevationM": 92.70638,
+        "nasademSlope": 0.06693042030155545,
+        "nodata": false,
+        "srtmElevationM": 94.836315,
+        "srtmSlope": 0.0655258859019922
+      },
+      {
+        "differenceM": -2.469783,
+        "localEastM": -711.0811,
+        "localNorthM": -245.907691,
+        "nasademElevationM": 73.002508,
+        "nasademSlope": 0.08077299021482964,
+        "nodata": false,
+        "srtmElevationM": 75.472291,
+        "srtmSlope": 0.09177538190886952
+      },
+      {
+        "differenceM": -1.585423,
+        "localEastM": -452.3311,
+        "localNorthM": -245.907691,
+        "nasademElevationM": 64.531563,
+        "nasademSlope": 0.1231872600360976,
+        "nodata": false,
+        "srtmElevationM": 66.116986,
+        "srtmSlope": 0.11445941657116455
+      },
+      {
+        "differenceM": -2.777669,
+        "localEastM": -193.5811,
+        "localNorthM": -245.907691,
+        "nasademElevationM": 56.288845,
+        "nasademSlope": 0.2681517536641814,
+        "nodata": false,
+        "srtmElevationM": 59.066514,
+        "srtmSlope": 0.2666666297863097
+      },
+      {
+        "differenceM": -1.497631,
+        "localEastM": 65.1689,
+        "localNorthM": -245.907691,
+        "nasademElevationM": 41.198951,
+        "nasademSlope": 0.025501159309955113,
+        "nodata": false,
+        "srtmElevationM": 42.696582,
+        "srtmSlope": 0.02153781228741821
+      },
+      {
+        "differenceM": -1.799407,
+        "localEastM": 323.9189,
+        "localNorthM": -245.907691,
+        "nasademElevationM": 28.946087,
+        "nasademSlope": 0.028421583585862574,
+        "nodata": false,
+        "srtmElevationM": 30.745494,
+        "srtmSlope": 0.026145810173372402
+      },
+      {
+        "differenceM": -1.167097,
+        "localEastM": 582.6689,
+        "localNorthM": -245.907691,
+        "nasademElevationM": 31.2966,
+        "nasademSlope": 0.08202110839707916,
+        "nodata": false,
+        "srtmElevationM": 32.463697,
+        "srtmSlope": 0.08296290765270324
+      },
+      {
+        "differenceM": -2.0,
+        "localEastM": -1487.3311,
+        "localNorthM": -110.907691,
+        "nasademElevationM": 116.891789,
+        "nasademSlope": 0.11745326551358187,
+        "nodata": false,
+        "srtmElevationM": 118.891789,
+        "srtmSlope": 0.13064663480878896
+      },
+      {
+        "differenceM": -0.952907,
+        "localEastM": -1228.5811,
+        "localNorthM": -110.907691,
+        "nasademElevationM": 82.014663,
+        "nasademSlope": 0.17346594654849992,
+        "nodata": false,
+        "srtmElevationM": 82.96757,
+        "srtmSlope": 0.18431921705624135
+      },
+      {
+        "differenceM": -1.99582,
+        "localEastM": -969.8311,
+        "localNorthM": -110.907691,
+        "nasademElevationM": 84.396703,
+        "nasademSlope": 0.14680521792426093,
+        "nodata": false,
+        "srtmElevationM": 86.392522,
+        "srtmSlope": 0.1560407090388643
+      },
+      {
+        "differenceM": -2.574304,
+        "localEastM": -711.0811,
+        "localNorthM": -110.907691,
+        "nasademElevationM": 68.076788,
+        "nasademSlope": 0.03681561764055663,
+        "nodata": false,
+        "srtmElevationM": 70.651092,
+        "srtmSlope": 0.03613416211513578
+      },
+      {
+        "differenceM": -1.642308,
+        "localEastM": -452.3311,
+        "localNorthM": -110.907691,
+        "nasademElevationM": 58.007958,
+        "nasademSlope": 0.10681569450687785,
+        "nodata": false,
+        "srtmElevationM": 59.650266,
+        "srtmSlope": 0.119611008920566
+      },
+      {
+        "differenceM": -2.292016,
+        "localEastM": -193.5811,
+        "localNorthM": -110.907691,
+        "nasademElevationM": 45.844721,
+        "nasademSlope": 0.04998411488639599,
+        "nodata": false,
+        "srtmElevationM": 48.136736,
+        "srtmSlope": 0.050068088275702416
+      },
+      {
+        "differenceM": -2.830659,
+        "localEastM": 65.1689,
+        "localNorthM": -110.907691,
+        "nasademElevationM": 39.504007,
+        "nasademSlope": 0.08558780257543545,
+        "nodata": false,
+        "srtmElevationM": 42.334666,
+        "srtmSlope": 0.10459523199061455
+      },
+      {
+        "differenceM": -2.213934,
+        "localEastM": 323.9189,
+        "localNorthM": -110.907691,
+        "nasademElevationM": 34.38068,
+        "nasademSlope": 0.0799297698333277,
+        "nodata": false,
+        "srtmElevationM": 36.594614,
+        "srtmSlope": 0.07713506985146623
+      },
+      {
+        "differenceM": -2.514336,
+        "localEastM": 582.6689,
+        "localNorthM": -110.907691,
+        "nasademElevationM": 31.412818,
+        "nasademSlope": 0.03575960162864653,
+        "nodata": false,
+        "srtmElevationM": 33.927154,
+        "srtmSlope": 0.03547178865817171
+      },
+      {
+        "differenceM": -2.451868,
+        "localEastM": -1487.3311,
+        "localNorthM": 24.092309,
+        "nasademElevationM": 89.684788,
+        "nasademSlope": 0.23006052301617072,
+        "nodata": false,
+        "srtmElevationM": 92.136655,
+        "srtmSlope": 0.23232136942731083
+      },
+      {
+        "differenceM": -2.991624,
+        "localEastM": -1228.5811,
+        "localNorthM": 24.092309,
+        "nasademElevationM": 96.308036,
+        "nasademSlope": 0.1515975453041828,
+        "nodata": false,
+        "srtmElevationM": 99.29966,
+        "srtmSlope": 0.14716497263813955
+      },
+      {
+        "differenceM": -1.739735,
+        "localEastM": -969.8311,
+        "localNorthM": 24.092309,
+        "nasademElevationM": 70.328416,
+        "nasademSlope": 0.13074094718918827,
+        "nodata": false,
+        "srtmElevationM": 72.068151,
+        "srtmSlope": 0.14789160887934694
+      },
+      {
+        "differenceM": -2.951131,
+        "localEastM": -711.0811,
+        "localNorthM": 24.092309,
+        "nasademElevationM": 66.420227,
+        "nasademSlope": 0.08316906869267274,
+        "nodata": false,
+        "srtmElevationM": 69.371357,
+        "srtmSlope": 0.08803325374589711
+      },
+      {
+        "differenceM": -2.0,
+        "localEastM": -452.3311,
+        "localNorthM": 24.092309,
+        "nasademElevationM": 55.054723,
+        "nasademSlope": 0.05838664383963373,
+        "nodata": false,
+        "srtmElevationM": 57.054723,
+        "srtmSlope": 0.0576850809492582
+      },
+      {
+        "differenceM": -2.010544,
+        "localEastM": -193.5811,
+        "localNorthM": 24.092309,
+        "nasademElevationM": 46.043003,
+        "nasademSlope": 0.01754764285551984,
+        "nodata": false,
+        "srtmElevationM": 48.053546,
+        "srtmSlope": 0.012380601389434998
+      },
+      {
+        "differenceM": -2.000248,
+        "localEastM": 65.1689,
+        "localNorthM": 24.092309,
+        "nasademElevationM": 40.150455,
+        "nasademSlope": 0.05255788997547577,
+        "nodata": false,
+        "srtmElevationM": 42.150703,
+        "srtmSlope": 0.0552225418464117
+      },
+      {
+        "differenceM": -2.680797,
+        "localEastM": 323.9189,
+        "localNorthM": 24.092309,
+        "nasademElevationM": 35.996477,
+        "nasademSlope": 0.030809338089235073,
+        "nodata": false,
+        "srtmElevationM": 38.677273,
+        "srtmSlope": 0.024391427555494245
+      },
+      {
+        "differenceM": -2.996773,
+        "localEastM": 582.6689,
+        "localNorthM": 24.092309,
+        "nasademElevationM": 26.210577,
+        "nasademSlope": 0.005193805005108797,
+        "nodata": false,
+        "srtmElevationM": 29.207349,
+        "srtmSlope": 0.017033028530271263
+      },
+      {
+        "differenceM": -2.0,
+        "localEastM": -1487.3311,
+        "localNorthM": 159.092309,
+        "nasademElevationM": 76.394737,
+        "nasademSlope": 0.09598003477155886,
+        "nodata": false,
+        "srtmElevationM": 78.394737,
+        "srtmSlope": 0.11171963248904773
+      },
+      {
+        "differenceM": -1.910625,
+        "localEastM": -1228.5811,
+        "localNorthM": 159.092309,
+        "nasademElevationM": 87.016778,
+        "nasademSlope": 0.13176451795094357,
+        "nodata": false,
+        "srtmElevationM": 88.927403,
+        "srtmSlope": 0.1399178453973492
+      },
+      {
+        "differenceM": -2.293547,
+        "localEastM": -969.8311,
+        "localNorthM": 159.092309,
+        "nasademElevationM": 66.248896,
+        "nasademSlope": 0.14156188231911693,
+        "nodata": false,
+        "srtmElevationM": 68.542443,
+        "srtmSlope": 0.14211096959914804
+      },
+      {
+        "differenceM": -3.164079,
+        "localEastM": -711.0811,
+        "localNorthM": 159.092309,
+        "nasademElevationM": 58.681692,
+        "nasademSlope": 0.10588100153255792,
+        "nodata": false,
+        "srtmElevationM": 61.845771,
+        "srtmSlope": 0.12396779472807669
+      },
+      {
+        "differenceM": -2.054463,
+        "localEastM": -452.3311,
+        "localNorthM": 159.092309,
+        "nasademElevationM": 48.8035,
+        "nasademSlope": 0.1093002605391016,
+        "nodata": false,
+        "srtmElevationM": 50.857963,
+        "srtmSlope": 0.10256734263749755
+      },
+      {
+        "differenceM": -1.802184,
+        "localEastM": -193.5811,
+        "localNorthM": 159.092309,
+        "nasademElevationM": 48.898294,
+        "nasademSlope": 0.052600425837699874,
+        "nodata": false,
+        "srtmElevationM": 50.700478,
+        "srtmSlope": 0.0748503237718276
+      },
+      {
+        "differenceM": -1.949749,
+        "localEastM": 65.1689,
+        "localNorthM": 159.092309,
+        "nasademElevationM": 39.005812,
+        "nasademSlope": 0.02211406478340659,
+        "nodata": false,
+        "srtmElevationM": 40.955561,
+        "srtmSlope": 0.028157492639169484
+      },
+      {
+        "differenceM": -2.268212,
+        "localEastM": 323.9189,
+        "localNorthM": 159.092309,
+        "nasademElevationM": 36.403688,
+        "nasademSlope": 0.04636902771451543,
+        "nodata": false,
+        "srtmElevationM": 38.6719,
+        "srtmSlope": 0.03776844932686979
+      },
+      {
+        "differenceM": -3.308469,
+        "localEastM": 582.6689,
+        "localNorthM": 159.092309,
+        "nasademElevationM": 26.009871,
+        "nasademSlope": 0.011285874894737133,
+        "nodata": false,
+        "srtmElevationM": 29.318341,
+        "srtmSlope": 0.02284373673893792
+      }
+    ],
+    "slopeSummary": {
+      "nasadem": {
+        "max": 0.268151754,
+        "mean": 0.089752284
+      },
+      "srtm": {
+        "max": 0.26666663,
+        "mean": 0.092277957
+      }
+    },
+    "spacingM": 30.0,
+    "status": "pass",
+    "validCount": 81
+  },
   "samples": {
     "baker-hall": {
-      "differenceM": 0.65,
+      "differenceM": -2.939591,
       "localEastM": 129.12646285956725,
       "localNorthM": -359.65471421554685,
-      "nasademElevationM": 107.372691,
-      "nasademSlope": 0.007031674,
+      "nasademElevationM": 37.434848,
+      "nasademSlope": 0.03013868,
       "nodata": false,
-      "srtmElevationM": 106.722691,
-      "srtmSlope": 0.007031674
+      "srtmElevationM": 40.374439,
+      "srtmSlope": 0.048195987
     },
     "dl-umali": {
-      "differenceM": 0.65,
+      "differenceM": -2.006646,
       "localEastM": -155.66369955072878,
       "localNorthM": -107.54825505404733,
-      "nasademElevationM": 106.588341,
-      "nasademSlope": 0.007031674,
+      "nasademElevationM": 44.386872,
+      "nasademSlope": 0.045791826,
       "nodata": false,
-      "srtmElevationM": 105.938341,
-      "srtmSlope": 0.007031674
+      "srtmElevationM": 46.393518,
+      "srtmSlope": 0.044707966
     },
     "freedom-park": {
-      "differenceM": 0.65,
+      "differenceM": -2.775661,
       "localEastM": 16.34097715653479,
       "localNorthM": -411.7368073547259,
-      "nasademElevationM": 106.505011,
-      "nasademSlope": 0.007031674,
+      "nasademElevationM": 34.205138,
+      "nasademSlope": 0.03497422,
       "nodata": false,
-      "srtmElevationM": 105.855011,
-      "srtmSlope": 0.007031674
+      "srtmElevationM": 36.980798,
+      "srtmSlope": 0.040934671
     },
     "main-library": {
-      "differenceM": 0.65,
+      "differenceM": -2.557106,
       "localEastM": -184.4664518852369,
       "localNorthM": -231.04838849557564,
-      "nasademElevationM": 105.962691,
-      "nasademSlope": 0.007031674,
+      "nasademElevationM": 53.007314,
+      "nasademSlope": 0.229470324,
       "nodata": false,
-      "srtmElevationM": 105.312691,
-      "srtmSlope": 0.007031674
+      "srtmElevationM": 55.56442,
+      "srtmSlope": 0.234071406
     },
     "oblation": {
-      "differenceM": 0.65,
+      "differenceM": -1.326977,
       "localEastM": 0.0,
       "localNorthM": 0.0,
-      "nasademElevationM": 107.916667,
-      "nasademSlope": 0.007031674,
+      "nasademElevationM": 41.382862,
+      "nasademSlope": 0.065603407,
       "nodata": false,
-      "srtmElevationM": 107.266667,
-      "srtmSlope": 0.007031674
+      "srtmElevationM": 42.709839,
+      "srtmSlope": 0.055443244
     }
   },
-  "selectionReason": "No NASA raster was acquired; fixture results are not evidence for selecting a baseline.",
-  "sourceStatus": "blocked-no-local-raster",
-  "status": "fixture-only"
+  "selectionReason": "Evidence comparison selected the product with the lower maximum adjacent elevation discontinuity in the UPLB AOI.",
+  "sourceStatus": "validated-raster",
+  "status": "validated-raster"
 }

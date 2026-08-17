@@ -17,9 +17,11 @@
 - The official Overture client returned a STAC 404; the bounded direct-cloud probe timed out. Both outcomes are recorded as blocked provider access, not as missing coverage.
 - Permission requests are drafted locally in `docs/PERMISSION_REQUEST_TEMPLATES.md` and have not been sent.
 - Phase 1 contracts, CRS transforms, OSM normalization, Overture parsing adapter, provenance records, conflation review records, validation, canonical GeoJSON, and generated Luau are implemented on the feature branch.
-- The evidence gate is `conditional` until DEM rights are pinned and a human reviews the proposed source/ADR decisions.
+- SRTMGL1.003 and NASADEM_HGT.001 are acquired and hash-recorded; NASADEM_HGT.001 is the selected 30 m baseline after deterministic comparison.
+- The evidence gate is accepted for the controlled outdoor OSM-first vertical slice. Overture remains explicitly blocked with no coverage claim; campus-wide production remains gated on institutional sources and human review.
 - The hardening branch now separates raw/candidate/canonical/generated data, persists `data/canonical/identity-registry.json`, uses Shapely validity/intersection checks, and emits an offline CI/Phase 1 hardening report.
-- The current tracked fixture produces 7 candidate features and only 3 registry-approved canonical features (Baker Hall, Oblation, Freedom Park). Overture remains explicitly blocked and no Blender/Roblox world work may start while the hardening report is `conditional`.
+- The canonical vertical-slice source set remains traceable to the approved Oblation/Freedom Park/Baker Hall cluster; the generated real-terrain scene expands it to deterministic context routes, buildings, waterways, and green space for greybox validation.
+- The real-terrain Blender/Roblox handoff is complete on the disposable validation place; human visual approval, navmesh/performance review, and detailed interiors remain deferred.
 
 ## Phase 1 — Canonical geospatial foundation
 
@@ -118,7 +120,7 @@ Run broad mobile profiling, streaming audits, collision/accessibility QA, attrib
 
 Each task is intentionally atomic enough for an agent to complete and review.
 
-1. **[CODEX-AUTOMATABLE] Run the live OSM/Overture AOI comparison** using `research/scripts/osm_overture_compare.py --fetch`; commit only result hashes/summary, not replaceable raw bulk data.
+1. **[CODEX-AUTOMATABLE] Run the live OSM/Overture AOI comparison** using `research/scripts/osm_overture_compare.py --fetch`; commit only result hashes/summary, not replaceable raw bulk data. *(OSM is complete; Overture is currently blocked and explicitly deferred.)*
 2. **[CODEX-AUTOMATABLE] Extend the comparison with IoU/centroid/area matching** and a manually reviewable landmark sample report.
 3. **[REQUIRES PERMISSION/DATA REQUEST] Open data requests** for current UPLB campus GIS/boundary/building metadata, LiPAD Los Baños coverage, and authorized IMS dimensional/floor-plan references.
 4. **[CODEX-AUTOMATABLE] Create production JSON Schemas** from the research contracts for source records, canonical features and building specs, with fixtures/tests.
@@ -128,10 +130,10 @@ Each task is intentionally atomic enough for an agent to complete and review.
 8. **[CODEX-AUTOMATABLE] Implement candidate normalization/conflation** that never silently merges conflicts and emits review records.
 9. **[HUMAN VISUAL QA] Review the first 25 canonical feature identities** against current permitted/official references and mark confidence/property conflicts.
 10. **[CODEX-AUTOMATABLE] Create canonical vertical-slice GeoJSON** for the approved landmark cluster with stable IDs and provenance.
-11. **[CODEX-AUTOMATABLE] Acquire and preprocess the approved baseline DEM** with CRS/vertical-datum metadata; generate a local heightfield preview, not Roblox production terrain yet.
+11. **[CODEX-AUTOMATABLE] Acquire and preprocess the approved baseline DEM** with CRS/vertical-datum metadata; generate a local heightfield preview, not Roblox production terrain yet. *(Complete for the controlled NASADEM-backed slice.)*
 12. **[CODEX + BLENDER] Build a deterministic Blender greybox script** that imports canonical features, sets metric scale, creates building massing and road/path preview geometry.
 13. **[CODEX-AUTOMATABLE] Define generated-world manifest format** linking each generated object to feature ID, generator version and source hash.
-14. **[CODEX + ROBLOX MCP] Create a disposable Studio greybox collection** from the vertical-slice manifest and verify transform/scale against known feature markers.
+14. **[CODEX + ROBLOX MCP] Create a disposable Studio greybox collection** from the vertical-slice manifest and verify transform/scale against known feature markers. *(Complete for the real-terrain slice; no place was published.)*
 15. **[CODEX-AUTOMATABLE] Implement first Studio/world validation checks** for missing feature IDs, unanchored static objects, source-hash drift and out-of-tolerance placement.
 16. **[HUMAN DATA COLLECTION] Capture/curate an authorized reference set** for one hero landmark/building and one normal building, with per-image rights records.
 17. **[CODEX + BLENDER] Create the first reusable architectural kit** (one window bay, door, column/rail/covered-walk module as evidence supports), with triangle/material/collision budgets.

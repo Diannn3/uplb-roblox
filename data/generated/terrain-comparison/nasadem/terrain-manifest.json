@@ -1,29 +1,32 @@
 {
   "acquisitionRoute": "Earthdata Search/Earthdata Cloud supported route; retired LP DAAC Data Pool is not used",
+  "archiveSha256": "sha256:c115ac7027d4c6160b308ac280b5e259309680ed6347475407cb071194a42398",
   "authRequirement": "Earthdata Login required for download; no credentials stored",
   "citation": "NASA JPL. (2020). NASADEM Merged DEM Global 1 arc second V001 [Dataset]. NASA LP DAAC.",
   "doi": "10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
   "heightfield": "heightfield.json",
+  "hgtPayloadSha256": "sha256:730d5350ef7663eb7ae00f9cbe861549156540a055dc75d6efaa4f0d19a7fbe9",
   "horizontalCRS": "EPSG:4326",
   "horizontalDatum": "WGS84",
   "landingPage": "https://doi.org/10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
   "nodata": "Product metadata must be checked per granule before processing",
-  "processing": {
-    "crop": "fixture-only",
-    "localCoordinates": true,
-    "targetCRS": "EPSG:32651",
-    "verticalExaggeration": 1.0
-  },
+  "processedHeightfieldSha256": "sha256:3e6dcd85e480cbfaaea342bc18a8d48290af4adff0e7af55bcb72e7144438e84",
   "product": "NASADEM_HGT.001",
   "provider": "NASA JPL / NASA Earthdata LP DAAC",
   "redistribution": "Allowed with citation; do not imply NASA endorsement",
+  "report": "terrain-report.json",
   "resolutionM": 30,
   "rights": "NASA Earthdata open data policy; public-domain/open reuse with citation requested",
   "shortName": "NASADEM_HGT",
-  "sourceHash": null,
-  "sourceKind": "synthetic-fixture",
-  "status": "fixture-only",
+  "sourceHash": "sha256:730d5350ef7663eb7ae00f9cbe861549156540a055dc75d6efaa4f0d19a7fbe9",
+  "sourceKind": "real-nasa-raster",
+  "status": "pass",
   "version": "001",
   "verticalDatum": "EGM96",
+  "verticalReference": {
+    "policy": "floor-minimum-minus-padding",
+    "sourceDatum": "EGM96",
+    "worldBaseElevationM": 22
+  },
   "verticalUnits": "metres"
 }

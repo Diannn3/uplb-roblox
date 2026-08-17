@@ -26,7 +26,7 @@ class TerrainPipelineTests(unittest.TestCase):
 
     def test_acquisition_fails_closed_without_credentials_and_cleans_zero_byte_outputs(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
-            result = acquire_product("srtm", Path(directory))
+            result = acquire_product("srtm", Path(directory), credentials_available=False)
             self.assertEqual(result["status"], "blocked")
             self.assertIn("Earthdata Login", result["diagnostic"])
             self.assertFalse(list(Path(directory).glob("**/*")))

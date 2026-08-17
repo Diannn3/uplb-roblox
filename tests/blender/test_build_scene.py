@@ -6,6 +6,7 @@ from tools.blender.build_scene import (
     COLLECTIONS_BY_ROLE,
     RENDER_FILENAMES,
     build_custom_properties,
+    _polygon_loops,
     terrain_faces,
 )
 
@@ -42,6 +43,13 @@ class BlenderBuilderContractTests(unittest.TestCase):
             set(RENDER_FILENAMES.values()),
             {"topdown.png", "oblation.png", "freedom-park.png", "baker-context.png", "dl-umali-context.png", "road-level.png", "library-context.png"},
         )
+
+    def test_polygon_loops_accept_compiled_local_meter_coordinates(self) -> None:
+        geometry = {
+            "type": "Polygon",
+            "coordinatesLocalMeters": [[[1.0, 2.0], [3.0, 2.0], [3.0, 4.0], [1.0, 2.0]]],
+        }
+        self.assertEqual(_polygon_loops(geometry), [[[[1.0, 2.0], [3.0, 2.0], [3.0, 4.0], [1.0, 2.0]]]])
 
 
 if __name__ == "__main__":

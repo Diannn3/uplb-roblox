@@ -221,6 +221,11 @@ def _terrain_metadata(terrain_path: Path, field: HeightField) -> dict[str, Any]:
         "product": field.product,
         "sourceKind": field.source_kind,
         "sourceHash": manifest.get("sourceHash"),
+        "archiveSha256": manifest.get("archiveSha256"),
+        "hgtPayloadSha256": manifest.get("hgtPayloadSha256"),
+        "processedHeightfieldSha256": manifest.get("processedHeightfieldSha256"),
+        "granule": manifest.get("granule"),
+        "retrievalTimestamp": manifest.get("retrievalTimestamp"),
         "sourceCRS": manifest.get("horizontalCRS", "EPSG:4326"),
         "localCRS": "EPSG:32651",
         "horizontalDatum": manifest.get("horizontalDatum", "WGS84"),
@@ -295,7 +300,7 @@ def _object(feature: dict[str, Any], transform: CoordinateTransform, field: Heig
     ribbons: list[list[list[float]]] = []
     ribbons_3d: list[list[list[float]]] = []
     centerline_3d: list[list[float]] = []
-    if role in {"road", "walkway"}:
+    if role in {"road", "walkway", "water"}:
         ribbons, ribbons_3d, centerline_3d, ribbon_sampling = _terrain_ribbon(
             flat,
             width,
@@ -354,8 +359,8 @@ def _object(feature: dict[str, Any], transform: CoordinateTransform, field: Heig
             "inputHash": input_hash,
             "sourceGeometryHash": props.get("sourceGeometryHash"),
             "verificationStatus": props.get("verificationStatus"),
-            "terrainSamplingMethod": "bilinear-heightfield-per-vertex" if role in {"road", "walkway"} else "bilinear-heightfield-representative-and-footprint",
-            "terrainSampleSpacingM": config.terrain_sample_spacing_m if role in {"road", "walkway"} else None,
+            "terrainSamplingMethod": "bilinear-heightfield-per-vertex" if role in {"road", "walkway", "water"} else "bilinear-heightfield-representative-and-footprint",
+            "terrainSampleSpacingM": config.terrain_sample_spacing_m if role in {"road", "walkway", "water"} else None,
         },
     }
 

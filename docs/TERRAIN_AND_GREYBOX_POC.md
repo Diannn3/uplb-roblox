@@ -1,13 +1,12 @@
 # Terrain and greybox POC gate
 
-## Current stop
+## Current state
 
-The Phase 1 evidence gate is `PASS_FOR_POC` and `worldgenReady=true`. The
-separate greybox branch currently stops at the visual review gate because this
-machine has no `blender`/`blender.exe` on PATH and no Earthdata raster or
-credentials are available. The generated artifacts are therefore explicitly
-labelled `synthetic-fixture` and `conditional-blender-unavailable`; they are
-not a NASA DEM comparison, a Blender mesh validation, or final visual approval.
+The evidence gate is accepted for the outdoor OSM-first vertical slice. Overture
+remains explicitly blocked, but both approved NASA 30 m products were acquired
+through Earthdata Login, processed on the same feature-envelope bounds, and
+compared. NASADEM_HGT.001 is the selected baseline (`terrain-v0.2-real`). Raw
+archives remain ignored and no credential is stored in the repository.
 
 ## Terrain sources
 
@@ -26,8 +25,9 @@ retrieval metadata and hashes under ignored `data/raw/terrain/`. The lightweight
 Both real products are run through the same local EPSG:32651 sampling path
 before `tools/terrain/compare.py` chooses a baseline from measured evidence.
 
-`config/terrain.json` intentionally has `baseline: null`. A synthetic fixture
-must not select a NASA baseline. A credentialed acquisition can run:
+`config/terrain.json` records the selected product, granule, retrieval timestamp,
+archive/payload/processed hashes, CRS/datum contract, and measured selection
+reason. A credentialed acquisition can be reproduced locally with:
 
 ```powershell
 python -m tools.terrain.acquire srtm
@@ -66,5 +66,8 @@ The authoritative generated-world input for both consumers is
 blender.exe --background --python-exit-code 10 --python tools/blender/build_scene.py -- --scene-spec data/generated/worldgen-v0.1/scene-spec.json --output data/generated/blender-v0.1
 ```
 
-Do not start Roblox Studio/MCP handoff until the actual Blender mesh and render
-gates pass and the project owner explicitly approves all six real renders.
+Blender 5.0.0 now passes the mesh/render gates with semantic determinism and
+seven renders (including the library-context camera). Review copies are under
+[`docs/assets/vertical-slice-real-terrain/`](assets/vertical-slice-real-terrain/).
+The remaining gate is human visual approval; no detailed interiors or gameplay
+mechanics are implied by this greybox.

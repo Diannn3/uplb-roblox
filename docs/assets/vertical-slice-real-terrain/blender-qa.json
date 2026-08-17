@@ -1,0 +1,23 @@
+{
+  "blenderMeshGate": "pass",
+  "blenderRenderGate": "pass",
+  "blenderVersion": "5.0.0",
+  "duplicateFeatureIds": false,
+  "impossibleDimensions": false,
+  "missingCameras": [],
+  "negativeScales": false,
+  "nonFiniteTransforms": false,
+  "objectCount": 108,
+  "renderPaths": [
+    "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/topdown.png",
+    "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/oblation.png",
+    "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/freedom-park.png",
+    "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/baker-context.png",
+    "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/dl-umali-context.png",
+    "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/road-level.png",
+    "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/library-context.png"
+  ],
+  "requiredCollectionsMissing": [],
+  "semanticSceneEqual": true,
+  "status": "pass"
+}

@@ -1,99 +1,90 @@
-# UPLB Roblox — Vertical Slice Realization Report
+# UPLB Roblox — Real-Terrain Vertical Slice Report
 
 Date: 2026-08-17  
-Branch: `feat/terrain-blender-roblox-poc`  
-Implementation commits: `55e9064`, `913fff1`, `0962fbe`, `0636eee`
+Branch: `fix/real-terrain-poc-finalization`
 
-## Current decision
+## Decision
 
-The first deterministic vertical slice is implemented and locally validated on
-the disposable Roblox Studio place. It is a greybox realization only. The
-runtime is deliberately marked `blocked-fixture-terrain` until a licensed real
-DEM is downloaded, processed, and compared. No fixture output is being claimed
-as production campus elevation.
+The outdoor Oblation/Freedom Park/Baker Hall slice now has a deterministic,
+source-traceable real-terrain foundation. Overture is still explicitly blocked;
+OSM remains the canonical feature source. Math Building interiors and gameplay
+mechanics remain deferred. This is greybox validation, not final architecture.
 
-## Evidence and source gates
+## Evidence gate
 
 | Gate | Result | Evidence |
 | --- | --- | --- |
-| OSM source pin | Pass | Existing canonical source registry and pinned retrieval hash |
-| Overture recovery | Blocked, explicit | Existing provider diagnostic; adapter remains available |
-| Earthdata CMR search | Pass | [`earthdata_search_smoke.json`](../research/results/earthdata_search_smoke.json), anonymous metadata-only search for SRTMGL1.003 and NASADEM_HGT.001 |
-| Earthdata download | Blocked | Local `earthaccess` 0.18.0 is installed, but no local Earthdata Login credentials are present |
-| DEM license/provenance | Pending download record | SRTM/NASADEM provider metadata is known; archive and payload hashes are not yet recorded |
-| First-slice traceability | Pass for fixture | 98 scene features preserve feature IDs, candidate IDs, source geometry hashes, verification state, and scene/terrain revisions |
+| OSM pin | Pass | `data/canonical/` and the pinned candidate hash |
+| Overture | Blocked, explicit | `research/results/overture_fallback_probe.json`; no coverage claim |
+| Earthdata acquisition | Pass | SRTMGL1.003 and NASADEM_HGT.001 granules downloaded through the official Earthdata route; credentials remain local |
+| DEM comparison | Pass | `data/generated/terrain-comparison/comparison.json`; 0 nodata samples in both products |
+| Selected baseline | NASADEM_HGT.001 | Lower measured maximum adjacent discontinuity: `10.427534 m` vs SRTM `11.056161 m` |
+| Rights/provenance | Pass | DOI, retrieval time, granule, archive/payload/processed hashes in `terrain-manifest.json` and `config/terrain.json` |
 
-The only required external action is local Earthdata authentication through the
-official Earthdata Login flow. Credentials must stay in the local credential
-store (`_netrc`/`netrc` or the approved earthaccess interactive flow); they are
-not requested in chat and are not committed.
+Selected terrain artifacts:
 
-## Deterministic foundation
+- product: `NASADEM_HGT.001`, granule `NASADEM_HGT_n14e121`
+- archive: `sha256:c115ac7027d4c6160b308ac280b5e259309680ed6347475407cb071194a42398`
+- HGT payload: `sha256:730d5350ef7663eb7ae00f9cbe861549156540a055dc75d6efaa4f0d19a7fbe9`
+- processed heightfield: `sha256:3e6dcd85e480cbfaaea342bc18a8d48290af4adff0e7af55bcb72e7144438e84`
+- local CRS: EPSG:32651; horizontal datum WGS84; vertical datum EGM96; world base 22 m
 
-- `tools/terrain/` now supports strict 1-arc-second HGT dimensions, NumPy
-  decoding, ceil-based AOI coverage, relative/absolute elevation provenance,
-  and SRTM/NASADEM comparison metadata.
-- `tools/worldgen/compile_scene.py` emits terrain-following 3D route ribbons,
-  building foundation samples, vertical-reference metadata, and conservative
-  scene validation.
-- `tools/roblox/generate_scene_luau.py` emits an ASCII-only compact Luau
-  runtime projection with stable ordering and a source SHA-256 header.
-- `src/Shared/CoordinateTransform.lua` is the shared local-metre/Roblox-stud
-  contract (`0.28 m/stud`, east `+X`, north `-Z`, elevation `+Y`).
-- `src/Server/WorldGenerator.lua` owns Terrain `WriteVoxels` at 4-stud
-  resolution, 64-cell chunks, terrain-following route segments, owned
-  regeneration, and provenance attributes.
+## Canonical scene
 
-## Blender fixture gate
+`data/generated/worldgen-v0.1/scene-spec.json` is `ready`, validates with no
+errors or warnings, and contains `98` objects: 5 heroes, 35 context buildings,
+25 roads, 25 walkways, 5 waterways, and 3 green-space features. Waterways now
+use terrain-following centerlines/ribbons rather than placeholder cubes.
 
-Blender 5.0.0 was discovered at the local installation path and consumed the
-same scene specification. The headless build produced:
+The scene preserves the terrain granule and all archive/payload/processed hashes.
+The generated server module is
+`src/Server/Generated/WorldScene.lua`; the heavy module is intentionally not in
+`ReplicatedStorage`.
 
-- `vertical-slice-v0.1.blend`
-- `blender-qa.json` and `determinism.json`
-- six deterministic renders (`topdown`, `oblation`, `freedom-park`, `baker`,
-  `dl-umali`, `road-level`)
-- 107 semantic objects with `semanticSceneEqual: true`
+## Blender gate
 
-The renders are greybox review material. Human visual approval remains open;
-the fixture terrain is intentionally not a production visual claim.
+Blender 5.0.0 consumed the same scene spec. Mesh and render QA pass with
+`semanticSceneEqual: true`, 108 semantic objects, all required collections, no
+duplicate IDs, no non-finite transforms, and seven deterministic cameras.
+Review copies are available in [`assets/vertical-slice-real-terrain/`](assets/vertical-slice-real-terrain/):
 
-## Roblox MCP disposable-place gate
+- [topdown.png](assets/vertical-slice-real-terrain/topdown.png)
+- [oblation.png](assets/vertical-slice-real-terrain/oblation.png)
+- [freedom-park.png](assets/vertical-slice-real-terrain/freedom-park.png)
+- [baker-context.png](assets/vertical-slice-real-terrain/baker-context.png)
+- [dl-umali-context.png](assets/vertical-slice-real-terrain/dl-umali-context.png)
+- [road-level.png](assets/vertical-slice-real-terrain/road-level.png)
+- [library-context.png](assets/vertical-slice-real-terrain/library-context.png)
 
-Roblox Studio MCP was verified against the unsaved `Place1` Edit/Play data
-model. The server and client source boundaries were mirrored into the place.
-The generated root is `Workspace.GeneratedVerticalSlice_v01` with the required
-`Buildings`, `Roads`, `Walkways`, `Water`, `GreenSpaceDebug`, `Landmarks`,
-`Debug`, and `Metadata` folders.
+Human visual approval remains open; no detailed interior or final asset claim is
+made from these greybox renders.
 
-Observed Play-mode result:
+## Roblox Studio MCP gate
 
-- 43 footprint objects
-- 574 terrain-following route segments
-- 272 smooth-Terrain chunks (`1071 × 17 × 983` cells)
-- 5 landmark/hero parts, including Oblation, Freedom Park, Baker Hall, DL
-  Umali, and the Main Library
-- nonzero terrain occupancy observed at the Oblation spawn
-- server and client initialization logs present
-- short character-navigation probe passed
-- a second regeneration produced the same scene hash and counts
-- the long cross-slice navigation probe remains blocked pending navmesh/pathing
-  tuning against real terrain
+The disposable unsaved `Place1` Edit place was synced from Git. The authoritative
+module is under `ServerScriptService.Server.Generated.WorldScene`; the stale
+`ReplicatedStorage.Shared.Generated.WorldScene` was removed. Edit-mode bake and
+final standard-module regeneration both passed with:
 
-Machine-readable details are in
+- scene hash: `sha256:809b58f648934c19cba70878b37b8956866331994679148a07e95e7410806ea6`
+- 43 footprint objects, 709 route segments, 480 terrain chunks
+- voxel cells: `1890 × 124 × 983` (`230375880` total)
+- terrain bounds: `-5420,2140,-8,488,-572,3360`
+- 35 buildings, 5 landmarks/heroes, 300 water segments, Oblation-derived spawn
+- root status: `ready`; terrain revision: `terrain-v0.2-real`
+
+Production-static Play mode logged “using existing baked world” and did not
+regenerate the terrain. Machine-readable details are in
 [`poc-validation.json`](../data/generated/roblox-v0.1/poc-validation.json).
 
-## Tests
+## Tests and remaining review
 
-The Python 3.12 environment reports `70 passed`. This includes HGT/CRS
-golden-point tests, deterministic ingestion and scene tests, Earthdata adapter
-fallback tests, Blender tests, Luau generator tests, and server-contract tests.
+The Python 3.12 suite reports `78 passed`. This includes strict HGT dimensions,
+CRS/axis golden points, real-product comparison metrics, deterministic scene and
+Luau generation, Blender geometry compatibility, Overture diagnostics, and
+server/runtime contracts.
 
-## Next gate
-
-Authenticate Earthdata locally, then run the two approved granule downloads,
-record archive/payload checksums, generate strict real SRTM/NASADEM terrain,
-select the baseline with the comparison report, regenerate the scene/Luau,
-rerun Blender, and repeat the disposable-place Roblox validation. Until that
-cycle is complete, keep the fixture status and human visual gate explicit.
-
+Remaining review items are human visual approval, a future long-distance
+navigation/pathfinding pass, and the still-blocked Overture provider. No raw
+DEM archives, credentials, Roblox publication, or external permission requests
+are committed or sent.

@@ -163,6 +163,7 @@ def preprocess_hgt(
         "verticalDatum": "EGM96",
         "nativeResolutionM": product_source(product)["resolutionM"],
         "processingResolutionM": sample_spacing_m,
+        "processedSpacingM": sample_spacing_m,
         "minElevationM": field.min_elevation_m,
         "maxElevationM": field.max_elevation_m,
         "relativeMinElevationM": field.min_elevation_m - world_base,

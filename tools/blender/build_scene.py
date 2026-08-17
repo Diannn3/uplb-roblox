@@ -192,7 +192,10 @@ def _mesh_object(name: str, vertices: list[tuple[float, float, float]], faces: l
 
 def _polygon_loops(geometry: dict[str, Any]) -> list[list[list[list[float]]]]:
     geometry_type = geometry.get("type")
-    coordinates = geometry.get("coordinates") or []
+    # Scene compilation projects GeoJSON into local metres before Blender
+    # consumes it.  Accept the compiled key first, while retaining the raw
+    # GeoJSON key for small diagnostic fixtures.
+    coordinates = geometry.get("coordinatesLocalMeters") or geometry.get("coordinates") or []
     if geometry_type == "Polygon":
         return [[[[float(point[0]), float(point[1])] for point in ring] for ring in coordinates]]
     if geometry_type == "MultiPolygon":
@@ -222,7 +225,13 @@ def _extruded_polygon_mesh(geometry: dict[str, Any], base: float, height: float)
         if not ring_indices:
             continue
         if tessellate_polygon is not None and Vector is not None:
-            loops = [[Vector((x, y, 0.0)) for x, y in ring] for ring in polygon]
+            # Blender 5 returns triangle vertex indices, while older builds
+            # returned Vector objects.  Trim GeoJSON closing points before
+            # tessellation and retain the flattened source order for both
+            # API shapes.
+            source_loops = [ring[:-1] if len(ring) >= 2 and ring[0] == ring[-1] else ring for ring in polygon]
+            loops = [[Vector((x, y, 0.0)) for x, y in ring] for ring in source_loops]
+            flat_points = [point for ring in source_loops for point in ring]
             # Map every ring vertex explicitly; the separate top/bottom maps
             # preserve courtyard holes when Blender tessellates the loops.
             top_lookup = {}
@@ -234,7 +243,10 @@ def _extruded_polygon_mesh(geometry: dict[str, Any], base: float, height: float)
                     bottom_lookup[key] = bottom_index
                     top_lookup[key] = top_index
             for triangle in tessellate_polygon(loops):
-                points = [(round(float(point.x), 8), round(float(point.y), 8)) for point in triangle]
+                if triangle and isinstance(triangle[0], int):
+                    points = [(round(float(flat_points[index][0]), 8), round(float(flat_points[index][1]), 8)) for index in triangle]
+                else:
+                    points = [(round(float(point.x), 8), round(float(point.y), 8)) for point in triangle]
                 if all(point in top_lookup for point in points):
                     faces.append(tuple(top_lookup[point] for point in points))
                     faces.append(tuple(reversed(tuple(bottom_lookup[point] for point in points))))
@@ -307,7 +319,7 @@ def _build_feature(feature: dict[str, Any], collections: dict[str, Any], scene_h
         return _mesh_object(name, vertices, faces, collection, "water-diagnostic" if role == "water" else "green-space-diagnostic", properties)
     ribbons = geometry.get("ribbonCoordinatesLocalMeters") or []
     ribbons_3d = geometry.get("ribbonCoordinatesLocalMeters3D") or []
-    if role in {"road", "walkway"} and ribbons:
+    if role in {"road", "walkway", "water"} and ribbons:
         vertices: list[tuple[float, float, float]] = []
         faces: list[tuple[int, ...]] = []
         for index, ribbon in enumerate(ribbons):
@@ -319,7 +331,8 @@ def _build_feature(feature: dict[str, Any], collections: dict[str, Any], scene_h
                 vertices.extend((float(point[0]), float(point[1]), base + 0.05) for point in ribbon)
             if len(ribbon) >= 3:
                 faces.append(tuple(start + index for index in range(len(ribbon))))
-        return _mesh_object(name, vertices, faces, collection, "road-diagnostic" if role == "road" else "walkway-diagnostic", properties)
+        material_class = "water-diagnostic" if role == "water" else ("road-diagnostic" if role == "road" else "walkway-diagnostic")
+        return _mesh_object(name, vertices, faces, collection, material_class, properties)
     local = geometry.get("coordinatesLocalMeters")
     point = local if isinstance(local, list) and len(local) >= 2 and all(isinstance(item, (int, float)) for item in local[:2]) else [0.0, 0.0]
     proxy = feature.get("proxy") or {}
@@ -340,6 +353,9 @@ def _build_cameras(scene_spec: dict[str, Any], collections: dict[str, Any]) -> d
     center_x = sum(float(item.get("eastM", 0.0)) for item in placements) / max(len(placements), 1)
     center_y = sum(float(item.get("northM", 0.0)) for item in placements) / max(len(placements), 1)
     targets = {str(obj.get("name")): obj.get("placement") or {} for obj in scene_spec.get("objects", [])}
+    terrain = scene_spec.get("terrain") or {}
+    terrain_center_x = float(terrain.get("originEastM", center_x)) + max(int(terrain.get("columns", 1)) - 1, 0) * float(terrain.get("samplingResolutionM", 30.0)) / 2.0
+    terrain_center_y = float(terrain.get("originNorthM", center_y)) + max(int(terrain.get("rows", 1)) - 1, 0) * float(terrain.get("samplingResolutionM", 30.0)) / 2.0
     target_for = lambda name: (float(targets.get(name, {}).get("eastM", center_x)), float(targets.get(name, {}).get("northM", center_y)), float(targets.get(name, {}).get("baseElevationM", 0.0)))
     position_for = lambda name, east_offset, north_offset, elevation: (
         target_for(name)[0] + east_offset,
@@ -347,7 +363,7 @@ def _build_cameras(scene_spec: dict[str, Any], collections: dict[str, Any]) -> d
         elevation,
     )
     definitions = {
-        "CAM_TOPDOWN": (target_for("UPLB Oblation"), (center_x, center_y, 900.0)),
+        "CAM_TOPDOWN": ((terrain_center_x, terrain_center_y, 0.0), (terrain_center_x, terrain_center_y, 2400.0)),
         "CAM_OBLATION": (target_for("UPLB Oblation"), position_for("UPLB Oblation", 35.0, -35.0, 35.0)),
         "CAM_FREEDOM_PARK": (target_for("UPLB Freedom Park"), position_for("UPLB Freedom Park", 45.0, -45.0, 40.0)),
         "CAM_BAKER": (target_for("Charles Fuller Baker Memorial Hall"), position_for("Charles Fuller Baker Memorial Hall", 100.0, 0.0, 50.0)),
@@ -358,6 +374,13 @@ def _build_cameras(scene_spec: dict[str, Any], collections: dict[str, Any]) -> d
     cameras: dict[str, Any] = {}
     for name, (target, position) in definitions.items():
         data = blender.data.cameras.new(name)
+        if name == "CAM_TOPDOWN":
+            data.type = "ORTHO"
+            data.clip_end = 10000.0
+            data.ortho_scale = max(
+                float(terrain.get("columns", 1) - 1) * float(terrain.get("samplingResolutionM", 30.0)),
+                float(terrain.get("rows", 1) - 1) * float(terrain.get("samplingResolutionM", 30.0)),
+            ) * 1.18
         camera = blender.data.objects.new(name, data)
         collections["Debug"].objects.link(camera)
         camera.location = position

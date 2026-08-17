@@ -1,6 +1,6 @@
 {
-  "archiveFilename": "NASADEM_HGT_n14e121.zip",
-  "archiveSha256": "sha256:c115ac7027d4c6160b308ac280b5e259309680ed6347475407cb071194a42398",
+  "archiveFilename": "N14E121.SRTMGL1.hgt.zip",
+  "archiveSha256": "sha256:3169d32283271c39307371ee01a6cbb66c32143e4f1e1c55c152f44809dd2d81",
   "coverageBoundsLocalM": {
     "eastM": 612.6689003391075,
     "northM": 189.0923085224349,
@@ -13,9 +13,9 @@
     "southM": -950.9076914775651,
     "westM": -1517.3310996608925
   },
-  "granule": "NASADEM_HGT_n14e121",
+  "granule": "N14E121.SRTMGL1.hgt",
   "heightfield": "heightfield.json",
-  "hgtPayloadSha256": "sha256:730d5350ef7663eb7ae00f9cbe861549156540a055dc75d6efaa4f0d19a7fbe9",
+  "hgtPayloadSha256": "sha256:f4761f7b97ef7e78dff39e9f8b3a649ebddce19479bbd316a6f018d85305260c",
   "horizontalDatum": "WGS84",
   "interpolatedCount": 2808,
   "localCRS": "EPSG:32651",
@@ -23,28 +23,26 @@
     "eastM": -1517.3310996608925,
     "northM": -950.9076914775651
   },
-  "maxElevationM": 155.55039773200005,
-  "minElevationM": 24.39318038048821,
+  "maxElevationM": 158.01643137779837,
+  "minElevationM": 27.39318038048821,
   "nativeResolutionM": 30,
   "nodataCount": 0,
-  "processedHeightfieldSha256": "sha256:3e6dcd85e480cbfaaea342bc18a8d48290af4adff0e7af55bcb72e7144438e84",
+  "processedHeightfieldSha256": "sha256:c7eae8e38b5bfbd92873a1c8c86cbddee38b058e64db26648b805cd994aa011d",
   "processedSpacingM": 30.0,
   "processingResolutionM": 30.0,
   "processingVersion": "terrain-v0.2-real-hgt",
-  "product": "NASADEM_HGT.001",
-  "relativeMaxElevationM": 133.55039773200005,
+  "product": "SRTMGL1.003",
+  "relativeMaxElevationM": 133.01643137779837,
   "relativeMinElevationM": 2.393180380488211,
-  "retrievalTimestamp": "2026-08-17T04:39:12.238467+00:00",
-  "selectedDEM": "NASADEM_HGT.001",
-  "selectionReason": "Evidence comparison selected the product with the lower maximum adjacent elevation discontinuity in the UPLB AOI.",
+  "retrievalTimestamp": "2026-08-17T04:38:47.444877+00:00",
   "sourceCRS": "EPSG:4326",
-  "sourceHash": "sha256:730d5350ef7663eb7ae00f9cbe861549156540a055dc75d6efaa4f0d19a7fbe9",
+  "sourceHash": "sha256:f4761f7b97ef7e78dff39e9f8b3a649ebddce19479bbd316a6f018d85305260c",
   "sourceKind": "real-nasa-raster",
   "status": "pass",
   "verticalDatum": "EGM96",
   "verticalReference": {
     "policy": "floor-minimum-minus-padding",
     "sourceDatum": "EGM96",
-    "worldBaseElevationM": 22
+    "worldBaseElevationM": 25
   }
 }

@@ -4,6 +4,6 @@
   "selectionHash": "sha256:6695d748f60e544f77ef9e6f7178cb06142382e455f2d7082712444c33f7f522",
   "sliceFeaturesHash": "sha256:7d1261ba184e29850214e28c2cd089422fe6c2bfd1ef983296e4c29e51a64504",
   "sliceVersion": "v0.1",
-  "terrainHash": "sha256:fb85bc5b8f53b2030716326a008bf0b7ef613bc55e69dfaca601515bc0108b3a",
-  "terrainSourceHash": null
+  "terrainHash": "sha256:89696d3b87d0720e7820b7b0fee19c03b0ad57eb45d398cd68e5b5ee5e27916e",
+  "terrainSourceHash": "sha256:730d5350ef7663eb7ae00f9cbe861549156540a055dc75d6efaa4f0d19a7fbe9"
 }

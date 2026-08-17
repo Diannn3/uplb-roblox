@@ -148,7 +148,11 @@ def generate_real_outputs(
     comparison_dir = Path(comparison_dir)
     output_dir = Path(output_dir)
     comparison_dir.mkdir(parents=True, exist_ok=True)
-    aoi_path = Path(slice_path).parent / "area.geojson"
+    # The downloaded tile is broad enough for the core AOI, while the scene
+    # also contains context roads/buildings outside that polygon.  Process
+    # the complete feature envelope so every canonical object has terrain
+    # coverage during scene compilation.
+    aoi_path = Path(slice_path)
     fields: dict[str, HeightField] = {}
     reports: dict[str, dict[str, Any]] = {}
     for key, product in (("srtm", "SRTMGL1.003"), ("nasadem", "NASADEM_HGT.001")):
@@ -156,12 +160,19 @@ def generate_real_outputs(
         report = preprocess_hgt(raw_files[key][0], product_dir, product=product, aoi_path=aoi_path, strict_dimensions=strict_dimensions)
         fields[key] = HeightField.read(product_dir / "heightfield.json")
         reports[key] = report
+        acquisition_manifest = raw_files[key][0].parent / "acquisition-manifest.json"
+        if acquisition_manifest.exists():
+            acquisition = json.loads(acquisition_manifest.read_text(encoding="utf-8"))
+            granules = acquisition.get("granules") or []
+            report["granule"] = (granules[0].get("granuleId") if granules else None)
+            report["retrievalTimestamp"] = acquisition.get("retrievalTimestamp")
+            report["archiveFilename"] = (acquisition.get("files") or [{}])[0].get("filename")
         render_preview(fields[key], product_dir / "preview.png")
         write_json(comparison_dir / f"{key}-report.json", report)
     points = _hero_points(slice_path)
     comparison = compare_products(fields["srtm"], fields["nasadem"], points)
     decision = choose_baseline(comparison)
-    comparison.update({"comparisonRevision": "terrain-comparison-v0.2-real", "sourceStatus": "validated-raster", "officialSources": {key: {"product": value["product"], "doi": value["doi"], "landingPage": value["landingPage"]} for key, value in PRODUCT_SOURCES.items()}, "pointsCRS": "project-local metres (EPSG:32651 origin contract)", "baselineDecision": decision})
+    comparison.update({"comparisonRevision": "terrain-comparison-v0.2-real", "sourceStatus": "validated-raster", "officialSources": {key: {"product": value["product"], "doi": value["doi"], "landingPage": value["landingPage"]} for key, value in PRODUCT_SOURCES.items()}, "pointsCRS": "project-local metres (EPSG:32651 origin contract)", "baselineDecision": decision, "baselineSelected": bool(decision.get("baseline")), "selectionReason": decision["selectionReason"]})
     write_json(comparison_dir / "comparison.json", comparison)
     output_dir.mkdir(parents=True, exist_ok=True)
     baseline_key = "srtm" if decision["baseline"] == PRODUCT_SOURCES["srtm"]["product"] else "nasadem"
@@ -171,8 +182,8 @@ def generate_real_outputs(
     selected.write(output_dir / "heightfield.json")
     render_preview(selected, output_dir / "preview.png")
     write_json(output_dir / "terrain-report.json", selected_report)
-    write_json(output_dir / "terrain-manifest.json", {**PRODUCT_SOURCES[baseline_key], "revision": "terrain-v0.2-real", "sourceKind": "real-nasa-raster", "sourceHash": selected_report.get("sourceHash"), "heightfield": "heightfield.json", "report": "terrain-report.json", "status": "validated-raster"})
-    config = {**PRODUCT_SOURCES[baseline_key], "status": "selected-real-baseline", "baseline": decision["baseline"], "selectionReason": decision["selectionReason"], "sourceHash": selected_report.get("sourceHash"), "terrainRevision": "terrain-v0.2-real", "verticalExaggeration": 1.0}
+    write_json(output_dir / "terrain-manifest.json", {**PRODUCT_SOURCES[baseline_key], "revision": "terrain-v0.2-real", "sourceKind": "real-nasa-raster", "sourceHash": selected_report.get("sourceHash"), "archiveSha256": selected_report.get("archiveSha256"), "hgtPayloadSha256": selected_report.get("hgtPayloadSha256"), "processedHeightfieldSha256": selected_report.get("processedHeightfieldSha256"), "granule": selected_report.get("granule"), "retrievalTimestamp": selected_report.get("retrievalTimestamp"), "heightfield": "heightfield.json", "report": "terrain-report.json", "status": "ready-real-terrain"})
+    config = {**PRODUCT_SOURCES[baseline_key], "status": "ready-real-terrain", "baseline": decision["baseline"], "granule": selected_report.get("granule"), "retrievalTimestamp": selected_report.get("retrievalTimestamp"), "selectionReason": decision["selectionReason"], "sourceHash": selected_report.get("sourceHash"), "archiveSha256": selected_report.get("archiveSha256"), "hgtPayloadSha256": selected_report.get("hgtPayloadSha256"), "processedHeightfieldSha256": selected_report.get("processedHeightfieldSha256"), "coverageBoundsLocalM": selected_report.get("coverageBoundsLocalM"), "cropBoundsLocalM": selected_report.get("cropBoundsLocalM"), "nativeResolutionM": selected_report.get("nativeResolutionM"), "processedSpacingM": selected_report.get("processedSpacingM"), "horizontalDatum": selected_report.get("horizontalDatum", "WGS84"), "verticalDatum": selected_report.get("verticalDatum", "EGM96"), "terrainRevision": "terrain-v0.2-real", "verticalExaggeration": 1.0}
     write_json(config_path, config)
     return {"comparison": comparison, "terrainReport": selected_report, "config": config}
 

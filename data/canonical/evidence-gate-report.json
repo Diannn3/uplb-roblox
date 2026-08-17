@@ -20,7 +20,12 @@
       "status": "pass"
     },
     {
-      "details": "SRTMGL1.003 endpoint, citation, vertical metadata, and redistribution status are recorded.",
+      "details": "NASADEM_HGT.001 acquired and compared; selected NASADEM_HGT.001; archive, payload, processed, retrieval, and local coverage metadata are recorded.",
+      "name": "dem-acquisition",
+      "status": "pass"
+    },
+    {
+      "details": "SRTMGL1.003 and NASADEM_HGT.001 rights, endpoint, citation, vertical metadata, and redistribution status are recorded.",
       "name": "dem-license-gate",
       "status": "pass"
     },
@@ -47,7 +52,9 @@
   "inputRevisions": {
     "comparison": "research\\results\\osm_overture_comparison.json",
     "probe": "research\\results\\overture_fallback_probe.json",
-    "sourceMatrix": "data\\source-matrix.json"
+    "sourceMatrix": "data\\source-matrix.json",
+    "terrainComparison": "data\\generated\\terrain-comparison\\comparison.json",
+    "terrainConfig": "config\\terrain.json"
   },
   "measurements": {
     "osmSummary": {
@@ -74,6 +81,7 @@
     "sourceMatrix": [
       {
         "accessedAt": "2026-08-17",
+        "archiveSha256": null,
         "bbox": [
           121.2099966,
           14.1290501,
@@ -83,12 +91,16 @@
         "hash": "sha256:9f766739c1ad0088170c708d222c246b47b4dc684120f1f57f252d6f290f6142",
         "license": "ODbL-1.0",
         "nextAction": "Keep the pinned hash and refresh only through the reproducible harness",
+        "payloadSha256": null,
+        "processedHeightfieldSha256": null,
         "provider": "OpenStreetMap contributors",
+        "retrievalTimestamp": null,
         "sourceId": "osm",
         "status": "validated"
       },
       {
         "accessedAt": "2026-08-17",
+        "archiveSha256": null,
         "bbox": [
           121.2099966,
           14.1290501,
@@ -98,112 +110,179 @@
         "hash": null,
         "license": "ODbL-1.0 plus upstream attribution",
         "nextAction": "Retry a current client/direct-cloud path; do not claim missing coverage",
+        "payloadSha256": null,
+        "processedHeightfieldSha256": null,
         "provider": "Overture Maps Foundation",
+        "retrievalTimestamp": null,
         "sourceId": "overture-buildings",
         "status": "blocked-provider-access"
       },
       {
         "accessedAt": null,
+        "archiveSha256": null,
         "bbox": null,
         "hash": null,
         "license": "Permission not assumed",
         "nextAction": "Human-review and send an access/licensing request",
+        "payloadSha256": null,
+        "processedHeightfieldSha256": null,
         "provider": "University of the Philippines Los Baños",
+        "retrievalTimestamp": null,
         "sourceId": "uplb-official-gis",
         "status": "permission-request-draft"
       },
       {
         "accessedAt": null,
+        "archiveSha256": null,
         "bbox": null,
         "hash": null,
         "license": "Permission not assumed",
         "nextAction": "Request one calibrated Math Building reference set after exterior pilot",
+        "payloadSha256": null,
+        "processedHeightfieldSha256": null,
         "provider": "UPLB IMS / building administrators",
+        "retrievalTimestamp": null,
         "sourceId": "ims-floor-plans",
         "status": "permission-request-draft"
       },
       {
         "accessedAt": null,
+        "archiveSha256": null,
         "bbox": null,
         "hash": null,
         "license": "CC BY-SA/use terms require review",
         "nextAction": "Check coverage without bulk downloading imagery",
+        "payloadSha256": null,
+        "processedHeightfieldSha256": null,
         "provider": "Mapillary / Meta",
+        "retrievalTimestamp": null,
         "sourceId": "mapillary",
         "status": "coverage-and-use-unverified"
       },
       {
         "accessedAt": null,
+        "archiveSha256": null,
         "bbox": null,
         "hash": null,
         "license": "CC BY-SA 4.0 per current terms",
         "nextAction": "Verify UPLB coverage and retain per-sequence rights records",
+        "payloadSha256": null,
+        "processedHeightfieldSha256": null,
         "provider": "KartaView",
+        "retrievalTimestamp": null,
         "sourceId": "kartaview",
         "status": "coverage-unverified"
       },
       {
         "accessedAt": null,
+        "archiveSha256": null,
         "bbox": null,
         "hash": null,
         "license": "Dataset-specific",
         "nextAction": "Record dataset owner and download agreement before retrieval",
+        "payloadSha256": null,
+        "processedHeightfieldSha256": null,
         "provider": "NAMRIA / Geoportal Philippines",
+        "retrievalTimestamp": null,
         "sourceId": "geoportal-philippines",
         "status": "catalogue-only"
       },
       {
         "accessedAt": null,
+        "archiveSha256": null,
         "bbox": null,
         "hash": null,
         "license": "Access/product-specific",
         "nextAction": "Request Los Baños coverage and exact redistribution terms",
+        "payloadSha256": null,
+        "processedHeightfieldSha256": null,
         "provider": "UP DREAM / DOST",
+        "retrievalTimestamp": null,
         "sourceId": "lipad",
         "status": "permission-request-draft"
       },
       {
         "accessedAt": "2026-08-17",
-        "bbox": null,
+        "archiveSha256": "sha256:3169d32283271c39307371ee01a6cbb66c32143e4f1e1c55c152f44809dd2d81",
+        "bbox": [
+          121.2099966,
+          14.1290501,
+          121.2721856,
+          14.1921433
+        ],
         "hash": null,
         "license": "NASA Earthdata open data policy; current LP DAAC product openly shared without restriction, with citation requested",
-        "nextAction": "Retain as the legal baseline; acquire only through the documented Earthdata path when terrain work is approved",
+        "nextAction": "Retain as a measured comparison input; NASADEM_HGT.001 is selected for the controlled slice",
+        "payloadSha256": "sha256:f4761f7b97ef7e78dff39e9f8b3a649ebddce19479bbd316a6f018d85305260c",
+        "processedHeightfieldSha256": "sha256:c7eae8e38b5bfbd92873a1c8c86cbddee38b058e64db26648b805cd994aa011d",
         "provider": "NASA JPL / NASA Earthdata LP DAAC",
+        "retrievalTimestamp": "2026-08-17T04:38:47.444877+00:00",
         "sourceId": "srtm-30m",
-        "status": "validated-fallback"
+        "status": "validated-comparison-input"
+      },
+      {
+        "accessedAt": "2026-08-17",
+        "archiveSha256": "sha256:c115ac7027d4c6160b308ac280b5e259309680ed6347475407cb071194a42398",
+        "bbox": [
+          121.2099966,
+          14.1290501,
+          121.2721856,
+          14.1921433
+        ],
+        "hash": null,
+        "license": "NASA Earthdata open data policy; public-domain/open reuse with citation requested",
+        "nextAction": "Use as the controlled-slice baseline; obtain higher-resolution authorized terrain before campus-wide production",
+        "payloadSha256": "sha256:730d5350ef7663eb7ae00f9cbe861549156540a055dc75d6efaa4f0d19a7fbe9",
+        "processedHeightfieldSha256": "sha256:3e6dcd85e480cbfaaea342bc18a8d48290af4adff0e7af55bcb72e7144438e84",
+        "provider": "NASA JPL / NASA Earthdata LP DAAC",
+        "retrievalTimestamp": "2026-08-17T04:39:12.238467+00:00",
+        "sourceId": "nasadem-30m",
+        "status": "validated-selected-baseline"
       },
       {
         "accessedAt": null,
+        "archiveSha256": null,
         "bbox": null,
         "hash": null,
         "license": "Free-use notice and service terms apply",
         "nextAction": "Compare access and vertical metadata against SRTM",
+        "payloadSha256": null,
+        "processedHeightfieldSha256": null,
         "provider": "Copernicus Data Space Ecosystem",
+        "retrievalTimestamp": null,
         "sourceId": "copernicus-dem",
         "status": "fallback-candidate"
       },
       {
         "accessedAt": null,
+        "archiveSha256": null,
         "bbox": null,
         "hash": null,
         "license": "Restricted platform terms",
         "nextAction": "Do not scrape, bulk-store, or use for automated reconstruction",
+        "payloadSha256": null,
+        "processedHeightfieldSha256": null,
         "provider": "Google Maps Platform",
+        "retrievalTimestamp": null,
         "sourceId": "google-imagery",
         "status": "excluded"
       },
       {
         "accessedAt": null,
+        "archiveSha256": null,
         "bbox": null,
         "hash": null,
         "license": "File-specific",
         "nextAction": "Use only as a labelled cross-check, never as current campus boundary",
+        "payloadSha256": null,
+        "processedHeightfieldSha256": null,
         "provider": "Wikimedia Commons contributors",
+        "retrievalTimestamp": null,
         "sourceId": "wikimedia-uplb-map",
         "status": "historical-reference-only"
       }
     ],
-    "sourceRows": 12,
+    "sourceRows": 13,
     "srtm": {
       "accessedAt": "2026-08-17",
       "authRequirement": "Earthdata Login required for download; no credentials stored",
@@ -212,9 +291,67 @@
       "horizontalDatum": "WGS84",
       "landingPage": "https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl1-003",
       "nodata": "No voids in Version 3.0; historical -32768 only applies to Versions 1.0/2.1",
-      "status": "validated-fallback",
+      "status": "validated-comparison-input",
       "verticalDatum": "EGM96",
       "verticalUnits": "metres"
+    },
+    "terrain": {
+      "archiveSha256": "sha256:c115ac7027d4c6160b308ac280b5e259309680ed6347475407cb071194a42398",
+      "baseline": "NASADEM_HGT.001",
+      "comparisonCoverage": {
+        "nasadem": {
+          "eastM": 612.6689,
+          "northM": 189.092309,
+          "southM": -950.907691,
+          "westM": -1517.3311
+        },
+        "overlap": {
+          "eastM": 612.6689,
+          "northM": 189.092309,
+          "southM": -950.907691,
+          "westM": -1517.3311
+        },
+        "srtm": {
+          "eastM": 612.6689,
+          "northM": 189.092309,
+          "southM": -950.907691,
+          "westM": -1517.3311
+        }
+      },
+      "comparisonRevision": "terrain-comparison-v0.2-real",
+      "comparisonStatus": "validated-raster",
+      "coverageBoundsLocalM": {
+        "eastM": 612.6689003391075,
+        "northM": 189.0923085224349,
+        "southM": -950.9076914775651,
+        "westM": -1517.3310996608925
+      },
+      "cropBoundsLocalM": {
+        "eastM": 602.5113505323534,
+        "northM": 170.34206723747775,
+        "southM": -950.9076914775651,
+        "westM": -1517.3310996608925
+      },
+      "doi": "10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
+      "granule": "NASADEM_HGT_n14e121",
+      "hgtPayloadSha256": "sha256:730d5350ef7663eb7ae00f9cbe861549156540a055dc75d6efaa4f0d19a7fbe9",
+      "horizontalCRS": "EPSG:4326",
+      "horizontalDatum": "WGS84",
+      "landingPage": "https://doi.org/10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
+      "processedHeightfieldSha256": "sha256:3e6dcd85e480cbfaaea342bc18a8d48290af4adff0e7af55bcb72e7144438e84",
+      "product": "NASADEM_HGT.001",
+      "products": [
+        "SRTMGL1.003",
+        "NASADEM_HGT.001"
+      ],
+      "redistribution": "Allowed with citation; do not imply NASA endorsement",
+      "retrievalTimestamp": "2026-08-17T04:39:12.238467+00:00",
+      "rights": "NASA Earthdata open data policy; public-domain/open reuse with citation requested",
+      "selectionReason": "Evidence comparison selected the product with the lower maximum adjacent elevation discontinuity in the UPLB AOI.",
+      "sourceHash": "sha256:730d5350ef7663eb7ae00f9cbe861549156540a055dc75d6efaa4f0d19a7fbe9",
+      "status": "ready-real-terrain",
+      "terrainRevision": "terrain-v0.2-real",
+      "verticalDatum": "EGM96"
     }
   },
   "overtureComparisonGate": "deferred",

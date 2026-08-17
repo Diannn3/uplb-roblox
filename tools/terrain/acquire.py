@@ -258,7 +258,7 @@ def acquire_product(
         return {
             "status": "blocked",
             "product": source["product"],
-            "diagnostic": f"Earthdata acquisition did not complete: {exc.__class__.__name__}: {diagnostic}",
+            "diagnostic": f"Earthdata Login acquisition did not complete: {exc.__class__.__name__}: {diagnostic}",
             "output": str(output_dir),
             "source": source["landingPage"],
         }

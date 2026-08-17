@@ -225,7 +225,7 @@ def build_gate(
     if dem_source is None:
         report.dem_rights_gate = "pending"
         report.add_check("dem-rights", "fail", "baseline DEM source record is missing")
-    elif dem_source.rights_status in {"open-redistributable", "open-attribution-required", "share-alike"} and dem_source.status in {"validated", "validated-fallback", "available"}:
+    elif dem_source.rights_status in {"open-redistributable", "open-attribution-required", "share-alike"} and dem_source.status in {"validated", "validated-fallback", "validated-comparison-input", "validated-selected-baseline", "available"}:
         report.dem_rights_gate = "pass"
         report.add_check("dem-rights", "pass", f"{dem_source.id} has a recorded usable rights status and endpoint metadata")
     elif dem_source.rights_status in {"restricted-do-not-ingest", "permission-required"}:

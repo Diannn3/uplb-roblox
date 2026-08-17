@@ -1,5 +1,4 @@
 {
-  "archiveFilename": "NASADEM_HGT_n14e121.zip",
   "archiveSha256": "sha256:c115ac7027d4c6160b308ac280b5e259309680ed6347475407cb071194a42398",
   "coverageBoundsLocalM": {
     "eastM": 612.6689003391075,
@@ -13,7 +12,6 @@
     "southM": -950.9076914775651,
     "westM": -1517.3310996608925
   },
-  "granule": "NASADEM_HGT_n14e121",
   "heightfield": "heightfield.json",
   "hgtPayloadSha256": "sha256:730d5350ef7663eb7ae00f9cbe861549156540a055dc75d6efaa4f0d19a7fbe9",
   "horizontalDatum": "WGS84",
@@ -34,9 +32,6 @@
   "product": "NASADEM_HGT.001",
   "relativeMaxElevationM": 133.55039773200005,
   "relativeMinElevationM": 2.393180380488211,
-  "retrievalTimestamp": "2026-08-17T04:39:12.238467+00:00",
-  "selectedDEM": "NASADEM_HGT.001",
-  "selectionReason": "Evidence comparison selected the product with the lower maximum adjacent elevation discontinuity in the UPLB AOI.",
   "sourceCRS": "EPSG:4326",
   "sourceHash": "sha256:730d5350ef7663eb7ae00f9cbe861549156540a055dc75d6efaa4f0d19a7fbe9",
   "sourceKind": "real-nasa-raster",

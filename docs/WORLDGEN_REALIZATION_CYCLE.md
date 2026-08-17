@@ -9,7 +9,9 @@ Blender, and the later Roblox Studio handoff:
 `→ (after human approval) Roblox Studio MCP verifier`
 
 The checked-in semantic generator and Pillow previews remain useful offline
-fixtures. They are not real terrain, Blender geometry, or visual approval.
+fixtures. The current cycle also has a validated real-terrain scene, Blender
+mesh/renders, and a disposable Roblox Studio MCP bake; visual approval remains
+a human gate.
 
 ## Explicit gates
 
@@ -18,13 +20,14 @@ real terrain, Blender availability, mesh generation, rendering, visual review,
 and Roblox generation/spatial/playtest. A semantic `pass` cannot promote a
 fixture or an unavailable Blender executable to a real-world pass.
 
-## Current stop
+## Current state
 
-The current machine reports Python 3.11, no Blender executable, no installed
-`earthaccess`, no Earthdata Login configuration, and no Roblox Studio MCP
-connector. The implementation therefore stops before real acquisition and
-before any Roblox mutation. Install Python 3.12, configure Earthdata Login
-locally, install Blender, then rerun `tools/worldgen/preflight.py`.
+Python 3.12, Blender 5.0.0, Earthdata Login, and the Roblox Studio MCP
+connector are available locally. The real cycle selected NASADEM_HGT.001,
+compiled `98` canonical objects, passed Blender semantic/render QA, and baked
+the disposable Edit place with `480` bounded terrain chunks. Production-static
+Play mode reuses the baked world without regeneration. Overture remains blocked
+and no external publication or permission request was made.
 
 No credentials, raw DEM bulk files, `.blend` files, or production Roblox place
 changes belong in Git.

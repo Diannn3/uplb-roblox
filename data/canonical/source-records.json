@@ -59,7 +59,16 @@
     {
       "accessedAt": "2026-08-17",
       "id": "source:dem:srtm-baseline",
-      "contentHash": null,
+      "contentHash": "sha256:3169d32283271c39307371ee01a6cbb66c32143e4f1e1c55c152f44809dd2d81",
+      "coverage": {
+        "bbox": [
+          121.2099966,
+          14.1290501,
+          121.2721856,
+          14.1921433
+        ],
+        "crs": "EPSG:4326"
+      },
       "intendedUse": [
         "30m-terrain-baseline"
       ],
@@ -67,13 +76,18 @@
       "metadata": {
         "accessPath": "Earthdata Search/Earthdata Cloud supported path; no retired LP DAAC Data Pool endpoint",
         "authRequirement": "Earthdata Login required for download; no credentials stored",
+        "archiveSha256": "sha256:3169d32283271c39307371ee01a6cbb66c32143e4f1e1c55c152f44809dd2d81",
         "collectionVersion": "003",
         "horizontalCRS": "EPSG:4326",
         "horizontalDatum": "WGS84",
         "doi": "10.5067/MEASURES/SRTM/SRTMGL1.003",
         "landingPage": "https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl1-003",
+        "granule": "N14E121.SRTMGL1.hgt",
         "nodata": "Version 3.0 has no voids; -32768 is historical Version 1/2.1 fill value",
+        "payloadSha256": "sha256:f4761f7b97ef7e78dff39e9f8b3a649ebddce19479bbd316a6f018d85305260c",
+        "processedHeightfieldSha256": "sha256:c7eae8e38b5bfbd92873a1c8c86cbddee38b058e64db26648b805cd994aa011d",
         "productShortName": "SRTMGL1",
+        "retrievalTimestamp": "2026-08-17T04:38:47.444877+00:00",
         "resolution": "1 arc-second (~30 m posting)",
         "verticalDatum": "EGM96",
         "verticalUnits": "metres",
@@ -81,14 +95,63 @@
       },
       "notes": [
         "NASA JPL / LP DAAC product page and SRTM Collection User Guide verified 2026-08-17.",
-        "No raster is ingested in this evidence-foundation cycle."
+        "Acquired as a deterministic comparison input; NASADEM_HGT.001 was selected for the controlled slice."
       ],
       "provider": "NASA JPL / NASA Earthdata LP DAAC",
       "redistribution": "allowed; cite the DOI and do not imply NASA endorsement",
       "rightsStatus": "open-redistributable",
       "sourceUrl": "https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl1-003",
-      "status": "validated-fallback",
+      "status": "validated-comparison-input",
       "attribution": "NASA JPL; NASA Land Processes Distributed Active Archive Center (LP DAAC)"
+    },
+    {
+      "accessedAt": "2026-08-17",
+      "attribution": "NASA JPL; NASA Land Processes Distributed Active Archive Center (LP DAAC)",
+      "contentHash": "sha256:c115ac7027d4c6160b308ac280b5e259309680ed6347475407cb071194a42398",
+      "coverage": {
+        "bbox": [
+          121.2099966,
+          14.1290501,
+          121.2721856,
+          14.1921433
+        ],
+        "crs": "EPSG:4326"
+      },
+      "id": "source:dem:nasadem-baseline",
+      "intendedUse": [
+        "30m-terrain-baseline",
+        "vertical-slice-greybox"
+      ],
+      "license": "NASA Earthdata open data policy; public-domain/open reuse with citation requested.",
+      "metadata": {
+        "accessPath": "Earthdata Search/Earthdata Cloud supported route; no retired LP DAAC Data Pool endpoint",
+        "archiveSha256": "sha256:c115ac7027d4c6160b308ac280b5e259309680ed6347475407cb071194a42398",
+        "authRequirement": "Earthdata Login required for download; no credentials stored",
+        "collectionVersion": "001",
+        "doi": "10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
+        "granule": "NASADEM_HGT_n14e121",
+        "horizontalCRS": "EPSG:4326",
+        "horizontalDatum": "WGS84",
+        "landingPage": "https://doi.org/10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
+        "nodata": "Product metadata checked per granule before processing",
+        "payloadSha256": "sha256:730d5350ef7663eb7ae00f9cbe861549156540a055dc75d6efaa4f0d19a7fbe9",
+        "processedHeightfieldSha256": "sha256:3e6dcd85e480cbfaaea342bc18a8d48290af4adff0e7af55bcb72e7144438e84",
+        "productShortName": "NASADEM_HGT",
+        "retrievalTimestamp": "2026-08-17T04:39:12.238467+00:00",
+        "resolution": "1 arc-second (~30 m posting)",
+        "selectionReason": "Evidence comparison selected the product with the lower maximum adjacent elevation discontinuity in the UPLB feature envelope",
+        "verticalDatum": "EGM96",
+        "verticalUnits": "metres"
+      },
+      "notes": [
+        "Selected baseline for the controlled outdoor vertical slice after deterministic comparison against SRTMGL1.003.",
+        "Coverage is the research AOI and feature-envelope processing extent, not an official UPLB boundary."
+      ],
+      "provider": "NASA JPL / NASA Earthdata LP DAAC",
+      "redistribution": "allowed; cite the DOI and do not imply NASA endorsement",
+      "rightsStatus": "open-redistributable",
+      "sourceUrl": "https://doi.org/10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
+      "status": "validated-selected-baseline"
     }
   ],
   "version": 1

@@ -1,0 +1,34 @@
+{
+  "blendPath": "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/vertical-slice-v0.1.blend",
+  "blenderVersion": "5.0.0",
+  "generatorVersion": "blender-v0.2",
+  "objectCount": 108,
+  "renderPaths": [
+    "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/topdown.png",
+    "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/oblation.png",
+    "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/freedom-park.png",
+    "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/baker-context.png",
+    "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/dl-umali-context.png",
+    "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/road-level.png",
+    "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/library-context.png"
+  ],
+  "requiredCollections": [
+    "Buildings",
+    "Debug",
+    "GreenSpace",
+    "Landmarks",
+    "Roads",
+    "Terrain",
+    "Walkways",
+    "Water"
+  ],
+  "requiredHeroNames": [
+    "Charles Fuller Baker Memorial Hall",
+    "Dioscoro L. Umali Hall",
+    "UPLB Freedom Park",
+    "UPLB Oblation",
+    "University Library and Knowledge Center"
+  ],
+  "sceneSpecHash": "sha256:809b58f648934c19cba70878b37b8956866331994679148a07e95e7410806ea6",
+  "status": "pass"
+}

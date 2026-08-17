@@ -16,6 +16,8 @@ def test_prepare_scene_adds_runtime_bounds_without_dropping_provenance() -> None
     prepared = prepare_scene(scene)
     assert prepared["runtimeContract"]["terrainWriter"] == "server"
     assert prepared["metadata"]["generatorVersion"]
+    for key in ("granule", "archiveSha256", "hgtPayloadSha256", "processedHeightfieldSha256", "retrievalTimestamp"):
+        assert prepared["terrain"][key]
     assert len(prepared["objects"]) == len(scene["objects"])
     hero = next(item for item in prepared["objects"] if item["role"] == "hero")
     assert hero["provenance"]["verificationStatus"] in {"candidate", "provisional", "human-reviewed"}

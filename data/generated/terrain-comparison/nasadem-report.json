@@ -35,8 +35,6 @@
   "relativeMaxElevationM": 133.55039773200005,
   "relativeMinElevationM": 2.393180380488211,
   "retrievalTimestamp": "2026-08-17T04:39:12.238467+00:00",
-  "selectedDEM": "NASADEM_HGT.001",
-  "selectionReason": "Evidence comparison selected the product with the lower maximum adjacent elevation discontinuity in the UPLB AOI.",
   "sourceCRS": "EPSG:4326",
   "sourceHash": "sha256:730d5350ef7663eb7ae00f9cbe861549156540a055dc75d6efaa4f0d19a7fbe9",
   "sourceKind": "real-nasa-raster",
