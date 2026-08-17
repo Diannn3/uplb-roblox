@@ -15,6 +15,17 @@ from typing import Any, Callable
 def _blender_probe() -> dict[str, Any]:
     executable = shutil.which("blender") or shutil.which("blender.exe")
     if not executable:
+        configured = os.environ.get("UPLB_BLENDER_EXECUTABLE") or os.environ.get("BLENDER_EXECUTABLE")
+        if configured and Path(configured).is_file():
+            executable = configured
+    if not executable and sys.platform == "win32":
+        candidates: list[Path] = []
+        for root in (Path("C:/Program Files/Blender Foundation"), Path(os.environ.get("LOCALAPPDATA", "")) / "Programs" / "Blender Foundation"):
+            if root.exists():
+                candidates.extend(path for path in root.glob("Blender*/blender.exe") if path.is_file())
+        if candidates:
+            executable = str(sorted(candidates, key=lambda path: path.parent.name)[-1])
+    if not executable:
         return {"available": False, "version": None, "executable": None, "diagnostic": "Blender executable was not found on PATH"}
     command = [executable, "--background", "--python-exit-code", "10", "--python-expr", "import bpy; print(bpy.app.version_string)"]
     try:
@@ -52,7 +63,17 @@ def _earthdata_probe() -> dict[str, Any]:
 
 
 def _roblox_probe() -> dict[str, Any]:
-    return {"configured": False, "diagnostic": "Roblox Studio MCP is not exposed in this environment"}
+    session_path = Path(os.environ.get("UPLB_ROBLOX_MCP_SESSION", "data/generated/roblox-v0.1/mcp-session.json"))
+    if session_path.exists():
+        try:
+            payload = json.loads(session_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            payload = {}
+        if payload.get("status") == "connected" and payload.get("studioId"):
+            return {"configured": True, "studioId": payload["studioId"], "studioName": payload.get("studioName"), "diagnostic": None}
+    if os.environ.get("UPLB_ROBLOX_MCP_STUDIO_ID"):
+        return {"configured": True, "studioId": os.environ["UPLB_ROBLOX_MCP_STUDIO_ID"], "diagnostic": "session ID supplied by environment"}
+    return {"configured": False, "diagnostic": "No verified Roblox Studio MCP session manifest is available"}
 
 
 def build_preflight(

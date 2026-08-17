@@ -18,7 +18,7 @@ from typing import Iterable
 import numpy as np
 
 
-_TILE_NAME = re.compile(r"^(?P<ns>[NS])(?P<lat>\d{2})(?P<ew>[EW])(?P<lon>\d{3})\.hgt$", re.IGNORECASE)
+_TILE_NAME = re.compile(r"^(?P<ns>[NS])(?P<lat>\d{2})(?P<ew>[EW])(?P<lon>\d{3})(?:[._].*)?\.hgt$", re.IGNORECASE)
 _NODATA = -32768
 
 # Both selected products are 1 arc-second rasters.  An HGT tile has one

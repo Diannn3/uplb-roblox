@@ -130,6 +130,44 @@ def _material(material_class: str) -> Any:
     return material
 
 
+def _ensure_lighting() -> None:
+    """Create deterministic lighting so headless renders are inspectable."""
+
+    blender = _require_blender()
+    scene = blender.context.scene
+    try:
+        scene.render.engine = "BLENDER_EEVEE_NEXT"
+    except TypeError:  # Blender 5.0 names the same realtime engine BLENDER_EEVEE.
+        scene.render.engine = "BLENDER_EEVEE"
+    world = scene.world or blender.data.worlds.new("World")
+    scene.world = world
+    world.use_nodes = True
+    background = world.node_tree.nodes.get("Background") if world.node_tree else None
+    if background:
+        background.inputs["Color"].default_value = (0.035, 0.045, 0.06, 1.0)
+        background.inputs["Strength"].default_value = 0.35
+    if blender.data.objects.get("WORLDGEN_SUN") is None:
+        sun_data = blender.data.lights.new("WORLDGEN_SUN", type="SUN")
+        sun_data.energy = 3.0
+        sun_data.angle = math.radians(18.0)
+        sun = blender.data.objects.new("WORLDGEN_SUN", sun_data)
+        blender.context.scene.collection.objects.link(sun)
+        sun.rotation_euler = (math.radians(28.0), math.radians(-18.0), math.radians(28.0))
+        sun["FeatureId"] = "light:worldgen-sun"
+        sun["WorldgenRole"] = "lighting"
+    if blender.data.objects.get("WORLDGEN_FILL") is None:
+        area_data = blender.data.lights.new("WORLDGEN_FILL", type="AREA")
+        area_data.energy = 1800.0
+        area_data.shape = "DISK"
+        area_data.size = 1200.0
+        area = blender.data.objects.new("WORLDGEN_FILL", area_data)
+        blender.context.scene.collection.objects.link(area)
+        area.location = (0.0, 0.0, 500.0)
+        area.rotation_euler = (0.0, 0.0, 0.0)
+        area["FeatureId"] = "light:worldgen-fill"
+        area["WorldgenRole"] = "lighting"
+
+
 def _mesh_object(name: str, vertices: list[tuple[float, float, float]], faces: list[tuple[int, ...]], collection: Any, material_class: str, properties: dict[str, Any]) -> Any:
     blender = _require_blender()
     mesh = blender.data.meshes.new(f"{name}_Mesh")
@@ -365,12 +403,15 @@ def _render(scene: Any, cameras: dict[str, Any], output_dir: Path) -> list[str]:
 
 def build_real_scene(scene_spec_path: Path, output_dir: Path, *, render: bool = True) -> dict[str, Any]:
     blender = _require_blender()
-    scene_spec = json.loads(Path(scene_spec_path).read_text(encoding="utf-8"))
-    output_dir = Path(output_dir)
+    # Blender may change its process working directory while resetting the
+    # factory scene. Resolve all filesystem paths before entering bpy.
+    scene_spec = json.loads(Path(scene_spec_path).resolve().read_text(encoding="utf-8"))
+    output_dir = Path(output_dir).resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
     scene_hash = (scene_spec.get("metadata") or {}).get("sceneSpecHash", "")
     blender.ops.wm.read_factory_settings(use_empty=True)
     collections = _ensure_collections()
+    _ensure_lighting()
     _build_terrain(scene_spec, collections, scene_hash)
     for feature in scene_spec.get("objects", []):
         _build_feature(feature, collections, scene_hash)
@@ -378,6 +419,7 @@ def build_real_scene(scene_spec_path: Path, output_dir: Path, *, render: bool = 
     first_state = _semantic_state()
     _clear_scene_objects()
     collections = _ensure_collections()
+    _ensure_lighting()
     _build_terrain(scene_spec, collections, scene_hash)
     for feature in scene_spec.get("objects", []):
         _build_feature(feature, collections, scene_hash)

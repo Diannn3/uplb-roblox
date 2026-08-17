@@ -1,0 +1,74 @@
+{
+  "aoiPath": "data/vertical-slices/v0.1/area.geojson",
+  "credentialsUsed": false,
+  "earthaccessVersion": "0.18.0",
+  "operation": "anonymous-cmr-search-only",
+  "products": {
+    "nasadem": {
+      "aoi": [
+        121.238,
+        14.158,
+        121.2465,
+        14.1685
+      ],
+      "granules": [
+        {
+          "bbox": [
+            120.9998611,
+            13.9998611,
+            122.0001389,
+            15.0001389
+          ],
+          "conceptId": "G2816859382-LPCLOUD",
+          "dataLinks": [
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/NASADEM_HGT.001/NASADEM_HGT_n14e121/NASADEM_HGT_n14e121.zip"
+          ],
+          "entryTitle": "NASADEM_HGT_n14e121",
+          "filename": "NASADEM_HGT_n14e121",
+          "granuleId": "NASADEM_HGT_n14e121",
+          "shortName": "NASADEM_HGT",
+          "version": "001"
+        }
+      ],
+      "product": "NASADEM_HGT.001",
+      "retrievalTimestamp": "2026-08-17T02:26:05.106393+00:00",
+      "shortName": "NASADEM_HGT",
+      "status": "search-passed",
+      "version": "001"
+    },
+    "srtm": {
+      "aoi": [
+        121.238,
+        14.158,
+        121.2465,
+        14.1685
+      ],
+      "granules": [
+        {
+          "bbox": [
+            120.99972222,
+            13.99972222,
+            122.00027778,
+            15.00027778
+          ],
+          "conceptId": "G2821113207-LPCLOUD",
+          "dataLinks": [
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL1.003/N14E121.SRTMGL1.hgt/N14E121.SRTMGL1.hgt.zip"
+          ],
+          "entryTitle": "N14E121.SRTMGL1.hgt",
+          "filename": "N14E121.SRTMGL1.hgt",
+          "granuleId": "N14E121.SRTMGL1.hgt",
+          "shortName": "SRTMGL1",
+          "version": "003"
+        }
+      ],
+      "product": "SRTMGL1.003",
+      "retrievalTimestamp": "2026-08-17T02:26:03.871237+00:00",
+      "shortName": "SRTMGL1",
+      "status": "search-passed",
+      "version": "003"
+    }
+  },
+  "retrievalTimestamp": "2026-08-17T02:26:02.753230+00:00",
+  "status": "pass"
+}
