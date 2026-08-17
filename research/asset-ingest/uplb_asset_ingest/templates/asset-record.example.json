@@ -1,0 +1,22 @@
+{
+  "id": "asset:category:name",
+  "source": {
+    "provider": "",
+    "url": "",
+    "license": "",
+    "author": "",
+    "originalHash": "sha256:"
+  },
+  "category": "",
+  "format": "glTF",
+  "triangleCount": null,
+  "textureSets": [],
+  "collision": "none",
+  "modified": false,
+  "modifiedHash": null,
+  "approvedFor": [
+    "context"
+  ],
+  "robloxAssetId": null,
+  "notes": ""
+}

@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 1,
+  "generated": "2026-08-17",
+  "sourceBundle": {
+    "path": "research/asset-ingest/uplb_asset_ingest",
+    "zipSha256": "6FC42C57EC4B5A6ECBE98A487E590BFE7245F89C0F81BC86DA453AAAEEEAF19A",
+    "registrySha256": "F6AF901249D235CCD2C1622DFAB8DD5AB6EF040E481B7D02C6976ECFD15E6321",
+    "binaryAssetsIncluded": false
+  },
+  "resources": [
+    {
+      "id": "rokit",
+      "name": "Rokit",
+      "category": "tooling",
+      "sourceUrl": "https://github.com/rojo-rbx/rokit",
+      "license": "MIT",
+      "evidenceStatus": "verified",
+      "disposition": "ADOPT_AFTER_REVIEW",
+      "integrationRole": "Pin the local Roblox toolchain without relying on machine-global Rojo, Wally, Selene, or StyLua binaries.",
+      "nextAction": "Trial a project-local tool manifest on a disposable branch; do not install or update tools during asset ingest.",
+      "evidence": [
+        "https://github.com/rojo-rbx/rokit",
+        "https://create.roblox.com/docs/projects/external-tools"
+      ],
+      "notes": "Current project has no toolchain manifest. Rokit is the current candidate; Aftman/Foreman remain alternatives, not parallel dependencies."
+    },
+    {
+      "id": "rojo",
+      "name": "Rojo",
+      "category": "tooling",
+      "sourceUrl": "https://github.com/rojo-rbx/rojo",
+      "license": "MPL-2.0",
+      "evidenceStatus": "verified",
+      "disposition": "ADOPT_AFTER_REVIEW",
+      "integrationRole": "Keep the filesystem/Git source tree synchronized with Roblox Studio through the existing default.project.json boundary.",
+      "nextAction": "Pin a known compatible release and add a dry-run sync check after the asset registry is accepted.",
+      "evidence": [
+        "https://github.com/rojo-rbx/rojo",
+        "https://create.roblox.com/docs/projects/external-tools"
+      ]
+    },
+    {
+      "id": "wally",
+      "name": "Wally",
+      "category": "tooling",
+      "sourceUrl": "https://github.com/UpliftGames/wally",
+      "license": "MPL-2.0",
+      "evidenceStatus": "verified",
+      "disposition": "EVALUATE_SELECTIVELY",
+      "integrationRole": "Provide reproducible Luau package resolution only when a real shared runtime dependency is approved.",
+      "nextAction": "Do not add packages for the first terrain/asset slice; evaluate Wally with a lockfile when a dependency appears.",
+      "evidence": [
+        "https://github.com/UpliftGames/wally",
+        "https://create.roblox.com/docs/projects/external-tools"
+      ]
+    },
+    {
+      "id": "selene",
+      "name": "Selene",
+      "category": "tooling",
+      "sourceUrl": "https://github.com/Kampfkarren/selene",
+      "license": "MPL-2.0",
+      "evidenceStatus": "verified",
+      "disposition": "ADOPT_AFTER_REVIEW",
+      "integrationRole": "Lint Luau modules and catch accidental client/server boundary violations before Studio sync.",
+      "nextAction": "Add a minimal project config and CI lint job after the generated Luau contract settles.",
+      "evidence": ["https://github.com/Kampfkarren/selene"]
+    },
+    {
+      "id": "stylua",
+      "name": "StyLua",
+      "category": "tooling",
+      "sourceUrl": "https://github.com/JohnnyMorganz/StyLua",
+      "license": "MPL-2.0",
+      "evidenceStatus": "verified",
+      "disposition": "ADOPT_AFTER_REVIEW",
+      "integrationRole": "Make generated and hand-written Luau formatting deterministic and reviewable.",
+      "nextAction": "Pin a formatter release and run it in check-only mode before enabling write-mode hooks.",
+      "evidence": ["https://github.com/JohnnyMorganz/StyLua"]
+    },
+    {
+      "id": "rbx-dom",
+      "name": "rbx-dom",
+      "category": "serialization",
+      "sourceUrl": "https://github.com/rojo-rbx/rbx-dom",
+      "license": "MIT",
+      "evidenceStatus": "verified",
+      "disposition": "EVALUATE_SELECTIVELY",
+      "integrationRole": "Future headless read/write and structural validation for Roblox model/place files outside Studio.",
+      "nextAction": "Keep as a future export/validation adapter; do not replace Studio MCP or Rojo in the first slice.",
+      "evidence": ["https://github.com/rojo-rbx/rbx-dom"]
+    },
+    {
+      "id": "quaternius-150-lowpoly-nature",
+      "name": "Quaternius 150+ Low Poly Nature Models",
+      "category": "asset-library",
+      "sourceUrl": "https://quaternius.itch.io/150-lowpoly-nature-models",
+      "license": "CC0",
+      "evidenceStatus": "verified",
+      "disposition": "EVALUATE_SELECTIVELY",
+      "integrationRole": "Supplement the bundle's vegetation pools with low-poly tropical context candidates for distance/background use.",
+      "nextAction": "Select only species and forms that match the UPLB art direction; download individual files, hash them, and record provenance.",
+      "evidence": ["https://quaternius.itch.io/150-lowpoly-nature-models"],
+      "notes": "This is an additional candidate, not a license to bulk-download or ship the whole pack."
+    },
+    {
+      "id": "ambientcg",
+      "name": "ambientCG",
+      "category": "materials",
+      "sourceUrl": "https://ambientcg.com/",
+      "license": "CC0 1.0 Universal",
+      "evidenceStatus": "verified",
+      "disposition": "EVALUATE_SELECTIVELY",
+      "integrationRole": "Supply concrete, asphalt, paving, soil, grass, metal, and painted-surface PBR references/material inputs.",
+      "nextAction": "Choose named assets from the official catalog, pin each asset URL and file hash, and resize/pack only what the Roblox budget permits.",
+      "evidence": [
+        "https://ambientcg.com/",
+        "https://docs.ambientcg.com/license/"
+      ],
+      "notes": "The site/API is not a runtime dependency; preserve the asset-level URL and CC0 notice in the canonical manifest."
+    },
+    {
+      "id": "blendergis",
+      "name": "BlenderGIS",
+      "category": "gis-reference",
+      "sourceUrl": "https://github.com/domlysz/BlenderGIS",
+      "license": "GPL-3.0",
+      "evidenceStatus": "verified",
+      "disposition": "REFERENCE_ONLY",
+      "integrationRole": "Compare GIS/DEM/OSM import concepts while keeping the deterministic project Blender scripts as the source of truth.",
+      "nextAction": "Do not make BlenderGIS a project dependency; run a compatibility test only if an import gap is demonstrated.",
+      "evidence": ["https://github.com/domlysz/BlenderGIS"],
+      "notes": "GPL and interactive-state coupling make this unsuitable for automatic vendoring in the current pipeline."
+    },
+    {
+      "id": "opengameart-low-poly-nature",
+      "name": "OpenGameArt Low Poly Nature Group",
+      "category": "asset-library",
+      "sourceUrl": "https://opengameart.org/content/low-poly-nature-group",
+      "license": "Per-file; page advertises CC0 for the group",
+      "evidenceStatus": "verified-conditional",
+      "disposition": "EVALUATE_SELECTIVELY",
+      "integrationRole": "Possible supplemental low-poly vegetation and rocks when a selected file's license and provenance are captured.",
+      "nextAction": "Review each file's own license/author notice before any download; reject files with ambiguous provenance.",
+      "evidence": ["https://opengameart.org/content/low-poly-nature-group"]
+    },
+    {
+      "id": "roblox-procedural-worlds",
+      "name": "roblox-procedural-worlds",
+      "category": "community-signal",
+      "sourceUrl": "https://github.com/Gzeu/roblox-procedural-worlds",
+      "license": "Not confirmed in this audit",
+      "evidenceStatus": "unverified",
+      "disposition": "REFERENCE_ONLY",
+      "integrationRole": "Compare procedural-world configuration and export ideas without importing code or data into the canonical pipeline.",
+      "nextAction": "Inspect repository license, commit activity, and data model only if a concrete worldgen gap remains.",
+      "evidence": ["https://github.com/Gzeu/roblox-procedural-worlds"]
+    },
+    {
+      "id": "reddit-roblox-building-signal",
+      "name": "Roblox building workflow community signal",
+      "category": "community-signal",
+      "sourceUrl": "https://www.reddit.com/r/robloxgamedev/comments/1u0ch0k/any_tips_for_building/",
+      "license": "Not an asset source",
+      "evidenceStatus": "research-only",
+      "disposition": "REFERENCE_ONLY",
+      "integrationRole": "Non-authoritative corroboration for a greybox-first, Blender-for-meshes, Studio-for-behavior workflow.",
+      "nextAction": "Use only as workflow context; never use Reddit comments to establish asset rights or factual UPLB dimensions.",
+      "evidence": [
+        "https://www.reddit.com/r/robloxgamedev/comments/1u0ch0k/any_tips_for_building/",
+        "https://www.reddit.com/r/robloxgamedev/comments/1ksnmvo"
+      ],
+      "notes": "Community advice is useful for risk discovery, not a license or technical authority."
+    }
+  ]
+}

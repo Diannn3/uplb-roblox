@@ -360,6 +360,127 @@
       "status": "pinned",
       "intended_use": "stable indoor IDs, routing separation, verification model",
       "hash": "git:a922d74f881d97075d61ac9277c6927efdabc21e"
+    },
+    {
+      "id": "rokit",
+      "provider": "rojo-rbx",
+      "url": "https://github.com/rojo-rbx/rokit",
+      "accessed": "2026-08-17",
+      "license": "MIT",
+      "redistribution": "per MIT",
+      "status": "verified-candidate",
+      "intended_use": "project-local Roblox toolchain pinning",
+      "hash": null
+    },
+    {
+      "id": "rojo",
+      "provider": "rojo-rbx",
+      "url": "https://github.com/rojo-rbx/rojo",
+      "accessed": "2026-08-17",
+      "license": "MPL-2.0",
+      "redistribution": "per MPL-2.0",
+      "status": "verified-candidate",
+      "intended_use": "filesystem/Git to Studio synchronization",
+      "hash": null
+    },
+    {
+      "id": "wally",
+      "provider": "UpliftGames",
+      "url": "https://github.com/UpliftGames/wally",
+      "accessed": "2026-08-17",
+      "license": "MPL-2.0",
+      "redistribution": "per MPL-2.0",
+      "status": "verified-candidate",
+      "intended_use": "locked Luau dependency resolution when needed",
+      "hash": null
+    },
+    {
+      "id": "selene",
+      "provider": "Kampfkarren",
+      "url": "https://github.com/Kampfkarren/selene",
+      "accessed": "2026-08-17",
+      "license": "MPL-2.0",
+      "redistribution": "per MPL-2.0",
+      "status": "verified-candidate",
+      "intended_use": "Luau linting",
+      "hash": null
+    },
+    {
+      "id": "stylua",
+      "provider": "JohnnyMorganz",
+      "url": "https://github.com/JohnnyMorganz/StyLua",
+      "accessed": "2026-08-17",
+      "license": "MPL-2.0",
+      "redistribution": "per MPL-2.0",
+      "status": "verified-candidate",
+      "intended_use": "deterministic Luau formatting",
+      "hash": null
+    },
+    {
+      "id": "rbx-dom",
+      "provider": "rojo-rbx",
+      "url": "https://github.com/rojo-rbx/rbx-dom",
+      "accessed": "2026-08-17",
+      "license": "MIT",
+      "redistribution": "per MIT",
+      "status": "verified-future",
+      "intended_use": "headless Roblox model/place serialization",
+      "hash": null
+    },
+    {
+      "id": "quaternius-150-lowpoly-nature",
+      "provider": "Quaternius",
+      "url": "https://quaternius.itch.io/150-lowpoly-nature-models",
+      "accessed": "2026-08-17",
+      "license": "CC0",
+      "redistribution": "per CC0; selected-file hash/provenance still required",
+      "status": "verified-candidate",
+      "intended_use": "selective tropical/context vegetation",
+      "hash": null
+    },
+    {
+      "id": "ambientcg",
+      "provider": "ambientCG",
+      "url": "https://docs.ambientcg.com/license/",
+      "accessed": "2026-08-17",
+      "license": "CC0 1.0 Universal",
+      "redistribution": "allowed per CC0; asset URL/hash retained",
+      "status": "verified-candidate",
+      "intended_use": "selected PBR materials",
+      "hash": null
+    },
+    {
+      "id": "opengameart-low-poly-nature",
+      "provider": "OpenGameArt contributors",
+      "url": "https://opengameart.org/content/low-poly-nature-group",
+      "accessed": "2026-08-17",
+      "license": "per-file; page advertises CC0 group",
+      "redistribution": "conditional on per-file license review",
+      "status": "verified-conditional",
+      "intended_use": "supplemental low-poly vegetation",
+      "hash": null
+    },
+    {
+      "id": "roblox-procedural-worlds",
+      "provider": "Gzeu",
+      "url": "https://github.com/Gzeu/roblox-procedural-worlds",
+      "accessed": "2026-08-17",
+      "license": "not confirmed in this audit",
+      "redistribution": "not assumed",
+      "status": "unverified-reference",
+      "intended_use": "procedural world configuration ideas only",
+      "hash": null
+    },
+    {
+      "id": "reddit-roblox-building-signal",
+      "provider": "Roblox developer community",
+      "url": "https://www.reddit.com/r/robloxgamedev/comments/1u0ch0k/any_tips_for_building/",
+      "accessed": "2026-08-17",
+      "license": "not an asset source",
+      "redistribution": "link/citation only",
+      "status": "research-only",
+      "intended_use": "non-authoritative workflow signal",
+      "hash": null
     }
   ]
 }

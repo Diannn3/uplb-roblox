@@ -1,0 +1,16 @@
+id,name,type,license,priority,source_url,redistribution_note
+basic-procedural-building,BasicProceduralBuilding,github-repo,MIT,A,https://github.com/achrefelouafi/BasicProceduralBuilding,Follow listed license and preserve required notices/provenance.
+kenney-building-kit,Kenney Building Kit,cc0-asset-pack,CC0-1.0,A,https://kenney-assets.itch.io/building-kit,Follow listed license and preserve required notices/provenance.
+kenney-city-kit-roads,Kenney City Kit (Roads),cc0-asset-pack,CC0-1.0,A,https://kenney-assets.itch.io/city-kit-roads,Follow listed license and preserve required notices/provenance.
+quaternius-downtown-megakit,Quaternius Downtown City MegaKit,cc0-asset-pack,CC0,A,https://quaternius.com/packs/downtowncitymegakit.html,Follow listed license and preserve required notices/provenance.
+poly-haven,Poly Haven,cc0-asset-library,CC0,A,https://polyhaven.com/,Follow listed license and preserve required notices/provenance.
+quaternius-ultimate-nature,Quaternius Ultimate Nature Pack,cc0-asset-pack,CC0,A,https://quaternius.com/packs/ultimatenature.html,Follow listed license and preserve required notices/provenance.
+quaternius-stylized-nature-megakit,Quaternius Stylized Nature MegaKit,cc0-asset-pack,CC0,B,https://quaternius.com/packs/stylizednaturemegakit.html,Follow listed license and preserve required notices/provenance.
+modular-tree,GoodPie/modular_tree,github-repo,GPL-3.0 addon / MIT core,B,https://github.com/GoodPie/modular_tree,Follow listed license and preserve required notices/provenance.
+bcga,vvoovv/bcga,github-repo,VERIFY_BEFORE_VENDORING,A,https://github.com/vvoovv/bcga,OK to evaluate; verify exact source file license before vendoring.
+buildingnodes,Durman/BuildingNodes,github-repo,VERIFY_BEFORE_VENDORING,B,https://github.com/Durman/BuildingNodes,OK to evaluate; verify exact source file license before vendoring.
+blosm,vvoovv/blosm,github-repo,GPL (source noted by project; verify exact branch/license file before vendoring),B,https://github.com/vvoovv/blosm,Follow listed license and preserve required notices/provenance.
+lune,lune-org/lune,github-repo,MPL-2.0,C,https://github.com/lune-org/lune,Follow listed license and preserve required notices/provenance.
+luau-roblox,Scythe-Technology/luau-roblox,github-repo,MIT,C,https://github.com/Scythe-Technology/luau-roblox,Follow listed license and preserve required notices/provenance.
+bloxforge,princeofscale/bloxforge,github-repo,MIT,C,https://github.com/princeofscale/bloxforge,Follow listed license and preserve required notices/provenance.
+roblox-creator-store,Roblox Creator Store / Studio MCP asset tools,platform-library,Per-asset / platform terms,B,https://create.roblox.com/store,Follow listed license and preserve required notices/provenance.

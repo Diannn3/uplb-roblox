@@ -24,6 +24,12 @@ research/cache/
 research/private/
 research/restricted/
 
+# Third-party asset/tool downloads stay local until an adopted derivative has provenance
+vendor-research/
+assets/raw/*
+!assets/raw/.gitkeep
+assets/quarantine/
+
 # Geodata source downloads (canonical data stays version-controlled)
 data/raw/*
 !data/raw/.gitkeep

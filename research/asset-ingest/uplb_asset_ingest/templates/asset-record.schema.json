@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UPLB Asset Record",
+  "type": "object",
+  "required": [
+    "id",
+    "source",
+    "category",
+    "approvedFor"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "provider",
+        "url",
+        "license",
+        "originalHash"
+      ],
+      "properties": {
+        "provider": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "originalHash": {
+          "type": "string"
+        }
+      }
+    },
+    "category": {
+      "type": "string"
+    },
+    "format": {
+      "type": "string"
+    },
+    "triangleCount": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "textureSets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "collision": {
+      "type": "string"
+    },
+    "modified": {
+      "type": "boolean"
+    },
+    "modifiedHash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "approvedFor": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "robloxAssetId": {
+      "type": [
+        "string",
+        "integer",
+        "null"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

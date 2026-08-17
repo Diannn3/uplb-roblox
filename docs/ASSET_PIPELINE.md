@@ -4,6 +4,8 @@
 
 A real UPLB feature is not a mesh. It is a canonical feature with evidence; one or more meshes/parts/materials are representations that can be regenerated or replaced.
 
+The current external-source audit and the user-provided registry ingest are recorded in [ASSET_INGEST_AND_GAP_RESEARCH.md](ASSET_INGEST_AND_GAP_RESEARCH.md). Candidate resources are not approvals; adopted files must pass the manifest, license, quarantine, and performance gates below.
+
 Production sequence:
 
 ```text

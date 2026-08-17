@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UPLB external resource gap registry",
+  "type": "object",
+  "required": ["schemaVersion", "generated", "sourceBundle", "resources"],
+  "properties": {
+    "schemaVersion": {"type": "integer", "const": 1},
+    "generated": {"type": "string", "format": "date"},
+    "sourceBundle": {
+      "type": "object",
+      "required": ["path", "zipSha256", "registrySha256", "binaryAssetsIncluded"],
+      "properties": {
+        "path": {"type": "string"},
+        "zipSha256": {"type": "string", "pattern": "^[0-9A-Fa-f]{64}$"},
+        "registrySha256": {"type": "string", "pattern": "^[0-9A-Fa-f]{64}$"},
+        "binaryAssetsIncluded": {"type": "boolean", "const": false}
+      },
+      "additionalProperties": false
+    },
+    "resources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "category",
+          "sourceUrl",
+          "license",
+          "evidenceStatus",
+          "disposition",
+          "integrationRole",
+          "nextAction"
+        ],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+          "name": {"type": "string", "minLength": 1},
+          "category": {
+            "enum": [
+              "tooling",
+              "serialization",
+              "asset-library",
+              "materials",
+              "gis-reference",
+              "community-signal"
+            ]
+          },
+          "sourceUrl": {"type": "string", "format": "uri"},
+          "license": {"type": "string", "minLength": 1},
+          "evidenceStatus": {
+            "enum": ["verified", "verified-conditional", "research-only", "unverified"]
+          },
+          "disposition": {
+            "enum": [
+              "ADOPT_AFTER_REVIEW",
+              "EVALUATE_SELECTIVELY",
+              "REFERENCE_ONLY",
+              "REJECT",
+              "ALREADY_BUNDLED"
+            ]
+          },
+          "integrationRole": {"type": "string", "minLength": 1},
+          "nextAction": {"type": "string", "minLength": 1},
+          "evidence": {"type": "array", "items": {"type": "string", "format": "uri"}},
+          "notes": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

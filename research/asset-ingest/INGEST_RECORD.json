@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "C:/Users/Dian/Downloads/uplb_asset_ingest_bundle.zip",
+  "ingestedAt": "2026-08-17",
+  "zipSha256": "6FC42C57EC4B5A6ECBE98A487E590BFE7245F89C0F81BC86DA453AAAEEEAF19A",
+  "extractedPath": "research/asset-ingest/uplb_asset_ingest",
+  "registryPath": "research/asset-ingest/uplb_asset_ingest/ASSET_REGISTRY.json",
+  "registrySha256": "F6AF901249D235CCD2C1622DFAB8DD5AB6EF040E481B7D02C6976ECFD15E6321",
+  "zipEntryCount": 26,
+  "extractionComplete": true,
+  "resourceCount": 15,
+  "binaryAssetCount": 0,
+  "executedFetchScripts": false,
+  "downloadedThirdPartyArchives": false,
+  "notes": [
+    "The bundle is a curated source registry, integration brief, license matrix, security rules, and inert fetch scripts.",
+    "The extracted text is retained as user-provided research evidence; no third-party binary assets or credentials were imported.",
+    "Any future download must be selective, hash-pinned, license-reviewed, and recorded in the canonical asset manifest."
+  ]
+}

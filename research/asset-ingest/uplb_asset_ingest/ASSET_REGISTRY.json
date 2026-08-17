@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "project": "UPLB Roblox Reconstruction",
+  "purpose": "Curated source registry for reusable/procedural building, environment, vegetation, material, and Roblox tooling resources.",
+  "policy": {
+    "sourceOfTruth": "Git-controlled canonical data + scene specs",
+    "defaultAssetPolicy": "Prefer CC0 or clearly permissive open-source assets; pin hashes; preserve license/provenance.",
+    "prohibited": "Do not use scraped Google Street View/Google 3D data as an asset source.",
+    "security": "No unreviewed third-party scripts in environment assets."
+  },
+  "resources": [
+    {
+      "id": "basic-procedural-building",
+      "name": "BasicProceduralBuilding",
+      "type": "github-repo",
+      "url": "https://github.com/achrefelouafi/BasicProceduralBuilding",
+      "license": "MIT",
+      "priority": "A",
+      "use": "Reference/seed for modular facade generation: doors, windows, pillars, roof pieces, deterministic facade-cell placement.",
+      "integration": "Study and adapt concepts into UPLB Architecture Kit; do not make it a hard runtime dependency initially.",
+      "notes": "Includes Blender file and an instanced GLB kit; good model for deterministic Blender\u2194code parity."
+    },
+    {
+      "id": "kenney-building-kit",
+      "name": "Kenney Building Kit",
+      "type": "cc0-asset-pack",
+      "url": "https://kenney-assets.itch.io/building-kit",
+      "license": "CC0-1.0",
+      "priority": "A",
+      "use": "Generic modular walls, floors, doors, and windows for placeholder/context assets.",
+      "integration": "Download selectively; register each adopted asset in the UPLB asset registry; modify to fit campus visual language.",
+      "notes": "Small pack; ideal for greybox/context use."
+    },
+    {
+      "id": "kenney-city-kit-roads",
+      "name": "Kenney City Kit (Roads)",
+      "type": "cc0-asset-pack",
+      "url": "https://kenney-assets.itch.io/city-kit-roads",
+      "license": "CC0-1.0",
+      "priority": "A",
+      "use": "Road props, lightposts, construction fences, barriers, generic street pieces.",
+      "integration": "Use as temporary/context assets; avoid letting kit style define UPLB visual identity.",
+      "notes": "Good for fast road/street-furniture prototyping."
+    },
+    {
+      "id": "quaternius-downtown-megakit",
+      "name": "Quaternius Downtown City MegaKit",
+      "type": "cc0-asset-pack",
+      "url": "https://quaternius.com/packs/downtowncitymegakit.html",
+      "license": "CC0",
+      "priority": "A",
+      "use": "Modular street/building pieces, sidewalks, utility props, facade modules, roof pieces, collision references.",
+      "integration": "Mine generic components and kit organization patterns; do not copy the city architectural style wholesale.",
+      "notes": "Large modular pack; selective ingest recommended."
+    },
+    {
+      "id": "poly-haven",
+      "name": "Poly Haven",
+      "type": "cc0-asset-library",
+      "url": "https://polyhaven.com/",
+      "license": "CC0",
+      "priority": "A",
+      "use": "PBR materials, realistic generic models, HDRIs.",
+      "integration": "Download selected CC0 assets and pin them by file hash; do not make worldgen depend on the live API.",
+      "notes": "Prefer concrete, asphalt, metal, painted surfaces, wood, grass, soil, gravel."
+    },
+    {
+      "id": "quaternius-ultimate-nature",
+      "name": "Quaternius Ultimate Nature Pack",
+      "type": "cc0-asset-pack",
+      "url": "https://quaternius.com/packs/ultimatenature.html",
+      "license": "CC0",
+      "priority": "A",
+      "use": "Generic trees, vegetation, rocks, bushes for background/context vegetation.",
+      "integration": "Use for early vegetation massing; landmark/species-specific UPLB trees should later be custom.",
+      "notes": "Context vegetation only unless visually verified."
+    },
+    {
+      "id": "quaternius-stylized-nature-megakit",
+      "name": "Quaternius Stylized Nature MegaKit",
+      "type": "cc0-asset-pack",
+      "url": "https://quaternius.com/packs/stylizednaturemegakit.html",
+      "license": "CC0",
+      "priority": "B",
+      "use": "Alternative generic tree/plant/rock library for stylized or optimized context vegetation.",
+      "integration": "Evaluate against Roblox visual target and poly budget before adoption.",
+      "notes": "Useful for variation pools."
+    },
+    {
+      "id": "modular-tree",
+      "name": "GoodPie/modular_tree",
+      "type": "github-repo",
+      "url": "https://github.com/GoodPie/modular_tree",
+      "license": "GPL-3.0 addon / MIT core",
+      "priority": "B",
+      "use": "Procedural tree generation in Blender, deterministic variation via seeds/presets.",
+      "integration": "Research and optional offline generator only; verify Blender 5.x compatibility before project dependency.",
+      "notes": "Useful later for tree pools rather than identical clones."
+    },
+    {
+      "id": "bcga",
+      "name": "vvoovv/bcga",
+      "type": "github-repo",
+      "url": "https://github.com/vvoovv/bcga",
+      "license": "VERIFY_BEFORE_VENDORING",
+      "priority": "A",
+      "use": "Procedural architecture grammar reference: 2D footprint \u2192 extrusion \u2192 facade decomposition \u2192 floors/windows.",
+      "integration": "Research algorithms/concepts first. Do not vendor or redistribute until exact license is confirmed.",
+      "notes": "High-value architecture reference."
+    },
+    {
+      "id": "buildingnodes",
+      "name": "Durman/BuildingNodes",
+      "type": "github-repo",
+      "url": "https://github.com/Durman/BuildingNodes",
+      "license": "VERIFY_BEFORE_VENDORING",
+      "priority": "B",
+      "use": "Panel-based procedural building style system; useful conceptual model for reusable UPLB facade styles.",
+      "integration": "Treat as research until Blender 5 compatibility and license are confirmed.",
+      "notes": "Older Blender target; do not make a required dependency."
+    },
+    {
+      "id": "blosm",
+      "name": "vvoovv/blosm",
+      "type": "github-repo",
+      "url": "https://github.com/vvoovv/blosm",
+      "license": "GPL (source noted by project; verify exact branch/license file before vendoring)",
+      "priority": "B",
+      "use": "Comparison/reference for OSM buildings, roads, terrain, water, and vegetation generation.",
+      "integration": "Use as a sanity-check/reference renderer, not as canonical world source. Avoid Google-derived workflows.",
+      "notes": "Project says source is on the release branch; use OSM/terrain ideas only."
+    },
+    {
+      "id": "lune",
+      "name": "lune-org/lune",
+      "type": "github-repo",
+      "url": "https://github.com/lune-org/lune",
+      "license": "MPL-2.0",
+      "priority": "C",
+      "use": "Standalone Luau runtime; potential future headless Roblox place/model validation and CI.",
+      "integration": "Do not add yet unless MCP-only workflow becomes insufficient.",
+      "notes": "Useful future CI tool."
+    },
+    {
+      "id": "luau-roblox",
+      "name": "Scythe-Technology/luau-roblox",
+      "type": "github-repo",
+      "url": "https://github.com/Scythe-Technology/luau-roblox",
+      "license": "MIT",
+      "priority": "C",
+      "use": "Manipulate Roblox place/model files from Luau for future headless validation or generation.",
+      "integration": "Evaluate later alongside Lune; not needed for first MCP POC.",
+      "notes": "Supports binary/XML Roblox model/place serialization."
+    },
+    {
+      "id": "bloxforge",
+      "name": "princeofscale/bloxforge",
+      "type": "github-repo",
+      "url": "https://github.com/princeofscale/bloxforge",
+      "license": "MIT",
+      "priority": "C",
+      "use": "Reference implementation for agent\u2194Roblox Studio workflows, testing, screenshots, provenance, recovery.",
+      "integration": "Study patterns only for now because Roblox Studio's native MCP is already connected.",
+      "notes": "Avoid running two Studio bridges unless there is a concrete missing capability."
+    },
+    {
+      "id": "roblox-creator-store",
+      "name": "Roblox Creator Store / Studio MCP asset tools",
+      "type": "platform-library",
+      "url": "https://create.roblox.com/store",
+      "license": "Per-asset / platform terms",
+      "priority": "B",
+      "use": "Search generic Roblox props such as benches, lamps, fences and context objects.",
+      "integration": "Only use in disposable Studio; inspect scripts and provenance before adoption; register accepted assets.",
+      "notes": "No third-party scripts should ship in environment props unless deliberately reviewed."
+    }
+  ]
+}
