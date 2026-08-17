@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "uplb-blender-visual-review-v1",
+  "reviewVersion": "v1",
+  "lifecycle": "human-review",
+  "approvalStatus": "approved",
+  "reviewer": "project-owner",
+  "approvedAt": "2026-08-17T00:00:00+08:00",
+  "scope": "Approve the seven real-terrain Blender renders for the Oblation/Freedom Park/Baker Hall greybox handoff. This approves terrain, placement, route, and presentation for the first vertical slice only; it does not claim final architectural, facade, interior, gameplay, or campus-wide accuracy.",
+  "sourceSceneSpecHash": "sha256:809b58f648934c19cba70878b37b8956866331994679148a07e95e7410806ea6",
+  "sourceSceneSpecFileSha256": "sha256:8bdd29733351d09c360501286adafd0104a6d9189455d10ad7a963bda374d0f4",
+  "sourceTerrainProcessedHeightfieldSha256": "sha256:3e6dcd85e480cbfaaea342bc18a8d48290af4adff0e7af55bcb72e7144438e84",
+  "blenderVersion": "5.0.0",
+  "renders": [
+    {
+      "id": "baker-context",
+      "path": "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/baker-context.png",
+      "reviewCopy": "docs/assets/vertical-slice-real-terrain/baker-context.png",
+      "sha256": "sha256:54279a8003cf73954fce19e06e4d9a24cee2f446f4ab2780b9be1a16b5e43db5"
+    },
+    {
+      "id": "dl-umali-context",
+      "path": "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/dl-umali-context.png",
+      "reviewCopy": "docs/assets/vertical-slice-real-terrain/dl-umali-context.png",
+      "sha256": "sha256:d77f769183a99208c1fc0b4bc76304786ed3bc0f0fdab08e89f0be824a294f0a"
+    },
+    {
+      "id": "freedom-park",
+      "path": "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/freedom-park.png",
+      "reviewCopy": "docs/assets/vertical-slice-real-terrain/freedom-park.png",
+      "sha256": "sha256:b0956859ab4b1c59e8101515c018735bf63e691e7bf1c5662008f03aa26168ea"
+    },
+    {
+      "id": "library-context",
+      "path": "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/library-context.png",
+      "reviewCopy": "docs/assets/vertical-slice-real-terrain/library-context.png",
+      "sha256": "sha256:0201db3f2290f80e46f6359a105d91c511549aacd911e41b4eee5f63eae2f1df"
+    },
+    {
+      "id": "oblation",
+      "path": "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/oblation.png",
+      "reviewCopy": "docs/assets/vertical-slice-real-terrain/oblation.png",
+      "sha256": "sha256:3471bd99d5ff65544f1a9085fa46873eeabc0158755286ef7d715789ae40b138"
+    },
+    {
+      "id": "road-level",
+      "path": "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/road-level.png",
+      "reviewCopy": "docs/assets/vertical-slice-real-terrain/road-level.png",
+      "sha256": "sha256:25a918f905e646b2777092420512c16a437bb7d02d5ff9382eafe6da3c5a69d5"
+    },
+    {
+      "id": "topdown",
+      "path": "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/topdown.png",
+      "reviewCopy": "docs/assets/vertical-slice-real-terrain/topdown.png",
+      "sha256": "sha256:88555d478783a998e71550c0990d003575ed87396c0c8d135324dac11e4f5b7c"
+    }
+  ],
+  "nextGate": "roblox-studio-validation",
+  "notes": [
+    "Proceed with data-driven greybox placement only.",
+    "Keep Roblox generation authoritative on the server and keep the heavy scene out of ReplicatedStorage.",
+    "Do not treat this approval as permission to publish, request external permissions, or claim Overture coverage."
+  ]
+}

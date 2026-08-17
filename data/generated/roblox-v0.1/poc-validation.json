@@ -1,8 +1,8 @@
 {
   "approvedGates": {
-    "robloxApprovedGenerationGate": "not-run",
-    "robloxApprovedPlaytestGate": "not-run",
-    "robloxApprovedSpatialGate": "not-run"
+    "robloxApprovedGenerationGate": "pass",
+    "robloxApprovedPlaytestGate": "pass",
+    "robloxApprovedSpatialGate": "pass"
   },
   "blender": {
     "objectCount": 108,
@@ -14,8 +14,6 @@
     "version": "5.0.0"
   },
   "blockers": [
-    "Human visual approval remains open for the seven real Blender renders.",
-    "Approved Roblox generation, spatial, and playtest gates remain not-run until visual approval.",
     "Long-distance navigation/pathfinding remains a later gameplay pass.",
     "Overture provider access remains blocked; no Overture coverage is claimed.",
     "No external Roblox publication or permission request was performed."
@@ -23,12 +21,18 @@
   "generatedAt": "2026-08-17",
   "playtest": {
     "generatedSpawnCreated": true,
+    "spawnPlacement": "pass_outside_oblation_proxy",
+    "spawnOffsetLocalMeters": {
+      "east": 12,
+      "north": 0
+    },
+    "spawnCharacterDeltaStuds": 0.001,
     "longCrossSliceCharacterNavigation": "deferred-navmesh-pass",
     "productionStaticMode": "pass_no_regeneration",
     "serverAndClientScriptsInitialized": true,
-    "shortCharacterNavigation": "not-run-in-final-cycle",
+    "shortCharacterNavigation": "pass_to_x80_z0_within_4_studs",
     "spawnSourceFeatureId": "uplb:landmark:oblation",
-    "visualCapture": "captured-pending-human-review"
+    "visualCapture": "captured-after-owner-approval"
   },
   "robloxEngineeringDryRun": "pass",
   "robloxMcp": {
@@ -42,6 +46,7 @@
       "water": 300
     },
     "generatedLuauSha256": "sha256:a933a8b39a6a7ce30f8bfaa6f544add7b2dd4df3c5ac3e10e3e0e47b07c5f304",
+    "worldGeneratorSourceSha256": "sha256:bcb563f5bceb80a7a4af229016e3cb9c0157ab412620b3222dbb5a079f9aa989",
     "objectCount": 43,
     "placeId": 0,
     "regeneration": {
@@ -52,6 +57,15 @@
       "secondRunStatus": "pass",
       "terrainBoundsMatch": true,
       "terrainChunkCountMatches": true
+    },
+    "spatial": {
+      "heroPlacementToleranceStuds": 0.01,
+      "requiredHeroesChecked": [
+        "uplb:landmark:oblation",
+        "uplb:landmark:freedom-park",
+        "uplb:building:baker-hall"
+      ],
+      "status": "pass"
     },
     "replicatedHeavyScenePresent": false,
     "requiredFolders": [
@@ -67,12 +81,14 @@
     "routeSegmentCount": 709,
     "serverSceneModule": "ServerScriptService.Server.Generated.WorldScene",
     "spawn": {
+      "offsetEastM": 12,
+      "offsetNorthM": 0,
       "sourceFeatureId": "uplb:landmark:oblation",
       "status": "created"
     },
-    "status": "verified-local-disposable-edit-place",
-    "studioId": "db0dac94-cc2e-4eac-815a-80e8192e4185",
-    "studioName": "Place1",
+    "status": "verified-local-disposable-edit-and-static-play-place",
+    "studioId": "00ca018b-2bfd-43ef-b34d-36df079efdf9",
+    "studioName": "Template_95206881_AutoRecovery_0.rbxl",
     "terrainBounds": {
       "maxX": 2140,
       "maxY": 488,
@@ -105,12 +121,12 @@
     "verticalReference": "EGM96-relative-world-base-22m",
     "worldgenStatus": "ready"
   },
-  "status": "engineering_dry_run_pass_pending_blender_visual_approval",
+  "status": "approved_generation_spatial_playtest_pass",
   "terrainPerformance": {
     "afterProcessedCells": 25274544,
     "beforeLogicalCells": 230375880,
     "chunkCount": 480,
-    "officialRobloxRerun": "not-run",
+    "officialRobloxRerun": "pass",
     "reductionRatio": 0.890289973,
     "report": "data/generated/roblox-v0.1/terrain-performance.json",
     "surfaceSamplesUnchanged": true
@@ -120,7 +136,7 @@
     "diffCheck": "pass",
     "offlineGeodataCi": "pass",
     "offlineTerrainBudget": "pass",
-    "pytest": "98 passed",
+    "pytest": "100 passed",
     "researchValidator": "pass"
   }
 }

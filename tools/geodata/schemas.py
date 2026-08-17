@@ -23,6 +23,7 @@ EXPECTED: dict[str, tuple[str, ...]] = {
     "conflation-review.schema.json": ("id", "canonicalId", "candidateIds", "metrics", "recommendation", "decision", "reviewStatus"),
     "identity-registry.schema.json": ("version", "nextNumbers", "deletedIds", "entities"),
     "vertical-slice-review.schema.json": ("version", "lifecycle", "areaSource", "counts", "rows", "humanReviewStatus"),
+    "blender-visual-review.schema.json": ("schemaVersion", "reviewVersion", "lifecycle", "approvalStatus", "reviewer", "approvedAt", "renders", "nextGate"),
 }
 
 
@@ -103,6 +104,10 @@ def validate_artifacts(root: Path = ROOT) -> list[str]:
     approved_path = root / "data" / "reviews" / "approved" / "vertical-slice-review-v1.json"
     if approved_path.exists() and priority_schema.exists():
         errors.extend(_validate_instance(read_json(approved_path), priority_schema, "approved vertical slice review"))
+    blender_review_path = root / "data" / "reviews" / "approved" / "blender-vertical-slice-review-v1.json"
+    blender_review_schema = schema_root / "blender-visual-review.schema.json"
+    if blender_review_path.exists() and blender_review_schema.exists():
+        errors.extend(_validate_instance(read_json(blender_review_path), blender_review_schema, "approved Blender visual review"))
     return errors
 
 

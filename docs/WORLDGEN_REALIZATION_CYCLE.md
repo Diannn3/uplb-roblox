@@ -10,8 +10,9 @@ Blender, and the later Roblox Studio handoff:
 
 The checked-in semantic generator and Pillow previews remain useful offline
 fixtures. The current cycle also has a validated real-terrain scene, Blender
-mesh/renders, and a disposable Roblox Studio MCP bake; visual approval remains
-a human gate.
+mesh/renders, and a disposable Roblox Studio MCP bake; the project owner’s
+visual approval is recorded and the approved generation, spatial, and short
+playtest gates now pass.
 
 ## Explicit gates
 
@@ -26,8 +27,10 @@ Python 3.12, Blender 5.0.0, Earthdata Login, and the Roblox Studio MCP
 connector are available locally. The real cycle selected NASADEM_HGT.001,
 compiled `98` canonical objects, passed Blender semantic/render QA, and baked
 the disposable Edit place with `480` bounded terrain chunks. Production-static
-Play mode reuses the baked world without regeneration. Overture remains blocked
-and no external publication or permission request was made.
+Play mode reuses the baked world without regeneration. The generated spawn is
+offset outside the Oblation proxy and samples its own terrain elevation; long-
+distance navigation remains deferred. Overture remains blocked and no external
+publication or permission request was made.
 
 No credentials, raw DEM bulk files, `.blend` files, or production Roblox place
 changes belong in Git.

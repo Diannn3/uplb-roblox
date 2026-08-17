@@ -446,9 +446,18 @@ local function writeSpawn(root)
     local placementData = oblation.placement or {}
     local eastM = tonumber(placementData.eastM) or 0
     local northM = tonumber(placementData.northM) or 0
-    local absoluteElevationM = tonumber(placementData.absoluteElevationM) or 0
-    local relativeElevationM = tonumber(placementData.relativeElevationM) or tonumber(placementData.baseElevationM) or 0
-    local placement = CoordinateTransform.LocalToStuds(eastM, northM, relativeElevationM)
+    local proxy = oblation.proxy or {}
+    local proxyWidthM = math.max(tonumber(proxy.widthM) or 0, 0)
+    local spawnMarginM = 8
+    -- The Oblation point is a landmark anchor, not a walkable surface. Keep
+    -- the spawn outside the diagnostic hero proxy so the character cannot
+    -- spawn inside the greybox and be pushed through the terrain.
+    local spawnEastM = eastM + proxyWidthM / 2 + spawnMarginM
+    local spawnNorthM = northM
+    local spawnRelativeElevationM = sampleTerrain(spawnEastM, spawnNorthM)
+    local worldBaseElevationM = tonumber(Scene.terrain.worldBaseElevationM) or 0
+    local spawnAbsoluteElevationM = worldBaseElevationM + spawnRelativeElevationM
+    local placement = CoordinateTransform.LocalToStuds(spawnEastM, spawnNorthM, spawnRelativeElevationM)
     spawn.Position = placement + Vector3.new(0, 3, 0)
     spawn.Material = Enum.Material.Neon
     spawn.Color = Color3.fromRGB(120, 180, 255)
@@ -461,10 +470,12 @@ local function writeSpawn(root)
         detailTier = 0,
         provenance = { verificationStatus = "generated" },
     }, "spawn")
-    spawn:SetAttribute("SpawnEastM", eastM)
-    spawn:SetAttribute("SpawnNorthM", northM)
-    spawn:SetAttribute("SpawnAbsoluteElevationM", absoluteElevationM)
-    spawn:SetAttribute("SpawnRelativeElevationM", relativeElevationM)
+    spawn:SetAttribute("SpawnEastM", spawnEastM)
+    spawn:SetAttribute("SpawnNorthM", spawnNorthM)
+    spawn:SetAttribute("SpawnOffsetEastM", spawnEastM - eastM)
+    spawn:SetAttribute("SpawnOffsetNorthM", spawnNorthM - northM)
+    spawn:SetAttribute("SpawnAbsoluteElevationM", spawnAbsoluteElevationM)
+    spawn:SetAttribute("SpawnRelativeElevationM", spawnRelativeElevationM)
     spawn:SetAttribute("SpawnGroundStuds", string.format("%.6f,%.6f,%.6f", placement.X, placement.Y, placement.Z))
     spawn:SetAttribute("SpawnSourceFeatureId", oblation.featureId or oblation.id or "")
     return spawn

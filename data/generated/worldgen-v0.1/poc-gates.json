@@ -13,15 +13,19 @@
     ],
     "semanticSceneEqual": true,
     "status": "pass",
-    "version": "5.0.0"
+    "version": "5.0.0",
+    "visualApproval": {
+      "approvedAt": "2026-08-17T00:00:00+08:00",
+      "reviewPath": "data/reviews/approved/blender-vertical-slice-review-v1.json",
+      "reviewer": "project-owner",
+      "status": "approved"
+    }
   },
   "blenderEngineeringGate": "pass",
   "blenderMeshGate": "pass",
   "blenderRenderGate": "pass",
-  "blenderVisualGate": "pending-human",
+  "blenderVisualGate": "approved",
   "blockers": [
-    "Project owner must approve or reject the seven real Blender renders.",
-    "Official approved Roblox generation, spatial, and playtest gates are intentionally not run.",
     "Overture provider access remains blocked; no Overture coverage is claimed."
   ],
   "evidence": {
@@ -29,6 +33,7 @@
     "blenderDeterminism": "data/generated/blender-v0.1/determinism.json",
     "blenderQa": "data/generated/blender-v0.1/blender-qa.json",
     "blenderReport": "data/generated/blender-v0.1/scene-report.json",
+    "blenderVisualReview": "data/reviews/approved/blender-vertical-slice-review-v1.json",
     "robloxValidation": "data/generated/roblox-v0.1/poc-validation.json",
     "sceneSpec": "data/generated/worldgen-v0.1/scene-spec.json",
     "sceneValidation": "data/generated/worldgen-v0.1/scene-validation.json",
@@ -48,31 +53,37 @@
     "blenderEngineeringGate": "pass",
     "blenderMeshGate": "pass",
     "blenderRenderGate": "pass",
-    "blenderVisualGate": "pending-human",
+    "blenderVisualGate": "approved",
     "phase1Gate": "pass",
     "realTerrainGate": "pass",
-    "robloxApprovedGenerationGate": "not-run",
-    "robloxApprovedPlaytestGate": "not-run",
-    "robloxApprovedSpatialGate": "not-run",
+    "robloxApprovedGenerationGate": "pass",
+    "robloxApprovedPlaytestGate": "pass",
+    "robloxApprovedSpatialGate": "pass",
     "robloxEngineeringDryRun": "pass",
     "sceneSpecGate": "pass"
   },
   "generatedAt": "2026-08-17",
   "metadata": {
-    "closureBranch": "fix/poc-gate-ci-closure",
-    "sceneSpecFileSha256": "sha256:8bdd29733351d09c360501286adafd0104a6d9189455d10ad7a963bda374d0f4"
+    "sceneSpecFileSha256": "sha256:8bdd29733351d09c360501286adafd0104a6d9189455d10ad7a963bda374d0f4",
+    "sourceClosureBranch": "fix/poc-gate-ci-closure",
+    "validationBranch": "feat/approved-roblox-validation-v0-1"
   },
   "phase1Gate": "pass",
-  "pocStatus": "AWAITING_BLENDER_VISUAL_APPROVAL",
+  "pocStatus": "ROBLOX_VERTICAL_SLICE_VALIDATED",
   "realTerrainGate": "pass",
   "roblox": {
+    "approvedGates": {
+      "generation": "pass",
+      "playtest": "pass",
+      "spatial": "pass"
+    },
     "engineeringDryRun": "pass",
-    "historicalValidationStatus": "engineering_dry_run_pass_pending_blender_visual_approval",
+    "historicalValidationStatus": "approved_generation_spatial_playtest_pass",
     "terrainPerformanceReport": "data/generated/roblox-v0.1/terrain-performance.json"
   },
-  "robloxApprovedGenerationGate": "not-run",
-  "robloxApprovedPlaytestGate": "not-run",
-  "robloxApprovedSpatialGate": "not-run",
+  "robloxApprovedGenerationGate": "pass",
+  "robloxApprovedPlaytestGate": "pass",
+  "robloxApprovedSpatialGate": "pass",
   "robloxEngineeringDryRun": "pass",
   "scene": {
     "objectCount": 98,

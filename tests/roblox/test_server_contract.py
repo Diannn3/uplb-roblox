@@ -41,3 +41,12 @@ def test_server_entrypoint_uses_explicit_mode_and_positions_each_character_once(
 def test_heavy_world_scene_is_server_only() -> None:
     assert (ROOT / "src/Server/Generated/WorldScene.lua").exists()
     assert not (ROOT / "src/Shared/Generated/WorldScene.lua").exists()
+
+
+def test_spawn_anchor_is_offset_from_oblation_proxy_and_samples_its_own_ground() -> None:
+    source = (ROOT / "src/Server/WorldGenerator.lua").read_text(encoding="utf-8")
+    assert "local proxy = oblation.proxy or {}" in source
+    assert "local spawnMarginM = 8" in source
+    assert "local spawnEastM = eastM + proxyWidthM / 2 + spawnMarginM" in source
+    assert "local spawnRelativeElevationM = sampleTerrain(spawnEastM, spawnNorthM)" in source
+    assert 'spawn:SetAttribute("SpawnOffsetEastM", spawnEastM - eastM)' in source

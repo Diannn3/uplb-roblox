@@ -96,14 +96,19 @@ PowerShell invocation (Blender's argument separator is required):
 blender --background --python-exit-code 10 --python tools/blender/build_scene.py -- --scene-spec data/generated/worldgen-v0.1/scene-spec.json --output data/generated/blender-v0.1
 ```
 
-The Blender build produces the `.blend`, QA report, determinism report, and six
-real renders. Roblox is intentionally deferred until those renders receive
-explicit human approval.
+The Blender build produces the `.blend`, QA report, determinism report, and
+seven real renders. The project-owner approval is recorded in
+`data/reviews/approved/blender-vertical-slice-review-v1.json`; the disposable
+Roblox handoff has since passed generation, hero-placement, static-mode, and
+short-navigation checks. See `data/generated/worldgen-v0.1/poc-gates.json` for
+the authoritative state.
 
 The Overture probe is network-opt-in and bounded. A blocked provider is recorded
 as an explicit comparison status; it is not treated as evidence of missing
 coverage and does not by itself block the OSM-first greybox POC. Permission
 requests under `docs/PERMISSION_REQUEST_TEMPLATES.md` are drafts only. The
 authoritative Phase 1 closure report is `data/canonical/phase1-closure-report.json`.
-Do not begin terrain, Blender, or persistent Roblox world-generation work while
-`worldgenReady` is `false`; the current stop is the explicit human-review gate.
+Do not begin persistent Roblox publication or detailed gameplay work from this
+POC alone. The controlled outdoor OSM-first slice is `worldgenReady`; long-
+distance navigation, campus-wide verification, and Overture coverage remain
+explicitly deferred or blocked.

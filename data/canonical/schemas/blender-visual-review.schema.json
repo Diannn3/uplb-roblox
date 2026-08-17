@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UPLB Blender Vertical Slice Visual Review",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "reviewVersion",
+    "lifecycle",
+    "approvalStatus",
+    "reviewer",
+    "approvedAt",
+    "sourceSceneSpecHash",
+    "sourceSceneSpecFileSha256",
+    "sourceTerrainProcessedHeightfieldSha256",
+    "renders",
+    "nextGate"
+  ],
+  "properties": {
+    "schemaVersion": {"const": "uplb-blender-visual-review-v1"},
+    "reviewVersion": {"type": "string", "minLength": 1},
+    "lifecycle": {"const": "human-review"},
+    "approvalStatus": {"enum": ["pending", "approved", "rejected"]},
+    "reviewer": {"type": "string", "minLength": 1},
+    "approvedAt": {"type": "string", "minLength": 1},
+    "sourceSceneSpecHash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "sourceSceneSpecFileSha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "sourceTerrainProcessedHeightfieldSha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "blenderVersion": {"type": "string", "minLength": 1},
+    "scope": {"type": "string", "minLength": 1},
+    "renders": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "required": ["id", "path", "reviewCopy", "sha256"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "path": {"type": "string", "minLength": 1},
+          "reviewCopy": {"type": "string", "minLength": 1},
+          "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "nextGate": {"const": "roblox-studio-validation"},
+    "notes": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

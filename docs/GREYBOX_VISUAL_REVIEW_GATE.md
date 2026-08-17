@@ -1,19 +1,19 @@
 # Vertical-slice greybox visual review gate
 
-This is the required hard stop before any approved Roblox Studio or MCP handoff.
+This was the required hard stop before the approved Roblox Studio or MCP handoff.
 The single authoritative machine-readable state is
 [`data/generated/worldgen-v0.1/poc-gates.json`](../data/generated/worldgen-v0.1/poc-gates.json).
 
 ## Engineering state
 
 - Phase 1 revision: `validation:real-terrain-v0.2`
-- Approved review: engineering gate complete; project-owner visual sign-off remains pending
+- Approved review: project-owner visual sign-off recorded in `data/reviews/approved/blender-vertical-slice-review-v1.json`
 - Selected features: `98` (`5` heroes, `35` context buildings, `25` roads, `25` walkways, `5` waterways, and `3` green-space features)
 - Canonical scene: `data/generated/worldgen-v0.1/scene-spec.json`
 - Structural QA: `pass`; duplicate IDs, missing source IDs, non-finite values, negative dimensions, and absurd local extents were checked
 - Determinism: semantic manifest comparison `pass`
 - Shared scene spec: `data/generated/worldgen-v0.1/scene-spec.json` (`ready`, NASADEM_HGT.001 selected)
-- Roblox validation: `data/generated/roblox-v0.1/poc-validation.json`
+- Roblox validation: `data/generated/roblox-v0.1/poc-validation.json` (`approved_generation_spatial_playtest_pass`)
 - Historical fixture gates: `data/generated/greybox-v0.1/` (all marked `superseded`; do not use them as current POC state)
 
 ## Terrain state
@@ -42,13 +42,14 @@ Fixed-camera preview paths:
 - `assets/vertical-slice-real-terrain/road-level.png`
 - `assets/vertical-slice-real-terrain/library-context.png`
 
-## Human stop
+## Human approval record
 
-Visual approval is **pending-human**. A prior disposable Roblox Studio run is
-retained and classified as `robloxEngineeringDryRun: pass`; the project owner must still review the
-terrain comparison, scene manifest, Blender QA, and all seven renders before
-any approved Roblox rerun, publication, or detailed gameplay work. AI inspection can record uncertainties,
-but cannot replace the owner’s visual approval.
+Visual approval is **approved** for the seven real-terrain renders and the
+Oblation/Freedom Park/Baker Hall greybox handoff. The approval is deliberately
+limited to terrain, placement, route, and presentation; it does not claim final
+architecture, facade/interior accuracy, gameplay readiness, or publication rights.
+The approved Studio run completed generation, hero placement, static-mode, and
+short navigation checks. Long-distance navigation remains deferred.
 
 Known uncertainties: no facade/interior detail, no survey-grade geometry, no
 campus-wide visual verification, and Overture remains explicitly blocked.
@@ -58,7 +59,9 @@ campus-wide visual verification, and Overture remains explicitly blocked.
 The rendered slice shows the bounded central cluster on the selected NASADEM
 terrain with required hero markers and context. Blender and Studio checks cover
 terrain-following placement, route ribbons, oriented proxies, spawn provenance,
-and deterministic regeneration. The offline Roblox terrain budget estimates
+and deterministic regeneration. The generated spawn is now offset 12 m east of
+the Oblation proxy and samples its own terrain elevation, keeping the player
+outside the hero block. The offline Roblox terrain budget estimates
 `230,375,880` baseline logical cells versus `25,274,544` processed cells
 (`89.0289973%` reduction) across 480 bounded chunks. Facade/interior detail,
 navmesh behavior, and player-scale judgment remain part of the owner-approved

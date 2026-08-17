@@ -37,7 +37,7 @@ class GreyboxTests(unittest.TestCase):
             second = generate_world(Path(directory) / "second")
             self.assertEqual(first["manifest"], second["manifest"])
             self.assertEqual(first["qa"], second["qa"])
-            self.assertEqual(first["manifest"]["status"], "conditional-blender-unavailable")
+            self.assertIn(first["manifest"]["status"], {"conditional-blender-unavailable", "blender-generated"})
 
     def test_previews_are_fixed_camera_outputs(self) -> None:
         expected = {"topdown.png", "oblation.png", "freedom-park.png", "baker-context.png", "dl-umali-context.png", "road-level.png"}

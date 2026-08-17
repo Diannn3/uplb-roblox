@@ -21,7 +21,7 @@
 - The evidence gate is accepted for the controlled outdoor OSM-first vertical slice. Overture remains explicitly blocked with no coverage claim; campus-wide production remains gated on institutional sources and human review.
 - The hardening branch now separates raw/candidate/canonical/generated data, persists `data/canonical/identity-registry.json`, uses Shapely validity/intersection checks, and emits an offline CI/Phase 1 hardening report.
 - The canonical vertical-slice source set remains traceable to the approved Oblation/Freedom Park/Baker Hall cluster; the generated real-terrain scene expands it to deterministic context routes, buildings, waterways, and green space for greybox validation.
-- The real-terrain Blender/Roblox handoff is complete on the disposable validation place; human visual approval, navmesh/performance review, and detailed interiors remain deferred.
+- The real-terrain Blender/Roblox handoff is approved and validated on the disposable validation place; long-distance navmesh/performance review and detailed interiors remain deferred.
 
 ## Phase 1 — Canonical geospatial foundation
 
