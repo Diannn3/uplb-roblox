@@ -27,6 +27,58 @@ def _display_path(path: Path) -> str:
         return str(path)
 
 
+def _bare_sha256(value: object) -> str | None:
+    """Return a normalized bare SHA-256 value from a source manifest field."""
+
+    if not value:
+        return None
+    text = str(value).strip().lower()
+    return text.removeprefix("sha256:") or None
+
+
+def _verify_osm_provenance(comparison: dict, matrix: dict, osm_path: Path) -> dict[str, object]:
+    """Verify OSM evidence without requiring an ignored local extract.
+
+    A raw extract is strongest evidence when present.  A clean clone may use
+    the approved source-matrix hash instead, but only when the comparison and
+    matrix agree and the row carries basic provenance.  Missing evidence is
+    never silently treated as a pass.
+    """
+
+    expected_hash = _bare_sha256(comparison.get("inputs", {}).get("osm", {}).get("sha256"))
+    osm_row = next((row for row in matrix.get("sources", []) if row.get("sourceId") == "osm"), {})
+    manifest_hash = _bare_sha256(osm_row.get("hash"))
+    result: dict[str, object] = {
+        "state": "missing-unverifiable",
+        "expectedSha256": expected_hash,
+        "manifestSha256": manifest_hash,
+        "rawPath": _display_path(osm_path),
+        "rawSha256": None,
+        "sourceId": osm_row.get("sourceId"),
+        "provider": osm_row.get("provider"),
+        "license": osm_row.get("license"),
+        "accessedAt": osm_row.get("accessedAt"),
+        "manifestStatus": osm_row.get("status"),
+    }
+
+    if osm_path.exists():
+        actual_hash = sha256(osm_path)
+        result["rawSha256"] = actual_hash
+        if expected_hash and actual_hash == expected_hash and (manifest_hash is None or manifest_hash == expected_hash):
+            result["state"] = "verified-raw"
+        else:
+            result["state"] = "hash-mismatch"
+        return result
+
+    manifest_has_provenance = all(
+        osm_row.get(field)
+        for field in ("sourceId", "provider", "license", "accessedAt", "hash", "status")
+    )
+    if expected_hash and manifest_hash == expected_hash and manifest_has_provenance:
+        result["state"] = "verified-pinned-manifest"
+    return result
+
+
 def build_report(
     comparison_path: Path,
     probe_path: Path,
@@ -52,12 +104,16 @@ def build_report(
             "terrainComparison": _display_path(terrain_comparison_path) if terrain_comparison_path.exists() else "not-run",
         },
     )
-    expected_hash = comparison.get("inputs", {}).get("osm", {}).get("sha256")
-    actual_hash = f"sha256:{sha256(osm_path)}" if osm_path.exists() else None
+    osm_provenance = _verify_osm_provenance(comparison, matrix, osm_path)
+    osm_state = str(osm_provenance["state"])
     report.add_check(
         "osm-extract-pinned",
-        "pass" if expected_hash and actual_hash == f"sha256:{expected_hash}" else "fail",
-        f"expected={expected_hash or 'missing'} actual={actual_hash or 'missing'}",
+        "pass" if osm_state in {"verified-raw", "verified-pinned-manifest"} else "fail",
+        (
+            f"state={osm_state} expected={osm_provenance.get('expectedSha256') or 'missing'} "
+            f"manifest={osm_provenance.get('manifestSha256') or 'missing'} "
+            f"raw={osm_provenance.get('rawSha256') or 'missing'}"
+        ),
     )
     overture_status = probe.get("decision")
     report.add_check(
@@ -101,6 +157,7 @@ def build_report(
         "Google imagery and restricted institutional material remain excluded from ingestion.",
     )
     report.measurements["osmSummary"] = comparison.get("summaries", {}).get("osm", {})
+    report.measurements["osmProvenance"] = osm_provenance
     report.measurements["sourceRows"] = len(matrix.get("sources", []))
     report.measurements["srtm"] = {key: dem_row.get(key) for key in ("status", "doi", "accessedAt", "landingPage", "horizontalCRS", "horizontalDatum", "verticalUnits", "verticalDatum", "nodata", "authRequirement")}
     report.measurements["terrain"] = {

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "generated": "2026-08-17",
+  "policy": "Fail closed on restricted, permission-required, or uncertain sources.",
+  "sources": [
+    {
+      "sourceId": "osm",
+      "provider": "OpenStreetMap contributors",
+      "coverage": "Minimal committed fixture",
+      "license": "ODbL-1.0",
+      "accessedAt": "2026-08-17",
+      "hash": "sha256:c8ac58d82585cf56f08851df7c51c09821c6134182dbfb99843631dca87d2dd6",
+      "bbox": [121.2395, 14.1595, 121.243, 14.162],
+      "storeLocally": true,
+      "redistribute": "With attribution and ODbL obligations",
+      "status": "validated",
+      "nextAction": "Fixture only"
+    },
+    {
+      "sourceId": "srtm-30m",
+      "provider": "NASA JPL / NASA Earthdata LP DAAC",
+      "license": "NASA Earthdata open data policy",
+      "accessedAt": "2026-08-17",
+      "status": "validated-comparison-input",
+      "doi": "10.5067/MEASURES/SRTM/SRTMGL1.003",
+      "verticalDatum": "EGM96"
+    },
+    {
+      "sourceId": "nasadem-30m",
+      "provider": "NASA JPL / NASA Earthdata LP DAAC",
+      "license": "NASA Earthdata open data policy",
+      "accessedAt": "2026-08-17",
+      "status": "validated-selected-baseline",
+      "doi": "10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
+      "verticalDatum": "EGM96",
+      "processedHeightfieldSha256": "sha256:3e6dcd85e480cbfaaea342bc18a8d48290af4adff0e7af55bcb72e7144438e84"
+    }
+  ]
+}

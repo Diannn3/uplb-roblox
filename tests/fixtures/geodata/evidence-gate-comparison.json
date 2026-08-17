@@ -1,0 +1,24 @@
+{
+  "bbox": {
+    "west": 121.2395,
+    "south": 14.1595,
+    "east": 121.243,
+    "north": 14.162
+  },
+  "inputs": {
+    "osm": {
+      "path": "tests/fixtures/geodata/osm-small.json",
+      "sha256": "c8ac58d82585cf56f08851df7c51c09821c6134182dbfb99843631dca87d2dd6"
+    }
+  },
+  "summaries": {
+    "osm": {
+      "elements": 4,
+      "buildings": 2,
+      "highways": 1,
+      "waterways": 1,
+      "named": 4
+    }
+  },
+  "notes": ["Minimal committed fixture for evidence-gate provenance tests; not a campus source snapshot."]
+}
