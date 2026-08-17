@@ -19,6 +19,8 @@ class HeightField:
     nodata: float | None = None
     vertical_exaggeration: float = 1.0
     source_kind: str = "fixture"
+    world_base_elevation_m: float | None = None
+    vertical_reference_policy: str = "absolute-source-elevation"
 
     @property
     def rows(self) -> int:
@@ -54,6 +56,13 @@ class HeightField:
         bottom = samples[2] * (1 - dx) + samples[3] * dx
         return (top * (1 - dy) + bottom * dy) * self.vertical_exaggeration
 
+    def relative_ground_height(self, local_east_m: float, local_north_m: float) -> float:
+        """Sample the same surface relative to the deterministic world base."""
+
+        if self.world_base_elevation_m is None:
+            raise ValueError("heightfield has no world base elevation")
+        return self.ground_height(local_east_m, local_north_m) - self.world_base_elevation_m
+
     def to_dict(self) -> dict[str, Any]:
         return {
             "product": self.product,
@@ -66,6 +75,12 @@ class HeightField:
             "nodata": self.nodata,
             "verticalExaggeration": self.vertical_exaggeration,
             "sourceKind": self.source_kind,
+            "verticalReference": {
+                "sourceDatum": "EGM96",
+                "worldBaseElevationM": self.world_base_elevation_m,
+                "policy": self.vertical_reference_policy,
+                "elevationSemantics": "absolute-values-with-relative-sampling",
+            },
         }
 
     @classmethod
@@ -79,6 +94,12 @@ class HeightField:
             nodata=None if payload.get("nodata") is None else float(payload["nodata"]),
             vertical_exaggeration=float(payload.get("verticalExaggeration", 1.0)),
             source_kind=str(payload.get("sourceKind", "fixture")),
+            world_base_elevation_m=(
+                None
+                if (payload.get("verticalReference") or {}).get("worldBaseElevationM") is None
+                else float((payload.get("verticalReference") or {})["worldBaseElevationM"])
+            ),
+            vertical_reference_policy=str((payload.get("verticalReference") or {}).get("policy", "absolute-source-elevation")),
         )
 
     def write(self, path: Path) -> None:

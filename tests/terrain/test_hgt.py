@@ -6,6 +6,8 @@ import unittest
 import zipfile
 from pathlib import Path
 
+import numpy as np
+
 from tools.terrain.hgt import HgtTile
 
 
@@ -21,6 +23,8 @@ class HgtReaderTests(unittest.TestCase):
             tile = HgtTile.from_file(path, product="SRTMGL1.003")
 
             self.assertEqual(tile.size, 3)
+            self.assertIsInstance(tile.values, np.ndarray)
+            self.assertEqual(tile.values.shape, (3, 3))
             self.assertEqual(tile.bounds, (121.0, 14.0, 122.0, 15.0))
             self.assertEqual(tile.sample(121.0, 15.0), 100.0)
             self.assertAlmostEqual(tile.sample(121.25, 14.75), 100.0)
@@ -38,6 +42,13 @@ class HgtReaderTests(unittest.TestCase):
             tile = HgtTile.from_archive(archive, product="NASADEM_HGT.001")
             self.assertEqual(tile.product, "NASADEM_HGT.001")
             self.assertEqual(tile.source_kind, "real-nasa-raster")
+
+    def test_strict_production_dimension_validation_rejects_fixture_grid(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "N14E121.hgt"
+            self._write_tile(path)
+            with self.assertRaisesRegex(ValueError, "expected 3601x3601"):
+                HgtTile.from_file(path, product="SRTMGL1.003", expected_size=3601)
 
 
 if __name__ == "__main__":

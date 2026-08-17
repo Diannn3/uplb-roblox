@@ -4,6 +4,9 @@
   "status": "pass",
   "warnings": [
     "fixture terrain does not cover scene:candidate:osm:way/37331917",
+    "fixture terrain does not cover geometry for scene:candidate:osm:way/37331917",
+    "fixture terrain does not cover scene:candidate:osm:way/37331919",
+    "fixture terrain does not cover geometry for scene:candidate:osm:way/37331919",
     "real terrain gate is blocked because scene spec uses a fixture"
   ]
 }

@@ -61,6 +61,20 @@ def _value(result: Any, *names: str) -> Any:
     return None
 
 
+def _nested(result: Any, *path: str) -> Any:
+    """Read a nested UMM/DataGranule value without assuming one SDK shape."""
+
+    current: Any = result
+    for key in path:
+        if isinstance(current, dict):
+            current = current.get(key)
+        else:
+            current = getattr(current, key, None)
+        if current is None:
+            return None
+    return current
+
+
 def _result_bbox(result: Any) -> list[float] | None:
     value = _value(result, "bbox", "bounding_box", "boundingBox")
     if isinstance(value, (list, tuple)) and len(value) == 4:
@@ -69,6 +83,19 @@ def _result_bbox(result: Any) -> list[float] | None:
         keys = {key.lower(): value[key] for key in value}
         if all(key in keys for key in ("west", "south", "east", "north")):
             return [float(keys["west"]), float(keys["south"]), float(keys["east"]), float(keys["north"])]
+    rectangles = _nested(result, "umm", "SpatialExtent", "HorizontalSpatialDomain", "Geometry", "BoundingRectangles")
+    if isinstance(rectangles, list) and rectangles:
+        rectangle = rectangles[0]
+        if isinstance(rectangle, dict):
+            try:
+                return [
+                    float(rectangle["WestBoundingCoordinate"]),
+                    float(rectangle["SouthBoundingCoordinate"]),
+                    float(rectangle["EastBoundingCoordinate"]),
+                    float(rectangle["NorthBoundingCoordinate"]),
+                ]
+            except (KeyError, TypeError, ValueError):
+                pass
     return None
 
 
@@ -77,8 +104,8 @@ def _overlaps(left: list[float], right: list[float]) -> bool:
 
 
 def _normalise_granule(result: Any, source: dict[str, Any], aoi: list[float]) -> dict[str, Any]:
-    short_name = _value(result, "shortName", "short_name")
-    version = _value(result, "version")
+    short_name = _value(result, "shortName", "short_name") or _nested(result, "umm", "CollectionReference", "ShortName")
+    version = _value(result, "version") or _nested(result, "umm", "CollectionReference", "Version")
     bbox = _result_bbox(result)
     if str(short_name) != str(source["shortName"]):
         raise ValueError(f"Earthdata result short name mismatch: expected {source['shortName']}, got {short_name}")
@@ -86,20 +113,47 @@ def _normalise_granule(result: Any, source: dict[str, Any], aoi: list[float]) ->
         raise ValueError(f"Earthdata result version mismatch: expected {source['version']}, got {version}")
     if bbox is None or not _overlaps(aoi, bbox):
         raise ValueError("Earthdata result does not expose an overlapping bounding box")
-    filename = _value(result, "filename", "file_name", "name")
+    filename = _value(result, "filename", "file_name", "name") or _nested(result, "umm", "GranuleUR")
     if not filename:
         links = _value(result, "data_links", "dataLinks")
         if callable(links):
             links = links()
         if isinstance(links, (list, tuple)) and links:
             filename = str(links[0]).rsplit("/", 1)[-1]
+    links = _value(result, "data_links", "dataLinks")
+    if callable(links):
+        links = links()
+    if not isinstance(links, (list, tuple)):
+        links = []
     return {
-        "conceptId": _value(result, "conceptId", "concept_id") or "unknown",
+        "conceptId": _value(result, "conceptId", "concept_id") or _nested(result, "meta", "concept-id") or "unknown",
+        "granuleId": _value(result, "id", "granuleId", "granule_id") or _nested(result, "meta", "native-id") or _nested(result, "umm", "GranuleUR") or "unknown",
+        "entryTitle": _nested(result, "umm", "GranuleUR") or None,
         "shortName": str(short_name),
         "version": str(version),
         "bbox": bbox,
         "filename": str(filename) if filename else None,
+        "dataLinks": [str(link) for link in links],
     }
+
+
+def _search_data(client: Any, source: dict[str, Any], aoi: list[float], count: int) -> list[Any]:
+    """Call earthaccess across the list/tuple API transition.
+
+    Earthaccess 0.18 expects ``bounding_box`` to be expanded as four tuple
+    arguments, while the fake clients used by the offline tests historically
+    accepted the JSON-list form.  Probe the legacy form once and retry only for
+    the documented argument-shape TypeError; no network request is repeated.
+    """
+
+    kwargs = {"short_name": source["shortName"], "version": source["version"], "count": count}
+    try:
+        return list(client.search_data(**kwargs, bounding_box=aoi))
+    except TypeError as exc:
+        message = str(exc).lower()
+        if "bounding_box" not in message and "missing" not in message:
+            raise
+        return list(client.search_data(**kwargs, bounding_box=tuple(aoi)))
 
 
 def search_product(
@@ -112,14 +166,7 @@ def search_product(
     source = product_source(product)
     client = earthaccess_client or _import_earthaccess()
     aoi = _aoi_bbox(aoi_path)
-    results = list(
-        client.search_data(
-            short_name=source["shortName"],
-            version=source["version"],
-            bounding_box=aoi,
-            count=count,
-        )
-    )
+    results = _search_data(client, source, aoi, count)
     if not results:
         raise RuntimeError(f"Earthdata search returned no {source['product']} granules overlapping the UPLB AOI")
     if len(results) > count or len(results) > MAX_GRANULES:
@@ -132,6 +179,7 @@ def search_product(
         "version": source["version"],
         "aoi": aoi,
         "granules": granules,
+        "retrievalTimestamp": datetime.now(timezone.utc).isoformat(),
         "_results": results,
     }
 

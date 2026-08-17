@@ -55,6 +55,7 @@ def generate_outputs(
     slice_path: Path = DEFAULT_SLICE,
     config_path: Path = DEFAULT_CONFIG,
     raw_root: Path | None = None,
+    strict_dimensions: bool = False,
 ) -> dict[str, Any]:
     if raw_root is not None:
         raw_root = Path(raw_root)
@@ -63,7 +64,7 @@ def generate_outputs(
             "nasadem": sorted((raw_root / "nasadem").rglob("*.hgt")) + sorted((raw_root / "nasadem").rglob("*.zip")),
         }
         if all(raw_files[key] for key in raw_files):
-            return generate_real_outputs(comparison_dir, output_dir, raw_files=raw_files, slice_path=slice_path, config_path=config_path)
+            return generate_real_outputs(comparison_dir, output_dir, raw_files=raw_files, slice_path=slice_path, config_path=config_path, strict_dimensions=strict_dimensions)
     comparison_dir.mkdir(parents=True, exist_ok=True)
     srtm_dir, nasadem_dir = comparison_dir / "srtm", comparison_dir / "nasadem"
     srtm = build_fixture_heightfield("srtm", srtm_dir)
@@ -140,6 +141,7 @@ def generate_real_outputs(
     raw_files: dict[str, list[Path]],
     slice_path: Path = DEFAULT_SLICE,
     config_path: Path = DEFAULT_CONFIG,
+    strict_dimensions: bool = False,
 ) -> dict[str, Any]:
     """Run both acquired NASA HGT products through identical local processing."""
 
@@ -151,7 +153,7 @@ def generate_real_outputs(
     reports: dict[str, dict[str, Any]] = {}
     for key, product in (("srtm", "SRTMGL1.003"), ("nasadem", "NASADEM_HGT.001")):
         product_dir = comparison_dir / key
-        report = preprocess_hgt(raw_files[key][0], product_dir, product=product, aoi_path=aoi_path)
+        report = preprocess_hgt(raw_files[key][0], product_dir, product=product, aoi_path=aoi_path, strict_dimensions=strict_dimensions)
         fields[key] = HeightField.read(product_dir / "heightfield.json")
         reports[key] = report
         render_preview(fields[key], product_dir / "preview.png")
@@ -182,8 +184,9 @@ def main() -> int:
     parser.add_argument("--slice", type=Path, default=DEFAULT_SLICE)
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
     parser.add_argument("--raw-root", type=Path, default=None)
+    parser.add_argument("--strict-dimensions", action="store_true", help="require official 3601x3601 HGT payload dimensions")
     args = parser.parse_args()
-    result = generate_outputs(args.comparison, args.output, slice_path=args.slice, config_path=args.config, raw_root=args.raw_root)
+    result = generate_outputs(args.comparison, args.output, slice_path=args.slice, config_path=args.config, raw_root=args.raw_root, strict_dimensions=args.strict_dimensions)
     print(json.dumps({"status": result["terrainReport"]["status"], "selectedDEM": result["terrainReport"]["selectedDEM"]}, indent=2, sort_keys=True))
     return 0
 

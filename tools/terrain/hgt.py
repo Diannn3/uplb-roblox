@@ -10,15 +10,25 @@ from __future__ import annotations
 import hashlib
 import math
 import re
-import struct
 import zipfile
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
 
+import numpy as np
+
 
 _TILE_NAME = re.compile(r"^(?P<ns>[NS])(?P<lat>\d{2})(?P<ew>[EW])(?P<lon>\d{3})\.hgt$", re.IGNORECASE)
 _NODATA = -32768
+
+# Both selected products are 1 arc-second rasters.  An HGT tile has one
+# sample at each edge, therefore the documented 1-degree tile is 3601x3601.
+# The reader keeps a permissive fixture mode so the tiny 3x3 test tiles remain
+# useful, while production preprocessing passes the strict expected size.
+PRODUCT_RASTER_SIZES = {
+    "SRTMGL1.003": 3601,
+    "NASADEM_HGT.001": 3601,
+}
 
 
 def _tile_origin(name: str) -> tuple[float, float]:
@@ -42,7 +52,7 @@ class HgtTile:
     west: float
     south: float
     size: int
-    values: tuple[tuple[int, ...], ...]
+    values: np.ndarray
     source_hash: str
     nodata: int = _NODATA
     source_kind: str = "real-nasa-raster"
@@ -61,7 +71,7 @@ class HgtTile:
 
     @property
     def nodata_count(self) -> int:
-        return sum(value == self.nodata for row in self.values for value in row)
+        return int(np.count_nonzero(self.values == self.nodata))
 
     @classmethod
     def from_file(
@@ -70,10 +80,11 @@ class HgtTile:
         *,
         product: str,
         expected_sha256: str | None = None,
+        expected_size: int | None = None,
     ) -> "HgtTile":
         path = Path(path)
         data = path.read_bytes()
-        return cls._from_bytes(data, path.name, product=product, expected_sha256=expected_sha256)
+        return cls._from_bytes(data, path.name, product=product, expected_sha256=expected_sha256, expected_size=expected_size)
 
     @classmethod
     def from_archive(
@@ -82,6 +93,7 @@ class HgtTile:
         *,
         product: str,
         expected_sha256: str | None = None,
+        expected_size: int | None = None,
     ) -> "HgtTile":
         with zipfile.ZipFile(path) as archive:
             names = sorted(
@@ -95,7 +107,7 @@ class HgtTile:
                 raise ValueError(f"archive must contain exactly one HGT tile, found {len(names)}")
             name = names[0]
             data = archive.read(name)
-        return cls._from_bytes(data, name, product=product, expected_sha256=expected_sha256)
+        return cls._from_bytes(data, name, product=product, expected_sha256=expected_sha256, expected_size=expected_size)
 
     @classmethod
     def _from_bytes(
@@ -105,6 +117,7 @@ class HgtTile:
         *,
         product: str,
         expected_sha256: str | None,
+        expected_size: int | None,
     ) -> "HgtTile":
         source_hash = _sha256_bytes(data)
         if expected_sha256 and source_hash != expected_sha256:
@@ -115,8 +128,9 @@ class HgtTile:
         size = math.isqrt(sample_count)
         if size < 2 or size * size != sample_count:
             raise ValueError(f"HGT payload does not contain a square grid: {len(data)} bytes")
-        raw = struct.unpack(f">{sample_count}h", data)
-        values = tuple(tuple(raw[row * size : (row + 1) * size]) for row in range(size))
+        if expected_size is not None and size != expected_size:
+            raise ValueError(f"HGT payload has {size}x{size} samples; expected {expected_size}x{expected_size}")
+        values = np.frombuffer(data, dtype=">i2").reshape((size, size))
         west, south = _tile_origin(name)
         return cls(product=str(product), west=west, south=south, size=size, values=values, source_hash=source_hash)
 
@@ -131,10 +145,10 @@ class HgtTile:
         y0 = min(int(math.floor(y)), self.size - 2)
         dx, dy = x - x0, y - y0
         samples = (
-            self.values[y0][x0],
-            self.values[y0][x0 + 1],
-            self.values[y0 + 1][x0],
-            self.values[y0 + 1][x0 + 1],
+            int(self.values[y0, x0]),
+            int(self.values[y0, x0 + 1]),
+            int(self.values[y0 + 1, x0]),
+            int(self.values[y0 + 1, x0 + 1]),
         )
         if any(value == self.nodata for value in samples):
             raise ValueError("HGT sample intersects nodata")
@@ -148,7 +162,8 @@ class SrtmHgtSource:
 
     @classmethod
     def load(cls, path: Path, *, expected_sha256: str | None = None) -> HgtTile:
-        return HgtTile.from_archive(path, product=cls.product, expected_sha256=expected_sha256) if path.suffix.lower() == ".zip" else HgtTile.from_file(path, product=cls.product, expected_sha256=expected_sha256)
+        kwargs = {"product": cls.product, "expected_sha256": expected_sha256, "expected_size": PRODUCT_RASTER_SIZES[cls.product]}
+        return HgtTile.from_archive(path, **kwargs) if path.suffix.lower() == ".zip" else HgtTile.from_file(path, **kwargs)
 
 
 class NasademHgtSource:
@@ -156,7 +171,8 @@ class NasademHgtSource:
 
     @classmethod
     def load(cls, path: Path, *, expected_sha256: str | None = None) -> HgtTile:
-        return HgtTile.from_archive(path, product=cls.product, expected_sha256=expected_sha256) if path.suffix.lower() == ".zip" else HgtTile.from_file(path, product=cls.product, expected_sha256=expected_sha256)
+        kwargs = {"product": cls.product, "expected_sha256": expected_sha256, "expected_size": PRODUCT_RASTER_SIZES[cls.product]}
+        return HgtTile.from_archive(path, **kwargs) if path.suffix.lower() == ".zip" else HgtTile.from_file(path, **kwargs)
 
 
 def iter_hgt_members(path: Path) -> Iterable[str]:

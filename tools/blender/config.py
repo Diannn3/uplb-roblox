@@ -12,3 +12,5 @@ class GreyboxConfig:
     default_walkway_width_m: float = 2.5
     terrain_revision: str = "terrain-v0.1-fixture"
     meters_per_stud: float = 0.28
+    terrain_sample_spacing_m: float = 20.0
+    terrain_margin_m: float = 60.0

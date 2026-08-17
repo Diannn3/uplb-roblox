@@ -260,12 +260,17 @@ def _build_feature(feature: dict[str, Any], collections: dict[str, Any], scene_h
         vertices, faces = _flat_polygon_mesh(geometry, base + 0.03)
         return _mesh_object(name, vertices, faces, collection, "water-diagnostic" if role == "water" else "green-space-diagnostic", properties)
     ribbons = geometry.get("ribbonCoordinatesLocalMeters") or []
+    ribbons_3d = geometry.get("ribbonCoordinatesLocalMeters3D") or []
     if role in {"road", "walkway"} and ribbons:
         vertices: list[tuple[float, float, float]] = []
         faces: list[tuple[int, ...]] = []
-        for ribbon in ribbons:
+        for index, ribbon in enumerate(ribbons):
+            ribbon_3d = ribbons_3d[index] if index < len(ribbons_3d) else None
             start = len(vertices)
-            vertices.extend((float(point[0]), float(point[1]), base + 0.05) for point in ribbon)
+            if ribbon_3d:
+                vertices.extend((float(point[0]), float(point[1]), float(point[2]) + 0.05) for point in ribbon_3d)
+            else:
+                vertices.extend((float(point[0]), float(point[1]), base + 0.05) for point in ribbon)
             if len(ribbon) >= 3:
                 faces.append(tuple(start + index for index in range(len(ribbon))))
         return _mesh_object(name, vertices, faces, collection, "road-diagnostic" if role == "road" else "walkway-diagnostic", properties)

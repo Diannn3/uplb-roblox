@@ -43,6 +43,24 @@ class FailingEarthaccess(FakeEarthaccess):
         raise RuntimeError("simulated download failure")
 
 
+class TupleOnlyEarthaccess:
+    def search_data(self, **kwargs):
+        bbox = kwargs["bounding_box"]
+        if not isinstance(bbox, tuple):
+            raise TypeError("DataGranules.bounding_box() missing 3 required positional arguments")
+        return [
+            {
+                "meta": {"concept-id": "G-REAL", "native-id": "N14E121.SRTMGL1.hgt"},
+                "umm": {
+                    "GranuleUR": "N14E121.SRTMGL1.hgt",
+                    "CollectionReference": {"ShortName": "SRTMGL1", "Version": "003"},
+                    "SpatialExtent": {"HorizontalSpatialDomain": {"Geometry": {"BoundingRectangles": [{"WestBoundingCoordinate": 121.0, "SouthBoundingCoordinate": 14.0, "EastBoundingCoordinate": 122.0, "NorthBoundingCoordinate": 15.0}]}}},
+                    "RelatedUrls": [{"URL": "https://example.invalid/N14E121.SRTMGL1.hgt.zip", "Type": "GET DATA"}],
+                },
+            }
+        ]
+
+
 class EarthdataTests(unittest.TestCase):
     def test_search_derives_aoi_and_pins_product_identity(self) -> None:
         fake = FakeEarthaccess()
@@ -85,6 +103,18 @@ class EarthdataTests(unittest.TestCase):
             )
             self.assertEqual(result["status"], "blocked")
             self.assertFalse(list(Path(directory).glob("**/*")))
+
+    def test_search_normalizes_real_earthaccess_umm_shape_and_tuple_bbox(self) -> None:
+        result = search_product(
+            "srtm",
+            Path("data/vertical-slices/v0.1/area.geojson"),
+            earthaccess_client=TupleOnlyEarthaccess(),
+        )
+        granule = result["granules"][0]
+        self.assertEqual(granule["conceptId"], "G-REAL")
+        self.assertEqual(granule["shortName"], "SRTMGL1")
+        self.assertEqual(granule["version"], "003")
+        self.assertEqual(granule["filename"], "N14E121.SRTMGL1.hgt")
 
 
 if __name__ == "__main__":

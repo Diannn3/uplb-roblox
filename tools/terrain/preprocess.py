@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import math
 from pathlib import Path
 from typing import Any
@@ -10,7 +11,7 @@ from typing import Any
 from tools.geodata.io import geometry_bbox, write_json
 from tools.geodata.transform import CoordinateTransform, ProjectConfig
 
-from .hgt import HgtTile
+from .hgt import HgtTile, PRODUCT_RASTER_SIZES
 from .sample import HeightField
 from .sources import product_source
 
@@ -25,7 +26,18 @@ def build_fixture_heightfield(product: str, output_dir: Path | None = None) -> H
         tuple(100.0 + offset + (x * 0.18) + (y * 0.11) for x in range(45))
         for y in range(45)
     )
-    field = HeightField(product=str(source["product"]), origin_east_m=-600.0, origin_north_m=-1000.0, spacing_m=spacing, values=values, source_kind="synthetic-fixture", vertical_exaggeration=1.0)
+    world_base = math.floor(min(value for row in values for value in row) - 2.0)
+    field = HeightField(
+        product=str(source["product"]),
+        origin_east_m=-600.0,
+        origin_north_m=-1000.0,
+        spacing_m=spacing,
+        values=values,
+        source_kind="synthetic-fixture",
+        vertical_exaggeration=1.0,
+        world_base_elevation_m=world_base,
+        vertical_reference_policy="fixture-minimum-minus-padding",
+    )
     if output_dir is not None:
         output_dir.mkdir(parents=True, exist_ok=True)
         field.write(output_dir / "heightfield.json")
@@ -34,6 +46,7 @@ def build_fixture_heightfield(product: str, output_dir: Path | None = None) -> H
             "sourceKind": "synthetic-fixture",
             "sourceHash": None,
             "processing": {"targetCRS": "EPSG:32651", "localCoordinates": True, "verticalExaggeration": 1.0, "crop": "fixture-only"},
+            "verticalReference": {"sourceDatum": "EGM96", "worldBaseElevationM": world_base, "policy": "fixture-minimum-minus-padding"},
             "heightfield": "heightfield.json",
             "status": "fixture-only",
         }
@@ -64,6 +77,8 @@ def preprocess_hgt(
     aoi_path: Path | None = None,
     local_bounds: tuple[float, float, float, float] | None = None,
     sample_spacing_m: float = 30.0,
+    margin_m: float = 60.0,
+    strict_dimensions: bool = False,
 ) -> dict[str, Any]:
     """Project a deterministic local grid and sample an HGT tile in WGS84."""
 
@@ -72,16 +87,26 @@ def preprocess_hgt(
     if sample_spacing_m <= 0:
         raise ValueError("sample spacing must be positive")
     transform = transform or CoordinateTransform(ProjectConfig())
-    tile = HgtTile.from_archive(raw_path, product=product) if raw_path.suffix.lower() == ".zip" else HgtTile.from_file(raw_path, product=product)
+    canonical_product = str(product_source(product)["product"])
+    expected_size = PRODUCT_RASTER_SIZES.get(canonical_product) if strict_dimensions else None
+    tile_kwargs = {"product": canonical_product, "expected_size": expected_size}
+    tile = HgtTile.from_archive(raw_path, **tile_kwargs) if raw_path.suffix.lower() == ".zip" else HgtTile.from_file(raw_path, **tile_kwargs)
     if local_bounds is None:
         if aoi_path is None:
             raise ValueError("aoi_path or local_bounds is required for real terrain preprocessing")
         local_bounds = _aoi_local_bounds(aoi_path, transform)
     west, south, east, north = local_bounds
+    if aoi_path is not None and margin_m:
+        west -= margin_m
+        south -= margin_m
+        east += margin_m
+        north += margin_m
     if east <= west or north <= south:
         raise ValueError("local terrain bounds must have positive width and height")
-    columns = max(2, int(math.floor((east - west) / sample_spacing_m)) + 1)
-    rows = max(2, int(math.floor((north - south) / sample_spacing_m)) + 1)
+    # Ceil semantics guarantee the final sample covers the requested edge,
+    # including the explicit margin, instead of truncating east/north.
+    columns = max(2, int(math.ceil((east - west) / sample_spacing_m)) + 1)
+    rows = max(2, int(math.ceil((north - south) / sample_spacing_m)) + 1)
     values: list[tuple[float, ...]] = []
     nodata_count = 0
     interpolation_count = 0
@@ -100,8 +125,12 @@ def preprocess_hgt(
                 samples.append(float(tile.nodata))
                 nodata_count += 1
         values.append(tuple(samples))
+    valid_values = [value for row in values for value in row if value != float(tile.nodata)]
+    if not valid_values:
+        raise ValueError("processed HGT contains no valid elevation samples")
+    world_base = math.floor(min(valid_values) - 2.0)
     field = HeightField(
-        product=product_source(product)["product"],
+        product=canonical_product,
         origin_east_m=west,
         origin_north_m=south,
         spacing_m=sample_spacing_m,
@@ -109,15 +138,25 @@ def preprocess_hgt(
         nodata=float(tile.nodata),
         vertical_exaggeration=1.0,
         source_kind="real-nasa-raster",
+        world_base_elevation_m=world_base,
+        vertical_reference_policy="floor-minimum-minus-padding",
     )
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-    field.write(output_dir / "heightfield.json")
+    processed_path = output_dir / "heightfield.json"
+    field.write(processed_path)
+    archive_sha256 = None
+    if raw_path.suffix.lower() == ".zip":
+        archive_sha256 = f"sha256:{hashlib.sha256(raw_path.read_bytes()).hexdigest()}"
+    processed_sha256 = f"sha256:{hashlib.sha256(processed_path.read_bytes()).hexdigest()}"
     report = {
         "status": "pass" if nodata_count == 0 else "warning-nodata",
         "sourceKind": "real-nasa-raster",
-        "product": product_source(product)["product"],
+        "product": canonical_product,
         "sourceHash": tile.source_hash,
+        "archiveSha256": archive_sha256,
+        "hgtPayloadSha256": tile.source_hash,
+        "processedHeightfieldSha256": processed_sha256,
         "sourceCRS": "EPSG:4326",
         "localCRS": transform.config.projected_crs,
         "horizontalDatum": "WGS84",
@@ -126,19 +165,46 @@ def preprocess_hgt(
         "processingResolutionM": sample_spacing_m,
         "minElevationM": field.min_elevation_m,
         "maxElevationM": field.max_elevation_m,
+        "relativeMinElevationM": field.min_elevation_m - world_base,
+        "relativeMaxElevationM": field.max_elevation_m - world_base,
         "nodataCount": nodata_count,
         "interpolatedCount": interpolation_count,
         "cropBoundsLocalM": {"westM": west, "southM": south, "eastM": east, "northM": north},
+        "coverageBoundsLocalM": {
+            "westM": west,
+            "southM": south,
+            "eastM": west + (columns - 1) * sample_spacing_m,
+            "northM": south + (rows - 1) * sample_spacing_m,
+        },
         "localOrigin": {"eastM": west, "northM": south},
+        "verticalReference": {
+            "sourceDatum": "EGM96",
+            "worldBaseElevationM": world_base,
+            "policy": "floor-minimum-minus-padding",
+        },
         "processingVersion": "terrain-v0.2-real-hgt",
         "heightfield": "heightfield.json",
     }
     write_json(output_dir / "terrain-report.json", report)
-    write_json(output_dir / "terrain-manifest.json", {**product_source(product), "sourceKind": "real-nasa-raster", "sourceHash": tile.source_hash, "heightfield": "heightfield.json", "report": "terrain-report.json", "status": report["status"]})
+    write_json(
+        output_dir / "terrain-manifest.json",
+        {
+            **product_source(product),
+            "sourceKind": "real-nasa-raster",
+            "sourceHash": tile.source_hash,
+            "archiveSha256": archive_sha256,
+            "hgtPayloadSha256": tile.source_hash,
+            "processedHeightfieldSha256": processed_sha256,
+            "heightfield": "heightfield.json",
+            "report": "terrain-report.json",
+            "status": report["status"],
+            "verticalReference": report["verticalReference"],
+        },
+    )
     return report
 
 
 def preprocess_product(raw_path: Path, output_dir: Path, product: str, *, aoi_path: Path | None = None) -> dict[str, Any]:
     """Preprocess an acquired HGT/ZIP product without a GDAL dependency."""
 
-    return preprocess_hgt(raw_path, output_dir, product=product, aoi_path=aoi_path)
+    return preprocess_hgt(raw_path, output_dir, product=product, aoi_path=aoi_path, strict_dimensions=True)
