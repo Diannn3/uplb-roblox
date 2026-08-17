@@ -140,7 +140,7 @@ def _cleanup_created(output_dir: Path, before: set[Path]) -> None:
     if not output_dir.exists():
         return
     for path in sorted(output_dir.rglob("*"), reverse=True):
-        if path.is_file() and path not in before and path.stat().st_size == 0:
+        if path.is_file() and path not in before:
             path.unlink()
     for path in sorted(output_dir.rglob("*"), reverse=True):
         if path.is_dir() and not any(path.iterdir()):

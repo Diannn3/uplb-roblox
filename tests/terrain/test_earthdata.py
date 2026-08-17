@@ -35,6 +35,14 @@ class FakeEarthaccess:
         return [destination]
 
 
+class FailingEarthaccess(FakeEarthaccess):
+    def download(self, results, output):
+        destination = Path(output) / results[0]["filename"]
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_bytes(b"partial payload")
+        raise RuntimeError("simulated download failure")
+
+
 class EarthdataTests(unittest.TestCase):
     def test_search_derives_aoi_and_pins_product_identity(self) -> None:
         fake = FakeEarthaccess()
@@ -65,6 +73,18 @@ class EarthdataTests(unittest.TestCase):
             self.assertTrue(result["manifest"])
             self.assertTrue(result["manifest"]["files"][0]["sha256"].startswith("sha256:"))
             self.assertNotIn("password", str(result).lower())
+
+    def test_failed_download_removes_partial_nonzero_files(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            result = acquire_product(
+                "srtm",
+                Path(directory),
+                earthaccess_client=FailingEarthaccess(),
+                credentials_available=True,
+                aoi_path=Path("data/vertical-slices/v0.1/area.geojson"),
+            )
+            self.assertEqual(result["status"], "blocked")
+            self.assertFalse(list(Path(directory).glob("**/*")))
 
 
 if __name__ == "__main__":
