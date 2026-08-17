@@ -45,7 +45,14 @@ PRODUCT_SOURCES = {
 
 
 def product_source(name: str) -> dict[str, str | int]:
+    aliases = {
+        "srtmgl1.003": "srtm",
+        "srtmgl1": "srtm",
+        "nasadem_hgt.001": "nasadem",
+        "nasadem_hgt": "nasadem",
+    }
+    name = aliases.get(name.lower(), name.lower())
     try:
-        return dict(PRODUCT_SOURCES[name.lower()])
+        return dict(PRODUCT_SOURCES[name])
     except KeyError as exc:
         raise ValueError(f"unsupported terrain product: {name}") from exc

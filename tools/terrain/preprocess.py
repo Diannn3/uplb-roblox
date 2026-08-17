@@ -3,8 +3,14 @@
 from __future__ import annotations
 
 import json
+import math
 from pathlib import Path
+from typing import Any
 
+from tools.geodata.io import geometry_bbox, write_json
+from tools.geodata.transform import CoordinateTransform, ProjectConfig
+
+from .hgt import HgtTile
 from .sample import HeightField
 from .sources import product_source
 
@@ -35,9 +41,104 @@ def build_fixture_heightfield(product: str, output_dir: Path | None = None) -> H
     return field
 
 
-def preprocess_product(raw_path: Path, output_dir: Path, product: str) -> dict[str, str]:
-    """Fail closed until a supported raster reader and verified raw raster exist."""
+def _aoi_local_bounds(aoi_path: Path, transform: CoordinateTransform) -> tuple[float, float, float, float]:
+    payload = json.loads(Path(aoi_path).read_text(encoding="utf-8"))
+    bounds = [geometry_bbox(feature.get("geometry")) for feature in payload.get("features", [])]
+    bounds = [item for item in bounds if item is not None]
+    if not bounds:
+        raise ValueError(f"AOI has no geometry: {aoi_path}")
+    west = min(item[0] for item in bounds)
+    south = min(item[1] for item in bounds)
+    east = max(item[2] for item in bounds)
+    north = max(item[3] for item in bounds)
+    corners = [transform.wgs84_to_local(lon, lat) for lon, lat in ((west, south), (west, north), (east, south), (east, north))]
+    return min(item[0] for item in corners), min(item[1] for item in corners), max(item[0] for item in corners), max(item[1] for item in corners)
+
+
+def preprocess_hgt(
+    raw_path: Path,
+    output_dir: Path,
+    *,
+    product: str,
+    transform: CoordinateTransform | None = None,
+    aoi_path: Path | None = None,
+    local_bounds: tuple[float, float, float, float] | None = None,
+    sample_spacing_m: float = 30.0,
+) -> dict[str, Any]:
+    """Project a deterministic local grid and sample an HGT tile in WGS84."""
 
     if not raw_path.exists() or raw_path.stat().st_size == 0:
         raise FileNotFoundError(f"raw {product} DEM is absent; run the documented Earthdata acquisition first")
-    raise RuntimeError("raster preprocessing requires the project-approved GDAL/raster reader; no implicit fallback is allowed")
+    if sample_spacing_m <= 0:
+        raise ValueError("sample spacing must be positive")
+    transform = transform or CoordinateTransform(ProjectConfig())
+    tile = HgtTile.from_archive(raw_path, product=product) if raw_path.suffix.lower() == ".zip" else HgtTile.from_file(raw_path, product=product)
+    if local_bounds is None:
+        if aoi_path is None:
+            raise ValueError("aoi_path or local_bounds is required for real terrain preprocessing")
+        local_bounds = _aoi_local_bounds(aoi_path, transform)
+    west, south, east, north = local_bounds
+    if east <= west or north <= south:
+        raise ValueError("local terrain bounds must have positive width and height")
+    columns = max(2, int(math.floor((east - west) / sample_spacing_m)) + 1)
+    rows = max(2, int(math.floor((north - south) / sample_spacing_m)) + 1)
+    values: list[tuple[float, ...]] = []
+    nodata_count = 0
+    interpolation_count = 0
+    for row in range(rows):
+        northing = south + row * sample_spacing_m
+        samples: list[float] = []
+        for column in range(columns):
+            easting = west + column * sample_spacing_m
+            lon, lat = transform.local_to_wgs84(easting, northing)
+            try:
+                samples.append(tile.sample(lon, lat))
+                interpolation_count += 1
+            except ValueError as exc:
+                if "nodata" not in str(exc).lower():
+                    raise
+                samples.append(float(tile.nodata))
+                nodata_count += 1
+        values.append(tuple(samples))
+    field = HeightField(
+        product=product_source(product)["product"],
+        origin_east_m=west,
+        origin_north_m=south,
+        spacing_m=sample_spacing_m,
+        values=tuple(values),
+        nodata=float(tile.nodata),
+        vertical_exaggeration=1.0,
+        source_kind="real-nasa-raster",
+    )
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    field.write(output_dir / "heightfield.json")
+    report = {
+        "status": "pass" if nodata_count == 0 else "warning-nodata",
+        "sourceKind": "real-nasa-raster",
+        "product": product_source(product)["product"],
+        "sourceHash": tile.source_hash,
+        "sourceCRS": "EPSG:4326",
+        "localCRS": transform.config.projected_crs,
+        "horizontalDatum": "WGS84",
+        "verticalDatum": "EGM96",
+        "nativeResolutionM": product_source(product)["resolutionM"],
+        "processingResolutionM": sample_spacing_m,
+        "minElevationM": field.min_elevation_m,
+        "maxElevationM": field.max_elevation_m,
+        "nodataCount": nodata_count,
+        "interpolatedCount": interpolation_count,
+        "cropBoundsLocalM": {"westM": west, "southM": south, "eastM": east, "northM": north},
+        "localOrigin": {"eastM": west, "northM": south},
+        "processingVersion": "terrain-v0.2-real-hgt",
+        "heightfield": "heightfield.json",
+    }
+    write_json(output_dir / "terrain-report.json", report)
+    write_json(output_dir / "terrain-manifest.json", {**product_source(product), "sourceKind": "real-nasa-raster", "sourceHash": tile.source_hash, "heightfield": "heightfield.json", "report": "terrain-report.json", "status": report["status"]})
+    return report
+
+
+def preprocess_product(raw_path: Path, output_dir: Path, product: str, *, aoi_path: Path | None = None) -> dict[str, Any]:
+    """Preprocess an acquired HGT/ZIP product without a GDAL dependency."""
+
+    return preprocess_hgt(raw_path, output_dir, product=product, aoi_path=aoi_path)
