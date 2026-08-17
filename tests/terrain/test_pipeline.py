@@ -9,10 +9,25 @@ from tools.terrain.acquire import acquire_product
 from tools.terrain.compare import choose_baseline, compare_products
 from tools.terrain.preprocess import build_fixture_heightfield
 from tools.terrain.sample import HeightField
+from tools.terrain.validate import validate_heightfield
 from tools.terrain.sources import PRODUCT_SOURCES
 
 
 class TerrainPipelineTests(unittest.TestCase):
+    def test_unresolved_nodata_fails_heightfield_validation(self) -> None:
+        field = HeightField(
+            product="NASADEM_HGT.001",
+            origin_east_m=0.0,
+            origin_north_m=0.0,
+            spacing_m=30.0,
+            values=((100.0, -32768.0), (101.0, 102.0)),
+            nodata=-32768.0,
+            source_kind="real-nasa-raster",
+            world_base_elevation_m=90.0,
+        )
+        report = validate_heightfield(field)
+        self.assertEqual(report["status"], "fail")
+        self.assertIn("unresolved nodata", " ".join(report["errors"]))
     def test_official_products_have_current_metadata_and_shared_datum_contract(self) -> None:
         self.assertEqual(PRODUCT_SOURCES["srtm"]["product"], "SRTMGL1.003")
         self.assertEqual(PRODUCT_SOURCES["nasadem"]["product"], "NASADEM_HGT.001")

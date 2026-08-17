@@ -122,8 +122,11 @@ def preprocess_hgt(
             except ValueError as exc:
                 if "nodata" not in str(exc).lower():
                     raise
-                samples.append(float(tile.nodata))
                 nodata_count += 1
+                raise ValueError(
+                    f"{canonical_product} preprocessing encountered unresolved nodata at local grid "
+                    f"row={row} column={column}; no interpolation policy is configured"
+                ) from exc
         values.append(tuple(samples))
     valid_values = [value for row in values for value in row if value != float(tile.nodata)]
     if not valid_values:
@@ -150,7 +153,8 @@ def preprocess_hgt(
         archive_sha256 = f"sha256:{hashlib.sha256(raw_path.read_bytes()).hexdigest()}"
     processed_sha256 = f"sha256:{hashlib.sha256(processed_path.read_bytes()).hexdigest()}"
     report = {
-        "status": "pass" if nodata_count == 0 else "warning-nodata",
+        "status": "pass" if nodata_count == 0 else "fail-nodata",
+        "nodataPolicy": "reject-unresolved",
         "sourceKind": "real-nasa-raster",
         "product": canonical_product,
         "sourceHash": tile.source_hash,

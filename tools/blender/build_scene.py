@@ -51,6 +51,8 @@ RENDER_FILENAMES = {
     "CAM_ROAD_LEVEL": "road-level.png",
     "CAM_LIBRARY_CONTEXT": "library-context.png",
 }
+REQUIRED_COLLECTION_NAMES = ("Terrain", "Buildings", "Roads", "Walkways", "Water", "GreenSpace", "Landmarks", "Debug")
+REQUIRED_METADATA_KEYS = ("FeatureId", "SemanticObjectId", "WorldgenRole", "SceneSpecHash", "GeneratorVersion", "InputHash", "GeometryConfidence", "HeightConfidence")
 MATERIAL_COLORS = {
     "hero-diagnostic": (0.75, 0.08, 0.08, 1.0),
     "context-building-diagnostic": (0.38, 0.24, 0.14, 1.0),
@@ -83,6 +85,8 @@ def build_custom_properties(feature: dict[str, Any], *, scene_spec_hash: str, ge
     proxy = feature.get("proxy") or {}
     return {
         "FeatureId": feature.get("featureId") or "",
+        "FeatureName": feature.get("name") or "",
+        "SemanticObjectId": feature.get("id") or feature.get("featureId") or "",
         "CandidateId": feature.get("candidateId") or "",
         "SourceLifecycle": feature.get("sourceLifecycle") or "",
         "WorldgenRole": feature.get("role") or "",
@@ -100,6 +104,116 @@ def build_custom_properties(feature: dict[str, Any], *, scene_spec_hash: str, ge
         "ProxyDepthM": float(proxy.get("depthM", 0.0)),
         "ProxyYawDegrees": float(proxy.get("yawDegrees", 0.0)),
         "ProxySource": proxy.get("source") or "unknown",
+    }
+
+
+def validate_structural_snapshot(
+    objects: list[dict[str, Any]],
+    *,
+    present_collections: Iterable[str],
+    present_cameras: Iterable[str],
+    render_paths: Iterable[str],
+) -> dict[str, Any]:
+    """Validate a Blender scene snapshot without hiding unexecuted checks.
+
+    The real Blender path builds this snapshot from ``bpy`` objects.  Keeping
+    the decision logic pure makes the failure modes testable on CI runners
+    that do not have Blender installed.
+    """
+
+    mesh_objects = [obj for obj in objects if obj.get("type") == "MESH"]
+    feature_ids = [str(obj.get("properties", {}).get("FeatureId")) for obj in mesh_objects if obj.get("properties", {}).get("FeatureId")]
+    semantic_ids = [str(obj.get("properties", {}).get("SemanticObjectId")) for obj in mesh_objects if obj.get("properties", {}).get("SemanticObjectId")]
+    duplicate_feature_ids = len(feature_ids) != len(set(feature_ids))
+    duplicate_semantic_ids = len(semantic_ids) != len(set(semantic_ids))
+
+    negative_scales = False
+    non_finite_scales = False
+    non_finite_transforms = False
+    non_finite_mesh_vertices = False
+    non_finite_dimensions = False
+    impossible_dimensions = False
+    degenerate_faces = False
+    missing_metadata: list[str] = []
+
+    def finite_vector(value: Any, expected: int = 3) -> bool:
+        return isinstance(value, (list, tuple)) and len(value) == expected and all(isinstance(item, (int, float)) and math.isfinite(float(item)) for item in value)
+
+    for obj in objects:
+        scale = obj.get("scale")
+        if not finite_vector(scale):
+            non_finite_scales = True
+        if isinstance(scale, (list, tuple)) and any(isinstance(component, (int, float)) and math.isfinite(float(component)) and float(component) < 0 for component in scale):
+            negative_scales = True
+        if not finite_vector(obj.get("location")) or not finite_vector(obj.get("rotation")):
+            non_finite_transforms = True
+        dimensions = obj.get("dimensions")
+        if not finite_vector(dimensions):
+            non_finite_dimensions = True
+        elif any(float(component) < 0 or float(component) > 1_000_000 for component in dimensions):
+            impossible_dimensions = True
+
+    for obj in mesh_objects:
+        properties = obj.get("properties") or {}
+        missing_metadata.extend(f"{obj.get('name', '<unnamed>')}:{key}" for key in REQUIRED_METADATA_KEYS if not properties.get(key))
+        for vertex in obj.get("vertices", []):
+            if not finite_vector(vertex):
+                non_finite_mesh_vertices = True
+        for area in obj.get("faceAreas", []):
+            if not isinstance(area, (int, float)) or not math.isfinite(float(area)) or float(area) <= 1e-10:
+                degenerate_faces = True
+
+    hero_names = {str(obj.get("properties", {}).get("FeatureName")) for obj in mesh_objects if obj.get("properties", {}).get("WorldgenRole") == "hero"}
+    missing_heroes = sorted(REQUIRED_HERO_NAMES - hero_names)
+    missing_collections = sorted(set(REQUIRED_COLLECTION_NAMES) - set(present_collections))
+    missing_cameras = sorted(set(RENDER_FILENAMES) - set(present_cameras))
+    missing_renders = sorted(filename for filename in RENDER_FILENAMES.values() if filename not in {Path(path).name for path in render_paths})
+    errors: list[str] = []
+    if duplicate_feature_ids:
+        errors.append("duplicate FeatureId")
+    if duplicate_semantic_ids:
+        errors.append("duplicate semantic object ID")
+    if negative_scales:
+        errors.append("negative scale component")
+    if non_finite_scales:
+        errors.append("non-finite scale component")
+    if non_finite_transforms:
+        errors.append("non-finite object location or rotation")
+    if non_finite_mesh_vertices:
+        errors.append("non-finite mesh vertex")
+    if non_finite_dimensions:
+        errors.append("non-finite object dimensions")
+    if impossible_dimensions:
+        errors.append("impossible object dimensions")
+    if degenerate_faces:
+        errors.append("zero-area or degenerate mesh face")
+    if missing_metadata:
+        errors.append("missing required object metadata")
+    if missing_heroes:
+        errors.append("missing required heroes: " + ", ".join(missing_heroes))
+    if missing_collections:
+        errors.append("missing collections: " + ", ".join(missing_collections))
+    if missing_cameras:
+        errors.append("missing cameras: " + ", ".join(missing_cameras))
+    if missing_renders:
+        errors.append("missing renders: " + ", ".join(missing_renders))
+    return {
+        "status": "pass" if not errors else "fail",
+        "errors": errors,
+        "duplicateFeatureIds": duplicate_feature_ids,
+        "duplicateSemanticObjectIds": duplicate_semantic_ids,
+        "negativeScales": negative_scales,
+        "nonFiniteScales": non_finite_scales,
+        "nonFiniteTransforms": non_finite_transforms,
+        "nonFiniteMeshVertices": non_finite_mesh_vertices,
+        "nonFiniteDimensions": non_finite_dimensions,
+        "impossibleDimensions": impossible_dimensions,
+        "degenerateFaces": degenerate_faces,
+        "missingMetadata": sorted(missing_metadata),
+        "missingRequiredHeroes": missing_heroes,
+        "requiredCollectionsMissing": missing_collections,
+        "missingCameras": missing_cameras,
+        "missingRenders": missing_renders,
     }
 
 
@@ -203,14 +317,122 @@ def _polygon_loops(geometry: dict[str, Any]) -> list[list[list[list[float]]]]:
     return []
 
 
+def _ring_points(ring: list[list[float]]) -> list[tuple[float, float]]:
+    points = [(float(point[0]), float(point[1])) for point in ring]
+    if len(points) >= 2 and points[0] == points[-1]:
+        points = points[:-1]
+    return points
+
+
+def _ring_area(points: list[tuple[float, float]]) -> float:
+    return sum(points[index][0] * points[(index + 1) % len(points)][1] - points[(index + 1) % len(points)][0] * points[index][1] for index in range(len(points))) / 2.0
+
+
+def _cross(a: tuple[float, float], b: tuple[float, float], c: tuple[float, float]) -> float:
+    return (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0])
+
+
+def _point_in_triangle(point: tuple[float, float], a: tuple[float, float], b: tuple[float, float], c: tuple[float, float]) -> bool:
+    epsilon = 1e-9
+    return _cross(a, b, point) >= -epsilon and _cross(b, c, point) >= -epsilon and _cross(c, a, point) >= -epsilon
+
+
+def _ear_clip(points: list[tuple[float, float]]) -> list[tuple[tuple[float, float], tuple[float, float], tuple[float, float]]]:
+    """Deterministically triangulate a simple CCW ring (including bridges)."""
+
+    if len(points) < 3:
+        return []
+    if _ring_area(points) < 0:
+        points = list(reversed(points))
+    indices = list(range(len(points)))
+    triangles: list[tuple[tuple[float, float], tuple[float, float], tuple[float, float]]] = []
+    guard = 0
+    while len(indices) > 3 and guard < len(points) * len(points) * 4:
+        guard += 1
+        found = False
+        for cursor in range(len(indices)):
+            previous = indices[(cursor - 1) % len(indices)]
+            current = indices[cursor]
+            following = indices[(cursor + 1) % len(indices)]
+            a, b, c = points[previous], points[current], points[following]
+            if a == b or b == c or abs(_cross(a, b, c)) <= 1e-9 or _cross(a, b, c) < 0:
+                continue
+            if any(
+                index not in {previous, current, following}
+                and points[index] not in {a, b, c}
+                and _point_in_triangle(points[index], a, b, c)
+                for index in indices
+            ):
+                continue
+            triangles.append((a, b, c))
+            indices.pop(cursor)
+            found = True
+            break
+        if not found:
+            break
+    if len(indices) == 3:
+        triangles.append(tuple(points[index] for index in indices))
+    if len(indices) > 3:
+        raise ValueError("deterministic polygon tessellation stalled")
+    return triangles
+
+
+def _merge_holes(outer: list[tuple[float, float]], holes: list[list[tuple[float, float]]]) -> list[tuple[float, float]]:
+    """Bridge interior rings to the nearest outer vertex for fallback tessellation."""
+
+    merged = outer
+    for hole in holes:
+        if not hole:
+            continue
+        hole_index = max(range(len(hole)), key=lambda index: (hole[index][0], -hole[index][1], -index))
+        hole_point = hole[hole_index]
+        outer_index = min(
+            range(len(merged)),
+            key=lambda index: ((merged[index][0] - hole_point[0]) ** 2 + (merged[index][1] - hole_point[1]) ** 2, index),
+        )
+        merged = merged[: outer_index + 1] + hole[hole_index:] + hole[: hole_index + 1] + [merged[outer_index]] + merged[outer_index + 1 :]
+    return merged
+
+
+def _fallback_tessellated_triangles(polygon: list[list[list[float]]]) -> list[tuple[tuple[float, float], tuple[float, float], tuple[float, float]]]:
+    outer = _ring_points(polygon[0])
+    if len(outer) < 3:
+        return []
+    if _ring_area(outer) < 0:
+        outer.reverse()
+    holes = [_ring_points(ring) for ring in polygon[1:]]
+    normalized_holes = [list(reversed(hole)) if _ring_area(hole) > 0 else hole for hole in holes if len(hole) >= 3]
+    return _ear_clip(_merge_holes(outer, normalized_holes))
+
+
+def _tessellated_triangles(polygon: list[list[list[float]]]) -> list[tuple[tuple[float, float], tuple[float, float], tuple[float, float]]]:
+    """Tessellate an outer ring and any holes, preserving deterministic order."""
+
+    source_loops = [_ring_points(ring) for ring in polygon]
+    if tessellate_polygon is not None and Vector is not None:
+        loops = [[Vector((x, y, 0.0)) for x, y in ring] for ring in source_loops]
+        flat_points = [point for ring in source_loops for point in ring]
+        triangles: list[tuple[tuple[float, float], tuple[float, float], tuple[float, float]]] = []
+        for triangle in tessellate_polygon(loops):
+            if triangle and isinstance(triangle[0], int):
+                points = tuple((round(float(flat_points[index][0]), 8), round(float(flat_points[index][1]), 8)) for index in triangle)
+            else:
+                points = tuple((round(float(point.x), 8), round(float(point.y), 8)) for point in triangle)
+            if len(points) == 3:
+                triangles.append(points)
+        return triangles
+    return _fallback_tessellated_triangles(polygon)
+
+
 def _extruded_polygon_mesh(geometry: dict[str, Any], base: float, height: float) -> tuple[list[tuple[float, float, float]], list[tuple[int, ...]]]:
     vertices: list[tuple[float, float, float]] = []
     faces: list[tuple[int, ...]] = []
     for polygon in _polygon_loops(geometry):
         ring_indices: list[tuple[list[int], list[int]]] = []
+        top_lookup: dict[tuple[float, float], int] = {}
+        bottom_lookup: dict[tuple[float, float], int] = {}
         for ring in polygon:
-            if len(ring) >= 2 and ring[0] == ring[-1]:
-                ring = ring[:-1]
+            ring = [[x, y] for x, y in _ring_points(ring)]
             bottom: list[int] = []
             top: list[int] = []
             for x, y in ring:
@@ -218,43 +440,20 @@ def _extruded_polygon_mesh(geometry: dict[str, Any], base: float, height: float)
                 vertices.append((x, y, base))
                 top.append(len(vertices))
                 vertices.append((x, y, base + max(height, 0.1)))
+                key = (round(float(x), 8), round(float(y), 8))
+                bottom_lookup[key] = bottom[-1]
+                top_lookup[key] = top[-1]
             ring_indices.append((bottom, top))
             for index, current in enumerate(bottom):
                 nxt = (index + 1) % len(bottom)
                 faces.append((current, bottom[nxt], top[nxt], top[index]))
         if not ring_indices:
             continue
-        if tessellate_polygon is not None and Vector is not None:
-            # Blender 5 returns triangle vertex indices, while older builds
-            # returned Vector objects.  Trim GeoJSON closing points before
-            # tessellation and retain the flattened source order for both
-            # API shapes.
-            source_loops = [ring[:-1] if len(ring) >= 2 and ring[0] == ring[-1] else ring for ring in polygon]
-            loops = [[Vector((x, y, 0.0)) for x, y in ring] for ring in source_loops]
-            flat_points = [point for ring in source_loops for point in ring]
-            # Map every ring vertex explicitly; the separate top/bottom maps
-            # preserve courtyard holes when Blender tessellates the loops.
-            top_lookup = {}
-            bottom_lookup = {}
-            for ring, (bottom, top) in zip(polygon, ring_indices):
-                source_ring = ring[:-1] if len(ring) >= 2 and ring[0] == ring[-1] else ring
-                for (x, y), bottom_index, top_index in zip(source_ring, bottom, top):
-                    key = (round(x, 8), round(y, 8))
-                    bottom_lookup[key] = bottom_index
-                    top_lookup[key] = top_index
-            for triangle in tessellate_polygon(loops):
-                if triangle and isinstance(triangle[0], int):
-                    points = [(round(float(flat_points[index][0]), 8), round(float(flat_points[index][1]), 8)) for index in triangle]
-                else:
-                    points = [(round(float(point.x), 8), round(float(point.y), 8)) for point in triangle]
-                if all(point in top_lookup for point in points):
-                    faces.append(tuple(top_lookup[point] for point in points))
-                    faces.append(tuple(reversed(tuple(bottom_lookup[point] for point in points))))
-        else:
-            outer_bottom, outer_top = ring_indices[0]
-            if len(outer_bottom) >= 3:
-                faces.append(tuple(outer_top))
-                faces.append(tuple(reversed(tuple(outer_bottom))))
+        for points in _tessellated_triangles(polygon):
+            keys = [(round(point[0], 8), round(point[1], 8)) for point in points]
+            if all(point in top_lookup for point in keys):
+                faces.append(tuple(top_lookup[point] for point in keys))
+                faces.append(tuple(reversed(tuple(bottom_lookup[point] for point in keys))))
     return vertices, faces
 
 
@@ -264,11 +463,16 @@ def _flat_polygon_mesh(geometry: dict[str, Any], elevation: float) -> tuple[list
     for polygon in _polygon_loops(geometry):
         if not polygon:
             continue
-        outer = polygon[0][:-1] if len(polygon[0]) >= 2 and polygon[0][0] == polygon[0][-1] else polygon[0]
-        start = len(vertices)
-        vertices.extend((float(x), float(y), elevation) for x, y in outer)
-        if len(outer) >= 3:
-            faces.append(tuple(start + index for index in range(len(outer))))
+        lookup: dict[tuple[float, float], int] = {}
+        for ring in polygon:
+            for x, y in _ring_points(ring):
+                key = (round(float(x), 8), round(float(y), 8))
+                lookup[key] = len(vertices)
+                vertices.append((float(x), float(y), elevation))
+        for triangle in _tessellated_triangles(polygon):
+            keys = [(round(point[0], 8), round(point[1], 8)) for point in triangle]
+            if all(key in lookup for key in keys):
+                faces.append(tuple(lookup[key] for key in keys))
     return vertices, faces
 
 
@@ -284,10 +488,15 @@ def _build_terrain(scene_spec: dict[str, Any], collections: dict[str, Any], scen
     for row in range(rows):
         for column in range(columns):
             value = float(values[row][column])
-            elevation = 0.0 if nodata is not None and value == float(nodata) else value
-            vertices.append((origin_east + column * spacing, origin_north + row * spacing, elevation))
+            if not math.isfinite(value):
+                raise ValueError(f"scene spec contains non-finite terrain value at row={row} column={column}")
+            if nodata is not None and value == float(nodata):
+                raise ValueError(f"scene spec contains unresolved terrain nodata at row={row} column={column}")
+            vertices.append((origin_east + column * spacing, origin_north + row * spacing, value))
     properties = {
         "FeatureId": "terrain",
+        "FeatureName": "Terrain",
+        "SemanticObjectId": "terrain",
         "CandidateId": "",
         "SourceLifecycle": "source",
         "WorldgenRole": "terrain",
@@ -422,6 +631,29 @@ def _semantic_state() -> list[dict[str, Any]]:
     return state
 
 
+def _structural_snapshot() -> list[dict[str, Any]]:
+    """Capture the actual bpy values used by structural QA."""
+
+    blender = _require_blender()
+    snapshot: list[dict[str, Any]] = []
+    for obj in sorted(blender.context.scene.objects, key=lambda item: item.name):
+        mesh = obj.data if getattr(obj, "type", None) == "MESH" else None
+        snapshot.append(
+            {
+                "name": obj.name,
+                "type": getattr(obj, "type", None),
+                "location": [float(value) for value in obj.location],
+                "rotation": [float(value) for value in obj.rotation_euler],
+                "scale": [float(value) for value in obj.scale],
+                "dimensions": [float(value) for value in obj.dimensions],
+                "vertices": [[float(vertex.co[index]) for index in range(3)] for vertex in mesh.vertices] if mesh else [],
+                "faceAreas": [float(polygon.area) for polygon in mesh.polygons] if mesh else [],
+                "properties": {key: obj[key] for key in sorted(obj.keys())},
+            }
+        )
+    return snapshot
+
+
 def _clear_scene_objects() -> None:
     blender = _require_blender()
     for obj in list(blender.data.objects):
@@ -469,10 +701,16 @@ def build_real_scene(scene_spec_path: Path, output_dir: Path, *, render: bool = 
     second_state = _semantic_state()
     semantic_equal = first_state == second_state
     render_paths = _render(blender.context.scene, cameras, output_dir / "renders") if render else []
+    structural = validate_structural_snapshot(
+        _structural_snapshot(),
+        present_collections=collections,
+        present_cameras=cameras,
+        render_paths=render_paths,
+    )
     blend_path = output_dir / "vertical-slice-v0.1.blend"
     blender.ops.wm.save_as_mainfile(filepath=str(blend_path))
     report = {
-        "status": "pass" if semantic_equal else "fail",
+        "status": "pass" if semantic_equal and structural["status"] == "pass" else "fail",
         "blenderVersion": getattr(blender.app, "version_string", "unknown"),
         "generatorVersion": GENERATOR_VERSION,
         "sceneSpecHash": scene_hash,
@@ -483,17 +721,13 @@ def build_real_scene(scene_spec_path: Path, output_dir: Path, *, render: bool = 
         "blendPath": blend_path.as_posix(),
     }
     qa = {
-        "status": "pass" if semantic_equal and all(Path(path).exists() for path in render_paths) else "fail",
-        "blenderMeshGate": "pass" if semantic_equal else "fail",
-        "blenderRenderGate": "pass" if render_paths and all(Path(path).exists() for path in render_paths) else "not-run",
+        "status": "pass" if semantic_equal and structural["status"] == "pass" and all(Path(path).exists() for path in render_paths) else "fail",
+        "blenderMeshGate": "pass" if semantic_equal and structural["status"] == "pass" else "fail",
+        "blenderRenderGate": "pass" if render_paths and all(Path(path).exists() for path in render_paths) and not structural["missingCameras"] and not structural["missingRenders"] else "not-run",
         "semanticSceneEqual": semantic_equal,
         "objectCount": len(second_state),
-        "duplicateFeatureIds": len({item["featureId"] for item in second_state}) != len(second_state),
-        "nonFiniteTransforms": any(not all(math.isfinite(value) for value in item["location"]) for item in second_state),
-        "negativeScales": False,
-        "impossibleDimensions": any(any(value < 0 or not math.isfinite(value) for value in item["dimensions"]) for item in second_state),
-        "missingCameras": [name for name in RENDER_FILENAMES if name not in cameras],
-        "requiredCollectionsMissing": [name for name in ("Terrain", "Buildings", "Roads", "Walkways", "Water", "GreenSpace", "Landmarks", "Debug") if name not in collections],
+        **{key: value for key, value in structural.items() if key != "status" and key != "errors"},
+        "structuralErrors": structural["errors"],
         "renderPaths": render_paths,
         "blenderVersion": getattr(blender.app, "version_string", "unknown"),
     }

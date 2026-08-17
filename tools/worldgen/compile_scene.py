@@ -20,6 +20,7 @@ from tools.blender.walkways import resolve_walkway_width
 from tools.geodata.io import read_json, sha256, write_json
 from tools.geodata.transform import CoordinateTransform
 from tools.terrain.sample import HeightField
+from tools.terrain.validate import validate_heightfield
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -440,6 +441,9 @@ def compile_scene(
     selection = read_json(Path(slice_dir) / "selection.json")
     terrain_path = Path(terrain_path)
     field = HeightField.read(terrain_path)
+    terrain_validation = validate_heightfield(field)
+    if terrain_validation["status"] != "pass":
+        raise ValueError("scene compilation rejected terrain: " + "; ".join(terrain_validation["errors"]))
     if field.source_kind != "real-nasa-raster" and not allow_fixture:
         raise RuntimeError("scene compilation requires selected real NASA terrain; pass allow_fixture=True only for tests")
     transform = CoordinateTransform()
