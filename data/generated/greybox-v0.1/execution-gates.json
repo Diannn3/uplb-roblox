@@ -3,9 +3,12 @@
   "blenderMeshGate": "not-run",
   "blenderRenderGate": "not-run",
   "blenderVisualGate": "pending-human",
+  "historicalPurpose": "fixture-era greybox evidence retained for audit; not the authoritative real-terrain POC state",
   "robloxGenerationGate": "not-run",
   "robloxPlaytestGate": "not-run",
   "robloxSpatialGate": "not-run",
   "semanticGate": "pass",
+  "status": "superseded",
+  "supersededBy": "data/generated/worldgen-v0.1/poc-gates.json",
   "terrainRealDataGate": "blocked"
 }

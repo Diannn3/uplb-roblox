@@ -70,5 +70,8 @@
       0.0,
       0.0
     ]
-  }
+  },
+  "historicalPurpose": "fixture-era greybox evidence retained for audit; not the authoritative real-terrain POC state",
+  "status": "superseded",
+  "supersededBy": "data/generated/worldgen-v0.1/poc-gates.json"
 }

@@ -2,7 +2,34 @@
   "artifactBehavior": "real-raster-compared",
   "baselineDecision": {
     "baseline": "NASADEM_HGT.001",
-    "selectionReason": "Evidence comparison selected the product with the lower maximum adjacent elevation discontinuity in the UPLB AOI."
+    "decisionBasis": {
+      "coverageEqual": true,
+      "coverageToleranceM": 1e-06,
+      "missingMetrics": [],
+      "scores": {
+        "nasadem": [
+          0,
+          10.427534,
+          5.243241,
+          151
+        ],
+        "srtm": [
+          0,
+          11.056161,
+          5.760314,
+          217
+        ]
+      }
+    },
+    "metricsConsidered": [
+      "nodataCount",
+      "maxAdjacentDeltaM",
+      "p95AdjacentDeltaM",
+      "spikeCount",
+      "coverageEquality"
+    ],
+    "policyVersion": "terrain-baseline-v0.2",
+    "selectionReason": "Evidence comparison selected the product with the lexicographically lowest tuple of nodata count, maximum adjacent delta, p95 adjacent delta, and spike count over equal UPLB AOI coverage."
   },
   "baselineSelected": true,
   "comparisonRevision": "terrain-comparison-v0.2-real",
@@ -972,7 +999,7 @@
       "srtmSlope": 0.055443244
     }
   },
-  "selectionReason": "Evidence comparison selected the product with the lower maximum adjacent elevation discontinuity in the UPLB AOI.",
+  "selectionReason": "Evidence comparison selected the product with the lexicographically lowest tuple of nodata count, maximum adjacent delta, p95 adjacent delta, and spike count over equal UPLB AOI coverage.",
   "sourceStatus": "validated-raster",
   "status": "validated-raster"
 }

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "resource-license-audit-v0.1",
+  "sourceRegistry": "research/asset-ingest/uplb_asset_ingest/ASSET_REGISTRY.json",
+  "binaryAssetsIncluded": false,
+  "classifications": [
+    {"id": "basic-procedural-building", "license": "MIT", "licenseClass": "confirmed-permissive", "disposition": "reference-only"},
+    {"id": "kenney-building-kit", "license": "CC0-1.0", "licenseClass": "cc0-art-source", "disposition": "selective-only"},
+    {"id": "kenney-city-kit-roads", "license": "CC0-1.0", "licenseClass": "cc0-art-source", "disposition": "selective-only"},
+    {"id": "quaternius-downtown-megakit", "license": "CC0", "licenseClass": "cc0-art-source", "disposition": "selective-only"},
+    {"id": "poly-haven", "license": "CC0", "licenseClass": "cc0-art-source", "disposition": "selective-only"},
+    {"id": "quaternius-ultimate-nature", "license": "CC0", "licenseClass": "cc0-art-source", "disposition": "selective-only"},
+    {"id": "quaternius-stylized-nature-megakit", "license": "CC0", "licenseClass": "cc0-art-source", "disposition": "selective-only"},
+    {"id": "modular-tree", "license": "GPL-3.0 addon / MIT core", "licenseClass": "confirmed-copyleft-tool", "disposition": "tool-reference-separation"},
+    {"id": "bcga", "license": "not verified for reusable vendoring", "licenseClass": "reference-only-no-license", "disposition": "research-only"},
+    {"id": "buildingnodes", "license": "not verified for reusable vendoring", "licenseClass": "reference-only-no-license", "disposition": "research-only"},
+    {"id": "blosm", "license": "GPL; branch/file obligations require review", "licenseClass": "confirmed-copyleft-tool", "disposition": "reference-only"},
+    {"id": "lune", "license": "MPL-2.0", "licenseClass": "confirmed-copyleft-tool", "disposition": "future-tooling-only"},
+    {"id": "luau-roblox", "license": "MIT", "licenseClass": "confirmed-permissive", "disposition": "future-tooling-only"},
+    {"id": "bloxforge", "license": "MIT", "licenseClass": "confirmed-permissive", "disposition": "reference-only"},
+    {"id": "roblox-creator-store", "license": "per-asset / platform terms", "licenseClass": "platform-terms", "disposition": "quarantine-and-review"}
+  ]
+}

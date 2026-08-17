@@ -1,10 +1,12 @@
 {
   "errors": [],
+  "historicalPurpose": "fixture-era greybox evidence retained for audit; not the authoritative real-terrain POC state",
   "meshValidation": "not-run",
   "objectCount": 98,
   "productionReady": false,
   "realBlenderGate": "not-run",
   "requiredHeroesMissing": [],
   "semanticGate": "pass",
-  "status": "pass"
+  "status": "superseded",
+  "supersededBy": "data/generated/worldgen-v0.1/poc-gates.json"
 }

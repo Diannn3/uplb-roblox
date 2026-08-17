@@ -1,39 +1,59 @@
 {
-  "schemaVersion": "roblox-poc-validation-v0.2",
-  "status": "pass_with_human_review_gate",
-  "generatedAt": "2026-08-17",
-  "source": {
-    "sceneRevision": "worldgen-v0.1",
-    "sceneSpecHash": "sha256:809b58f648934c19cba70878b37b8956866331994679148a07e95e7410806ea6",
-    "sceneSpecFileSha256": "sha256:8bdd29733351d09c360501286adafd0104a6d9189455d10ad7a963bda374d0f4",
-    "worldgenStatus": "ready",
-    "terrainRevision": "terrain-v0.2-real",
-    "terrainProduct": "NASADEM_HGT.001",
-    "terrainGranule": "NASADEM_HGT_n14e121",
-    "terrainArchiveSha256": "sha256:c115ac7027d4c6160b308ac280b5e259309680ed6347475407cb071194a42398",
-    "terrainPayloadSha256": "sha256:730d5350ef7663eb7ae00f9cbe861549156540a055dc75d6efaa4f0d19a7fbe9",
-    "terrainProcessedSha256": "sha256:3e6dcd85e480cbfaaea342bc18a8d48290af4adff0e7af55bcb72e7144438e84",
-    "verticalReference": "EGM96-relative-world-base-22m"
+  "approvedGates": {
+    "robloxApprovedGenerationGate": "not-run",
+    "robloxApprovedPlaytestGate": "not-run",
+    "robloxApprovedSpatialGate": "not-run"
   },
   "blender": {
-    "status": "pass",
-    "version": "5.0.0",
-    "semanticSceneEqual": true,
     "objectCount": 108,
-    "renderCount": 7,
     "qaFile": "data/generated/blender-v0.1/blender-qa.json",
-    "reviewAssets": "docs/assets/vertical-slice-real-terrain/"
+    "renderCount": 7,
+    "reviewAssets": "docs/assets/vertical-slice-real-terrain/",
+    "semanticSceneEqual": true,
+    "status": "pass",
+    "version": "5.0.0"
   },
+  "blockers": [
+    "Human visual approval remains open for the seven real Blender renders.",
+    "Approved Roblox generation, spatial, and playtest gates remain not-run until visual approval.",
+    "Long-distance navigation/pathfinding remains a later gameplay pass.",
+    "Overture provider access remains blocked; no Overture coverage is claimed.",
+    "No external Roblox publication or permission request was performed."
+  ],
+  "generatedAt": "2026-08-17",
+  "playtest": {
+    "generatedSpawnCreated": true,
+    "longCrossSliceCharacterNavigation": "deferred-navmesh-pass",
+    "productionStaticMode": "pass_no_regeneration",
+    "serverAndClientScriptsInitialized": true,
+    "shortCharacterNavigation": "not-run-in-final-cycle",
+    "spawnSourceFeatureId": "uplb:landmark:oblation",
+    "visualCapture": "captured-pending-human-review"
+  },
+  "robloxEngineeringDryRun": "pass",
   "robloxMcp": {
-    "status": "verified-local-disposable-edit-place",
-    "studioId": "db0dac94-cc2e-4eac-815a-80e8192e4185",
-    "studioName": "Place1",
     "dataModel": "Edit_and_Play",
-    "placeId": 0,
-    "worldRoot": "Workspace.GeneratedVerticalSlice_v01",
-    "serverSceneModule": "ServerScriptService.Server.Generated.WorldScene",
-    "replicatedHeavyScenePresent": false,
+    "featureCounts": {
+      "buildings": 35,
+      "greenSpace": 3,
+      "landmarks": 5,
+      "roads": 239,
+      "walkways": 170,
+      "water": 300
+    },
     "generatedLuauSha256": "sha256:a933a8b39a6a7ce30f8bfaa6f544add7b2dd4df3c5ac3e10e3e0e47b07c5f304",
+    "objectCount": 43,
+    "placeId": 0,
+    "regeneration": {
+      "firstRunStatus": "pass",
+      "objectCountMatches": true,
+      "routeSegmentCountMatches": true,
+      "sceneSpecHashMatches": true,
+      "secondRunStatus": "pass",
+      "terrainBoundsMatch": true,
+      "terrainChunkCountMatches": true
+    },
+    "replicatedHeavyScenePresent": false,
     "requiredFolders": [
       "Buildings",
       "Roads",
@@ -44,65 +64,63 @@
       "Debug",
       "Metadata"
     ],
-    "objectCount": 43,
     "routeSegmentCount": 709,
-    "terrainChunks": 480,
-    "terrainCells": {
-      "x": 1890,
-      "y": 124,
-      "z": 983,
-      "total": 230375880
-    },
-    "terrainBounds": {
-      "minX": -5420,
-      "maxX": 2140,
-      "minY": -8,
-      "maxY": 488,
-      "minZ": -572,
-      "maxZ": 3360
-    },
-    "featureCounts": {
-      "buildings": 35,
-      "roads": 239,
-      "walkways": 170,
-      "water": 300,
-      "landmarks": 5,
-      "greenSpace": 3
-    },
+    "serverSceneModule": "ServerScriptService.Server.Generated.WorldScene",
     "spawn": {
       "sourceFeatureId": "uplb:landmark:oblation",
       "status": "created"
     },
-    "regeneration": {
-      "firstRunStatus": "pass",
-      "secondRunStatus": "pass",
-      "sceneSpecHashMatches": true,
-      "objectCountMatches": true,
-      "routeSegmentCountMatches": true,
-      "terrainChunkCountMatches": true,
-      "terrainBoundsMatch": true
-    }
+    "status": "verified-local-disposable-edit-place",
+    "studioId": "db0dac94-cc2e-4eac-815a-80e8192e4185",
+    "studioName": "Place1",
+    "terrainBounds": {
+      "maxX": 2140,
+      "maxY": 488,
+      "maxZ": 3360,
+      "minX": -5420,
+      "minY": -8,
+      "minZ": -572
+    },
+    "terrainCells": {
+      "total": 230375880,
+      "x": 1890,
+      "y": 124,
+      "z": 983
+    },
+    "terrainChunks": 480,
+    "terrainPerformanceReport": "data/generated/roblox-v0.1/terrain-performance.json",
+    "worldRoot": "Workspace.GeneratedVerticalSlice_v01"
   },
-  "playtest": {
-    "serverAndClientScriptsInitialized": true,
-    "productionStaticMode": "pass_no_regeneration",
-    "generatedSpawnCreated": true,
-    "spawnSourceFeatureId": "uplb:landmark:oblation",
-    "shortCharacterNavigation": "not-run-in-final-cycle",
-    "longCrossSliceCharacterNavigation": "deferred-navmesh-pass",
-    "visualCapture": "captured-pending-human-review"
+  "schemaVersion": "roblox-poc-validation-v0.2",
+  "source": {
+    "sceneRevision": "worldgen-v0.1",
+    "sceneSpecFileSha256": "sha256:8bdd29733351d09c360501286adafd0104a6d9189455d10ad7a963bda374d0f4",
+    "sceneSpecHash": "sha256:809b58f648934c19cba70878b37b8956866331994679148a07e95e7410806ea6",
+    "terrainArchiveSha256": "sha256:c115ac7027d4c6160b308ac280b5e259309680ed6347475407cb071194a42398",
+    "terrainGranule": "NASADEM_HGT_n14e121",
+    "terrainPayloadSha256": "sha256:730d5350ef7663eb7ae00f9cbe861549156540a055dc75d6efaa4f0d19a7fbe9",
+    "terrainProcessedSha256": "sha256:3e6dcd85e480cbfaaea342bc18a8d48290af4adff0e7af55bcb72e7144438e84",
+    "terrainProduct": "NASADEM_HGT.001",
+    "terrainRevision": "terrain-v0.2-real",
+    "verticalReference": "EGM96-relative-world-base-22m",
+    "worldgenStatus": "ready"
+  },
+  "status": "engineering_dry_run_pass_pending_blender_visual_approval",
+  "terrainPerformance": {
+    "afterProcessedCells": 25274544,
+    "beforeLogicalCells": 230375880,
+    "chunkCount": 480,
+    "officialRobloxRerun": "not-run",
+    "reductionRatio": 0.890289973,
+    "report": "data/generated/roblox-v0.1/terrain-performance.json",
+    "surfaceSamplesUnchanged": true
   },
   "verification": {
-    "pytest": "78 passed",
-    "researchValidator": "pass",
-    "offlineGeodataCi": "pass",
     "compileall": "pass",
-    "diffCheck": "pass"
-  },
-  "blockers": [
-    "Human visual approval remains open for the seven greybox renders.",
-    "Long-distance navigation/pathfinding remains a later gameplay pass.",
-    "Overture provider access remains blocked; no Overture coverage is claimed.",
-    "No external Roblox publication or permission request was performed."
-  ]
+    "diffCheck": "pass",
+    "offlineGeodataCi": "pass",
+    "offlineTerrainBudget": "pass",
+    "pytest": "98 passed",
+    "researchValidator": "pass"
+  }
 }

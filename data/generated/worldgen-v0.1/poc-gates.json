@@ -1,0 +1,100 @@
+{
+  "blender": {
+    "objectCount": 108,
+    "renderCount": 7,
+    "renderPaths": [
+      "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/topdown.png",
+      "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/oblation.png",
+      "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/freedom-park.png",
+      "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/baker-context.png",
+      "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/dl-umali-context.png",
+      "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/road-level.png",
+      "C:/Users/Dian/Documents/Vaults/Fensalir/uplb_roblox/data/generated/blender-v0.1/renders/library-context.png"
+    ],
+    "semanticSceneEqual": true,
+    "status": "pass",
+    "version": "5.0.0"
+  },
+  "blenderEngineeringGate": "pass",
+  "blenderMeshGate": "pass",
+  "blenderRenderGate": "pass",
+  "blenderVisualGate": "pending-human",
+  "blockers": [
+    "Project owner must approve or reject the seven real Blender renders.",
+    "Official approved Roblox generation, spatial, and playtest gates are intentionally not run.",
+    "Overture provider access remains blocked; no Overture coverage is claimed."
+  ],
+  "evidence": {
+    "assetRegistry": "assets/manifests/resource-registry.json",
+    "blenderDeterminism": "data/generated/blender-v0.1/determinism.json",
+    "blenderQa": "data/generated/blender-v0.1/blender-qa.json",
+    "blenderReport": "data/generated/blender-v0.1/scene-report.json",
+    "robloxValidation": "data/generated/roblox-v0.1/poc-validation.json",
+    "sceneSpec": "data/generated/worldgen-v0.1/scene-spec.json",
+    "sceneValidation": "data/generated/worldgen-v0.1/scene-validation.json",
+    "terrainComparison": "data/generated/terrain-comparison/comparison.json",
+    "terrainConfig": "config/terrain.json"
+  },
+  "featureCounts": {
+    "contextBuildings": 35,
+    "greenSpace": 3,
+    "heroes": 5,
+    "roads": 25,
+    "total": 98,
+    "walkways": 25,
+    "waterways": 5
+  },
+  "gates": {
+    "blenderEngineeringGate": "pass",
+    "blenderMeshGate": "pass",
+    "blenderRenderGate": "pass",
+    "blenderVisualGate": "pending-human",
+    "phase1Gate": "pass",
+    "realTerrainGate": "pass",
+    "robloxApprovedGenerationGate": "not-run",
+    "robloxApprovedPlaytestGate": "not-run",
+    "robloxApprovedSpatialGate": "not-run",
+    "robloxEngineeringDryRun": "pass",
+    "sceneSpecGate": "pass"
+  },
+  "generatedAt": "2026-08-17",
+  "metadata": {
+    "closureBranch": "fix/poc-gate-ci-closure",
+    "sceneSpecFileSha256": "sha256:8bdd29733351d09c360501286adafd0104a6d9189455d10ad7a963bda374d0f4"
+  },
+  "phase1Gate": "pass",
+  "pocStatus": "AWAITING_BLENDER_VISUAL_APPROVAL",
+  "realTerrainGate": "pass",
+  "roblox": {
+    "engineeringDryRun": "pass",
+    "historicalValidationStatus": "engineering_dry_run_pass_pending_blender_visual_approval",
+    "terrainPerformanceReport": "data/generated/roblox-v0.1/terrain-performance.json"
+  },
+  "robloxApprovedGenerationGate": "not-run",
+  "robloxApprovedPlaytestGate": "not-run",
+  "robloxApprovedSpatialGate": "not-run",
+  "robloxEngineeringDryRun": "pass",
+  "scene": {
+    "objectCount": 98,
+    "sceneSpecHash": "sha256:809b58f648934c19cba70878b37b8956866331994679148a07e95e7410806ea6",
+    "status": "ready"
+  },
+  "sceneSpecGate": "pass",
+  "schemaVersion": "uplb-poc-gates-v0.1",
+  "status": "authoritative",
+  "terrain": {
+    "archiveSha256": "sha256:c115ac7027d4c6160b308ac280b5e259309680ed6347475407cb071194a42398",
+    "granule": "NASADEM_HGT_n14e121",
+    "hgtPayloadSha256": "sha256:730d5350ef7663eb7ae00f9cbe861549156540a055dc75d6efaa4f0d19a7fbe9",
+    "processedHeightfieldSha256": "sha256:3e6dcd85e480cbfaaea342bc18a8d48290af4adff0e7af55bcb72e7144438e84",
+    "product": "NASADEM_HGT.001",
+    "revision": "terrain-v0.2-real"
+  },
+  "terrainPerformance": {
+    "afterProcessedCells": 25274544,
+    "beforeLogicalCells": 230375880,
+    "chunkCount": 480,
+    "reductionRatio": 0.890289973,
+    "surfaceSamplesUnchanged": true
+  }
+}

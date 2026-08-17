@@ -16,6 +16,7 @@
     "terrainRealDataGate": "blocked"
   },
   "generatorVersion": "greybox-v0.1",
+  "historicalPurpose": "fixture-era greybox evidence retained for audit; not the authoritative real-terrain POC state",
   "objectCount": 98,
   "objects": [
     {
@@ -4237,7 +4238,8 @@
   "requiredHeroesMissing": [],
   "revision": "greybox-v0.1",
   "sliceVersion": "v0.1",
-  "status": "conditional-blender-unavailable",
+  "status": "superseded",
+  "supersededBy": "data/generated/worldgen-v0.1/poc-gates.json",
   "terrainRevision": "terrain-v0.1-fixture",
   "terrainSourceKind": "synthetic-fixture"
 }

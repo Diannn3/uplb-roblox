@@ -1,6 +1,9 @@
 {
+  "historicalPurpose": "fixture-era greybox evidence retained for audit; not the authoritative real-terrain POC state",
   "slice": "C:\\Users\\Dian\\Documents\\Vaults\\Fensalir\\uplb_roblox\\data\\vertical-slices\\v0.1",
   "sliceHash": "sha256:7d1261ba184e29850214e28c2cd089422fe6c2bfd1ef983296e4c29e51a64504",
+  "status": "superseded",
+  "supersededBy": "data/generated/worldgen-v0.1/poc-gates.json",
   "terrain": "C:\\Users\\Dian\\Documents\\Vaults\\Fensalir\\uplb_roblox\\data\\generated\\terrain-v0.1\\heightfield.json",
   "terrainRevision": "terrain-v0.1-fixture"
 }

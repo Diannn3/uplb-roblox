@@ -1,6 +1,8 @@
 {
   "binaryBlendEqual": null,
+  "historicalPurpose": "fixture-era greybox evidence retained for audit; not the authoritative real-terrain POC state",
   "note": "No Blender executable was available; binary .blend comparison was not run.",
   "semanticManifestEqual": true,
-  "status": "pass"
+  "status": "superseded",
+  "supersededBy": "data/generated/worldgen-v0.1/poc-gates.json"
 }

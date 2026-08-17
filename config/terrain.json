@@ -3,6 +3,37 @@
   "archiveSha256": "sha256:c115ac7027d4c6160b308ac280b5e259309680ed6347475407cb071194a42398",
   "authRequirement": "Earthdata Login required for download; no credentials stored",
   "baseline": "NASADEM_HGT.001",
+  "baselineDecision": {
+    "baseline": "NASADEM_HGT.001",
+    "decisionBasis": {
+      "coverageEqual": true,
+      "coverageToleranceM": 1e-06,
+      "missingMetrics": [],
+      "scores": {
+        "nasadem": [
+          0,
+          10.427534,
+          5.243241,
+          151
+        ],
+        "srtm": [
+          0,
+          11.056161,
+          5.760314,
+          217
+        ]
+      }
+    },
+    "metricsConsidered": [
+      "nodataCount",
+      "maxAdjacentDeltaM",
+      "p95AdjacentDeltaM",
+      "spikeCount",
+      "coverageEquality"
+    ],
+    "policyVersion": "terrain-baseline-v0.2",
+    "selectionReason": "Evidence comparison selected the product with the lexicographically lowest tuple of nodata count, maximum adjacent delta, p95 adjacent delta, and spike count over equal UPLB AOI coverage."
+  },
   "citation": "NASA JPL. (2020). NASADEM Merged DEM Global 1 arc second V001 [Dataset]. NASA LP DAAC.",
   "coverageBoundsLocalM": {
     "eastM": 612.6689003391075,
@@ -32,7 +63,7 @@
   "resolutionM": 30,
   "retrievalTimestamp": "2026-08-17T04:39:12.238467+00:00",
   "rights": "NASA Earthdata open data policy; public-domain/open reuse with citation requested",
-  "selectionReason": "Evidence comparison selected the product with the lower maximum adjacent elevation discontinuity in the UPLB AOI.",
+  "selectionReason": "Evidence comparison selected the product with the lexicographically lowest tuple of nodata count, maximum adjacent delta, p95 adjacent delta, and spike count over equal UPLB AOI coverage.",
   "shortName": "NASADEM_HGT",
   "sourceHash": "sha256:730d5350ef7663eb7ae00f9cbe861549156540a055dc75d6efaa4f0d19a7fbe9",
   "status": "ready-real-terrain",

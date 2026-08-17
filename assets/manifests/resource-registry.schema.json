@@ -27,6 +27,7 @@
           "category",
           "sourceUrl",
           "license",
+          "licenseClass",
           "evidenceStatus",
           "disposition",
           "integrationRole",
@@ -47,6 +48,16 @@
           },
           "sourceUrl": {"type": "string", "format": "uri"},
           "license": {"type": "string", "minLength": 1},
+          "licenseClass": {
+            "enum": [
+              "confirmed-permissive",
+              "confirmed-copyleft-tool",
+              "cc0-art-source",
+              "platform-terms",
+              "reference-only-no-license",
+              "verify-before-vendoring"
+            ]
+          },
           "evidenceStatus": {
             "enum": ["verified", "verified-conditional", "research-only", "unverified"]
           },

@@ -1,25 +1,22 @@
 {
-  "status": "pending-owner-approval",
+  "blenderStatus": "conditional-blender-unavailable",
+  "determinism": "pass",
   "engineeringGate": "pass",
-  "greyboxEngineeringGate": "pass",
-  "greyboxVisualGate": "pending-human",
   "executionGates": {
-    "semanticGate": "pass",
-    "terrainRealDataGate": "blocked",
     "blenderAvailableGate": "blocked",
     "blenderMeshGate": "not-run",
     "blenderRenderGate": "not-run",
     "blenderVisualGate": "pending-human",
     "robloxGenerationGate": "not-run",
+    "robloxPlaytestGate": "not-run",
     "robloxSpatialGate": "not-run",
-    "robloxPlaytestGate": "not-run"
+    "semanticGate": "pass",
+    "terrainRealDataGate": "blocked"
   },
-  "sceneSpec": "data/generated/worldgen-v0.1/scene-spec.json",
-  "terrainStatus": "blocked-no-local-raster",
-  "selectedDEM": null,
-  "blenderStatus": "conditional-blender-unavailable",
-  "structuralQA": "pass",
-  "determinism": "pass",
+  "greyboxEngineeringGate": "pass",
+  "greyboxVisualGate": "pending-human",
+  "historicalPurpose": "fixture-era greybox evidence retained for audit; not the authoritative real-terrain POC state",
+  "nextAction": "Project owner reviews terrain/world manifest/QA/previews and approves or rejects the greybox before Roblox Studio MCP handoff.",
   "previewPaths": [
     "data/generated/greybox-v0.1/previews/topdown.png",
     "data/generated/greybox-v0.1/previews/oblation.png",
@@ -28,5 +25,10 @@
     "data/generated/greybox-v0.1/previews/dl-umali-context.png",
     "data/generated/greybox-v0.1/previews/road-level.png"
   ],
-  "nextAction": "Project owner reviews terrain/world manifest/QA/previews and approves or rejects the greybox before Roblox Studio MCP handoff."
+  "sceneSpec": "data/generated/worldgen-v0.1/scene-spec.json",
+  "selectedDEM": null,
+  "status": "superseded",
+  "structuralQA": "pass",
+  "supersededBy": "data/generated/worldgen-v0.1/poc-gates.json",
+  "terrainStatus": "blocked-no-local-raster"
 }

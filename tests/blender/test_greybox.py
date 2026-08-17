@@ -15,7 +15,8 @@ OUTPUT = ROOT / "data" / "generated" / "greybox-v0.1"
 class GreyboxTests(unittest.TestCase):
     def test_checked_in_world_manifest_has_required_heroes_and_traceable_objects(self) -> None:
         manifest = json.loads((OUTPUT / "world-manifest.json").read_text(encoding="utf-8"))
-        self.assertEqual(manifest["status"], "conditional-blender-unavailable")
+        self.assertEqual(manifest["status"], "superseded")
+        self.assertEqual(manifest["supersededBy"], "data/generated/worldgen-v0.1/poc-gates.json")
         self.assertGreaterEqual(manifest["objectCount"], 50)
         self.assertEqual(manifest["determinism"], "pass")
         self.assertEqual(manifest["requiredHeroesMissing"], [])

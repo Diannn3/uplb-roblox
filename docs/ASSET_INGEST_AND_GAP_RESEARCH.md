@@ -10,6 +10,9 @@ The supplied archive was ingested as research evidence. It contains 15 curated r
 
 The gap audit found a missing reproducible Roblox toolchain layer and a few useful, selectively licensed asset sources. It did **not** justify bulk downloads, a new runtime dependency, or replacing the existing deterministic Blender/geodata pipeline. Candidate status and next actions are machine-readable in [`assets/manifests/resource-registry.json`](../assets/manifests/resource-registry.json).
 
+The closure audit records an explicit `licenseClass` for every candidate: `confirmed-permissive`, `confirmed-copyleft-tool`, `cc0-art-source`, `platform-terms`, `reference-only-no-license`, or `verify-before-vendoring`. This is rights triage, not approval to download or vendor an asset.
+The 15 user-bundle records are classified separately in [`assets/manifests/resource-license-audit.json`](../assets/manifests/resource-license-audit.json), preserving the raw ingest as immutable evidence.
+
 ## Existing bundle coverage
 
 The bundle already covers the high-value first-pass asset families:
@@ -59,3 +62,20 @@ Recent [Roblox developer discussion](https://www.reddit.com/r/robloxgamedev/comm
 5. Bind only accepted derivatives to `asset:` manifests and the Oblation/Freedom Park/Baker Hall vertical-slice feature IDs.
 
 No external permission request or publication is part of this audit. Any source that requires permission remains a draft template or a `verified-conditional` candidate until a human approval is recorded.
+
+## Closure license classification
+
+| Classification | Registry examples | Use in this POC |
+|---|---|---|
+| `confirmed-permissive` | Rokit, rbx-dom | Tool/reference candidates only; pin before adoption. |
+| `confirmed-copyleft-tool` | Rojo, Wally, Selene, StyLua, BlenderGIS | Keep code/tool obligations separate from shipped art. |
+| `cc0-art-source` | Quaternius 150+ Nature, ambientCG | Select individual files only; record URL and hash. |
+| `verify-before-vendoring` | OpenGameArt group | Review the exact file/author notice first. |
+| `reference-only-no-license` | roblox-procedural-worlds, Reddit signal | Concepts only; no code, data, or assets copied. |
+
+The bundle audit keeps `BasicProceduralBuilding` as confirmed MIT reference,
+keeps `modular_tree` as a copyleft tool/reference with its MIT core separated,
+and classifies BCGA and BuildingNodes as `reference-only-no-license` until an
+exact reusable license is verified.
+
+No binary assets were downloaded during this closure cycle.

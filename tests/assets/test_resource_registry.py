@@ -34,6 +34,19 @@ def test_resource_ids_are_unique_and_urls_are_reviewable() -> None:
     assert all(resource["disposition"] != "ADOPT_NOW" for resource in resources)
 
 
+def test_registry_uses_explicit_license_classifications() -> None:
+    registry = _read_json(REGISTRY_PATH)
+    allowed = {
+        "confirmed-permissive",
+        "confirmed-copyleft-tool",
+        "cc0-art-source",
+        "platform-terms",
+        "reference-only-no-license",
+        "verify-before-vendoring",
+    }
+    assert all(resource.get("licenseClass") in allowed for resource in registry["resources"])
+
+
 def test_registry_records_user_bundle_without_binaries() -> None:
     registry = _read_json(REGISTRY_PATH)
     ingest = _read_json(INGEST_PATH)
@@ -47,3 +60,21 @@ def test_registry_records_user_bundle_without_binaries() -> None:
     assert ingest["binaryAssetCount"] == 0
     assert ingest["zipSha256"] == bundle["zipSha256"]
     assert ingest["registrySha256"] == bundle["registrySha256"]
+
+
+def test_source_bundle_license_audit_classifies_every_ingested_resource() -> None:
+    audit = _read_json(ROOT / "assets" / "manifests" / "resource-license-audit.json")
+    source = _read_json(ROOT / "research" / "asset-ingest" / "uplb_asset_ingest" / "ASSET_REGISTRY.json")
+    allowed = {
+        "confirmed-permissive",
+        "confirmed-copyleft-tool",
+        "cc0-art-source",
+        "platform-terms",
+        "reference-only-no-license",
+        "verify-before-vendoring",
+    }
+    assert audit["binaryAssetsIncluded"] is False
+    assert {item["id"] for item in audit["classifications"]} == {item["id"] for item in source["resources"]}
+    assert all(item["licenseClass"] in allowed for item in audit["classifications"])
+    assert next(item for item in audit["classifications"] if item["id"] == "bcga")["licenseClass"] == "reference-only-no-license"
+    assert next(item for item in audit["classifications"] if item["id"] == "modular-tree")["licenseClass"] == "confirmed-copyleft-tool"
