@@ -12,6 +12,46 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 class RealComparisonTests(unittest.TestCase):
+    def test_baseline_decision_records_all_metrics_and_prefers_consistent_product(self) -> None:
+        from tools.terrain.compare import choose_baseline
+
+        comparison = {
+            "status": "validated-raster",
+            "coverage": {
+                "srtm": {"westM": 0, "southM": 0, "eastM": 10, "northM": 10},
+                "nasadem": {"westM": 0, "southM": 0, "eastM": 10, "northM": 10},
+            },
+            "metrics": {
+                "srtm": {"nodataCount": 0, "maxAdjacentDeltaM": 11, "p95AdjacentDeltaM": 6, "spikeCount": 20},
+                "nasadem": {"nodataCount": 0, "maxAdjacentDeltaM": 10, "p95AdjacentDeltaM": 5, "spikeCount": 10},
+            },
+        }
+        decision = choose_baseline(comparison)
+        self.assertEqual(decision["baseline"], "NASADEM_HGT.001")
+        self.assertEqual(decision["policyVersion"], "terrain-baseline-v0.2")
+        self.assertEqual(
+            decision["metricsConsidered"],
+            ["nodataCount", "maxAdjacentDeltaM", "p95AdjacentDeltaM", "spikeCount", "coverageEquality"],
+        )
+        self.assertTrue(decision["decisionBasis"]["coverageEqual"])
+        self.assertEqual(decision["decisionBasis"]["scores"]["nasadem"], [0, 10.0, 5.0, 10])
+
+    def test_baseline_decision_fails_closed_when_coverage_differs(self) -> None:
+        from tools.terrain.compare import choose_baseline
+
+        comparison = {
+            "status": "validated-raster",
+            "coverage": {
+                "srtm": {"westM": 0, "southM": 0, "eastM": 10, "northM": 10},
+                "nasadem": {"westM": 0, "southM": 0, "eastM": 11, "northM": 10},
+            },
+            "metrics": {"srtm": {}, "nasadem": {}},
+        }
+        decision = choose_baseline(comparison)
+        self.assertIsNone(decision["baseline"])
+        self.assertFalse(decision["decisionBasis"]["coverageEqual"])
+        self.assertIn("coverage", decision["selectionReason"].lower())
+
     def test_acquired_hgt_products_use_identical_processing_and_select_real_baseline(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

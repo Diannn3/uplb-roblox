@@ -21,6 +21,8 @@ local TERRAIN_RESOLUTION = Scene.runtimeContract.terrainResolutionStuds or 4
 -- call per 4-stud cell.
 local TERRAIN_CHUNK_CELLS = 64
 local TERRAIN_MARGIN_M = 60
+local TERRAIN_BASE_DEPTH_CELLS = 4
+local TERRAIN_SURFACE_PADDING_CELLS = 1
 
 local FOLDER_NAMES = {
     "Buildings",
@@ -319,23 +321,41 @@ local function writeTerrain()
     local xCells = math.max(1, math.floor((maxX - minX) / TERRAIN_RESOLUTION))
     local zCells = math.max(1, math.floor((maxZ - minZ) / TERRAIN_RESOLUTION))
     local chunks = 0
+    local processedCells = 0
+    local minProcessedY, maxProcessedY = math.huge, -math.huge
 
     for xOffset = 0, xCells - 1, TERRAIN_CHUNK_CELLS do
         local xCount = math.min(TERRAIN_CHUNK_CELLS, xCells - xOffset)
         for zOffset = 0, zCells - 1, TERRAIN_CHUNK_CELLS do
             local zCount = math.min(TERRAIN_CHUNK_CELLS, zCells - zOffset)
+            local groundHeights = {}
+            local chunkMinGround, chunkMaxGround = math.huge, -math.huge
+            for x = 1, xCount do
+                groundHeights[x] = {}
+                local worldX = minX + (xOffset + x - 0.5) * TERRAIN_RESOLUTION
+                local eastM = CoordinateTransform.StudsToMeters(worldX)
+                for z = 1, zCount do
+                    local northM = CoordinateTransform.StudsToMeters(-(minZ + (zOffset + z - 0.5) * TERRAIN_RESOLUTION))
+                    local ground = CoordinateTransform.MetersToStuds(sampleTerrain(eastM, northM))
+                    if ground ~= ground or ground == math.huge or ground == -math.huge then
+                        error("terrain sample is non-finite")
+                    end
+                    groundHeights[x][z] = ground
+                    chunkMinGround = math.min(chunkMinGround, ground)
+                    chunkMaxGround = math.max(chunkMaxGround, ground)
+                end
+            end
+            local chunkMinY = math.floor((chunkMinGround - TERRAIN_BASE_DEPTH_CELLS * TERRAIN_RESOLUTION) / TERRAIN_RESOLUTION) * TERRAIN_RESOLUTION
+            local chunkMaxY = math.ceil((chunkMaxGround + TERRAIN_SURFACE_PADDING_CELLS * TERRAIN_RESOLUTION) / TERRAIN_RESOLUTION) * TERRAIN_RESOLUTION
+            local chunkYCells = math.max(1, math.floor((chunkMaxY - chunkMinY) / TERRAIN_RESOLUTION))
             local materials, occupancies = {}, {}
             for x = 1, xCount do
                 materials[x], occupancies[x] = {}, {}
-                local worldX = minX + (xOffset + x - 0.5) * TERRAIN_RESOLUTION
-                local eastM = CoordinateTransform.StudsToMeters(worldX)
-                for y = 1, yCells do
+                for y = 1, chunkYCells do
                     materials[x][y], occupancies[x][y] = {}, {}
-                    local cellBottom = minY + (y - 1) * TERRAIN_RESOLUTION
-                    local relativeGroundStuds = CoordinateTransform.MetersToStuds(sampleTerrain(eastM, CoordinateTransform.StudsToMeters(-(minZ + (zOffset + 0.5) * TERRAIN_RESOLUTION))))
+                    local cellBottom = chunkMinY + (y - 1) * TERRAIN_RESOLUTION
                     for z = 1, zCount do
-                        local northM = CoordinateTransform.StudsToMeters(-(minZ + (zOffset + z - 0.5) * TERRAIN_RESOLUTION))
-                        relativeGroundStuds = CoordinateTransform.MetersToStuds(sampleTerrain(eastM, northM))
+                        local relativeGroundStuds = groundHeights[x][z]
                         local occupancy = math.clamp((relativeGroundStuds - cellBottom) / TERRAIN_RESOLUTION, 0, 1)
                         materials[x][y][z] = occupancy > 0 and Enum.Material.Grass or Enum.Material.Air
                         occupancies[x][y][z] = occupancy
@@ -343,16 +363,20 @@ local function writeTerrain()
                 end
             end
             local region = Region3.new(
-                Vector3.new(minX + xOffset * TERRAIN_RESOLUTION, minY, minZ + zOffset * TERRAIN_RESOLUTION),
-                Vector3.new(minX + (xOffset + xCount) * TERRAIN_RESOLUTION, maxY, minZ + (zOffset + zCount) * TERRAIN_RESOLUTION)
+                Vector3.new(minX + xOffset * TERRAIN_RESOLUTION, chunkMinY, minZ + zOffset * TERRAIN_RESOLUTION),
+                Vector3.new(minX + (xOffset + xCount) * TERRAIN_RESOLUTION, chunkMaxY, minZ + (zOffset + zCount) * TERRAIN_RESOLUTION)
             ):ExpandToGrid(TERRAIN_RESOLUTION)
             terrain:WriteVoxels(region, TERRAIN_RESOLUTION, materials, occupancies)
             chunks += 1
+            processedCells += xCount * chunkYCells * zCount
+            minProcessedY = math.min(minProcessedY, chunkMinY)
+            maxProcessedY = math.max(maxProcessedY, chunkMaxY)
             task.wait()
         end
     end
 
-    local totalCells = xCells * yCells * zCells
+    local totalCells = processedCells
+    local baselineCells = xCells * yCells * zCells
     return {
         chunks = chunks,
         minX = minX,
@@ -365,6 +389,11 @@ local function writeTerrain()
         yCells = yCells,
         zCells = zCells,
         totalCells = totalCells,
+        baselineCells = baselineCells,
+        processedCells = processedCells,
+        voxelReductionRatio = baselineCells > 0 and (1 - processedCells / baselineCells) or 0,
+        processedMinY = minProcessedY,
+        processedMaxY = maxProcessedY,
         writeVoxelsDurationSeconds = os.clock() - started,
         bounds = {minX = minX, maxX = maxX, minY = minY, maxY = maxY, minZ = minZ, maxZ = maxZ},
     }
@@ -384,6 +413,9 @@ local function writeMetadata(root, terrainReport, counts)
         ObjectCount = tostring(counts.objects),
         RouteSegmentCount = tostring(counts.routeSegments),
         TerrainTotalCells = tostring(terrainReport.totalCells),
+        TerrainBaselineCells = tostring(terrainReport.baselineCells),
+        TerrainProcessedCells = tostring(terrainReport.processedCells),
+        TerrainVoxelReductionRatio = string.format("%.9f", terrainReport.voxelReductionRatio),
         TerrainWriteVoxelsSeconds = string.format("%.6f", terrainReport.writeVoxelsDurationSeconds),
         TerrainBounds = string.format("%s,%s,%s,%s,%s,%s", terrainReport.minX, terrainReport.maxX, terrainReport.minY, terrainReport.maxY, terrainReport.minZ, terrainReport.maxZ),
     }
@@ -477,6 +509,9 @@ function WorldGenerator.Generate()
         terrainChunks = terrainReport.chunks,
         terrainCells = { x = terrainReport.xCells, y = terrainReport.yCells, z = terrainReport.zCells },
         terrainTotalCells = terrainReport.totalCells,
+        terrainBaselineCells = terrainReport.baselineCells,
+        terrainProcessedCells = terrainReport.processedCells,
+        terrainVoxelReductionRatio = terrainReport.voxelReductionRatio,
         terrainBounds = terrainReport.bounds,
         terrainWriteVoxelsDurationSeconds = terrainReport.writeVoxelsDurationSeconds,
         generationDurationSeconds = os.clock() - started,

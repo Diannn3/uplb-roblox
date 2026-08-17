@@ -8,6 +8,10 @@ from typing import Any
 from .sample import HeightField
 
 
+BASELINE_POLICY_VERSION = "terrain-baseline-v0.2"
+BASELINE_METRICS = ["nodataCount", "maxAdjacentDeltaM", "p95AdjacentDeltaM", "spikeCount", "coverageEquality"]
+
+
 def _slope(field: HeightField, east: float, north: float) -> float:
     step = field.spacing_m
     left = field.ground_height(east - step, north)
@@ -174,18 +178,75 @@ def compare_products(srtm: HeightField, nasadem: HeightField, points: dict[str, 
 
 
 def choose_baseline(comparison: dict[str, Any]) -> dict[str, Any]:
-    """Choose a real baseline from measured comparison metrics only."""
+    """Choose a real baseline from a deterministic multi-metric evidence tuple."""
 
+    empty_basis = {"coverageEqual": False, "coverageToleranceM": 1e-6, "scores": {}, "missingMetrics": []}
     if comparison.get("status") != "validated-raster":
-        return {"baseline": None, "selectionReason": "Evidence comparison is unavailable; fixture or blocked results cannot select a terrain baseline."}
+        return {
+            "baseline": None,
+            "policyVersion": BASELINE_POLICY_VERSION,
+            "metricsConsidered": BASELINE_METRICS,
+            "decisionBasis": empty_basis,
+            "selectionReason": "Evidence comparison is unavailable; fixture or blocked results cannot select a terrain baseline.",
+        }
+
+    coverage = comparison.get("coverage") or {}
+    srtm_bounds = coverage.get("srtm") or {}
+    nasadem_bounds = coverage.get("nasadem") or {}
+    bound_keys = ("westM", "southM", "eastM", "northM")
+    coverage_equal = all(
+        isinstance(srtm_bounds.get(key), (int, float))
+        and isinstance(nasadem_bounds.get(key), (int, float))
+        and math.isclose(float(srtm_bounds[key]), float(nasadem_bounds[key]), abs_tol=1e-6)
+        for key in bound_keys
+    )
     metrics = comparison.get("metrics") or {}
-    srtm = metrics.get("srtm") or {}
-    nasadem = metrics.get("nasadem") or {}
-    if int(srtm.get("nodataCount", 0)) != int(nasadem.get("nodataCount", 0)):
-        baseline = "SRTMGL1.003" if int(srtm.get("nodataCount", 0)) < int(nasadem.get("nodataCount", 0)) else "NASADEM_HGT.001"
-        return {"baseline": baseline, "selectionReason": "Evidence comparison selected the product with fewer nodata samples in the UPLB AOI."}
-    max_difference = comparison.get("differenceSummary", {}).get("maxAbsM")
-    if max_difference is not None and float(max_difference) <= 0.5:
-        return {"baseline": "SRTMGL1.003", "selectionReason": "Evidence comparison found the products practically indistinguishable in the UPLB AOI; SRTM is retained as the documented baseline without treating product age as evidence."}
-    baseline = "SRTMGL1.003" if float(srtm.get("maxAdjacentDeltaM", 0.0)) <= float(nasadem.get("maxAdjacentDeltaM", 0.0)) else "NASADEM_HGT.001"
-    return {"baseline": baseline, "selectionReason": "Evidence comparison selected the product with the lower maximum adjacent elevation discontinuity in the UPLB AOI."}
+    scores: dict[str, list[float | int]] = {}
+    missing: list[str] = []
+    for product_key in ("srtm", "nasadem"):
+        product_metrics = metrics.get(product_key) or {}
+        required = ("nodataCount", "maxAdjacentDeltaM", "p95AdjacentDeltaM", "spikeCount")
+        invalid_keys: list[str] = []
+        for key in required:
+            value = product_metrics.get(key)
+            if not isinstance(value, (int, float)) or not math.isfinite(float(value)):
+                invalid_keys.append(key)
+        if invalid_keys:
+            missing.extend(f"{product_key}.{key}" for key in invalid_keys)
+            continue
+        scores[product_key] = [
+            int(product_metrics["nodataCount"]),
+            float(product_metrics["maxAdjacentDeltaM"]),
+            float(product_metrics["p95AdjacentDeltaM"]),
+            int(product_metrics["spikeCount"]),
+        ]
+    basis = {"coverageEqual": coverage_equal, "coverageToleranceM": 1e-6, "scores": scores, "missingMetrics": sorted(set(missing))}
+    if not coverage_equal:
+        return {
+            "baseline": None,
+            "policyVersion": BASELINE_POLICY_VERSION,
+            "metricsConsidered": BASELINE_METRICS,
+            "decisionBasis": basis,
+            "selectionReason": "Evidence comparison cannot select a baseline because candidate coverage bounds differ or are not pinned.",
+        }
+    if missing or len(scores) != 2:
+        return {
+            "baseline": None,
+            "policyVersion": BASELINE_POLICY_VERSION,
+            "metricsConsidered": BASELINE_METRICS,
+            "decisionBasis": basis,
+            "selectionReason": "Evidence comparison cannot select a baseline because one or more required continuity metrics are missing.",
+        }
+
+    # Lower is better for every measured component. Prefer SRTM only for a
+    # complete tie so the tie-break is explicit and reproducible.
+    product_order = {"srtm": 0, "nasadem": 1}
+    selected_key = min(scores, key=lambda key: (tuple(scores[key]), product_order[key]))
+    baseline = "SRTMGL1.003" if selected_key == "srtm" else "NASADEM_HGT.001"
+    return {
+        "baseline": baseline,
+        "policyVersion": BASELINE_POLICY_VERSION,
+        "metricsConsidered": BASELINE_METRICS,
+        "decisionBasis": basis,
+        "selectionReason": "Evidence comparison selected the product with the lexicographically lowest tuple of nodata count, maximum adjacent delta, p95 adjacent delta, and spike count over equal UPLB AOI coverage.",
+    }

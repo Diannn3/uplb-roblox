@@ -18,6 +18,9 @@ def test_server_generation_keeps_authority_and_regeneration_guards() -> None:
         "VerificationStatus",
         "CoordinateTransform.LocalToStuds",
         "TerrainWriteVoxelsSeconds",
+        "TerrainVoxelReductionRatio",
+        "TERRAIN_BASE_DEPTH_CELLS",
+        "chunkMinGround",
         "SpawnAbsoluteElevationM",
         "ProxyYawDegrees",
     ):
