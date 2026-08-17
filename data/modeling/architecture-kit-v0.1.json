@@ -513,6 +513,142 @@
         "context": 12
       },
       "collision": "box"
+    },
+    {
+      "id": "column:concrete-round-baker-a",
+      "category": "column",
+      "sourceKind": "building-specific-procedural-reference-derived",
+      "defaultDimensionsM": [
+        0.64,
+        0.64,
+        3.8
+      ],
+      "materialClass": "concrete-painted",
+      "triangleBudget": {
+        "hero": 192,
+        "standard": 64,
+        "context": 24
+      },
+      "collision": "hull",
+      "referenceFeatureId": "uplb:building:baker-hall",
+      "confidence": "high-visual-form/provisional-dimensions"
+    },
+    {
+      "id": "column:concrete-square-baker-a",
+      "category": "column",
+      "sourceKind": "building-specific-procedural-reference-derived",
+      "defaultDimensionsM": [
+        0.55,
+        0.55,
+        3.8
+      ],
+      "materialClass": "concrete-painted",
+      "triangleBudget": {
+        "hero": 48,
+        "standard": 24,
+        "context": 12
+      },
+      "collision": "box",
+      "referenceFeatureId": "uplb:building:baker-hall",
+      "confidence": "medium-visual-form/provisional-dimensions"
+    },
+    {
+      "id": "railing:balustrade-baker-a",
+      "category": "railing",
+      "sourceKind": "building-specific-procedural-reference-derived",
+      "defaultDimensionsM": [
+        1.0,
+        0.18,
+        1.0
+      ],
+      "materialClass": "concrete-painted",
+      "triangleBudget": {
+        "hero": 240,
+        "standard": 80,
+        "context": 24
+      },
+      "collision": "none",
+      "referenceFeatureId": "uplb:building:baker-hall",
+      "confidence": "high-visual-form/provisional-spacing"
+    },
+    {
+      "id": "awning:green-metal-baker-a",
+      "category": "awning",
+      "sourceKind": "building-specific-procedural-reference-derived",
+      "defaultDimensionsM": [
+        3.0,
+        0.78,
+        0.12
+      ],
+      "materialClass": "painted-metal",
+      "triangleBudget": {
+        "hero": 48,
+        "standard": 24,
+        "context": 12
+      },
+      "collision": "none",
+      "referenceFeatureId": "uplb:building:baker-hall",
+      "confidence": "high-visual-form/provisional-dimensions",
+      "materialVariant": "green"
+    },
+    {
+      "id": "band:historic-string-course-a",
+      "category": "facade-band",
+      "sourceKind": "custom-procedural",
+      "defaultDimensionsM": [
+        3.0,
+        0.28,
+        0.28
+      ],
+      "materialClass": "concrete-painted",
+      "triangleBudget": {
+        "hero": 24,
+        "standard": 12,
+        "context": 12
+      },
+      "collision": "none",
+      "referenceFeatureId": "uplb:building:baker-hall",
+      "confidence": "high-visual-form"
+    },
+    {
+      "id": "window:historic-baker-panel-a",
+      "category": "window",
+      "sourceKind": "building-specific-procedural-reference-derived",
+      "defaultDimensionsM": [
+        2.65,
+        0.1,
+        1.55
+      ],
+      "materialClass": "painted-metal-glass",
+      "triangleBudget": {
+        "hero": 120,
+        "standard": 48,
+        "context": 12
+      },
+      "collision": "none",
+      "referenceFeatureId": "uplb:building:baker-hall",
+      "confidence": "medium-visual-form/provisional-dimensions",
+      "materialVariant": "dark"
+    },
+    {
+      "id": "door:historic-baker-panel-a",
+      "category": "door",
+      "sourceKind": "building-specific-procedural-reference-derived",
+      "defaultDimensionsM": [
+        2.45,
+        0.08,
+        2.8
+      ],
+      "materialClass": "wood-metal",
+      "triangleBudget": {
+        "hero": 120,
+        "standard": 48,
+        "context": 12
+      },
+      "collision": "box",
+      "referenceFeatureId": "uplb:building:baker-hall",
+      "confidence": "medium-visual-form/provisional-dimensions",
+      "materialVariant": "painted-timber-dark"
     }
   ],
   "materialClasses": [
@@ -566,5 +702,11 @@
       "robloxStrategy": "shared-atlas",
       "targetMaxTexturePx": 512
     }
+  ],
+  "materials": [
+    "painted-metal-green",
+    "painted-metal-glass-dark",
+    "painted-timber-dark",
+    "corrugated-metal-green"
   ]
 }

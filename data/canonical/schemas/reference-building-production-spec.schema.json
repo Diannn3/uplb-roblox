@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UPLB Evidence-Aware Reference Building Production Spec",
+  "type": "object",
+  "required": [
+    "schemaVersion", "sourceFeatureId", "proposedFeatureId", "name",
+    "productionTier", "identityStatus", "architecturalFamily", "referenceIds",
+    "featureSnapshot", "height", "facade", "roof", "materials",
+    "accuracyClaims", "openQuestions"
+  ],
+  "properties": {
+    "schemaVersion": {"const": "uplb-reference-building-production-spec-v0.1"},
+    "sourceFeatureId": {"type": "string", "pattern": "^(candidate:|uplb:)"},
+    "proposedFeatureId": {"type": "string", "pattern": "^uplb:"},
+    "name": {"type": "string", "minLength": 1},
+    "productionTier": {"enum": ["hero-exterior", "standard-exterior", "context-exterior"]},
+    "identityStatus": {"enum": ["canonical", "reviewed-candidate", "proposed-candidate"]},
+    "architecturalFamily": {"type": "string", "minLength": 1},
+    "referenceIds": {"type": "array", "items": {"type": "string"}},
+    "featureSnapshot": {"type": "string", "minLength": 1},
+    "height": {
+      "type": "object",
+      "required": ["meters", "method", "confidence"],
+      "properties": {
+        "meters": {"type": "number", "exclusiveMinimum": 0},
+        "method": {"type": "string"},
+        "confidence": {"type": "string"}
+      }
+    },
+    "facade": {
+      "type": "object",
+      "required": ["preset", "frontEdgePolicy", "confidence"],
+      "properties": {
+        "preset": {"enum": ["massing-only", "academic-banded", "glass-frame", "auditorium-frame"]},
+        "frontEdgePolicy": {"const": "longest-edge-proxy"},
+        "confidence": {"type": "string"},
+        "bayCount": {"type": "integer", "minimum": 0},
+        "panelHeightM": {"type": "number", "exclusiveMinimum": 0},
+        "panelWidthRatio": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+        "panelDepthM": {"type": "number", "exclusiveMinimum": 0},
+        "supportWidthM": {"type": "number", "exclusiveMinimum": 0},
+        "bandDepthM": {"type": "number", "exclusiveMinimum": 0}
+      }
+    },
+    "roof": {
+      "type": "object",
+      "required": ["sourceShape", "geometryPolicy", "confidence"],
+      "properties": {
+        "sourceShape": {"type": ["string", "null"]},
+        "geometryPolicy": {"enum": ["none-flat", "deferred-known-shape", "deferred-unknown"]},
+        "confidence": {"type": "string"}
+      }
+    },
+    "materials": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "accuracyClaims": {"type": "object"},
+    "openQuestions": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

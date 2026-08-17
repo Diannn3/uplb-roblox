@@ -2,28 +2,28 @@
   "schemaVersion": "uplb-modeling-production-foundation-v0.1",
   "status": "pass",
   "summary": {
-    "sourceCount": 12,
-    "buildingCount": 15,
+    "sourceCount": 24,
+    "buildingCount": 16,
     "canonicalBoundCount": 3,
-    "proposedBindingCount": 12,
+    "proposedBindingCount": 13,
     "architectureFamilyCount": 10,
-    "componentCount": 24,
+    "componentCount": 31,
     "materialClassCount": 10,
     "strategyCounts": {
       "environment-system": 1,
       "existing-scan-with-permission": 2,
-      "procedural-accurate": 1,
+      "procedural-accurate": 2,
       "recover-existing": 11
     },
     "priorityCounts": {
       "A": 8,
-      "B": 7
+      "B": 8
     },
     "statusCounts": {
       "greybox-validated": 1,
-      "prototype-ready": 1,
+      "reference-ready": 7,
       "research": 1,
-      "source-recovery": 12
+      "source-recovery": 7
     }
   },
   "classification": [
@@ -109,10 +109,11 @@
       "name": "University Library / Main Library",
       "registeredStrategy": "recover-existing",
       "recommendedStrategy": "recover-existing",
-      "confidence": "medium",
-      "score": 63,
+      "confidence": "high",
+      "score": 73,
       "reasons": [
         "legacy UPLB 3D project evidence exists",
+        "licensed photographic reference exists",
         "institutional building study provides factual constraints",
         "priority A visual landmark"
       ],
@@ -135,9 +136,10 @@
       "registeredStrategy": "recover-existing",
       "recommendedStrategy": "recover-existing",
       "confidence": "medium",
-      "score": 55,
+      "score": 65,
       "reasons": [
         "legacy UPLB 3D project evidence exists",
+        "licensed photographic reference exists",
         "priority A visual landmark"
       ],
       "budget": {
@@ -158,10 +160,11 @@
       "name": "Biological Sciences Building",
       "registeredStrategy": "recover-existing",
       "recommendedStrategy": "recover-existing",
-      "confidence": "medium",
-      "score": 63,
+      "confidence": "high",
+      "score": 73,
       "reasons": [
         "legacy UPLB 3D project evidence exists",
+        "licensed photographic reference exists",
         "institutional building study provides factual constraints",
         "priority A visual landmark"
       ],
@@ -232,9 +235,10 @@
       "registeredStrategy": "recover-existing",
       "recommendedStrategy": "recover-existing",
       "confidence": "medium",
-      "score": 43,
+      "score": 53,
       "reasons": [
         "legacy UPLB 3D project evidence exists",
+        "licensed photographic reference exists",
         "priority B campus building"
       ],
       "budget": {
@@ -392,9 +396,32 @@
         "roblox_level_of_detail": "SLIM",
         "render_fidelity": "Automatic"
       }
+    },
+    {
+      "productionId": "production:dean-legaspi-hall",
+      "featureId": "uplb:building:dean-edelwina-legaspi-hall",
+      "name": "Dean Edelwina C. Legaspi Hall",
+      "registeredStrategy": "procedural-accurate",
+      "recommendedStrategy": "procedural-accurate",
+      "confidence": "low",
+      "score": 8,
+      "reasons": [
+        "priority B campus building"
+      ],
+      "budget": {
+        "lod0_triangles": 45000,
+        "lod1_triangles": 20000,
+        "lod2_triangles": 7500,
+        "lod3_triangles": 1500,
+        "max_texture_px": 512,
+        "collision": "simple-custom",
+        "cast_shadow": true,
+        "roblox_level_of_detail": "SLIM",
+        "render_fidelity": "Automatic"
+      }
     }
   ],
-  "recoveryActionCount": 17,
+  "recoveryActionCount": 18,
   "topRecoveryActions": [
     {
       "production_id": "production:physical-sciences",
@@ -506,25 +533,1094 @@
     "triangleEquivalent": 36,
     "claim": "massing-only; footprint is source-supported, facade/roof/detail are not verified"
   },
-  "kitPrototypeCount": 7,
-  "prototypeAssetCount": 8,
+  "kitPrototypeCount": 12,
+  "prototypeAssetCount": 13,
+  "bakerProduction": {
+    "schemaVersion": "uplb-baker-production-report-v0.2",
+    "status": "reference-derived-prototype",
+    "featureId": "uplb:building:baker-hall",
+    "modelVersion": "baker-exterior-v0.2-reference-derived",
+    "canonicalOriginUtm51": [
+      310341.832262,
+      1566327.46843
+    ],
+    "frontFacade": {
+      "canonicalEdgeIndex": 8,
+      "lengthM": 54.140793,
+      "selectionMethod": "longest-single-canonical-edge; provisional front-edge proxy pending surveyed/model orientation",
+      "porticoWidthM": 17.2,
+      "porticoRatio": 0.31769
+    },
+    "assembly": {
+      "featureId": "uplb:building:baker-hall",
+      "version": "baker-exterior-v0.2-reference-derived",
+      "sourceFeatureId": null,
+      "identityStatus": "canonical",
+      "partCount": 86,
+      "vertexCount": 794,
+      "faceCount": 583,
+      "triangleEquivalent": 1244,
+      "boundsM": {
+        "min": [
+          -30.633312,
+          -26.895136,
+          0.0
+        ],
+        "max": [
+          31.902266,
+          27.172288,
+          10.2
+        ],
+        "size": [
+          62.535578,
+          54.067424,
+          10.2
+        ]
+      },
+      "confidenceCounts": {
+        "high-visual": 27,
+        "medium-low-visual": 1,
+        "medium-visual": 57,
+        "source-supported-footprint/provisional-height": 1
+      }
+    },
+    "qa": {
+      "status": "pass",
+      "featureId": "uplb:building:baker-hall",
+      "sourceFeatureId": null,
+      "identityStatus": "canonical",
+      "partCount": 86,
+      "vertexCount": 794,
+      "faceCount": 583,
+      "triangleEquivalent": 1244,
+      "nonFiniteVertexCount": 0,
+      "invalidFaceIndexCount": 0,
+      "degenerateFaceCount": 0,
+      "duplicatePartNames": false,
+      "triangleBudget": 90000,
+      "triangleBudgetGate": "pass"
+    },
+    "evidence": {
+      "schemaVersion": "uplb-building-reference-profile-v0.1",
+      "featureId": "uplb:building:baker-hall",
+      "buildingName": "Charles Fuller Baker Memorial Hall",
+      "generatedAt": "2026-08-17",
+      "policy": {
+        "photoBinaryPolicy": "No third-party photo binaries are committed by this profile.",
+        "derivativePolicy": "Photographs are used as visual/evidentiary references only in this model revision; no source photograph is used as a texture.",
+        "accuracyPolicy": "Photographic proportions are provisional until recovered model, drawings, or field measurements supersede them."
+      },
+      "sources": [
+        {
+          "id": "source:canonical:osm-baker-way-37449973",
+          "kind": "canonical-geodata",
+          "title": "Canonical Baker Hall feature derived from OSM way/37449973",
+          "path": "data/canonical/features.geojson",
+          "rightsStatus": "project-canonical-provenance",
+          "evidence": [
+            "footprint",
+            "2 levels",
+            "concrete material tag",
+            "1938 start date",
+            "roof material tag",
+            "one underground level tag"
+          ]
+        },
+        {
+          "id": "source:legacy:uplb-virtual-campus-2014",
+          "kind": "legacy-3d-project-evidence",
+          "title": "ISCE 2014 UPLB 3D Virtual Interactive Multi-user Campus System",
+          "url": "https://id.scribd.com/document/990184030/ISCE2014-Proceedings-FINAL3",
+          "rightsStatus": "reference-only; original model files require permission",
+          "evidence": [
+            "Baker Hall was modeled in the 2014 system",
+            "paper reports blueprint-patterned building modeling",
+            "model recovery remains preferred over bespoke reconstruction"
+          ]
+        },
+        {
+          "id": "source:image:commons-baker-2017",
+          "kind": "licensed-photography",
+          "title": "University of the Philippines (UPLB) - Baker Hall (2017-02-16)",
+          "url": "https://commons.wikimedia.org/wiki/File:University_of_the_Philippines_(UPLB)_-_Baker_Hall_(Los_Ba\u00f1os,_Laguna;_2017-02-16).jpg",
+          "author": "Patrick Roque",
+          "license": "CC BY-SA 4.0",
+          "rightsStatus": "open-attribution-sharealike",
+          "capture": "3648x2736 front-oblique exterior",
+          "use": "visual reference only; not committed as texture"
+        },
+        {
+          "id": "source:image:commons-baker-2023",
+          "kind": "licensed-photography",
+          "title": "UPLB Baker Memorial Hall, June 2023",
+          "url": "https://commons.wikimedia.org/wiki/File:UPLB_Baker_Memorial_Hall,_June_2023.jpg",
+          "author": "Ralff Nestor Nacor",
+          "license": "CC BY-SA 4.0",
+          "rightsStatus": "open-attribution-sharealike",
+          "capture": "4080x3072 recent front-left exterior",
+          "use": "visual reference only; not committed as texture"
+        },
+        {
+          "id": "source:index:commons-baker-category",
+          "kind": "photo-index",
+          "title": "Wikimedia Commons category: Baker Memorial Hall",
+          "url": "https://commons.wikimedia.org/wiki/Category:Baker_Memorial_Hall",
+          "rightsStatus": "per-file-license",
+          "evidence": [
+            "Category currently indexes six Baker Hall exterior files and a historical-marker subcategory."
+          ],
+          "use": "discovery/index only; verify individual file license before any future binary ingest"
+        },
+        {
+          "id": "source:uplb:baker-landscape-thesis-1994",
+          "kind": "institutional-archive-lead",
+          "title": "A landscape design proposal for the Baker Memorial Hall Complex",
+          "url": "https://www.ukdr.uplb.edu.ph/etd-undergrad/9992/",
+          "provider": "UPLB UKDR / Main Library Special Collections",
+          "rightsStatus": "metadata-reference; full item not publicly available",
+          "evidence": [
+            "1994 UPLB undergraduate thesis focused on the Baker Memorial Hall complex."
+          ],
+          "nextAction": "Request consultation through UPLB Main Library Special Collections if useful for site/landscape plans."
+        },
+        {
+          "id": "source:uplb:baker-conservation-dissertation-2017",
+          "kind": "institutional-conservation-study",
+          "title": "Properties and conservation methods of selected wooden artifacts and structure in the Philippines",
+          "url": "https://www.ukdr.uplb.edu.ph/etd-grad/4110/",
+          "provider": "UPLB UKDR / Main Library Special Collections",
+          "rightsStatus": "metadata/abstract reference; full item not publicly available",
+          "evidence": [
+            "Dissertation includes Baker Memorial Hall conservation work and discusses 3D modelling in reconstruction/conservation context."
+          ],
+          "nextAction": "Request consultation if detailed recorded condition/modeling evidence can be lawfully reviewed."
+        }
+      ],
+      "evidenceGroups": {
+        "frontFacade": [
+          "source:image:commons-baker-2017",
+          "source:image:commons-baker-2023"
+        ],
+        "canonicalGeometry": [
+          "source:canonical:osm-baker-way-37449973"
+        ],
+        "legacyModelRecovery": [
+          "source:legacy:uplb-virtual-campus-2014"
+        ],
+        "institutionalArchiveLeads": [
+          "source:uplb:baker-landscape-thesis-1994",
+          "source:uplb:baker-conservation-dissertation-2017"
+        ]
+      },
+      "observations": [
+        {
+          "id": "obs:two-storey",
+          "feature": "two visible storeys",
+          "confidence": "high",
+          "evidenceIds": [
+            "source:canonical:osm-baker-way-37449973",
+            "source:image:commons-baker-2017",
+            "source:image:commons-baker-2023"
+          ],
+          "implementation": "body/floor break"
+        },
+        {
+          "id": "obs:central-portico",
+          "feature": "symmetrical central projecting portico/balcony",
+          "confidence": "high",
+          "evidenceIds": [
+            "source:image:commons-baker-2017",
+            "source:image:commons-baker-2023"
+          ],
+          "implementation": "portico slab and centered facade assembly"
+        },
+        {
+          "id": "obs:four-upper-columns",
+          "feature": "four prominent round upper-storey portico columns",
+          "confidence": "high",
+          "evidenceIds": [
+            "source:image:commons-baker-2017",
+            "source:image:commons-baker-2023"
+          ],
+          "implementation": "four modular round columns"
+        },
+        {
+          "id": "obs:balustrade",
+          "feature": "front balcony with repeated balustrade",
+          "confidence": "high",
+          "evidenceIds": [
+            "source:image:commons-baker-2017",
+            "source:image:commons-baker-2023"
+          ],
+          "implementation": "simplified rail and repeated balusters"
+        },
+        {
+          "id": "obs:horizontal-bands",
+          "feature": "strong floor/cornice string courses across front facade",
+          "confidence": "high",
+          "evidenceIds": [
+            "source:image:commons-baker-2017",
+            "source:image:commons-baker-2023"
+          ],
+          "implementation": "front horizontal band modules"
+        },
+        {
+          "id": "obs:wing-pilasters",
+          "feature": "repeated vertical pilaster/bay rhythm on flanking wings",
+          "confidence": "medium",
+          "evidenceIds": [
+            "source:image:commons-baker-2017",
+            "source:image:commons-baker-2023"
+          ],
+          "implementation": "simplified facade pilaster strips"
+        },
+        {
+          "id": "obs:green-awnings",
+          "feature": "green projecting metal awnings over multiple facade openings",
+          "confidence": "high",
+          "evidenceIds": [
+            "source:image:commons-baker-2017",
+            "source:image:commons-baker-2023"
+          ],
+          "implementation": "reusable awning modules"
+        },
+        {
+          "id": "obs:central-sign-parapet",
+          "feature": "raised central sign/parapet block above the portico",
+          "confidence": "high",
+          "evidenceIds": [
+            "source:image:commons-baker-2017",
+            "source:image:commons-baker-2023"
+          ],
+          "implementation": "central parapet mass; lettering deferred"
+        },
+        {
+          "id": "obs:central-gable",
+          "feature": "shallow sloping/gabled roof mass visible behind central facade",
+          "confidence": "medium-low",
+          "evidenceIds": [
+            "source:image:commons-baker-2023"
+          ],
+          "implementation": "provisional low-poly central gable, explicitly replaceable"
+        },
+        {
+          "id": "obs:symmetric-wing-bays",
+          "feature": "flanking wings appear broadly symmetric from frontal imagery",
+          "confidence": "medium",
+          "evidenceIds": [
+            "source:image:commons-baker-2017",
+            "source:image:commons-baker-2023"
+          ],
+          "implementation": "four provisional bays per wing"
+        }
+      ],
+      "unresolved": [
+        "Exact surveyed building height and floor-to-floor dimensions",
+        "Exact front portico width/projection",
+        "Exact wing bay count and opening dimensions on every facade",
+        "Roof ridge/eave geometry and current roofing specification",
+        "Basement/underground geometry",
+        "Rear and side facade details",
+        "Interior layout",
+        "Later additions/attachments and whether they should be represented in the historical or current-state model"
+      ]
+    },
+    "accuracyClaims": {
+      "footprintPlacement": "source-supported canonical input",
+      "frontFacadeComposition": "reference-derived from multiple public photographs",
+      "exactFacadeDimensions": "not surveyed",
+      "roofGeometry": "provisional",
+      "interior": "not modeled"
+    },
+    "hardStops": [
+      "Do not call this a survey-accurate reconstruction.",
+      "Do not model interiors from inference.",
+      "Replace provisional roof/facade dimensions if the 2014 model, drawings, or field measurements are recovered."
+    ],
+    "output": {
+      "objPath": "assets/generated/production/baker-hall/baker-hall-v0.2.obj",
+      "objSha256": "sha256:81e988c40c2cdfae5de1f409578275d34312574a0bbea8db9f7f642ec8d28a5b",
+      "qaPath": "assets/generated/production/baker-hall/baker-hall-v0.2.qa.json",
+      "qaSha256": "sha256:db7eeb1b55eb8055292abbb1065700dab27e53ff06bdc6e18d7172fe392f880a",
+      "reportPath": "assets/generated/production/baker-hall/baker-hall-v0.2.report.json",
+      "reportSha256": "sha256:823bf03d4233f523ea007b2d86a8fccd728d9e798023e74feff13aff0ca88846"
+    }
+  },
+  "centralWaveProductionCount": 6,
+  "centralWaveProduction": [
+    {
+      "schemaVersion": "uplb-reference-building-production-report-v0.1",
+      "status": "reference-derived-prototype",
+      "name": "CAS Annex 2",
+      "featureId": "uplb:building:cas-annex-2",
+      "sourceFeatureId": "candidate:osm:way/486667196",
+      "identityStatus": "proposed-candidate",
+      "modelVersion": "cas-annex-2.v0.1-reference-production",
+      "originUtm51": [
+        310237.624794,
+        1566765.325116
+      ],
+      "footprintAreaM2": 1022.52,
+      "frontFacadeProxy": {
+        "edgeIndex": 3,
+        "lengthM": 24.296,
+        "selectionMethod": "longest-edge-proxy; deterministic production orientation only, not surveyed entrance orientation"
+      },
+      "height": {
+        "meters": 7.2,
+        "method": "2 source-supported levels \u00d7 provisional 3.6 m family floor height.",
+        "confidence": "medium"
+      },
+      "facade": {
+        "preset": "academic-banded",
+        "frontEdgePolicy": "longest-edge-proxy",
+        "confidence": "low-medium-proxy",
+        "bayCount": 6,
+        "panelHeightM": 1.35,
+        "panelWidthRatio": 0.72,
+        "panelDepthM": 0.08,
+        "supportWidthM": 0.24,
+        "bandDepthM": 0.18
+      },
+      "roof": {
+        "sourceShape": "hipped",
+        "geometryPolicy": "deferred-known-shape",
+        "confidence": "source-supported-shape/geometry-unresolved"
+      },
+      "assembly": {
+        "featureId": "uplb:building:cas-annex-2",
+        "version": "cas-annex-2.v0.1-reference-production",
+        "sourceFeatureId": "candidate:osm:way/486667196",
+        "identityStatus": "proposed-candidate",
+        "partCount": 27,
+        "vertexCount": 238,
+        "faceCount": 197,
+        "triangleEquivalent": 368,
+        "boundsM": {
+          "min": [
+            -28.502939,
+            -21.62063,
+            0.0
+          ],
+          "max": [
+            30.638901,
+            18.139628,
+            7.2
+          ],
+          "size": [
+            59.14184,
+            39.760258,
+            7.2
+          ]
+        },
+        "confidenceCounts": {
+          "low-medium-proxy": 12,
+          "source-level-count/proxy-detail": 14,
+          "source-supported-footprint/medium-height": 1
+        }
+      },
+      "qa": {
+        "status": "pass",
+        "featureId": "uplb:building:cas-annex-2",
+        "sourceFeatureId": "candidate:osm:way/486667196",
+        "identityStatus": "proposed-candidate",
+        "partCount": 27,
+        "vertexCount": 238,
+        "faceCount": 197,
+        "triangleEquivalent": 368,
+        "nonFiniteVertexCount": 0,
+        "invalidFaceIndexCount": 0,
+        "degenerateFaceCount": 0,
+        "duplicatePartNames": false,
+        "triangleBudget": 45000,
+        "triangleBudgetGate": "pass"
+      },
+      "accuracyClaims": {
+        "footprint": "source-supported project snapshot",
+        "identity": "production handle only; no canonical promotion",
+        "height": "medium",
+        "facade": "reference/source-tag-informed proxy only",
+        "frontFacadeOrientation": "longest-edge proxy, not surveyed",
+        "roof": "source-supported-shape/geometry-unresolved",
+        "interior": "not modeled"
+      },
+      "hardStops": [
+        "Do not treat proposedFeatureId as canonical identity promotion.",
+        "Do not call this a survey-accurate architectural reconstruction.",
+        "Do not infer interiors from exterior massing or photographs.",
+        "Replace proxy facade orientation/dimensions when recovered models, drawings, or measurements become available."
+      ],
+      "inputs": {
+        "spec": {
+          "path": "data/modeling/building-specs/central-wave/cas-annex-2.v0.1.json",
+          "sha256": "sha256:9e2950c412102abb1eb214a5c8cc7b417abf2439cc808bf9c1f1a0cf20a3b2b5"
+        },
+        "featureSnapshot": {
+          "path": "data/modeling/reference/features/cas-annex-2.geojson",
+          "sha256": "sha256:30da3c73eca42540c4b6c5565c63d3523620f5c1a39ef65c1f0560ad0ecadbae"
+        },
+        "referenceProfile": {
+          "path": "data/modeling/reference/cas-annex-2.reference-profile.json",
+          "sha256": "sha256:62cf4651c1f3961c15a839e64160d62e9fbba7931da82a1b765fb20d9725e878"
+        }
+      },
+      "output": {
+        "objPath": "assets/generated/production/central-wave/cas-annex-2/cas-annex-2-v0.1.obj",
+        "objSha256": "sha256:f9a4450a0da870940243b78623231dae1544525c4db2ebecea7c103dc9ea1c36",
+        "qaPath": "assets/generated/production/central-wave/cas-annex-2/cas-annex-2-v0.1.qa.json",
+        "reportPath": "assets/generated/production/central-wave/cas-annex-2/cas-annex-2-v0.1.report.json",
+        "qaSha256": "sha256:e984d16067aab7d59ad36a77147bfce658e40a7c08fbbd614b364b930a85584c",
+        "reportSha256": "sha256:f44bff5d6a5894c925212d3b2e3137eb829842aa13ef45323d74800072559868"
+      }
+    },
+    {
+      "schemaVersion": "uplb-reference-building-production-report-v0.1",
+      "status": "reference-derived-prototype",
+      "name": "Dean Edelwina C. Legaspi Hall",
+      "featureId": "uplb:building:dean-edelwina-legaspi-hall",
+      "sourceFeatureId": "candidate:osm:way/33541786",
+      "identityStatus": "proposed-candidate",
+      "modelVersion": "dean-legaspi-hall.v0.1-reference-production",
+      "originUtm51": [
+        310181.492311,
+        1566670.045645
+      ],
+      "footprintAreaM2": 1281.149,
+      "frontFacadeProxy": {
+        "edgeIndex": 0,
+        "lengthM": 28.675,
+        "selectionMethod": "longest-edge-proxy; deterministic production orientation only, not surveyed entrance orientation"
+      },
+      "height": {
+        "meters": 9.0,
+        "method": "2.5 source-supported levels \u00d7 provisional 3.6 m family floor height.",
+        "confidence": "medium"
+      },
+      "facade": {
+        "preset": "academic-banded",
+        "frontEdgePolicy": "longest-edge-proxy",
+        "confidence": "low-proxy",
+        "bayCount": 5,
+        "panelHeightM": 1.35,
+        "panelWidthRatio": 0.7,
+        "panelDepthM": 0.08,
+        "supportWidthM": 0.24,
+        "bandDepthM": 0.18
+      },
+      "roof": {
+        "sourceShape": null,
+        "geometryPolicy": "deferred-unknown",
+        "confidence": "unknown"
+      },
+      "assembly": {
+        "featureId": "uplb:building:dean-edelwina-legaspi-hall",
+        "version": "dean-legaspi-hall.v0.1-reference-production",
+        "sourceFeatureId": "candidate:osm:way/33541786",
+        "identityStatus": "proposed-candidate",
+        "partCount": 26,
+        "vertexCount": 230,
+        "faceCount": 191,
+        "triangleEquivalent": 356,
+        "boundsM": {
+          "min": [
+            -24.468858,
+            -28.798791,
+            0.0
+          ],
+          "max": [
+            24.448563,
+            28.671253,
+            9.0
+          ],
+          "size": [
+            48.917421,
+            57.470044,
+            9.0
+          ]
+        },
+        "confidenceCounts": {
+          "low-proxy": 10,
+          "source-level-count/proxy-detail": 15,
+          "source-supported-footprint/medium-height": 1
+        }
+      },
+      "qa": {
+        "status": "pass",
+        "featureId": "uplb:building:dean-edelwina-legaspi-hall",
+        "sourceFeatureId": "candidate:osm:way/33541786",
+        "identityStatus": "proposed-candidate",
+        "partCount": 26,
+        "vertexCount": 230,
+        "faceCount": 191,
+        "triangleEquivalent": 356,
+        "nonFiniteVertexCount": 0,
+        "invalidFaceIndexCount": 0,
+        "degenerateFaceCount": 0,
+        "duplicatePartNames": false,
+        "triangleBudget": 45000,
+        "triangleBudgetGate": "pass"
+      },
+      "accuracyClaims": {
+        "footprint": "source-supported project snapshot",
+        "identity": "production handle only; no canonical promotion",
+        "height": "medium",
+        "facade": "reference/source-tag-informed proxy only",
+        "frontFacadeOrientation": "longest-edge proxy, not surveyed",
+        "roof": "unknown",
+        "interior": "not modeled"
+      },
+      "hardStops": [
+        "Do not treat proposedFeatureId as canonical identity promotion.",
+        "Do not call this a survey-accurate architectural reconstruction.",
+        "Do not infer interiors from exterior massing or photographs.",
+        "Replace proxy facade orientation/dimensions when recovered models, drawings, or measurements become available."
+      ],
+      "inputs": {
+        "spec": {
+          "path": "data/modeling/building-specs/central-wave/dean-legaspi-hall.v0.1.json",
+          "sha256": "sha256:6e3faf830756b51217707f0d35b9a1ab9aabc6487beffe9ef1e4f3b5d9f6d8bf"
+        },
+        "featureSnapshot": {
+          "path": "data/modeling/reference/features/dean-legaspi-hall.geojson",
+          "sha256": "sha256:3a29075982aa1f21c504dcb9e898331588e20a8dd831f4417fe0494066f90fd9"
+        },
+        "referenceProfile": {
+          "path": "data/modeling/reference/dean-legaspi-hall.reference-profile.json",
+          "sha256": "sha256:01f632285bf78c4702c62b64935a6f07b3cb7af4da1f948fe757ff55557a2c74"
+        }
+      },
+      "output": {
+        "objPath": "assets/generated/production/central-wave/dean-legaspi-hall/dean-legaspi-hall-v0.1.obj",
+        "objSha256": "sha256:491d0316a17abc94087dabfad99d37c17a8e48cff56a039315ddd15eb17c89f6",
+        "qaPath": "assets/generated/production/central-wave/dean-legaspi-hall/dean-legaspi-hall-v0.1.qa.json",
+        "reportPath": "assets/generated/production/central-wave/dean-legaspi-hall/dean-legaspi-hall-v0.1.report.json",
+        "qaSha256": "sha256:7148131bf29ca2f5e06cd8fe87ecbe8b19853614d9f3330330843eb56625be4b",
+        "reportSha256": "sha256:b77fcf42db905b39254d30a9366d2a7dfa78fef5ca4578048ff03d41f764bdae"
+      }
+    },
+    {
+      "schemaVersion": "uplb-reference-building-production-report-v0.1",
+      "status": "reference-derived-prototype",
+      "name": "Dioscoro L. Umali Hall",
+      "featureId": "uplb:building:dl-umali-hall",
+      "sourceFeatureId": "candidate:osm:way/33541381",
+      "identityStatus": "reviewed-candidate",
+      "modelVersion": "dl-umali.v0.1-reference-production",
+      "originUtm51": [
+        310059.334772,
+        1566576.224994
+      ],
+      "footprintAreaM2": 1740.539,
+      "frontFacadeProxy": {
+        "edgeIndex": 3,
+        "lengthM": 59.988,
+        "selectionMethod": "longest-edge-proxy; deterministic production orientation only, not surveyed entrance orientation"
+      },
+      "height": {
+        "meters": 9.0,
+        "method": "Auditorium-specific placeholder: OSM level count=1 is not treated as ordinary classroom-storey height.",
+        "confidence": "provisional"
+      },
+      "facade": {
+        "preset": "auditorium-frame",
+        "frontEdgePolicy": "longest-edge-proxy",
+        "confidence": "medium-visual/provisional-edge",
+        "bayCount": 5,
+        "panelHeightM": 6.4,
+        "panelWidthRatio": 0.72,
+        "panelDepthM": 0.12,
+        "supportWidthM": 0.42,
+        "bandDepthM": 0.2
+      },
+      "roof": {
+        "sourceShape": "flat",
+        "geometryPolicy": "none-flat",
+        "confidence": "source-supported-shape"
+      },
+      "assembly": {
+        "featureId": "uplb:building:dl-umali-hall",
+        "version": "dl-umali.v0.1-reference-production",
+        "sourceFeatureId": "candidate:osm:way/33541381",
+        "identityStatus": "reviewed-candidate",
+        "partCount": 12,
+        "vertexCount": 100,
+        "faceCount": 80,
+        "triangleEquivalent": 152,
+        "boundsM": {
+          "min": [
+            -25.466714,
+            -33.399747,
+            0.0
+          ],
+          "max": [
+            25.862316,
+            32.896948,
+            9.0
+          ],
+          "size": [
+            51.32903,
+            66.296695,
+            9.0
+          ]
+        },
+        "confidenceCounts": {
+          "medium-visual/provisional-edge": 11,
+          "source-supported-footprint/provisional-height": 1
+        }
+      },
+      "qa": {
+        "status": "pass",
+        "featureId": "uplb:building:dl-umali-hall",
+        "sourceFeatureId": "candidate:osm:way/33541381",
+        "identityStatus": "reviewed-candidate",
+        "partCount": 12,
+        "vertexCount": 100,
+        "faceCount": 80,
+        "triangleEquivalent": 152,
+        "nonFiniteVertexCount": 0,
+        "invalidFaceIndexCount": 0,
+        "degenerateFaceCount": 0,
+        "duplicatePartNames": false,
+        "triangleBudget": 100000,
+        "triangleBudgetGate": "pass"
+      },
+      "accuracyClaims": {
+        "footprint": "source-supported project snapshot",
+        "identity": "production handle only; no canonical promotion",
+        "height": "provisional",
+        "facade": "reference/source-tag-informed proxy only",
+        "frontFacadeOrientation": "longest-edge proxy, not surveyed",
+        "roof": "source-supported-shape",
+        "interior": "not modeled"
+      },
+      "hardStops": [
+        "Do not treat proposedFeatureId as canonical identity promotion.",
+        "Do not call this a survey-accurate architectural reconstruction.",
+        "Do not infer interiors from exterior massing or photographs.",
+        "Replace proxy facade orientation/dimensions when recovered models, drawings, or measurements become available."
+      ],
+      "inputs": {
+        "spec": {
+          "path": "data/modeling/building-specs/central-wave/dl-umali.v0.1.json",
+          "sha256": "sha256:6a8965ab2e8558ea1afc14a77ea113196181f03918c11290da675e43cbb7a12d"
+        },
+        "featureSnapshot": {
+          "path": "data/modeling/reference/features/dl-umali.geojson",
+          "sha256": "sha256:3e2681ef2fb7b92ad1ff8e7d33191b2dfe16f32980ba38f553700996c61874f5"
+        },
+        "referenceProfile": {
+          "path": "data/modeling/reference/dl-umali.reference-profile.json",
+          "sha256": "sha256:f02c2e7ff6472f5008afff565b39faf7b1342f9424a2a0f8e323d4b376dc10bc"
+        }
+      },
+      "output": {
+        "objPath": "assets/generated/production/central-wave/dl-umali/dl-umali-v0.1.obj",
+        "objSha256": "sha256:07acf7dc2592ecd850877d985761988eda93d3431d5add297a9aeaf56e323623",
+        "qaPath": "assets/generated/production/central-wave/dl-umali/dl-umali-v0.1.qa.json",
+        "reportPath": "assets/generated/production/central-wave/dl-umali/dl-umali-v0.1.report.json",
+        "qaSha256": "sha256:f178ab43ce4671faa27983cb0937591efc7ac09ff883ff70025b6a1f7c2425a4",
+        "reportSha256": "sha256:2e2716d307936605e8763f6c7b85db412e5e77278dc6d52072cd14a09dd8ff99"
+      }
+    },
+    {
+      "schemaVersion": "uplb-reference-building-production-report-v0.1",
+      "status": "reference-derived-prototype",
+      "name": "University Library and Knowledge Center / Main Library candidate",
+      "featureId": "uplb:building:university-library-knowledge-center",
+      "sourceFeatureId": "candidate:osm:way/1098780830",
+      "identityStatus": "reviewed-candidate",
+      "modelVersion": "main-library-ulck.v0.1-reference-production",
+      "originUtm51": [
+        310028.221962,
+        1566458.398824
+      ],
+      "footprintAreaM2": 3595.677,
+      "frontFacadeProxy": {
+        "edgeIndex": 2,
+        "lengthM": 53.462,
+        "selectionMethod": "longest-edge-proxy; deterministic production orientation only, not surveyed entrance orientation"
+      },
+      "height": {
+        "meters": 12.0,
+        "method": "Conservative construction-massing placeholder; current candidate height is unknown and legacy library storey data is intentionally not transferred.",
+        "confidence": "low-placeholder"
+      },
+      "facade": {
+        "preset": "massing-only",
+        "frontEdgePolicy": "longest-edge-proxy",
+        "confidence": "none",
+        "bayCount": 0,
+        "panelHeightM": 1.0,
+        "panelWidthRatio": 0.7,
+        "panelDepthM": 0.08,
+        "supportWidthM": 0.25,
+        "bandDepthM": 0.18
+      },
+      "roof": {
+        "sourceShape": null,
+        "geometryPolicy": "deferred-unknown",
+        "confidence": "unknown"
+      },
+      "assembly": {
+        "featureId": "uplb:building:university-library-knowledge-center",
+        "version": "main-library-ulck.v0.1-reference-production",
+        "sourceFeatureId": "candidate:osm:way/1098780830",
+        "identityStatus": "reviewed-candidate",
+        "partCount": 1,
+        "vertexCount": 18,
+        "faceCount": 23,
+        "triangleEquivalent": 32,
+        "boundsM": {
+          "min": [
+            -37.380452,
+            -41.064915,
+            0.0
+          ],
+          "max": [
+            37.400061,
+            41.017871,
+            12.0
+          ],
+          "size": [
+            74.780514,
+            82.082786,
+            12.0
+          ]
+        },
+        "confidenceCounts": {
+          "source-supported-footprint/low-placeholder-height": 1
+        }
+      },
+      "qa": {
+        "status": "pass",
+        "featureId": "uplb:building:university-library-knowledge-center",
+        "sourceFeatureId": "candidate:osm:way/1098780830",
+        "identityStatus": "reviewed-candidate",
+        "partCount": 1,
+        "vertexCount": 18,
+        "faceCount": 23,
+        "triangleEquivalent": 32,
+        "nonFiniteVertexCount": 0,
+        "invalidFaceIndexCount": 0,
+        "degenerateFaceCount": 0,
+        "duplicatePartNames": false,
+        "triangleBudget": 100000,
+        "triangleBudgetGate": "pass"
+      },
+      "accuracyClaims": {
+        "footprint": "source-supported project snapshot",
+        "identity": "production handle only; no canonical promotion",
+        "height": "low-placeholder",
+        "facade": "reference/source-tag-informed proxy only",
+        "frontFacadeOrientation": "longest-edge proxy, not surveyed",
+        "roof": "unknown",
+        "interior": "not modeled"
+      },
+      "hardStops": [
+        "Do not treat proposedFeatureId as canonical identity promotion.",
+        "Do not call this a survey-accurate architectural reconstruction.",
+        "Do not infer interiors from exterior massing or photographs.",
+        "Replace proxy facade orientation/dimensions when recovered models, drawings, or measurements become available."
+      ],
+      "inputs": {
+        "spec": {
+          "path": "data/modeling/building-specs/central-wave/main-library-ulck.v0.1.json",
+          "sha256": "sha256:8070fdf3c699a3516ed03afde31cb0eac4857b43bbd1c4816d68815611b6dd06"
+        },
+        "featureSnapshot": {
+          "path": "data/modeling/reference/features/main-library-ulck.geojson",
+          "sha256": "sha256:6fd0a4c0f57e4278d381837b3a83cb330f728e4e5b998e76d6855262fbdb1aaa"
+        },
+        "referenceProfile": {
+          "path": "data/modeling/reference/main-library-ulck.reference-profile.json",
+          "sha256": "sha256:1ac1e75e30d9883031ec13eb74519eda2a042191a9f4637c5d96c859766205aa"
+        }
+      },
+      "output": {
+        "objPath": "assets/generated/production/central-wave/main-library-ulck/main-library-ulck-v0.1.obj",
+        "objSha256": "sha256:da3eb86e68c68386c0418b163de1a5b74718a2d28c4ed45313c0d333342f83b9",
+        "qaPath": "assets/generated/production/central-wave/main-library-ulck/main-library-ulck-v0.1.qa.json",
+        "reportPath": "assets/generated/production/central-wave/main-library-ulck/main-library-ulck-v0.1.report.json",
+        "qaSha256": "sha256:237626fe884288e34be5732638b62858119f6e15970084ff2eb72f0a67ef08dd",
+        "reportSha256": "sha256:a2affa9501b722675534f359e971bebca9447e9e73c54b4ab3461ee9c9a1f749"
+      }
+    },
+    {
+      "schemaVersion": "uplb-reference-building-production-report-v0.1",
+      "status": "reference-derived-prototype",
+      "name": "Francisco O. Santos Hall / Physical Sciences",
+      "featureId": "uplb:building:physical-sciences",
+      "sourceFeatureId": "candidate:osm:way/44076412",
+      "identityStatus": "proposed-candidate",
+      "modelVersion": "physical-sciences.v0.1-reference-production",
+      "originUtm51": [
+        310265.38634,
+        1566603.684323
+      ],
+      "footprintAreaM2": 4734.463,
+      "frontFacadeProxy": {
+        "edgeIndex": 0,
+        "lengthM": 40.793,
+        "selectionMethod": "longest-edge-proxy; deterministic production orientation only, not surveyed entrance orientation"
+      },
+      "height": {
+        "meters": 10.8,
+        "method": "3 source-supported levels \u00d7 provisional 3.6 m family floor height.",
+        "confidence": "medium"
+      },
+      "facade": {
+        "preset": "academic-banded",
+        "frontEdgePolicy": "longest-edge-proxy",
+        "confidence": "medium-proxy",
+        "bayCount": 8,
+        "panelHeightM": 1.45,
+        "panelWidthRatio": 0.72,
+        "panelDepthM": 0.08,
+        "supportWidthM": 0.26,
+        "bandDepthM": 0.18
+      },
+      "roof": {
+        "sourceShape": "gabled",
+        "geometryPolicy": "deferred-known-shape",
+        "confidence": "source-supported-shape/geometry-unresolved"
+      },
+      "assembly": {
+        "featureId": "uplb:building:physical-sciences",
+        "version": "physical-sciences.v0.1-reference-production",
+        "sourceFeatureId": "candidate:osm:way/44076412",
+        "identityStatus": "proposed-candidate",
+        "partCount": 89,
+        "vertexCount": 772,
+        "faceCount": 626,
+        "triangleEquivalent": 1188,
+        "boundsM": {
+          "min": [
+            -45.968878,
+            -50.34255,
+            0.0
+          ],
+          "max": [
+            40.7974,
+            58.76099,
+            10.8
+          ],
+          "size": [
+            86.766278,
+            109.10354,
+            10.8
+          ]
+        },
+        "confidenceCounts": {
+          "medium-proxy": 24,
+          "source-level-count/proxy-detail": 64,
+          "source-supported-footprint/medium-height": 1
+        }
+      },
+      "qa": {
+        "status": "pass",
+        "featureId": "uplb:building:physical-sciences",
+        "sourceFeatureId": "candidate:osm:way/44076412",
+        "identityStatus": "proposed-candidate",
+        "partCount": 89,
+        "vertexCount": 772,
+        "faceCount": 626,
+        "triangleEquivalent": 1188,
+        "nonFiniteVertexCount": 0,
+        "invalidFaceIndexCount": 0,
+        "degenerateFaceCount": 0,
+        "duplicatePartNames": false,
+        "triangleBudget": 100000,
+        "triangleBudgetGate": "pass"
+      },
+      "accuracyClaims": {
+        "footprint": "source-supported project snapshot",
+        "identity": "production handle only; no canonical promotion",
+        "height": "medium",
+        "facade": "reference/source-tag-informed proxy only",
+        "frontFacadeOrientation": "longest-edge proxy, not surveyed",
+        "roof": "source-supported-shape/geometry-unresolved",
+        "interior": "not modeled"
+      },
+      "hardStops": [
+        "Do not treat proposedFeatureId as canonical identity promotion.",
+        "Do not call this a survey-accurate architectural reconstruction.",
+        "Do not infer interiors from exterior massing or photographs.",
+        "Replace proxy facade orientation/dimensions when recovered models, drawings, or measurements become available."
+      ],
+      "inputs": {
+        "spec": {
+          "path": "data/modeling/building-specs/central-wave/physical-sciences.v0.1.json",
+          "sha256": "sha256:8030fafdfa186eea565724f7e26d25920553bf3bc14fa103ff2f620f4897958a"
+        },
+        "featureSnapshot": {
+          "path": "data/modeling/reference/features/physical-sciences.geojson",
+          "sha256": "sha256:f0a667cba465d7ff405f62aa02a0a6958d3f0d1dcc0818b38c92f94ea6f42940"
+        },
+        "referenceProfile": {
+          "path": "data/modeling/reference/physical-sciences.reference-profile.json",
+          "sha256": "sha256:9a80245a0dac5d04baa68124e876d81497a3419d02f2c599f45a75eb55188534"
+        }
+      },
+      "output": {
+        "objPath": "assets/generated/production/central-wave/physical-sciences/physical-sciences-v0.1.obj",
+        "objSha256": "sha256:746e1ed59ee60663cc6df0c500b47173cdbe99b6756f855f389a3ee84a11589a",
+        "qaPath": "assets/generated/production/central-wave/physical-sciences/physical-sciences-v0.1.qa.json",
+        "reportPath": "assets/generated/production/central-wave/physical-sciences/physical-sciences-v0.1.report.json",
+        "qaSha256": "sha256:fadc67a8b94ac045c5492e75f68cbc6d1b3442405780af9253bf418eebc17508",
+        "reportSha256": "sha256:4a49f7dccb9539df4a262e2982524f4565ceea73d88e6fab5e09d1c59fddccab"
+      }
+    },
+    {
+      "schemaVersion": "uplb-reference-building-production-report-v0.1",
+      "status": "reference-derived-prototype",
+      "name": "Student Union Building",
+      "featureId": "uplb:building:student-union",
+      "sourceFeatureId": "candidate:osm:way/37450035",
+      "identityStatus": "proposed-candidate",
+      "modelVersion": "student-union.v0.1-reference-production",
+      "originUtm51": [
+        310190.723297,
+        1566498.915342
+      ],
+      "footprintAreaM2": 2557.341,
+      "frontFacadeProxy": {
+        "edgeIndex": 11,
+        "lengthM": 25.563,
+        "selectionMethod": "longest-edge-proxy; deterministic production orientation only, not surveyed entrance orientation"
+      },
+      "height": {
+        "meters": 10.8,
+        "method": "3 source-supported levels \u00d7 provisional 3.6 m family floor height.",
+        "confidence": "medium"
+      },
+      "facade": {
+        "preset": "glass-frame",
+        "frontEdgePolicy": "longest-edge-proxy",
+        "confidence": "medium-visual/provisional-edge",
+        "bayCount": 6,
+        "panelHeightM": 6.8,
+        "panelWidthRatio": 0.78,
+        "panelDepthM": 0.1,
+        "supportWidthM": 0.36,
+        "bandDepthM": 0.2
+      },
+      "roof": {
+        "sourceShape": null,
+        "geometryPolicy": "deferred-unknown",
+        "confidence": "unknown"
+      },
+      "assembly": {
+        "featureId": "uplb:building:student-union",
+        "version": "student-union.v0.1-reference-production",
+        "sourceFeatureId": "candidate:osm:way/37450035",
+        "identityStatus": "proposed-candidate",
+        "partCount": 60,
+        "vertexCount": 518,
+        "faceCount": 419,
+        "triangleEquivalent": 796,
+        "boundsM": {
+          "min": [
+            -43.381942,
+            -43.049674,
+            0.0
+          ],
+          "max": [
+            39.454341,
+            40.634621,
+            10.8
+          ],
+          "size": [
+            82.836283,
+            83.684295,
+            10.8
+          ]
+        },
+        "confidenceCounts": {
+          "medium-visual/provisional-edge": 13,
+          "source-level-count/proxy-detail": 46,
+          "source-supported-footprint/medium-height": 1
+        }
+      },
+      "qa": {
+        "status": "pass",
+        "featureId": "uplb:building:student-union",
+        "sourceFeatureId": "candidate:osm:way/37450035",
+        "identityStatus": "proposed-candidate",
+        "partCount": 60,
+        "vertexCount": 518,
+        "faceCount": 419,
+        "triangleEquivalent": 796,
+        "nonFiniteVertexCount": 0,
+        "invalidFaceIndexCount": 0,
+        "degenerateFaceCount": 0,
+        "duplicatePartNames": false,
+        "triangleBudget": 45000,
+        "triangleBudgetGate": "pass"
+      },
+      "accuracyClaims": {
+        "footprint": "source-supported project snapshot",
+        "identity": "production handle only; no canonical promotion",
+        "height": "medium",
+        "facade": "reference/source-tag-informed proxy only",
+        "frontFacadeOrientation": "longest-edge proxy, not surveyed",
+        "roof": "unknown",
+        "interior": "not modeled"
+      },
+      "hardStops": [
+        "Do not treat proposedFeatureId as canonical identity promotion.",
+        "Do not call this a survey-accurate architectural reconstruction.",
+        "Do not infer interiors from exterior massing or photographs.",
+        "Replace proxy facade orientation/dimensions when recovered models, drawings, or measurements become available."
+      ],
+      "inputs": {
+        "spec": {
+          "path": "data/modeling/building-specs/central-wave/student-union.v0.1.json",
+          "sha256": "sha256:090fc501d5b3e06fafc8b88a0c3ddd221733d00da4b7b578644135fcf4e23968"
+        },
+        "featureSnapshot": {
+          "path": "data/modeling/reference/features/student-union.geojson",
+          "sha256": "sha256:8d4b4e13b87ebec3f3670171b6f98265b6c72c185d5eeb4e70311780a17181ae"
+        },
+        "referenceProfile": {
+          "path": "data/modeling/reference/student-union.reference-profile.json",
+          "sha256": "sha256:f28db34e5b139ae11613a0398b1e00605f9cbf73f9e53e8965e5d8fc6d886a7d"
+        }
+      },
+      "output": {
+        "objPath": "assets/generated/production/central-wave/student-union/student-union-v0.1.obj",
+        "objSha256": "sha256:1cb969f618a1f5bb0adbd2ec20fae67c3cea5f06434cf49e9282d4b84c3ef44c",
+        "qaPath": "assets/generated/production/central-wave/student-union/student-union-v0.1.qa.json",
+        "reportPath": "assets/generated/production/central-wave/student-union/student-union-v0.1.report.json",
+        "qaSha256": "sha256:0b86fa0cba8b9c54ce2353dcfe6fb3c44eda5b84553506c3038beed5532c7efe",
+        "reportSha256": "sha256:5381ee822aaf7746d434c657e36666e65eb176f34cc120cb123411ae4f9d4a7c"
+      }
+    }
+  ],
   "inputs": {
     "modelSourceRegistry": {
       "path": "data/modeling/model-source-registry.json",
-      "sha256": "sha256:fc85da9fdbf761ff6a445c6c35fa2d92262676097f231c8fd7c34f939eefee46"
+      "sha256": "sha256:d9614b9be3826ce9d9521be9e76aefa1ea0f820cdf8261f5ce16e7ead612841f"
     },
     "buildingProductionRegistry": {
       "path": "data/modeling/building-production-registry.json",
-      "sha256": "sha256:6a744b0f6fceb0f4abd9585e839a50ae87845bf31ea2593dc8b5c3598deefb4c"
+      "sha256": "sha256:95c517ef6f0316334b43cb36fb0c024a4383a09631cf5c50f83ee561701064fe"
     },
     "architectureKit": {
       "path": "data/modeling/architecture-kit-v0.1.json",
-      "sha256": "sha256:a74b777921162052613d82e21328004f7d53bd4151562d2d239ea7363f8420cb"
+      "sha256": "sha256:118e2a672031fef8f60edac5ecf553f073bb9787bca5cc3e15dbec08e13a2046"
     },
-    "bakerSpec": {
+    "bakerPrototypeSpec": {
       "path": "data/modeling/building-specs/baker-hall.v0.1.json",
       "sha256": "sha256:15e90b5dc80dbfa900220ab2a5e4c4bf7bfb9129e738363cdb735b5742b80fa3"
+    },
+    "bakerProductionSpec": {
+      "path": "data/modeling/building-specs/baker-hall.v0.2.json",
+      "sha256": "sha256:0899689047fdcad354b4c924020f8334cdac0bd38531b434c3657e0c25177120"
+    },
+    "bakerReferenceProfile": {
+      "path": "data/modeling/reference/baker-hall.reference-profile.json",
+      "sha256": "sha256:2266a8ee6db987d4bbf00c57e305fc085a52b0e25e4c22836016fcf5614baf68"
     }
   },
-  "nextGate": "Recover/verify source assets and approve UPLB Architecture Kit v0.1 before detailed hero facade production."
+  "nextGate": "Visually review Baker Hall v0.2 first, then review the central-wave evidence-aware prototypes. Replace all provisional facade orientation/dimensions with stronger recovered/model/measurement evidence before final architectural approval."
 }

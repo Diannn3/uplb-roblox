@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "uplb-building-reference-profile-v0.1",
+  "featureId": "uplb:building:university-library-knowledge-center",
+  "buildingName": "University Library and Knowledge Center / Main Library candidate",
+  "generatedAt": "2026-08-17",
+  "policy": {
+    "photoBinaryPolicy": "No third-party photo binaries are committed by this reference-profile layer.",
+    "geometryPolicy": "Use pinned project footprint snapshots for massing; visual references only justify broad morphology explicitly listed in observations.",
+    "identityPolicy": "Proposed UPLB IDs are production handles only and do not promote source candidates to canonical identity.",
+    "finalAccuracyPolicy": "No output from this layer is survey-grade or final architectural truth."
+  },
+  "sources": [
+    {
+      "id": "source:legacy:uplb-virtual-campus-2014",
+      "kind": "legacy-project-evidence",
+      "title": "Design, Implementation, and Evaluation of a 3D Virtual Classroom Environment in a Computer Cluster",
+      "url": "https://id.scribd.com/document/990184030/ISCE2014-Proceedings-FINAL3",
+      "rightsStatus": "reference-only",
+      "reuseStatus": "permission-required-for-original-model-files"
+    },
+    {
+      "id": "source:uplb:main-library-pushover-2016",
+      "kind": "institutional-building-study",
+      "title": "Nonlinear static pushover analysis of the UPLB Main Library",
+      "url": "https://www.ukdr.uplb.edu.ph/etd-undergrad/5515/",
+      "rightsStatus": "reference-only",
+      "reuseStatus": "bibliographic-and-factual-reference"
+    },
+    {
+      "id": "source:image:commons-bienvenido-gonzales-2023",
+      "kind": "licensed-photography",
+      "title": "UPLB Bienvenido M. Gonzales Hall, June 2023",
+      "url": "https://commons.wikimedia.org/wiki/File:UPLB_Bienvenido_M._Gonzales_Hall,_June_2023.jpg",
+      "rightsStatus": "CC-BY-SA-4.0",
+      "reuseStatus": "legacy-library-visual-reference-only"
+    },
+    {
+      "id": "source:index:commons-uplb-buildings",
+      "kind": "licensed-photo-index",
+      "title": "Wikimedia Commons UPLB building/photo categories",
+      "url": "https://commons.wikimedia.org/wiki/Category:University_of_the_Philippines_Los_Ba%C3%B1os",
+      "rightsStatus": "per-file-license",
+      "reuseStatus": "index-only"
+    }
+  ],
+  "evidenceGroups": {
+    "registeredEvidence": [
+      "source:legacy:uplb-virtual-campus-2014",
+      "source:uplb:main-library-pushover-2016",
+      "source:image:commons-bienvenido-gonzales-2023",
+      "source:index:commons-uplb-buildings"
+    ]
+  },
+  "observations": [
+    {
+      "id": "obs:construction-state",
+      "feature": "Current project candidate snapshot is tagged building=construction.",
+      "confidence": "high-source",
+      "evidenceIds": [
+        "source:legacy:uplb-virtual-campus-2014",
+        "source:uplb:main-library-pushover-2016",
+        "source:image:commons-bienvenido-gonzales-2023",
+        "source:index:commons-uplb-buildings"
+      ],
+      "implementation": "Generate massing only; do not copy legacy Main Library facade onto an unresolved construction-state candidate."
+    },
+    {
+      "id": "obs:legacy-current-conflict",
+      "feature": "2014 legacy Main Library references and 2023 Bienvenido M. Gonzales Hall imagery may represent a historical/current building state different from the ULKC candidate.",
+      "confidence": "high-research",
+      "evidenceIds": [
+        "source:legacy:uplb-virtual-campus-2014",
+        "source:uplb:main-library-pushover-2016",
+        "source:image:commons-bienvenido-gonzales-2023",
+        "source:index:commons-uplb-buildings"
+      ],
+      "implementation": "Keep them as recovery/history references until identity correspondence is established."
+    }
+  ],
+  "unresolved": [
+    "Whether current candidate footprint is ULKC construction or an existing library-state mapping",
+    "Current completed height/facade if construction has changed",
+    "Relationship to Bienvenido M. Gonzales Hall and 2014 Main Library model"
+  ]
+}

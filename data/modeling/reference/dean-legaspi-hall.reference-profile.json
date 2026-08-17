@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "uplb-building-reference-profile-v0.1",
+  "featureId": "uplb:building:dean-edelwina-legaspi-hall",
+  "buildingName": "Dean Edelwina C. Legaspi Hall",
+  "generatedAt": "2026-08-17",
+  "policy": {
+    "photoBinaryPolicy": "No third-party photo binaries are committed by this reference-profile layer.",
+    "geometryPolicy": "Use pinned project footprint snapshots for massing; visual references only justify broad morphology explicitly listed in observations.",
+    "identityPolicy": "Proposed UPLB IDs are production handles only and do not promote source candidates to canonical identity.",
+    "finalAccuracyPolicy": "No output from this layer is survey-grade or final architectural truth."
+  },
+  "sources": [
+    {
+      "id": "source:reference:arcgis-uplb-memoirs",
+      "kind": "visual-reference-index",
+      "title": "Memoirs of UPLB Students StoryMap",
+      "url": "https://storymaps.arcgis.com/stories/33e475de3ce6496fa3b8aa56471795b6",
+      "rightsStatus": "reference-index-rights-per-item",
+      "reuseStatus": "reference-only"
+    },
+    {
+      "id": "source:osmwiki:uplb-mapping",
+      "kind": "mapping-reference",
+      "title": "OpenStreetMap Wiki: University of the Philippines Los Baños",
+      "url": "https://wiki.openstreetmap.org/wiki/University_of_the_Philippines_Los_Ba%C3%B1os",
+      "rightsStatus": "OSM-wiki/reference; underlying map data ODbL",
+      "reuseStatus": "mapping-reference"
+    }
+  ],
+  "evidenceGroups": {
+    "registeredEvidence": [
+      "source:reference:arcgis-uplb-memoirs",
+      "source:osmwiki:uplb-mapping"
+    ]
+  },
+  "observations": [
+    {
+      "id": "obs:two-point-five-level-tag",
+      "feature": "Project snapshot records 2.5 building levels.",
+      "confidence": "medium-source",
+      "evidenceIds": [
+        "source:reference:arcgis-uplb-memoirs",
+        "source:osmwiki:uplb-mapping"
+      ],
+      "implementation": "Use 2.5×3.6 m height proxy pending measurements."
+    },
+    {
+      "id": "obs:historical-aliases",
+      "feature": "Project snapshot includes former Main Library/Post Office and Humanities/CAS aliases.",
+      "confidence": "medium-source",
+      "evidenceIds": [
+        "source:reference:arcgis-uplb-memoirs",
+        "source:osmwiki:uplb-mapping"
+      ],
+      "implementation": "Retain identity history as metadata only; do not infer historical facade details."
+    }
+  ],
+  "unresolved": [
+    "Current architectural family/facade evidence",
+    "Roof geometry",
+    "Which historical modifications are still extant",
+    "Canonical identity review"
+  ]
+}

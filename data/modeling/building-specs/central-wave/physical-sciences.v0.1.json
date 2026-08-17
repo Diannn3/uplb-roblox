@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "uplb-reference-building-production-spec-v0.1",
+  "sourceFeatureId": "candidate:osm:way/44076412",
+  "proposedFeatureId": "uplb:building:physical-sciences",
+  "name": "Francisco O. Santos Hall / Physical Sciences",
+  "productionTier": "hero-exterior",
+  "identityStatus": "proposed-candidate",
+  "architecturalFamily": "uplb-concrete-academic-midcentury",
+  "referenceIds": [
+    "source:scan:sketchfab-physci-2025",
+    "source:legacy:uplb-virtual-campus-2014",
+    "source:index:commons-uplb-buildings"
+  ],
+  "featureSnapshot": "data/modeling/reference/features/physical-sciences.geojson",
+  "referenceProfile": "data/modeling/reference/physical-sciences.reference-profile.json",
+  "height": {
+    "meters": 10.8,
+    "method": "3 source-supported levels × provisional 3.6 m family floor height.",
+    "confidence": "medium"
+  },
+  "facade": {
+    "preset": "academic-banded",
+    "frontEdgePolicy": "longest-edge-proxy",
+    "confidence": "medium-proxy",
+    "bayCount": 8,
+    "panelHeightM": 1.45,
+    "panelWidthRatio": 0.72,
+    "panelDepthM": 0.08,
+    "supportWidthM": 0.26,
+    "bandDepthM": 0.18
+  },
+  "roof": {
+    "sourceShape": "gabled",
+    "geometryPolicy": "deferred-known-shape",
+    "confidence": "source-supported-shape/geometry-unresolved"
+  },
+  "materials": [
+    "concrete-weathered",
+    "painted-metal-glass"
+  ],
+  "accuracyClaims": {
+    "footprint": "source-supported project snapshot",
+    "identity": "production handle only; no canonical promotion",
+    "height": "medium",
+    "facade": "reference/source-tag-informed proxy only",
+    "frontFacadeOrientation": "longest-edge proxy, not surveyed",
+    "roof": "source-supported-shape/geometry-unresolved",
+    "interior": "not modeled"
+  },
+  "openQuestions": [
+    "Permission/source file for existing scan",
+    "Recovered 2014 model availability",
+    "Exact wing roof geometry",
+    "Current facade changes/additions"
+  ]
+}

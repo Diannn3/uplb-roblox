@@ -1,0 +1,66 @@
+from __future__ import annotations
+
+import math
+from typing import Any
+
+from .assembly import BuildingAssembly
+
+
+def _face_area(vertices: tuple[tuple[float, float, float], ...], face: tuple[int, ...]) -> float:
+    """Return polygon area magnitude using Newell's method."""
+    if len(face) < 3:
+        return 0.0
+    nx = ny = nz = 0.0
+    for i, idx in enumerate(face):
+        jdx = face[(i + 1) % len(face)]
+        x1, y1, z1 = vertices[idx]
+        x2, y2, z2 = vertices[jdx]
+        nx += (y1 - y2) * (z1 + z2)
+        ny += (z1 - z2) * (x1 + x2)
+        nz += (x1 - x2) * (y1 + y2)
+    return 0.5 * math.sqrt(nx * nx + ny * ny + nz * nz)
+
+
+def validate_assembly_geometry(assembly: BuildingAssembly, *, triangle_budget: int | None = None) -> dict[str, Any]:
+    assembly.validate()
+    mesh = assembly.mesh
+    vertex_count = len(mesh.vertices)
+    invalid_face_indices = 0
+    degenerate_faces = 0
+    nonfinite_vertices = 0
+    for vertex in mesh.vertices:
+        if not all(math.isfinite(value) for value in vertex):
+            nonfinite_vertices += 1
+    for face in mesh.faces:
+        if len(face) < 3 or len(set(face)) < 3:
+            degenerate_faces += 1
+            continue
+        if any(index < 0 or index >= vertex_count for index in face):
+            invalid_face_indices += 1
+            continue
+        if _face_area(mesh.vertices, face) <= 1e-10:
+            degenerate_faces += 1
+    part_names = [part.name for part in assembly.parts]
+    triangle_equivalent = mesh.triangle_equivalent
+    budget_status = "not-set" if triangle_budget is None else ("pass" if triangle_equivalent <= triangle_budget else "fail")
+    status = "pass"
+    if nonfinite_vertices or invalid_face_indices or degenerate_faces or len(part_names) != len(set(part_names)):
+        status = "fail"
+    if budget_status == "fail":
+        status = "fail"
+    return {
+        "status": status,
+        "featureId": assembly.feature_id,
+        "sourceFeatureId": assembly.source_feature_id,
+        "identityStatus": assembly.identity_status,
+        "partCount": len(assembly.parts),
+        "vertexCount": vertex_count,
+        "faceCount": len(mesh.faces),
+        "triangleEquivalent": triangle_equivalent,
+        "nonFiniteVertexCount": nonfinite_vertices,
+        "invalidFaceIndexCount": invalid_face_indices,
+        "degenerateFaceCount": degenerate_faces,
+        "duplicatePartNames": len(part_names) != len(set(part_names)),
+        "triangleBudget": triangle_budget,
+        "triangleBudgetGate": budget_status,
+    }

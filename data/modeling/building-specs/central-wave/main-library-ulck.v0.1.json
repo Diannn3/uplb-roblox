@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "uplb-reference-building-production-spec-v0.1",
+  "sourceFeatureId": "candidate:osm:way/1098780830",
+  "proposedFeatureId": "uplb:building:university-library-knowledge-center",
+  "name": "University Library and Knowledge Center / Main Library candidate",
+  "productionTier": "hero-exterior",
+  "identityStatus": "reviewed-candidate",
+  "architecturalFamily": "uplb-library-construction-state",
+  "referenceIds": [
+    "source:legacy:uplb-virtual-campus-2014",
+    "source:uplb:main-library-pushover-2016",
+    "source:image:commons-bienvenido-gonzales-2023",
+    "source:index:commons-uplb-buildings"
+  ],
+  "featureSnapshot": "data/modeling/reference/features/main-library-ulck.geojson",
+  "referenceProfile": "data/modeling/reference/main-library-ulck.reference-profile.json",
+  "height": {
+    "meters": 12.0,
+    "method": "Conservative construction-massing placeholder; current candidate height is unknown and legacy library storey data is intentionally not transferred.",
+    "confidence": "low-placeholder"
+  },
+  "facade": {
+    "preset": "massing-only",
+    "frontEdgePolicy": "longest-edge-proxy",
+    "confidence": "none",
+    "bayCount": 0,
+    "panelHeightM": 1.0,
+    "panelWidthRatio": 0.7,
+    "panelDepthM": 0.08,
+    "supportWidthM": 0.25,
+    "bandDepthM": 0.18
+  },
+  "roof": {
+    "sourceShape": null,
+    "geometryPolicy": "deferred-unknown",
+    "confidence": "unknown"
+  },
+  "materials": [
+    "concrete"
+  ],
+  "accuracyClaims": {
+    "footprint": "source-supported project snapshot",
+    "identity": "production handle only; no canonical promotion",
+    "height": "low-placeholder",
+    "facade": "reference/source-tag-informed proxy only",
+    "frontFacadeOrientation": "longest-edge proxy, not surveyed",
+    "roof": "unknown",
+    "interior": "not modeled"
+  },
+  "openQuestions": [
+    "Whether current candidate footprint is ULKC construction or an existing library-state mapping",
+    "Current completed height/facade if construction has changed",
+    "Relationship to Bienvenido M. Gonzales Hall and 2014 Main Library model"
+  ]
+}

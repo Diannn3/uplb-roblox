@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "uplb-building-reference-profile-v0.1",
+  "featureId": "uplb:building:physical-sciences",
+  "buildingName": "Francisco O. Santos Hall / Physical Sciences",
+  "generatedAt": "2026-08-17",
+  "policy": {
+    "photoBinaryPolicy": "No third-party photo binaries are committed by this reference-profile layer.",
+    "geometryPolicy": "Use pinned project footprint snapshots for massing; visual references only justify broad morphology explicitly listed in observations.",
+    "identityPolicy": "Proposed UPLB IDs are production handles only and do not promote source candidates to canonical identity.",
+    "finalAccuracyPolicy": "No output from this layer is survey-grade or final architectural truth."
+  },
+  "sources": [
+    {
+      "id": "source:scan:sketchfab-physci-2025",
+      "kind": "existing-3d-scan-lead",
+      "title": "UPLB Physical Sciences Building 3D model",
+      "url": "https://sketchfab.com/3d-models/uplb-physical-sciences-building-5c154f0033dd4ff3b13a5aab1ebfbe50",
+      "rightsStatus": "permission-required",
+      "reuseStatus": "license-not-verified"
+    },
+    {
+      "id": "source:legacy:uplb-virtual-campus-2014",
+      "kind": "legacy-project-evidence",
+      "title": "Design, Implementation, and Evaluation of a 3D Virtual Classroom Environment in a Computer Cluster",
+      "url": "https://id.scribd.com/document/990184030/ISCE2014-Proceedings-FINAL3",
+      "rightsStatus": "reference-only",
+      "reuseStatus": "permission-required-for-original-model-files"
+    },
+    {
+      "id": "source:index:commons-uplb-buildings",
+      "kind": "licensed-photo-index",
+      "title": "Wikimedia Commons UPLB building/photo categories",
+      "url": "https://commons.wikimedia.org/wiki/Category:University_of_the_Philippines_Los_Ba%C3%B1os",
+      "rightsStatus": "per-file-license",
+      "reuseStatus": "index-only"
+    }
+  ],
+  "evidenceGroups": {
+    "registeredEvidence": [
+      "source:scan:sketchfab-physci-2025",
+      "source:legacy:uplb-virtual-campus-2014",
+      "source:index:commons-uplb-buildings"
+    ]
+  },
+  "observations": [
+    {
+      "id": "obs:three-level-source-tag",
+      "feature": "Project snapshot records three levels.",
+      "confidence": "high-source",
+      "evidenceIds": [
+        "source:scan:sketchfab-physci-2025",
+        "source:legacy:uplb-virtual-campus-2014",
+        "source:index:commons-uplb-buildings"
+      ],
+      "implementation": "Use 3×3.6 m height proxy until scan/model recovery."
+    },
+    {
+      "id": "obs:concrete-source-tag",
+      "feature": "Project snapshot records concrete material.",
+      "confidence": "high-source",
+      "evidenceIds": [
+        "source:scan:sketchfab-physci-2025",
+        "source:legacy:uplb-virtual-campus-2014",
+        "source:index:commons-uplb-buildings"
+      ],
+      "implementation": "Use concrete academic family."
+    },
+    {
+      "id": "obs:gabled-source-tag",
+      "feature": "Project snapshot records a gabled roof shape.",
+      "confidence": "high-source",
+      "evidenceIds": [
+        "source:scan:sketchfab-physci-2025",
+        "source:legacy:uplb-virtual-campus-2014",
+        "source:index:commons-uplb-buildings"
+      ],
+      "implementation": "Record known gabled roof but defer roof mesh on the complex multi-wing footprint."
+    },
+    {
+      "id": "obs:scan-recovery",
+      "feature": "A ~1M-triangle existing Sketchfab model is a high-value permission/recovery lead.",
+      "confidence": "high",
+      "evidenceIds": [
+        "source:scan:sketchfab-physci-2025",
+        "source:legacy:uplb-virtual-campus-2014",
+        "source:index:commons-uplb-buildings"
+      ],
+      "implementation": "Do not copy/rip; seek reusable source/permission before using scan geometry."
+    }
+  ],
+  "unresolved": [
+    "Permission/source file for existing scan",
+    "Recovered 2014 model availability",
+    "Exact wing roof geometry",
+    "Current facade changes/additions"
+  ]
+}

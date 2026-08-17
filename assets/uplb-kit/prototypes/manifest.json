@@ -42,6 +42,36 @@
       "path": "assets/uplb-kit/prototypes/utility_box-a.obj",
       "vertices": 8,
       "triangleEquivalent": 12
+    },
+    {
+      "id": "column:concrete-round-baker-a",
+      "path": "assets/uplb-kit/prototypes/column_concrete-round-baker-a.obj",
+      "vertices": 24,
+      "triangleEquivalent": 44
+    },
+    {
+      "id": "column:concrete-square-baker-a",
+      "path": "assets/uplb-kit/prototypes/column_concrete-square-baker-a.obj",
+      "vertices": 8,
+      "triangleEquivalent": 12
+    },
+    {
+      "id": "awning:green-metal-baker-a",
+      "path": "assets/uplb-kit/prototypes/awning_green-metal-baker-a.obj",
+      "vertices": 8,
+      "triangleEquivalent": 12
+    },
+    {
+      "id": "window:historic-baker-panel-a",
+      "path": "assets/uplb-kit/prototypes/window_historic-baker-panel-a.obj",
+      "vertices": 8,
+      "triangleEquivalent": 12
+    },
+    {
+      "id": "door:historic-baker-panel-a",
+      "path": "assets/uplb-kit/prototypes/door_historic-baker-panel-a.obj",
+      "vertices": 8,
+      "triangleEquivalent": 12
     }
   ],
   "claim": "Primitive dimension prototypes only; visual design pending reference validation."

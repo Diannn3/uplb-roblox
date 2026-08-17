@@ -1,0 +1,123 @@
+{
+  "accuracyClaims": {
+    "facade": "reference/source-tag-informed proxy only",
+    "footprint": "source-supported project snapshot",
+    "frontFacadeOrientation": "longest-edge proxy, not surveyed",
+    "height": "medium",
+    "identity": "production handle only; no canonical promotion",
+    "interior": "not modeled",
+    "roof": "unknown"
+  },
+  "assembly": {
+    "boundsM": {
+      "max": [
+        24.448563,
+        28.671253,
+        9.0
+      ],
+      "min": [
+        -24.468858,
+        -28.798791,
+        0.0
+      ],
+      "size": [
+        48.917421,
+        57.470044,
+        9.0
+      ]
+    },
+    "confidenceCounts": {
+      "low-proxy": 10,
+      "source-level-count/proxy-detail": 15,
+      "source-supported-footprint/medium-height": 1
+    },
+    "faceCount": 191,
+    "featureId": "uplb:building:dean-edelwina-legaspi-hall",
+    "identityStatus": "proposed-candidate",
+    "partCount": 26,
+    "sourceFeatureId": "candidate:osm:way/33541786",
+    "triangleEquivalent": 356,
+    "version": "dean-legaspi-hall.v0.1-reference-production",
+    "vertexCount": 230
+  },
+  "facade": {
+    "bandDepthM": 0.18,
+    "bayCount": 5,
+    "confidence": "low-proxy",
+    "frontEdgePolicy": "longest-edge-proxy",
+    "panelDepthM": 0.08,
+    "panelHeightM": 1.35,
+    "panelWidthRatio": 0.7,
+    "preset": "academic-banded",
+    "supportWidthM": 0.24
+  },
+  "featureId": "uplb:building:dean-edelwina-legaspi-hall",
+  "footprintAreaM2": 1281.149,
+  "frontFacadeProxy": {
+    "edgeIndex": 0,
+    "lengthM": 28.675,
+    "selectionMethod": "longest-edge-proxy; deterministic production orientation only, not surveyed entrance orientation"
+  },
+  "hardStops": [
+    "Do not treat proposedFeatureId as canonical identity promotion.",
+    "Do not call this a survey-accurate architectural reconstruction.",
+    "Do not infer interiors from exterior massing or photographs.",
+    "Replace proxy facade orientation/dimensions when recovered models, drawings, or measurements become available."
+  ],
+  "height": {
+    "confidence": "medium",
+    "meters": 9.0,
+    "method": "2.5 source-supported levels \u00d7 provisional 3.6 m family floor height."
+  },
+  "identityStatus": "proposed-candidate",
+  "inputs": {
+    "featureSnapshot": {
+      "path": "data/modeling/reference/features/dean-legaspi-hall.geojson",
+      "sha256": "sha256:3a29075982aa1f21c504dcb9e898331588e20a8dd831f4417fe0494066f90fd9"
+    },
+    "referenceProfile": {
+      "path": "data/modeling/reference/dean-legaspi-hall.reference-profile.json",
+      "sha256": "sha256:01f632285bf78c4702c62b64935a6f07b3cb7af4da1f948fe757ff55557a2c74"
+    },
+    "spec": {
+      "path": "data/modeling/building-specs/central-wave/dean-legaspi-hall.v0.1.json",
+      "sha256": "sha256:6e3faf830756b51217707f0d35b9a1ab9aabc6487beffe9ef1e4f3b5d9f6d8bf"
+    }
+  },
+  "modelVersion": "dean-legaspi-hall.v0.1-reference-production",
+  "name": "Dean Edelwina C. Legaspi Hall",
+  "originUtm51": [
+    310181.492311,
+    1566670.045645
+  ],
+  "output": {
+    "objPath": "assets/generated/production/central-wave/dean-legaspi-hall/dean-legaspi-hall-v0.1.obj",
+    "objSha256": "sha256:491d0316a17abc94087dabfad99d37c17a8e48cff56a039315ddd15eb17c89f6",
+    "qaPath": "assets/generated/production/central-wave/dean-legaspi-hall/dean-legaspi-hall-v0.1.qa.json",
+    "reportPath": "assets/generated/production/central-wave/dean-legaspi-hall/dean-legaspi-hall-v0.1.report.json"
+  },
+  "qa": {
+    "degenerateFaceCount": 0,
+    "duplicatePartNames": false,
+    "faceCount": 191,
+    "featureId": "uplb:building:dean-edelwina-legaspi-hall",
+    "identityStatus": "proposed-candidate",
+    "invalidFaceIndexCount": 0,
+    "nonFiniteVertexCount": 0,
+    "partCount": 26,
+    "sourceFeatureId": "candidate:osm:way/33541786",
+    "status": "pass",
+    "triangleBudget": 45000,
+    "triangleBudgetGate": "pass",
+    "triangleEquivalent": 356,
+    "vertexCount": 230
+  },
+  "roof": {
+    "confidence": "unknown",
+    "geometryPolicy": "deferred-unknown",
+    "sourceShape": null
+  },
+  "schemaVersion": "uplb-reference-building-production-report-v0.1",
+  "sourceFeatureId": "candidate:osm:way/33541786",
+  "status": "reference-derived-prototype"
+}

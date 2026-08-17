@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "uplb-building-spec-v0.2",
+  "featureId": "uplb:building:baker-hall",
+  "name": "Charles Fuller Baker Memorial Hall",
+  "productionTier": "hero-exterior",
+  "productionStatus": "reference-derived-v0.2",
+  "modelingStrategy": "recover-existing-then-custom",
+  "architecturalFamily": "uplb-historic-prewar",
+  "referenceIds": [
+    "source:canonical:osm-baker-way-37449973",
+    "source:legacy:uplb-virtual-campus-2014",
+    "source:image:commons-baker-2017",
+    "source:image:commons-baker-2023",
+    "source:uplb:baker-landscape-thesis-1994",
+    "source:uplb:baker-conservation-dissertation-2017"
+  ],
+  "referenceProfile": "data/modeling/reference/baker-hall.reference-profile.json",
+  "canonicalInput": {
+    "featurePath": "data/canonical/features.geojson",
+    "snapshotPath": "data/modeling/reference/baker-canonical-snapshot.geojson",
+    "externalId": "osm:way/37449973",
+    "levels": 2,
+    "material": "concrete",
+    "startDate": "1938",
+    "verification": {
+      "footprint": "source-supported",
+      "height": "source-supported-medium",
+      "facade": "reference-derived-not-surveyed",
+      "interior": "unknown"
+    }
+  },
+  "referenceDerivedApproximation": {
+    "status": "provisional-replaceable",
+    "bodyHeightM": 8.2,
+    "groundFloorHeightM": 3.8,
+    "porticoWidthM": 17.2,
+    "porticoProjectionM": 2.3,
+    "wingBayCountEachSide": 4,
+    "centralRoofWidthM": 18.5,
+    "centralRoofDepthM": 24.0,
+    "ridgeHeightM": 10.2,
+    "method": "Canonical footprint plus multi-era front-facade visual proportions; no survey claim."
+  },
+  "productionModules": [
+    "column:concrete-round-baker-a",
+    "column:concrete-square-baker-a",
+    "railing:balustrade-baker-a",
+    "awning:green-metal-baker-a",
+    "band:historic-string-course-a",
+    "window:historic-baker-panel-a",
+    "door:historic-baker-panel-a"
+  ],
+  "materials": [
+    "concrete-painted",
+    "painted-metal-green",
+    "painted-metal-glass-dark",
+    "painted-timber-dark",
+    "corrugated-metal-green"
+  ],
+  "lodBudgets": {
+    "lod0Triangles": 90000,
+    "lod1Triangles": 40000,
+    "lod2Triangles": 12000,
+    "lod3Triangles": 2500
+  },
+  "roblox": {
+    "modelLevelOfDetail": "SLIM",
+    "renderFidelity": "Automatic",
+    "streamingClass": "hero-static",
+    "collision": "custom-simplified-hull-after-visual-approval"
+  },
+  "accuracyClaims": {
+    "footprint": "canonical-source-supported",
+    "frontFacadeComposition": "multi-photo-reference-derived",
+    "dimensions": "provisional",
+    "roof": "provisional",
+    "interior": "not-modeled"
+  },
+  "openQuestions": [
+    "Exact surveyed building height and floor-to-floor dimensions",
+    "Exact front portico width/projection",
+    "Exact wing bay count and opening dimensions on every facade",
+    "Roof ridge/eave geometry and current roofing specification",
+    "Basement/underground geometry",
+    "Rear and side facade details",
+    "Interior layout",
+    "Later additions/attachments and whether they should be represented in the historical or current-state model"
+  ],
+  "prototype": {
+    "purpose": "Generate a reference-derived Baker exterior for proportion/assembly QA while preserving the canonical footprint. This is not a survey-grade architectural model.",
+    "heightM": 8.2,
+    "heightMethod": "2 source-supported levels plus multi-era photo-derived proportional approximation; provisional until measured/recovered.",
+    "facadeDetail": "reference-derived modular front facade; side/rear details deferred",
+    "roof": "provisional central gable only",
+    "collision": "assembly-qa-only"
+  },
+  "targetProduction": {
+    "modules": [
+      "column:concrete-round-baker-a",
+      "column:concrete-square-baker-a",
+      "railing:balustrade-baker-a",
+      "awning:green-metal-baker-a",
+      "band:historic-string-course-a",
+      "window:historic-baker-panel-a",
+      "door:historic-baker-panel-a"
+    ],
+    "materials": [
+      "concrete-painted",
+      "painted-metal-green",
+      "painted-metal-glass-dark",
+      "painted-timber-dark",
+      "corrugated-metal-green"
+    ],
+    "lodBudgets": {
+      "lod0Triangles": 90000,
+      "lod1Triangles": 40000,
+      "lod2Triangles": 12000,
+      "lod3Triangles": 2500
+    },
+    "roblox": {
+      "modelLevelOfDetail": "SLIM",
+      "renderFidelity": "Automatic",
+      "streamingClass": "hero-static",
+      "collision": "custom-simplified-hull-after-visual-approval"
+    },
+    "qualityGate": "Replace provisional dimensions/orientation with recovered model, institutional drawings, or measured evidence before final architectural approval."
+  }
+}

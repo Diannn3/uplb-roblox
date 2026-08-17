@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "uplb-building-reference-profile-v0.1",
+  "featureId": "uplb:building:cas-annex-2",
+  "buildingName": "CAS Annex 2",
+  "generatedAt": "2026-08-17",
+  "policy": {
+    "photoBinaryPolicy": "No third-party photo binaries are committed by this reference-profile layer.",
+    "geometryPolicy": "Use pinned project footprint snapshots for massing; visual references only justify broad morphology explicitly listed in observations.",
+    "identityPolicy": "Proposed UPLB IDs are production handles only and do not promote source candidates to canonical identity.",
+    "finalAccuracyPolicy": "No output from this layer is survey-grade or final architectural truth."
+  },
+  "sources": [
+    {
+      "id": "source:legacy:uplb-virtual-campus-2014",
+      "kind": "legacy-project-evidence",
+      "title": "Design, Implementation, and Evaluation of a 3D Virtual Classroom Environment in a Computer Cluster",
+      "url": "https://id.scribd.com/document/990184030/ISCE2014-Proceedings-FINAL3",
+      "rightsStatus": "reference-only",
+      "reuseStatus": "permission-required-for-original-model-files"
+    },
+    {
+      "id": "source:reference:arcgis-uplb-memoirs",
+      "kind": "visual-reference-index",
+      "title": "Memoirs of UPLB Students StoryMap",
+      "url": "https://storymaps.arcgis.com/stories/33e475de3ce6496fa3b8aa56471795b6",
+      "rightsStatus": "reference-index-rights-per-item",
+      "reuseStatus": "reference-only"
+    }
+  ],
+  "evidenceGroups": {
+    "registeredEvidence": [
+      "source:legacy:uplb-virtual-campus-2014",
+      "source:reference:arcgis-uplb-memoirs"
+    ]
+  },
+  "observations": [
+    {
+      "id": "obs:two-level-source-tag",
+      "feature": "Project snapshot records two levels.",
+      "confidence": "high-source",
+      "evidenceIds": [
+        "source:legacy:uplb-virtual-campus-2014",
+        "source:reference:arcgis-uplb-memoirs"
+      ],
+      "implementation": "Use 2×3.6 m family height proxy."
+    },
+    {
+      "id": "obs:concrete-source-tag",
+      "feature": "Project snapshot records concrete material.",
+      "confidence": "high-source",
+      "evidenceIds": [
+        "source:legacy:uplb-virtual-campus-2014",
+        "source:reference:arcgis-uplb-memoirs"
+      ],
+      "implementation": "Use concrete academic family."
+    },
+    {
+      "id": "obs:hipped-source-tag",
+      "feature": "Project snapshot records a hipped roof.",
+      "confidence": "high-source",
+      "evidenceIds": [
+        "source:legacy:uplb-virtual-campus-2014",
+        "source:reference:arcgis-uplb-memoirs"
+      ],
+      "implementation": "Record roof shape but defer exact hipped geometry until stronger roof evidence is available."
+    }
+  ],
+  "unresolved": [
+    "Recover 2014 model",
+    "Current facade bay pattern",
+    "Exact hipped-roof geometry",
+    "Side/rear modifications"
+  ]
+}

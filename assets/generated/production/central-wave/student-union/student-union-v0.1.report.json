@@ -1,0 +1,123 @@
+{
+  "accuracyClaims": {
+    "facade": "reference/source-tag-informed proxy only",
+    "footprint": "source-supported project snapshot",
+    "frontFacadeOrientation": "longest-edge proxy, not surveyed",
+    "height": "medium",
+    "identity": "production handle only; no canonical promotion",
+    "interior": "not modeled",
+    "roof": "unknown"
+  },
+  "assembly": {
+    "boundsM": {
+      "max": [
+        39.454341,
+        40.634621,
+        10.8
+      ],
+      "min": [
+        -43.381942,
+        -43.049674,
+        0.0
+      ],
+      "size": [
+        82.836283,
+        83.684295,
+        10.8
+      ]
+    },
+    "confidenceCounts": {
+      "medium-visual/provisional-edge": 13,
+      "source-level-count/proxy-detail": 46,
+      "source-supported-footprint/medium-height": 1
+    },
+    "faceCount": 419,
+    "featureId": "uplb:building:student-union",
+    "identityStatus": "proposed-candidate",
+    "partCount": 60,
+    "sourceFeatureId": "candidate:osm:way/37450035",
+    "triangleEquivalent": 796,
+    "version": "student-union.v0.1-reference-production",
+    "vertexCount": 518
+  },
+  "facade": {
+    "bandDepthM": 0.2,
+    "bayCount": 6,
+    "confidence": "medium-visual/provisional-edge",
+    "frontEdgePolicy": "longest-edge-proxy",
+    "panelDepthM": 0.1,
+    "panelHeightM": 6.8,
+    "panelWidthRatio": 0.78,
+    "preset": "glass-frame",
+    "supportWidthM": 0.36
+  },
+  "featureId": "uplb:building:student-union",
+  "footprintAreaM2": 2557.341,
+  "frontFacadeProxy": {
+    "edgeIndex": 11,
+    "lengthM": 25.563,
+    "selectionMethod": "longest-edge-proxy; deterministic production orientation only, not surveyed entrance orientation"
+  },
+  "hardStops": [
+    "Do not treat proposedFeatureId as canonical identity promotion.",
+    "Do not call this a survey-accurate architectural reconstruction.",
+    "Do not infer interiors from exterior massing or photographs.",
+    "Replace proxy facade orientation/dimensions when recovered models, drawings, or measurements become available."
+  ],
+  "height": {
+    "confidence": "medium",
+    "meters": 10.8,
+    "method": "3 source-supported levels \u00d7 provisional 3.6 m family floor height."
+  },
+  "identityStatus": "proposed-candidate",
+  "inputs": {
+    "featureSnapshot": {
+      "path": "data/modeling/reference/features/student-union.geojson",
+      "sha256": "sha256:8d4b4e13b87ebec3f3670171b6f98265b6c72c185d5eeb4e70311780a17181ae"
+    },
+    "referenceProfile": {
+      "path": "data/modeling/reference/student-union.reference-profile.json",
+      "sha256": "sha256:f28db34e5b139ae11613a0398b1e00605f9cbf73f9e53e8965e5d8fc6d886a7d"
+    },
+    "spec": {
+      "path": "data/modeling/building-specs/central-wave/student-union.v0.1.json",
+      "sha256": "sha256:090fc501d5b3e06fafc8b88a0c3ddd221733d00da4b7b578644135fcf4e23968"
+    }
+  },
+  "modelVersion": "student-union.v0.1-reference-production",
+  "name": "Student Union Building",
+  "originUtm51": [
+    310190.723297,
+    1566498.915342
+  ],
+  "output": {
+    "objPath": "assets/generated/production/central-wave/student-union/student-union-v0.1.obj",
+    "objSha256": "sha256:1cb969f618a1f5bb0adbd2ec20fae67c3cea5f06434cf49e9282d4b84c3ef44c",
+    "qaPath": "assets/generated/production/central-wave/student-union/student-union-v0.1.qa.json",
+    "reportPath": "assets/generated/production/central-wave/student-union/student-union-v0.1.report.json"
+  },
+  "qa": {
+    "degenerateFaceCount": 0,
+    "duplicatePartNames": false,
+    "faceCount": 419,
+    "featureId": "uplb:building:student-union",
+    "identityStatus": "proposed-candidate",
+    "invalidFaceIndexCount": 0,
+    "nonFiniteVertexCount": 0,
+    "partCount": 60,
+    "sourceFeatureId": "candidate:osm:way/37450035",
+    "status": "pass",
+    "triangleBudget": 45000,
+    "triangleBudgetGate": "pass",
+    "triangleEquivalent": 796,
+    "vertexCount": 518
+  },
+  "roof": {
+    "confidence": "unknown",
+    "geometryPolicy": "deferred-unknown",
+    "sourceShape": null
+  },
+  "schemaVersion": "uplb-reference-building-production-report-v0.1",
+  "sourceFeatureId": "candidate:osm:way/37450035",
+  "status": "reference-derived-prototype"
+}

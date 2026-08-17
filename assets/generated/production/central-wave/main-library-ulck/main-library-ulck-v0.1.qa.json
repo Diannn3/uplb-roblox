@@ -1,0 +1,16 @@
+{
+  "degenerateFaceCount": 0,
+  "duplicatePartNames": false,
+  "faceCount": 23,
+  "featureId": "uplb:building:university-library-knowledge-center",
+  "identityStatus": "reviewed-candidate",
+  "invalidFaceIndexCount": 0,
+  "nonFiniteVertexCount": 0,
+  "partCount": 1,
+  "sourceFeatureId": "candidate:osm:way/1098780830",
+  "status": "pass",
+  "triangleBudget": 100000,
+  "triangleBudgetGate": "pass",
+  "triangleEquivalent": 32,
+  "vertexCount": 18
+}

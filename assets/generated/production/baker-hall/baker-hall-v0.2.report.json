@@ -1,0 +1,309 @@
+{
+  "accuracyClaims": {
+    "exactFacadeDimensions": "not surveyed",
+    "footprintPlacement": "source-supported canonical input",
+    "frontFacadeComposition": "reference-derived from multiple public photographs",
+    "interior": "not modeled",
+    "roofGeometry": "provisional"
+  },
+  "assembly": {
+    "boundsM": {
+      "max": [
+        31.902266,
+        27.172288,
+        10.2
+      ],
+      "min": [
+        -30.633312,
+        -26.895136,
+        0.0
+      ],
+      "size": [
+        62.535578,
+        54.067424,
+        10.2
+      ]
+    },
+    "confidenceCounts": {
+      "high-visual": 27,
+      "medium-low-visual": 1,
+      "medium-visual": 57,
+      "source-supported-footprint/provisional-height": 1
+    },
+    "faceCount": 583,
+    "featureId": "uplb:building:baker-hall",
+    "identityStatus": "canonical",
+    "partCount": 86,
+    "sourceFeatureId": null,
+    "triangleEquivalent": 1244,
+    "version": "baker-exterior-v0.2-reference-derived",
+    "vertexCount": 794
+  },
+  "canonicalOriginUtm51": [
+    310341.832262,
+    1566327.46843
+  ],
+  "evidence": {
+    "buildingName": "Charles Fuller Baker Memorial Hall",
+    "evidenceGroups": {
+      "canonicalGeometry": [
+        "source:canonical:osm-baker-way-37449973"
+      ],
+      "frontFacade": [
+        "source:image:commons-baker-2017",
+        "source:image:commons-baker-2023"
+      ],
+      "institutionalArchiveLeads": [
+        "source:uplb:baker-landscape-thesis-1994",
+        "source:uplb:baker-conservation-dissertation-2017"
+      ],
+      "legacyModelRecovery": [
+        "source:legacy:uplb-virtual-campus-2014"
+      ]
+    },
+    "featureId": "uplb:building:baker-hall",
+    "generatedAt": "2026-08-17",
+    "observations": [
+      {
+        "confidence": "high",
+        "evidenceIds": [
+          "source:canonical:osm-baker-way-37449973",
+          "source:image:commons-baker-2017",
+          "source:image:commons-baker-2023"
+        ],
+        "feature": "two visible storeys",
+        "id": "obs:two-storey",
+        "implementation": "body/floor break"
+      },
+      {
+        "confidence": "high",
+        "evidenceIds": [
+          "source:image:commons-baker-2017",
+          "source:image:commons-baker-2023"
+        ],
+        "feature": "symmetrical central projecting portico/balcony",
+        "id": "obs:central-portico",
+        "implementation": "portico slab and centered facade assembly"
+      },
+      {
+        "confidence": "high",
+        "evidenceIds": [
+          "source:image:commons-baker-2017",
+          "source:image:commons-baker-2023"
+        ],
+        "feature": "four prominent round upper-storey portico columns",
+        "id": "obs:four-upper-columns",
+        "implementation": "four modular round columns"
+      },
+      {
+        "confidence": "high",
+        "evidenceIds": [
+          "source:image:commons-baker-2017",
+          "source:image:commons-baker-2023"
+        ],
+        "feature": "front balcony with repeated balustrade",
+        "id": "obs:balustrade",
+        "implementation": "simplified rail and repeated balusters"
+      },
+      {
+        "confidence": "high",
+        "evidenceIds": [
+          "source:image:commons-baker-2017",
+          "source:image:commons-baker-2023"
+        ],
+        "feature": "strong floor/cornice string courses across front facade",
+        "id": "obs:horizontal-bands",
+        "implementation": "front horizontal band modules"
+      },
+      {
+        "confidence": "medium",
+        "evidenceIds": [
+          "source:image:commons-baker-2017",
+          "source:image:commons-baker-2023"
+        ],
+        "feature": "repeated vertical pilaster/bay rhythm on flanking wings",
+        "id": "obs:wing-pilasters",
+        "implementation": "simplified facade pilaster strips"
+      },
+      {
+        "confidence": "high",
+        "evidenceIds": [
+          "source:image:commons-baker-2017",
+          "source:image:commons-baker-2023"
+        ],
+        "feature": "green projecting metal awnings over multiple facade openings",
+        "id": "obs:green-awnings",
+        "implementation": "reusable awning modules"
+      },
+      {
+        "confidence": "high",
+        "evidenceIds": [
+          "source:image:commons-baker-2017",
+          "source:image:commons-baker-2023"
+        ],
+        "feature": "raised central sign/parapet block above the portico",
+        "id": "obs:central-sign-parapet",
+        "implementation": "central parapet mass; lettering deferred"
+      },
+      {
+        "confidence": "medium-low",
+        "evidenceIds": [
+          "source:image:commons-baker-2023"
+        ],
+        "feature": "shallow sloping/gabled roof mass visible behind central facade",
+        "id": "obs:central-gable",
+        "implementation": "provisional low-poly central gable, explicitly replaceable"
+      },
+      {
+        "confidence": "medium",
+        "evidenceIds": [
+          "source:image:commons-baker-2017",
+          "source:image:commons-baker-2023"
+        ],
+        "feature": "flanking wings appear broadly symmetric from frontal imagery",
+        "id": "obs:symmetric-wing-bays",
+        "implementation": "four provisional bays per wing"
+      }
+    ],
+    "policy": {
+      "accuracyPolicy": "Photographic proportions are provisional until recovered model, drawings, or field measurements supersede them.",
+      "derivativePolicy": "Photographs are used as visual/evidentiary references only in this model revision; no source photograph is used as a texture.",
+      "photoBinaryPolicy": "No third-party photo binaries are committed by this profile."
+    },
+    "schemaVersion": "uplb-building-reference-profile-v0.1",
+    "sources": [
+      {
+        "evidence": [
+          "footprint",
+          "2 levels",
+          "concrete material tag",
+          "1938 start date",
+          "roof material tag",
+          "one underground level tag"
+        ],
+        "id": "source:canonical:osm-baker-way-37449973",
+        "kind": "canonical-geodata",
+        "path": "data/canonical/features.geojson",
+        "rightsStatus": "project-canonical-provenance",
+        "title": "Canonical Baker Hall feature derived from OSM way/37449973"
+      },
+      {
+        "evidence": [
+          "Baker Hall was modeled in the 2014 system",
+          "paper reports blueprint-patterned building modeling",
+          "model recovery remains preferred over bespoke reconstruction"
+        ],
+        "id": "source:legacy:uplb-virtual-campus-2014",
+        "kind": "legacy-3d-project-evidence",
+        "rightsStatus": "reference-only; original model files require permission",
+        "title": "ISCE 2014 UPLB 3D Virtual Interactive Multi-user Campus System",
+        "url": "https://id.scribd.com/document/990184030/ISCE2014-Proceedings-FINAL3"
+      },
+      {
+        "author": "Patrick Roque",
+        "capture": "3648x2736 front-oblique exterior",
+        "id": "source:image:commons-baker-2017",
+        "kind": "licensed-photography",
+        "license": "CC BY-SA 4.0",
+        "rightsStatus": "open-attribution-sharealike",
+        "title": "University of the Philippines (UPLB) - Baker Hall (2017-02-16)",
+        "url": "https://commons.wikimedia.org/wiki/File:University_of_the_Philippines_(UPLB)_-_Baker_Hall_(Los_Ba\u00f1os,_Laguna;_2017-02-16).jpg",
+        "use": "visual reference only; not committed as texture"
+      },
+      {
+        "author": "Ralff Nestor Nacor",
+        "capture": "4080x3072 recent front-left exterior",
+        "id": "source:image:commons-baker-2023",
+        "kind": "licensed-photography",
+        "license": "CC BY-SA 4.0",
+        "rightsStatus": "open-attribution-sharealike",
+        "title": "UPLB Baker Memorial Hall, June 2023",
+        "url": "https://commons.wikimedia.org/wiki/File:UPLB_Baker_Memorial_Hall,_June_2023.jpg",
+        "use": "visual reference only; not committed as texture"
+      },
+      {
+        "evidence": [
+          "Category currently indexes six Baker Hall exterior files and a historical-marker subcategory."
+        ],
+        "id": "source:index:commons-baker-category",
+        "kind": "photo-index",
+        "rightsStatus": "per-file-license",
+        "title": "Wikimedia Commons category: Baker Memorial Hall",
+        "url": "https://commons.wikimedia.org/wiki/Category:Baker_Memorial_Hall",
+        "use": "discovery/index only; verify individual file license before any future binary ingest"
+      },
+      {
+        "evidence": [
+          "1994 UPLB undergraduate thesis focused on the Baker Memorial Hall complex."
+        ],
+        "id": "source:uplb:baker-landscape-thesis-1994",
+        "kind": "institutional-archive-lead",
+        "nextAction": "Request consultation through UPLB Main Library Special Collections if useful for site/landscape plans.",
+        "provider": "UPLB UKDR / Main Library Special Collections",
+        "rightsStatus": "metadata-reference; full item not publicly available",
+        "title": "A landscape design proposal for the Baker Memorial Hall Complex",
+        "url": "https://www.ukdr.uplb.edu.ph/etd-undergrad/9992/"
+      },
+      {
+        "evidence": [
+          "Dissertation includes Baker Memorial Hall conservation work and discusses 3D modelling in reconstruction/conservation context."
+        ],
+        "id": "source:uplb:baker-conservation-dissertation-2017",
+        "kind": "institutional-conservation-study",
+        "nextAction": "Request consultation if detailed recorded condition/modeling evidence can be lawfully reviewed.",
+        "provider": "UPLB UKDR / Main Library Special Collections",
+        "rightsStatus": "metadata/abstract reference; full item not publicly available",
+        "title": "Properties and conservation methods of selected wooden artifacts and structure in the Philippines",
+        "url": "https://www.ukdr.uplb.edu.ph/etd-grad/4110/"
+      }
+    ],
+    "unresolved": [
+      "Exact surveyed building height and floor-to-floor dimensions",
+      "Exact front portico width/projection",
+      "Exact wing bay count and opening dimensions on every facade",
+      "Roof ridge/eave geometry and current roofing specification",
+      "Basement/underground geometry",
+      "Rear and side facade details",
+      "Interior layout",
+      "Later additions/attachments and whether they should be represented in the historical or current-state model"
+    ]
+  },
+  "featureId": "uplb:building:baker-hall",
+  "frontFacade": {
+    "canonicalEdgeIndex": 8,
+    "lengthM": 54.140793,
+    "porticoRatio": 0.31769,
+    "porticoWidthM": 17.2,
+    "selectionMethod": "longest-single-canonical-edge; provisional front-edge proxy pending surveyed/model orientation"
+  },
+  "hardStops": [
+    "Do not call this a survey-accurate reconstruction.",
+    "Do not model interiors from inference.",
+    "Replace provisional roof/facade dimensions if the 2014 model, drawings, or field measurements are recovered."
+  ],
+  "modelVersion": "baker-exterior-v0.2-reference-derived",
+  "output": {
+    "objPath": "assets/generated/production/baker-hall/baker-hall-v0.2.obj",
+    "objSha256": "sha256:81e988c40c2cdfae5de1f409578275d34312574a0bbea8db9f7f642ec8d28a5b",
+    "qaPath": "assets/generated/production/baker-hall/baker-hall-v0.2.qa.json",
+    "qaSha256": "sha256:db7eeb1b55eb8055292abbb1065700dab27e53ff06bdc6e18d7172fe392f880a"
+  },
+  "qa": {
+    "degenerateFaceCount": 0,
+    "duplicatePartNames": false,
+    "faceCount": 583,
+    "featureId": "uplb:building:baker-hall",
+    "identityStatus": "canonical",
+    "invalidFaceIndexCount": 0,
+    "nonFiniteVertexCount": 0,
+    "partCount": 86,
+    "sourceFeatureId": null,
+    "status": "pass",
+    "triangleBudget": 90000,
+    "triangleBudgetGate": "pass",
+    "triangleEquivalent": 1244,
+    "vertexCount": 794
+  },
+  "schemaVersion": "uplb-baker-production-report-v0.2",
+  "status": "reference-derived-prototype"
+}

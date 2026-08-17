@@ -73,13 +73,18 @@ def generate_kit_prototypes(
         "bench:campus-a",
         "bollard:campus-a",
         "utility:box-a",
+        "column:concrete-round-baker-a",
+        "column:concrete-square-baker-a",
+        "awning:green-metal-baker-a",
+        "window:historic-baker-panel-a",
+        "door:historic-baker-panel-a",
     }
     reports=[]
     for component in kit["components"]:
         if component["id"] not in selected:
             continue
         width, depth, height = map(float, component["defaultDimensionsM"])
-        if component["id"] == "column:concrete-round-a" or component["id"] == "bollard:campus-a":
+        if component["id"] in {"column:concrete-round-a", "column:concrete-round-baker-a", "bollard:campus-a"}:
             mesh = cylinder_mesh(max(width, depth)/2, height, 12)
         else:
             mesh = box_mesh(width, depth, height)

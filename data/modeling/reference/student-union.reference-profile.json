@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "uplb-building-reference-profile-v0.1",
+  "featureId": "uplb:building:student-union",
+  "buildingName": "Student Union Building",
+  "generatedAt": "2026-08-17",
+  "policy": {
+    "photoBinaryPolicy": "No third-party photo binaries are committed by this reference-profile layer.",
+    "geometryPolicy": "Use pinned project footprint snapshots for massing; visual references only justify broad morphology explicitly listed in observations.",
+    "identityPolicy": "Proposed UPLB IDs are production handles only and do not promote source candidates to canonical identity.",
+    "finalAccuracyPolicy": "No output from this layer is survey-grade or final architectural truth."
+  },
+  "sources": [
+    {
+      "id": "source:legacy:uplb-virtual-campus-2014",
+      "kind": "legacy-project-evidence",
+      "title": "Design, Implementation, and Evaluation of a 3D Virtual Classroom Environment in a Computer Cluster",
+      "url": "https://id.scribd.com/document/990184030/ISCE2014-Proceedings-FINAL3",
+      "rightsStatus": "reference-only",
+      "reuseStatus": "permission-required-for-original-model-files"
+    },
+    {
+      "id": "source:news:cinterlabs-2014",
+      "kind": "legacy-project-evidence",
+      "title": "CINTERLABS showcases 3D avatar-based virtual environment program",
+      "url": "https://lbtimes.ph/cinterlabs-showcases-3d-avatar-based-virtual-environment-program/",
+      "rightsStatus": "reference-only",
+      "reuseStatus": "reference-only"
+    },
+    {
+      "id": "source:image:commons-student-union-2023",
+      "kind": "licensed-photography",
+      "title": "Student Union Building, UPLB (2023)",
+      "url": "https://commons.wikimedia.org/wiki/File:Student_Union_Building,_UPLB.jpg",
+      "rightsStatus": "CC-BY-SA-4.0",
+      "reuseStatus": "visual-reference-open-license-no-binary-ingest"
+    },
+    {
+      "id": "source:reference:arcgis-uplb-memoirs",
+      "kind": "visual-reference-index",
+      "title": "Memoirs of UPLB Students StoryMap",
+      "url": "https://storymaps.arcgis.com/stories/33e475de3ce6496fa3b8aa56471795b6",
+      "rightsStatus": "reference-index-rights-per-item",
+      "reuseStatus": "reference-only"
+    }
+  ],
+  "evidenceGroups": {
+    "registeredEvidence": [
+      "source:legacy:uplb-virtual-campus-2014",
+      "source:news:cinterlabs-2014",
+      "source:image:commons-student-union-2023",
+      "source:reference:arcgis-uplb-memoirs"
+    ]
+  },
+  "observations": [
+    {
+      "id": "obs:three-level-source-tag",
+      "feature": "Project snapshot records three levels.",
+      "confidence": "high-source",
+      "evidenceIds": [
+        "source:legacy:uplb-virtual-campus-2014",
+        "source:news:cinterlabs-2014",
+        "source:image:commons-student-union-2023",
+        "source:reference:arcgis-uplb-memoirs"
+      ],
+      "implementation": "Use 3×3.6 m family-height proxy pending measured floor-to-floor values."
+    },
+    {
+      "id": "obs:glass-concrete-source-tag",
+      "feature": "Project snapshot records glass and concrete materials.",
+      "confidence": "high-source",
+      "evidenceIds": [
+        "source:legacy:uplb-virtual-campus-2014",
+        "source:news:cinterlabs-2014",
+        "source:image:commons-student-union-2023",
+        "source:reference:arcgis-uplb-memoirs"
+      ],
+      "implementation": "Use concrete frame + glass-panel proxy material classes."
+    },
+    {
+      "id": "obs:tall-front-frame",
+      "feature": "Licensed 2023 front image visibly shows a tall concrete frame around broad glazed openings.",
+      "confidence": "medium-visual",
+      "evidenceIds": [
+        "source:legacy:uplb-virtual-campus-2014",
+        "source:news:cinterlabs-2014",
+        "source:image:commons-student-union-2023",
+        "source:reference:arcgis-uplb-memoirs"
+      ],
+      "implementation": "Add a removable proxy front frame/vertical supports on the provisional front edge."
+    }
+  ],
+  "unresolved": [
+    "Which polygon edge is the true primary entrance facade",
+    "Exact floor-to-floor heights",
+    "Exact grid/column spacing",
+    "Roof and rear elevations"
+  ]
+}

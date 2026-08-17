@@ -7,7 +7,7 @@
       "kind": "building-massing",
       "featureId": "uplb:building:baker-hall",
       "file": "assets/generated/prototypes/baker-hall-massing.obj",
-      "sha256": "sha256:d4bda3b4dc2d839488504e7d1ea69e74ed746d60372d800dd21845b2b7870289",
+      "sha256": "sha256:a97c37901da99d9c686db272c3d698c92495b2ea79630433b40e59accb8449d9",
       "rights": "project-generated-from-reviewed-canonical-footprint",
       "productionDisposition": "NON_PRODUCTION_REFERENCE",
       "geometry": {
@@ -19,6 +19,23 @@
         "data/modeling/reference/baker-canonical-snapshot.geojson",
         "data/modeling/building-specs/baker-hall.v0.1.json"
       ]
+    },
+    {
+      "id": "asset:kit-prototype:awning_green-metal-baker-a",
+      "kind": "architecture-kit-dimension-prototype",
+      "file": "assets/uplb-kit/prototypes/awning_green-metal-baker-a.obj",
+      "sha256": "sha256:9ae23fa7af294243b16879c09a71773c09729def4a45a7bfd07a4993abc95283",
+      "rights": "project-generated",
+      "productionDisposition": "NON_PRODUCTION_REFERENCE",
+      "geometry": {
+        "vertices": 8,
+        "faces": 6,
+        "triangleEquivalent": 12
+      },
+      "sourceEvidence": [
+        "data/modeling/architecture-kit-v0.1.json"
+      ],
+      "notes": "Stable source component is represented by prototype filename 'awning:green-metal-baker-a'; visual design is unverified."
     },
     {
       "id": "asset:kit-prototype:bench_campus-a",
@@ -72,6 +89,23 @@
       "notes": "Stable source component is represented by prototype filename 'column:concrete-round-a'; visual design is unverified."
     },
     {
+      "id": "asset:kit-prototype:column_concrete-round-baker-a",
+      "kind": "architecture-kit-dimension-prototype",
+      "file": "assets/uplb-kit/prototypes/column_concrete-round-baker-a.obj",
+      "sha256": "sha256:b967dc9593e33c305084c365e51896291834537873c6f478763f694b502dd41c",
+      "rights": "project-generated",
+      "productionDisposition": "NON_PRODUCTION_REFERENCE",
+      "geometry": {
+        "vertices": 24,
+        "faces": 14,
+        "triangleEquivalent": 44
+      },
+      "sourceEvidence": [
+        "data/modeling/architecture-kit-v0.1.json"
+      ],
+      "notes": "Stable source component is represented by prototype filename 'column:concrete-round-baker-a'; visual design is unverified."
+    },
+    {
       "id": "asset:kit-prototype:column_concrete-square-a",
       "kind": "architecture-kit-dimension-prototype",
       "file": "assets/uplb-kit/prototypes/column_concrete-square-a.obj",
@@ -87,6 +121,40 @@
         "data/modeling/architecture-kit-v0.1.json"
       ],
       "notes": "Stable source component is represented by prototype filename 'column:concrete-square-a'; visual design is unverified."
+    },
+    {
+      "id": "asset:kit-prototype:column_concrete-square-baker-a",
+      "kind": "architecture-kit-dimension-prototype",
+      "file": "assets/uplb-kit/prototypes/column_concrete-square-baker-a.obj",
+      "sha256": "sha256:47c59926bc3e26b12066285e743128357c4d77a32ae7b36cb99e09c9ac5baca1",
+      "rights": "project-generated",
+      "productionDisposition": "NON_PRODUCTION_REFERENCE",
+      "geometry": {
+        "vertices": 8,
+        "faces": 6,
+        "triangleEquivalent": 12
+      },
+      "sourceEvidence": [
+        "data/modeling/architecture-kit-v0.1.json"
+      ],
+      "notes": "Stable source component is represented by prototype filename 'column:concrete-square-baker-a'; visual design is unverified."
+    },
+    {
+      "id": "asset:kit-prototype:door_historic-baker-panel-a",
+      "kind": "architecture-kit-dimension-prototype",
+      "file": "assets/uplb-kit/prototypes/door_historic-baker-panel-a.obj",
+      "sha256": "sha256:d52a5526f912145495ce0c8d50e56443db6ac96c7bd9d4fb9a5669cefafc495d",
+      "rights": "project-generated",
+      "productionDisposition": "NON_PRODUCTION_REFERENCE",
+      "geometry": {
+        "vertices": 8,
+        "faces": 6,
+        "triangleEquivalent": 12
+      },
+      "sourceEvidence": [
+        "data/modeling/architecture-kit-v0.1.json"
+      ],
+      "notes": "Stable source component is represented by prototype filename 'door:historic-baker-panel-a'; visual design is unverified."
     },
     {
       "id": "asset:kit-prototype:shade_horizontal-deep-a",
@@ -121,6 +189,23 @@
         "data/modeling/architecture-kit-v0.1.json"
       ],
       "notes": "Stable source component is represented by prototype filename 'utility:box-a'; visual design is unverified."
+    },
+    {
+      "id": "asset:kit-prototype:window_historic-baker-panel-a",
+      "kind": "architecture-kit-dimension-prototype",
+      "file": "assets/uplb-kit/prototypes/window_historic-baker-panel-a.obj",
+      "sha256": "sha256:350e7500cceb8a26efe1e4aedc21b08c0afc658728f93f0655411198f371a4da",
+      "rights": "project-generated",
+      "productionDisposition": "NON_PRODUCTION_REFERENCE",
+      "geometry": {
+        "vertices": 8,
+        "faces": 6,
+        "triangleEquivalent": 12
+      },
+      "sourceEvidence": [
+        "data/modeling/architecture-kit-v0.1.json"
+      ],
+      "notes": "Stable source component is represented by prototype filename 'window:historic-baker-panel-a'; visual design is unverified."
     },
     {
       "id": "asset:kit-prototype:window_jalousie-a",

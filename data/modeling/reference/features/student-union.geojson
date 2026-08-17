@@ -1,0 +1,131 @@
+{
+  "type": "Feature",
+  "id": "candidate:osm:way/37450035",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          121.2410705,
+          14.163658
+        ],
+        [
+          121.2409507,
+          14.1634623
+        ],
+        [
+          121.2410164,
+          14.163425
+        ],
+        [
+          121.2410793,
+          14.1633862
+        ],
+        [
+          121.2411187,
+          14.163358
+        ],
+        [
+          121.2411562,
+          14.1633279
+        ],
+        [
+          121.2412252,
+          14.1632704
+        ],
+        [
+          121.2412811,
+          14.1632139
+        ],
+        [
+          121.2413511,
+          14.1631416
+        ],
+        [
+          121.2414003,
+          14.1630781
+        ],
+        [
+          121.2414486,
+          14.1630059
+        ],
+        [
+          121.241506,
+          14.162908
+        ],
+        [
+          121.2417182,
+          14.1630105
+        ],
+        [
+          121.241696,
+          14.1630729
+        ],
+        [
+          121.2416632,
+          14.1631347
+        ],
+        [
+          121.241625,
+          14.1631968
+        ],
+        [
+          121.2415512,
+          14.1632924
+        ],
+        [
+          121.2415016,
+          14.1633512
+        ],
+        [
+          121.2414542,
+          14.1634004
+        ],
+        [
+          121.2413901,
+          14.1634602
+        ],
+        [
+          121.2413198,
+          14.163517
+        ],
+        [
+          121.241247,
+          14.1635657
+        ],
+        [
+          121.2411661,
+          14.1636111
+        ],
+        [
+          121.2410705,
+          14.163658
+        ]
+      ]
+    ]
+  },
+  "properties": {
+    "name": "Student Union Building",
+    "aliases": [
+      "UPLB SU",
+      "UPLB Student Union"
+    ],
+    "sourceLifecycle": "candidate",
+    "source": "vertical-slice-v0.1 reviewed/context selection",
+    "sourceGeometryHash": "sha256:a0ddd149d34ce9e30b8afb3dd7ece46752364c95920af764d1b05cd87d56b08d",
+    "attributes": {
+      "building": "university",
+      "building:levels": "3",
+      "building:material": "glass, concrete",
+      "building:underground": "1",
+      "roof:material": "eternit"
+    },
+    "verification": {
+      "footprint": "source-supported",
+      "height": "source-supported-level-count",
+      "identity": "candidate",
+      "position": "source-supported"
+    },
+    "snapshotPolicy": "Evidence snapshot only. This file does not promote candidate identity to canonical truth."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "degenerateFaceCount": 0,
+  "duplicatePartNames": false,
+  "faceCount": 197,
+  "featureId": "uplb:building:cas-annex-2",
+  "identityStatus": "proposed-candidate",
+  "invalidFaceIndexCount": 0,
+  "nonFiniteVertexCount": 0,
+  "partCount": 27,
+  "sourceFeatureId": "candidate:osm:way/486667196",
+  "status": "pass",
+  "triangleBudget": 45000,
+  "triangleBudgetGate": "pass",
+  "triangleEquivalent": 368,
+  "vertexCount": 238
+}

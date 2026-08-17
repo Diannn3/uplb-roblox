@@ -1,0 +1,16 @@
+{
+  "degenerateFaceCount": 0,
+  "duplicatePartNames": false,
+  "faceCount": 80,
+  "featureId": "uplb:building:dl-umali-hall",
+  "identityStatus": "reviewed-candidate",
+  "invalidFaceIndexCount": 0,
+  "nonFiniteVertexCount": 0,
+  "partCount": 12,
+  "sourceFeatureId": "candidate:osm:way/33541381",
+  "status": "pass",
+  "triangleBudget": 100000,
+  "triangleBudgetGate": "pass",
+  "triangleEquivalent": 152,
+  "vertexCount": 100
+}

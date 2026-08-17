@@ -1,0 +1,16 @@
+{
+  "degenerateFaceCount": 0,
+  "duplicatePartNames": false,
+  "faceCount": 419,
+  "featureId": "uplb:building:student-union",
+  "identityStatus": "proposed-candidate",
+  "invalidFaceIndexCount": 0,
+  "nonFiniteVertexCount": 0,
+  "partCount": 60,
+  "sourceFeatureId": "candidate:osm:way/37450035",
+  "status": "pass",
+  "triangleBudget": 45000,
+  "triangleBudgetGate": "pass",
+  "triangleEquivalent": 796,
+  "vertexCount": 518
+}

@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "uplb-reference-building-production-spec-v0.1",
+  "sourceFeatureId": "candidate:osm:way/486667196",
+  "proposedFeatureId": "uplb:building:cas-annex-2",
+  "name": "CAS Annex 2",
+  "productionTier": "standard-exterior",
+  "identityStatus": "proposed-candidate",
+  "architecturalFamily": "uplb-concrete-academic-late20c",
+  "referenceIds": [
+    "source:legacy:uplb-virtual-campus-2014",
+    "source:reference:arcgis-uplb-memoirs"
+  ],
+  "featureSnapshot": "data/modeling/reference/features/cas-annex-2.geojson",
+  "referenceProfile": "data/modeling/reference/cas-annex-2.reference-profile.json",
+  "height": {
+    "meters": 7.2,
+    "method": "2 source-supported levels × provisional 3.6 m family floor height.",
+    "confidence": "medium"
+  },
+  "facade": {
+    "preset": "academic-banded",
+    "frontEdgePolicy": "longest-edge-proxy",
+    "confidence": "low-medium-proxy",
+    "bayCount": 6,
+    "panelHeightM": 1.35,
+    "panelWidthRatio": 0.72,
+    "panelDepthM": 0.08,
+    "supportWidthM": 0.24,
+    "bandDepthM": 0.18
+  },
+  "roof": {
+    "sourceShape": "hipped",
+    "geometryPolicy": "deferred-known-shape",
+    "confidence": "source-supported-shape/geometry-unresolved"
+  },
+  "materials": [
+    "concrete-painted",
+    "painted-metal-glass"
+  ],
+  "accuracyClaims": {
+    "footprint": "source-supported project snapshot",
+    "identity": "production handle only; no canonical promotion",
+    "height": "medium",
+    "facade": "reference/source-tag-informed proxy only",
+    "frontFacadeOrientation": "longest-edge proxy, not surveyed",
+    "roof": "source-supported-shape/geometry-unresolved",
+    "interior": "not modeled"
+  },
+  "openQuestions": [
+    "Recover 2014 model",
+    "Current facade bay pattern",
+    "Exact hipped-roof geometry",
+    "Side/rear modifications"
+  ]
+}

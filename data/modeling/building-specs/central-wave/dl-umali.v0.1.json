@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "uplb-reference-building-production-spec-v0.1",
+  "sourceFeatureId": "candidate:osm:way/33541381",
+  "proposedFeatureId": "uplb:building:dl-umali-hall",
+  "name": "Dioscoro L. Umali Hall",
+  "productionTier": "hero-exterior",
+  "identityStatus": "reviewed-candidate",
+  "architecturalFamily": "uplb-auditorium",
+  "referenceIds": [
+    "source:legacy:uplb-virtual-campus-2014",
+    "source:image:commons-dl-umali-2017",
+    "source:reference:arcgis-uplb-memoirs"
+  ],
+  "featureSnapshot": "data/modeling/reference/features/dl-umali.geojson",
+  "referenceProfile": "data/modeling/reference/dl-umali.reference-profile.json",
+  "height": {
+    "meters": 9.0,
+    "method": "Auditorium-specific placeholder: OSM level count=1 is not treated as ordinary classroom-storey height.",
+    "confidence": "provisional"
+  },
+  "facade": {
+    "preset": "auditorium-frame",
+    "frontEdgePolicy": "longest-edge-proxy",
+    "confidence": "medium-visual/provisional-edge",
+    "bayCount": 5,
+    "panelHeightM": 6.4,
+    "panelWidthRatio": 0.72,
+    "panelDepthM": 0.12,
+    "supportWidthM": 0.42,
+    "bandDepthM": 0.2
+  },
+  "roof": {
+    "sourceShape": "flat",
+    "geometryPolicy": "none-flat",
+    "confidence": "source-supported-shape"
+  },
+  "materials": [
+    "concrete-painted",
+    "painted-metal-glass"
+  ],
+  "accuracyClaims": {
+    "footprint": "source-supported project snapshot",
+    "identity": "production handle only; no canonical promotion",
+    "height": "provisional",
+    "facade": "reference/source-tag-informed proxy only",
+    "frontFacadeOrientation": "longest-edge proxy, not surveyed",
+    "roof": "source-supported-shape",
+    "interior": "not modeled"
+  },
+  "openQuestions": [
+    "Exact auditorium height",
+    "Exact Locsin facade proportions/openings",
+    "Side/rear elevation details",
+    "Current additions and mechanical equipment"
+  ]
+}

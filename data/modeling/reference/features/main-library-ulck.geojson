@@ -1,0 +1,72 @@
+{
+  "type": "Feature",
+  "id": "candidate:osm:way/1098780830",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          121.2395023,
+          14.1631069
+        ],
+        [
+          121.2396487,
+          14.1627595
+        ],
+        [
+          121.2397391,
+          14.1625452
+        ],
+        [
+          121.2401979,
+          14.162727
+        ],
+        [
+          121.2400663,
+          14.1630392
+        ],
+        [
+          121.239961,
+          14.1632887
+        ],
+        [
+          121.2398509,
+          14.1632457
+        ],
+        [
+          121.2397789,
+          14.1632175
+        ],
+        [
+          121.2397141,
+          14.1631916
+        ],
+        [
+          121.2395023,
+          14.1631069
+        ]
+      ]
+    ]
+  },
+  "properties": {
+    "name": "University Library and Knowledge Center",
+    "aliases": [
+      "ULKC",
+      "Main Library"
+    ],
+    "sourceLifecycle": "candidate",
+    "source": "vertical-slice-v0.1 reviewed/context selection",
+    "sourceGeometryHash": "sha256:dc7ab6437576d75d964a4e3cf8eb28ec410a0d81aaedeff1831c95a50af2a76c",
+    "attributes": {
+      "building": "construction",
+      "layer": "1"
+    },
+    "verification": {
+      "footprint": "source-supported",
+      "identity": "human-reviewed",
+      "position": "human-reviewed",
+      "height": "unknown"
+    },
+    "snapshotPolicy": "Evidence snapshot only. This file does not promote candidate identity to canonical truth."
+  }
+}

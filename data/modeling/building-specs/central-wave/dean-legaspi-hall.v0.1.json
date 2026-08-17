@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "uplb-reference-building-production-spec-v0.1",
+  "sourceFeatureId": "candidate:osm:way/33541786",
+  "proposedFeatureId": "uplb:building:dean-edelwina-legaspi-hall",
+  "name": "Dean Edelwina C. Legaspi Hall",
+  "productionTier": "standard-exterior",
+  "identityStatus": "proposed-candidate",
+  "architecturalFamily": "uplb-concrete-academic-midcentury",
+  "referenceIds": [
+    "source:reference:arcgis-uplb-memoirs",
+    "source:osmwiki:uplb-mapping"
+  ],
+  "featureSnapshot": "data/modeling/reference/features/dean-legaspi-hall.geojson",
+  "referenceProfile": "data/modeling/reference/dean-legaspi-hall.reference-profile.json",
+  "height": {
+    "meters": 9.0,
+    "method": "2.5 source-supported levels × provisional 3.6 m family floor height.",
+    "confidence": "medium"
+  },
+  "facade": {
+    "preset": "academic-banded",
+    "frontEdgePolicy": "longest-edge-proxy",
+    "confidence": "low-proxy",
+    "bayCount": 5,
+    "panelHeightM": 1.35,
+    "panelWidthRatio": 0.7,
+    "panelDepthM": 0.08,
+    "supportWidthM": 0.24,
+    "bandDepthM": 0.18
+  },
+  "roof": {
+    "sourceShape": null,
+    "geometryPolicy": "deferred-unknown",
+    "confidence": "unknown"
+  },
+  "materials": [
+    "concrete-painted",
+    "painted-metal-glass"
+  ],
+  "accuracyClaims": {
+    "footprint": "source-supported project snapshot",
+    "identity": "production handle only; no canonical promotion",
+    "height": "medium",
+    "facade": "reference/source-tag-informed proxy only",
+    "frontFacadeOrientation": "longest-edge proxy, not surveyed",
+    "roof": "unknown",
+    "interior": "not modeled"
+  },
+  "openQuestions": [
+    "Current architectural family/facade evidence",
+    "Roof geometry",
+    "Which historical modifications are still extant",
+    "Canonical identity review"
+  ]
+}

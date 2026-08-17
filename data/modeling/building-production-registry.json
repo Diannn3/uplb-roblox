@@ -22,14 +22,19 @@
       "sourceIds": [
         "source:legacy:uplb-virtual-campus-2014",
         "source:image:commons-baker-2017",
-        "source:image:commons-baker-2023"
+        "source:image:commons-baker-2023",
+        "source:index:commons-baker-category",
+        "source:uplb:baker-landscape-thesis-1994",
+        "source:uplb:baker-conservation-dissertation-2017"
       ],
-      "status": "prototype-ready",
+      "status": "reference-ready",
       "openQuestions": [
         "Can the 2014 model be recovered?",
-        "Can historical/architectural elevations be obtained?",
-        "Verify current roof geometry/material and all facade bays."
-      ]
+        "Can historical/architectural elevations or the 1994 Baker complex thesis be consulted?",
+        "Verify surveyed height, portico dimensions, roof ridge/eaves, rear/side elevations, and current additions."
+      ],
+      "currentSpec": "data/modeling/building-specs/baker-hall.v0.2.json",
+      "productionStage": "reference-derived-v0.2-ready"
     },
     {
       "id": "production:oblation",
@@ -61,9 +66,10 @@
       "architecturalFamily": "uplb-concrete-academic-midcentury",
       "sourceIds": [
         "source:scan:sketchfab-physci-2025",
-        "source:legacy:uplb-virtual-campus-2014"
+        "source:legacy:uplb-virtual-campus-2014",
+        "source:index:commons-uplb-buildings"
       ],
-      "status": "source-recovery",
+      "status": "reference-ready",
       "openQuestions": [
         "Canonical identity/binding must be reviewed.",
         "Can scan or 2014 model be recovered/licensed?"
@@ -80,9 +86,11 @@
       "architecturalFamily": "uplb-concrete-academic-midcentury",
       "sourceIds": [
         "source:legacy:uplb-virtual-campus-2014",
-        "source:uplb:main-library-pushover-2016"
+        "source:uplb:main-library-pushover-2016",
+        "source:image:commons-bienvenido-gonzales-2023",
+        "source:index:commons-uplb-buildings"
       ],
-      "status": "source-recovery",
+      "status": "reference-ready",
       "knownFacts": {
         "storeys": 4,
         "structuralSystem": "reinforced-concrete",
@@ -103,9 +111,11 @@
       "fallbackStrategy": "custom-hero",
       "architecturalFamily": "uplb-auditorium",
       "sourceIds": [
-        "source:legacy:uplb-virtual-campus-2014"
+        "source:legacy:uplb-virtual-campus-2014",
+        "source:image:commons-dl-umali-2017",
+        "source:reference:arcgis-uplb-memoirs"
       ],
-      "status": "source-recovery",
+      "status": "reference-ready",
       "openQuestions": [
         "Canonical binding review.",
         "Recover 2014 model or build a fresh reference pack."
@@ -122,7 +132,10 @@
       "architecturalFamily": "uplb-concrete-academic-midcentury",
       "sourceIds": [
         "source:legacy:uplb-virtual-campus-2014",
-        "source:uplb:seismic-audit-2021"
+        "source:uplb:seismic-audit-2021",
+        "source:image:commons-ibs-2009",
+        "source:osm-derived:ibs-way-136462397",
+        "source:reference:arcgis-uplb-memoirs"
       ],
       "status": "source-recovery",
       "openQuestions": [
@@ -157,9 +170,10 @@
       "fallbackStrategy": "procedural-accurate",
       "architecturalFamily": "uplb-concrete-academic-late20c",
       "sourceIds": [
-        "source:legacy:uplb-virtual-campus-2014"
+        "source:legacy:uplb-virtual-campus-2014",
+        "source:reference:arcgis-uplb-memoirs"
       ],
-      "status": "source-recovery",
+      "status": "reference-ready",
       "openQuestions": [
         "Canonical identity/binding review."
       ]
@@ -175,9 +189,11 @@
       "architecturalFamily": "uplb-concrete-academic-late20c",
       "sourceIds": [
         "source:legacy:uplb-virtual-campus-2014",
-        "source:news:cinterlabs-2014"
+        "source:news:cinterlabs-2014",
+        "source:image:commons-student-union-2023",
+        "source:reference:arcgis-uplb-memoirs"
       ],
-      "status": "source-recovery",
+      "status": "reference-ready",
       "openQuestions": [
         "Canonical identity/binding review."
       ]
@@ -192,7 +208,8 @@
       "fallbackStrategy": "procedural-accurate",
       "architecturalFamily": "uplb-concrete-academic-late20c",
       "sourceIds": [
-        "source:legacy:uplb-virtual-campus-2014"
+        "source:legacy:uplb-virtual-campus-2014",
+        "source:reference:arcgis-uplb-memoirs"
       ],
       "status": "source-recovery",
       "openQuestions": [
@@ -209,7 +226,9 @@
       "fallbackStrategy": "procedural-accurate",
       "architecturalFamily": "uplb-concrete-academic-late20c",
       "sourceIds": [
-        "source:legacy:uplb-virtual-campus-2014"
+        "source:legacy:uplb-virtual-campus-2014",
+        "source:osm-derived:cem-way-139810623",
+        "source:reference:arcgis-uplb-memoirs"
       ],
       "status": "source-recovery",
       "openQuestions": [
@@ -289,6 +308,29 @@
       "status": "greybox-validated",
       "openQuestions": [
         "Map lawn/edge/major-tree zones and permanent fixtures separately from the landmark point."
+      ]
+    },
+    {
+      "id": "production:dean-legaspi-hall",
+      "proposedFeatureId": "uplb:building:dean-edelwina-legaspi-hall",
+      "name": "Dean Edelwina C. Legaspi Hall",
+      "priority": "B",
+      "productionTier": "standard-exterior",
+      "primaryStrategy": "procedural-accurate",
+      "fallbackStrategy": "photogrammetry",
+      "architecturalFamily": "uplb-concrete-academic-midcentury",
+      "sourceIds": [
+        "source:reference:arcgis-uplb-memoirs",
+        "source:osmwiki:uplb-mapping"
+      ],
+      "status": "reference-ready",
+      "knownFacts": {
+        "sourceCandidate": "candidate:osm:way/33541786",
+        "levels": 2.5
+      },
+      "openQuestions": [
+        "Canonical identity/binding review.",
+        "Verify current facade/roof and whether historical former-library/post-office elements remain visible."
       ]
     }
   ]

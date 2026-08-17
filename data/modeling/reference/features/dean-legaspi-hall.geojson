@@ -1,0 +1,100 @@
+{
+  "type": "Feature",
+  "id": "candidate:osm:way/33541786",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          121.2412458,
+          14.1645814
+        ],
+        [
+          121.241481,
+          14.1647018
+        ],
+        [
+          121.2414044,
+          14.1648426
+        ],
+        [
+          121.2413713,
+          14.1648257
+        ],
+        [
+          121.2413416,
+          14.1648804
+        ],
+        [
+          121.2413067,
+          14.1649444
+        ],
+        [
+          121.2413336,
+          14.1649581
+        ],
+        [
+          121.2412574,
+          14.1650981
+        ],
+        [
+          121.2410286,
+          14.164981
+        ],
+        [
+          121.2410649,
+          14.1649144
+        ],
+        [
+          121.241117,
+          14.1648187
+        ],
+        [
+          121.2411733,
+          14.1648475
+        ],
+        [
+          121.2412238,
+          14.1647546
+        ],
+        [
+          121.2411673,
+          14.1647256
+        ],
+        [
+          121.2412051,
+          14.1646561
+        ],
+        [
+          121.2412458,
+          14.1645814
+        ]
+      ]
+    ]
+  },
+  "properties": {
+    "name": "Dean Edelwina C. Legaspi Hall",
+    "aliases": [
+      "DECL Hall",
+      "College of Arts and Sciences Building",
+      "CAS Building",
+      "Humanities Building",
+      "Former UPLB Main Library",
+      "Former UPLB Post Office"
+    ],
+    "sourceLifecycle": "candidate",
+    "source": "vertical-slice-v0.1 reviewed/context selection",
+    "sourceGeometryHash": "sha256:unknown-project-snapshot-not-promoted",
+    "attributes": {
+      "building": "yes",
+      "building:levels": "2.5"
+    },
+    "verification": {
+      "footprint": "source-supported",
+      "height": "source-supported-level-count",
+      "identity": "candidate",
+      "position": "source-supported"
+    },
+    "snapshotPolicy": "Evidence snapshot only. This file does not promote candidate identity to canonical truth."
+  }
+}

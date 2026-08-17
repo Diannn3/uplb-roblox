@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "uplb-building-reference-profile-v0.1",
+  "featureId": "uplb:building:dl-umali-hall",
+  "buildingName": "Dioscoro L. Umali Hall",
+  "generatedAt": "2026-08-17",
+  "policy": {
+    "photoBinaryPolicy": "No third-party photo binaries are committed by this reference-profile layer.",
+    "geometryPolicy": "Use pinned project footprint snapshots for massing; visual references only justify broad morphology explicitly listed in observations.",
+    "identityPolicy": "Proposed UPLB IDs are production handles only and do not promote source candidates to canonical identity.",
+    "finalAccuracyPolicy": "No output from this layer is survey-grade or final architectural truth."
+  },
+  "sources": [
+    {
+      "id": "source:legacy:uplb-virtual-campus-2014",
+      "kind": "legacy-project-evidence",
+      "title": "Design, Implementation, and Evaluation of a 3D Virtual Classroom Environment in a Computer Cluster",
+      "url": "https://id.scribd.com/document/990184030/ISCE2014-Proceedings-FINAL3",
+      "rightsStatus": "reference-only",
+      "reuseStatus": "permission-required-for-original-model-files"
+    },
+    {
+      "id": "source:image:commons-dl-umali-2017",
+      "kind": "licensed-photography",
+      "title": "UPLB Umali Auditorium (2017)",
+      "url": "https://commons.wikimedia.org/wiki/File:University_of_the_Philippines_(UPLB)_-_Umali_Auditorium_(Los_Ba%C3%B1os,_Laguna;_2017-02-16).jpg",
+      "rightsStatus": "CC-BY-SA-4.0",
+      "reuseStatus": "visual-reference-open-license-no-binary-ingest"
+    },
+    {
+      "id": "source:reference:arcgis-uplb-memoirs",
+      "kind": "visual-reference-index",
+      "title": "Memoirs of UPLB Students StoryMap",
+      "url": "https://storymaps.arcgis.com/stories/33e475de3ce6496fa3b8aa56471795b6",
+      "rightsStatus": "reference-index-rights-per-item",
+      "reuseStatus": "reference-only"
+    }
+  ],
+  "evidenceGroups": {
+    "registeredEvidence": [
+      "source:legacy:uplb-virtual-campus-2014",
+      "source:image:commons-dl-umali-2017",
+      "source:reference:arcgis-uplb-memoirs"
+    ]
+  },
+  "observations": [
+    {
+      "id": "obs:single-auditorium-volume",
+      "feature": "Source tags record one building level but theatre/auditorium volume cannot safely be reduced to a normal 1-storey classroom height.",
+      "confidence": "high-source-interpretation",
+      "evidenceIds": [
+        "source:legacy:uplb-virtual-campus-2014",
+        "source:image:commons-dl-umali-2017",
+        "source:reference:arcgis-uplb-memoirs"
+      ],
+      "implementation": "Use an explicitly provisional tall auditorium body height until recovered model/measurement."
+    },
+    {
+      "id": "obs:flat-roof-tag",
+      "feature": "Current project snapshot records roof:shape=flat.",
+      "confidence": "high-source",
+      "evidenceIds": [
+        "source:legacy:uplb-virtual-campus-2014",
+        "source:image:commons-dl-umali-2017",
+        "source:reference:arcgis-uplb-memoirs"
+      ],
+      "implementation": "Do not add speculative gable/hip geometry."
+    },
+    {
+      "id": "obs:concrete-theatre",
+      "feature": "Project snapshot records concrete material and theatre amenity.",
+      "confidence": "high-source",
+      "evidenceIds": [
+        "source:legacy:uplb-virtual-campus-2014",
+        "source:image:commons-dl-umali-2017",
+        "source:reference:arcgis-uplb-memoirs"
+      ],
+      "implementation": "Use concrete auditorium diagnostic material family."
+    }
+  ],
+  "unresolved": [
+    "Exact auditorium height",
+    "Exact Locsin facade proportions/openings",
+    "Side/rear elevation details",
+    "Current additions and mechanical equipment"
+  ]
+}

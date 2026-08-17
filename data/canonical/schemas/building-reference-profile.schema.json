@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UPLB Building Reference Profile",
+  "type": "object",
+  "required": ["schemaVersion", "featureId", "buildingName", "policy", "sources", "evidenceGroups", "observations", "unresolved"],
+  "properties": {
+    "schemaVersion": {"const": "uplb-building-reference-profile-v0.1"},
+    "featureId": {"type": "string", "pattern": "^uplb:"},
+    "buildingName": {"type": "string", "minLength": 1},
+    "generatedAt": {"type": "string"},
+    "policy": {"type": "object"},
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "title", "rightsStatus"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "kind": {"type": "string", "minLength": 1},
+          "title": {"type": "string", "minLength": 1},
+          "rightsStatus": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": true
+      }
+    },
+    "evidenceGroups": {"type": "object"},
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "feature", "confidence", "evidenceIds", "implementation"],
+        "properties": {
+          "id": {"type": "string"},
+          "feature": {"type": "string"},
+          "confidence": {"type": "string"},
+          "evidenceIds": {"type": "array", "items": {"type": "string"}},
+          "implementation": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "unresolved": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

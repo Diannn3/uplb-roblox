@@ -1,0 +1,101 @@
+{
+  "type": "Feature",
+  "id": "candidate:osm:way/486667196",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          121.2415053,
+          14.1656292
+        ],
+        [
+          121.2415093,
+          14.1656217
+        ],
+        [
+          121.2415544,
+          14.1655371
+        ],
+        [
+          121.2415689,
+          14.1655098
+        ],
+        [
+          121.2417691,
+          14.1656101
+        ],
+        [
+          121.241802,
+          14.1656266
+        ],
+        [
+          121.2418503,
+          14.1656508
+        ],
+        [
+          121.2420502,
+          14.165751
+        ],
+        [
+          121.2419938,
+          14.1658568
+        ],
+        [
+          121.2419871,
+          14.1658694
+        ],
+        [
+          121.2417988,
+          14.165775
+        ],
+        [
+          121.2417504,
+          14.1658657
+        ],
+        [
+          121.2416358,
+          14.1658083
+        ],
+        [
+          121.2416836,
+          14.1657185
+        ],
+        [
+          121.2416604,
+          14.1657069
+        ],
+        [
+          121.2415053,
+          14.1656292
+        ]
+      ]
+    ]
+  },
+  "properties": {
+    "name": "CAS Annex 2",
+    "aliases": [
+      "Old Chemistry Building",
+      "CAS A2",
+      "CASA2"
+    ],
+    "sourceLifecycle": "candidate",
+    "source": "vertical-slice-v0.1 reviewed/context selection",
+    "sourceGeometryHash": "sha256:d75afd8684bfcb2e074d660c3465ab52a50f1c7dac2c37362e29f43c2e351ddd",
+    "attributes": {
+      "building": "yes",
+      "building:levels": "2",
+      "building:material": "concrete",
+      "building:underground": "1",
+      "roof:material": "eternit",
+      "roof:shape": "hipped"
+    },
+    "verification": {
+      "footprint": "source-supported",
+      "height": "source-supported-level-count",
+      "identity": "candidate",
+      "position": "source-supported"
+    },
+    "snapshotPolicy": "Evidence snapshot only. This file does not promote candidate identity to canonical truth."
+  }
+}

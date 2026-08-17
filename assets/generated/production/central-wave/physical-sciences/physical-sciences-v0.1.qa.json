@@ -1,0 +1,16 @@
+{
+  "degenerateFaceCount": 0,
+  "duplicatePartNames": false,
+  "faceCount": 626,
+  "featureId": "uplb:building:physical-sciences",
+  "identityStatus": "proposed-candidate",
+  "invalidFaceIndexCount": 0,
+  "nonFiniteVertexCount": 0,
+  "partCount": 89,
+  "sourceFeatureId": "candidate:osm:way/44076412",
+  "status": "pass",
+  "triangleBudget": 100000,
+  "triangleBudgetGate": "pass",
+  "triangleEquivalent": 1188,
+  "vertexCount": 772
+}

@@ -6,8 +6,8 @@ from pathlib import Path
 from typing import Iterable
 
 from pyproj import Transformer
+from shapely import constrained_delaunay_triangles
 from shapely.geometry import Polygon
-from shapely.ops import triangulate
 
 WGS84_TO_UTM51 = Transformer.from_crs("EPSG:4326", "EPSG:32651", always_xy=True)
 
@@ -71,10 +71,12 @@ def extrude_polygon(ring: Iterable[tuple[float, float]], height_m: float, base_z
         t0 = vertex_index(point, base_z + height_m, top)
         faces.append((b0, b1, t1, t0))
 
-    # Triangulate caps and retain only triangles whose representative point is inside the polygon.
-    for triangle in triangulate(polygon):
-        if not polygon.covers(triangle.representative_point()):
-            continue
+    # Shapely's unconstrained Delaunay triangulation can bridge concave
+    # boundaries.  Use the constrained triangulator so cap edges exactly reuse
+    # footprint boundary edges and the extrusion remains watertight even for
+    # irregular UPLB footprints such as Physical Sciences.
+    triangles = constrained_delaunay_triangles(polygon)
+    for triangle in triangles.geoms:
         coords = _open_ring(list(triangle.exterior.coords))
         bottom_face = tuple(vertex_index(point, base_z, bottom) for point in coords)
         top_face = tuple(vertex_index(point, base_z + height_m, top) for point in coords)
@@ -124,3 +126,132 @@ def write_obj(path: Path, mesh: MeshData, *, object_name: str, metadata_comments
         # OBJ is 1-indexed.
         lines.append("f " + " ".join(str(index+1) for index in face))
     path.write_text("\n".join(lines)+"\n",encoding="utf-8",newline="\n")
+
+
+def transform_mesh(
+    mesh: MeshData,
+    *,
+    basis_x: tuple[float, float, float] = (1.0, 0.0, 0.0),
+    basis_y: tuple[float, float, float] = (0.0, 1.0, 0.0),
+    basis_z: tuple[float, float, float] = (0.0, 0.0, 1.0),
+    translation: tuple[float, float, float] = (0.0, 0.0, 0.0),
+) -> MeshData:
+    """Apply a deterministic affine basis/translation transform to a mesh."""
+
+    tx, ty, tz = translation
+    bx, by, bz = basis_x, basis_y, basis_z
+    vertices = []
+    for x, y, z in mesh.vertices:
+        vertices.append(
+            (
+                tx + x * bx[0] + y * by[0] + z * bz[0],
+                ty + x * bx[1] + y * by[1] + z * bz[1],
+                tz + x * bx[2] + y * by[2] + z * bz[2],
+            )
+        )
+    return MeshData(tuple(vertices), mesh.faces)
+
+
+def merge_meshes(meshes: Iterable[MeshData]) -> MeshData:
+    vertices: list[tuple[float, float, float]] = []
+    faces: list[tuple[int, ...]] = []
+    for mesh in meshes:
+        offset = len(vertices)
+        vertices.extend(mesh.vertices)
+        faces.extend(tuple(index + offset for index in face) for face in mesh.faces)
+    return MeshData(tuple(vertices), tuple(faces))
+
+
+def mesh_bounds(mesh: MeshData) -> dict[str, tuple[float, float, float]]:
+    if not mesh.vertices:
+        raise ValueError("mesh has no vertices")
+    xs = [row[0] for row in mesh.vertices]
+    ys = [row[1] for row in mesh.vertices]
+    zs = [row[2] for row in mesh.vertices]
+    minimum = (min(xs), min(ys), min(zs))
+    maximum = (max(xs), max(ys), max(zs))
+    return {
+        "min": minimum,
+        "max": maximum,
+        "size": (maximum[0] - minimum[0], maximum[1] - minimum[1], maximum[2] - minimum[2]),
+    }
+
+
+def oriented_box_mesh(
+    width: float,
+    depth: float,
+    height: float,
+    *,
+    center: tuple[float, float, float],
+    tangent_xy: tuple[float, float],
+    outward_xy: tuple[float, float],
+) -> MeshData:
+    """Create a box whose local X follows a facade tangent and Y follows outward."""
+
+    tangent = (float(tangent_xy[0]), float(tangent_xy[1]), 0.0)
+    outward = (float(outward_xy[0]), float(outward_xy[1]), 0.0)
+    return transform_mesh(
+        box_mesh(width, depth, height),
+        basis_x=tangent,
+        basis_y=outward,
+        translation=center,
+    )
+
+
+def oriented_cylinder_mesh(
+    radius: float,
+    height: float,
+    *,
+    center: tuple[float, float, float],
+    tangent_xy: tuple[float, float],
+    outward_xy: tuple[float, float],
+    segments: int = 16,
+) -> MeshData:
+    tangent = (float(tangent_xy[0]), float(tangent_xy[1]), 0.0)
+    outward = (float(outward_xy[0]), float(outward_xy[1]), 0.0)
+    return transform_mesh(
+        cylinder_mesh(radius, height, segments),
+        basis_x=tangent,
+        basis_y=outward,
+        translation=center,
+    )
+
+
+def gable_prism_mesh(
+    width: float,
+    depth: float,
+    *,
+    eave_z: float,
+    ridge_z: float,
+    center_xy: tuple[float, float],
+    tangent_xy: tuple[float, float],
+    outward_xy: tuple[float, float],
+) -> MeshData:
+    """Closed low-poly gable prism, ridge running along local Y/depth."""
+
+    if min(width, depth) <= 0 or ridge_z <= eave_z:
+        raise ValueError("invalid gable prism arguments")
+    half_w, half_d = width / 2.0, depth / 2.0
+    local = MeshData(
+        (
+            (-half_w, -half_d, eave_z),
+            (half_w, -half_d, eave_z),
+            (0.0, -half_d, ridge_z),
+            (-half_w, half_d, eave_z),
+            (half_w, half_d, eave_z),
+            (0.0, half_d, ridge_z),
+        ),
+        (
+            (0, 2, 1),
+            (3, 4, 5),
+            (0, 3, 5, 2),
+            (2, 5, 4, 1),
+            (0, 1, 4, 3),
+        ),
+    )
+    return transform_mesh(
+        local,
+        basis_x=(float(tangent_xy[0]), float(tangent_xy[1]), 0.0),
+        basis_y=(float(outward_xy[0]), float(outward_xy[1]), 0.0),
+        translation=(float(center_xy[0]), float(center_xy[1]), 0.0),
+    )

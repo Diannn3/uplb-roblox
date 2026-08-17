@@ -1,0 +1,16 @@
+{
+  "degenerateFaceCount": 0,
+  "duplicatePartNames": false,
+  "faceCount": 583,
+  "featureId": "uplb:building:baker-hall",
+  "identityStatus": "canonical",
+  "invalidFaceIndexCount": 0,
+  "nonFiniteVertexCount": 0,
+  "partCount": 86,
+  "sourceFeatureId": null,
+  "status": "pass",
+  "triangleBudget": 90000,
+  "triangleBudgetGate": "pass",
+  "triangleEquivalent": 1244,
+  "vertexCount": 794
+}

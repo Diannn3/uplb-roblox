@@ -1,0 +1,16 @@
+{
+  "degenerateFaceCount": 0,
+  "duplicatePartNames": false,
+  "faceCount": 191,
+  "featureId": "uplb:building:dean-edelwina-legaspi-hall",
+  "identityStatus": "proposed-candidate",
+  "invalidFaceIndexCount": 0,
+  "nonFiniteVertexCount": 0,
+  "partCount": 26,
+  "sourceFeatureId": "candidate:osm:way/33541786",
+  "status": "pass",
+  "triangleBudget": 45000,
+  "triangleBudgetGate": "pass",
+  "triangleEquivalent": 356,
+  "vertexCount": 230
+}

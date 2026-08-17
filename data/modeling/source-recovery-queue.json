@@ -130,6 +130,14 @@
       "rationale": "The 2014 UPLB project may contain blueprint-patterned source geometry."
     },
     {
+      "production_id": "production:dean-legaspi-hall",
+      "building_name": "Dean Edelwina C. Legaspi Hall",
+      "priority": "B",
+      "action": "build-reference-pack",
+      "source_id": null,
+      "rationale": "No recoverable 3D source is registered yet."
+    },
+    {
       "production_id": "production:uhs-main",
       "building_name": "UPLB University Health Services Main Building",
       "priority": "B",

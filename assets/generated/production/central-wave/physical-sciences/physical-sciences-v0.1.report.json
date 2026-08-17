@@ -1,0 +1,123 @@
+{
+  "accuracyClaims": {
+    "facade": "reference/source-tag-informed proxy only",
+    "footprint": "source-supported project snapshot",
+    "frontFacadeOrientation": "longest-edge proxy, not surveyed",
+    "height": "medium",
+    "identity": "production handle only; no canonical promotion",
+    "interior": "not modeled",
+    "roof": "source-supported-shape/geometry-unresolved"
+  },
+  "assembly": {
+    "boundsM": {
+      "max": [
+        40.7974,
+        58.76099,
+        10.8
+      ],
+      "min": [
+        -45.968878,
+        -50.34255,
+        0.0
+      ],
+      "size": [
+        86.766278,
+        109.10354,
+        10.8
+      ]
+    },
+    "confidenceCounts": {
+      "medium-proxy": 24,
+      "source-level-count/proxy-detail": 64,
+      "source-supported-footprint/medium-height": 1
+    },
+    "faceCount": 626,
+    "featureId": "uplb:building:physical-sciences",
+    "identityStatus": "proposed-candidate",
+    "partCount": 89,
+    "sourceFeatureId": "candidate:osm:way/44076412",
+    "triangleEquivalent": 1188,
+    "version": "physical-sciences.v0.1-reference-production",
+    "vertexCount": 772
+  },
+  "facade": {
+    "bandDepthM": 0.18,
+    "bayCount": 8,
+    "confidence": "medium-proxy",
+    "frontEdgePolicy": "longest-edge-proxy",
+    "panelDepthM": 0.08,
+    "panelHeightM": 1.45,
+    "panelWidthRatio": 0.72,
+    "preset": "academic-banded",
+    "supportWidthM": 0.26
+  },
+  "featureId": "uplb:building:physical-sciences",
+  "footprintAreaM2": 4734.463,
+  "frontFacadeProxy": {
+    "edgeIndex": 0,
+    "lengthM": 40.793,
+    "selectionMethod": "longest-edge-proxy; deterministic production orientation only, not surveyed entrance orientation"
+  },
+  "hardStops": [
+    "Do not treat proposedFeatureId as canonical identity promotion.",
+    "Do not call this a survey-accurate architectural reconstruction.",
+    "Do not infer interiors from exterior massing or photographs.",
+    "Replace proxy facade orientation/dimensions when recovered models, drawings, or measurements become available."
+  ],
+  "height": {
+    "confidence": "medium",
+    "meters": 10.8,
+    "method": "3 source-supported levels \u00d7 provisional 3.6 m family floor height."
+  },
+  "identityStatus": "proposed-candidate",
+  "inputs": {
+    "featureSnapshot": {
+      "path": "data/modeling/reference/features/physical-sciences.geojson",
+      "sha256": "sha256:f0a667cba465d7ff405f62aa02a0a6958d3f0d1dcc0818b38c92f94ea6f42940"
+    },
+    "referenceProfile": {
+      "path": "data/modeling/reference/physical-sciences.reference-profile.json",
+      "sha256": "sha256:9a80245a0dac5d04baa68124e876d81497a3419d02f2c599f45a75eb55188534"
+    },
+    "spec": {
+      "path": "data/modeling/building-specs/central-wave/physical-sciences.v0.1.json",
+      "sha256": "sha256:8030fafdfa186eea565724f7e26d25920553bf3bc14fa103ff2f620f4897958a"
+    }
+  },
+  "modelVersion": "physical-sciences.v0.1-reference-production",
+  "name": "Francisco O. Santos Hall / Physical Sciences",
+  "originUtm51": [
+    310265.38634,
+    1566603.684323
+  ],
+  "output": {
+    "objPath": "assets/generated/production/central-wave/physical-sciences/physical-sciences-v0.1.obj",
+    "objSha256": "sha256:746e1ed59ee60663cc6df0c500b47173cdbe99b6756f855f389a3ee84a11589a",
+    "qaPath": "assets/generated/production/central-wave/physical-sciences/physical-sciences-v0.1.qa.json",
+    "reportPath": "assets/generated/production/central-wave/physical-sciences/physical-sciences-v0.1.report.json"
+  },
+  "qa": {
+    "degenerateFaceCount": 0,
+    "duplicatePartNames": false,
+    "faceCount": 626,
+    "featureId": "uplb:building:physical-sciences",
+    "identityStatus": "proposed-candidate",
+    "invalidFaceIndexCount": 0,
+    "nonFiniteVertexCount": 0,
+    "partCount": 89,
+    "sourceFeatureId": "candidate:osm:way/44076412",
+    "status": "pass",
+    "triangleBudget": 100000,
+    "triangleBudgetGate": "pass",
+    "triangleEquivalent": 1188,
+    "vertexCount": 772
+  },
+  "roof": {
+    "confidence": "source-supported-shape/geometry-unresolved",
+    "geometryPolicy": "deferred-known-shape",
+    "sourceShape": "gabled"
+  },
+  "schemaVersion": "uplb-reference-building-production-report-v0.1",
+  "sourceFeatureId": "candidate:osm:way/44076412",
+  "status": "reference-derived-prototype"
+}

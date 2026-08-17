@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "uplb-modeling-source-gap-queue-v0.1",
+  "generatedAt": "2026-08-17",
+  "policy": "Do not generate architectural production geometry when the project lacks a pinned footprint or cannot distinguish current from historical building state.",
+  "readyOrGenerated": [
+    "uplb:building:baker-hall",
+    "uplb:building:dl-umali-hall",
+    "uplb:building:student-union",
+    "uplb:building:physical-sciences",
+    "uplb:building:university-library-knowledge-center",
+    "uplb:building:cas-annex-2",
+    "uplb:building:dean-edelwina-legaspi-hall"
+  ],
+  "gaps": [
+    {
+      "productionId": "production:oblation",
+      "priority": "A",
+      "blocker": "Existing high-density scan has no reuse permission recorded; canonical point exists but production sculpture geometry must not be invented from a point.",
+      "nextAction": "Request reusable source/permission from scan creator or create an authorized fresh capture/model. Keep pedestal/plaza measurements separate."
+    },
+    {
+      "productionId": "production:biological-sciences",
+      "priority": "A",
+      "knownLead": "OSM way 136462397 and CC BY-SA 4.0 IBS exterior photo",
+      "blocker": "Actual OSM polygon is not pinned in the current production workspace.",
+      "nextAction": "Acquire the way through the project geodata pipeline, freeze a candidate snapshot, then compile standard exterior."
+    },
+    {
+      "productionId": "production:cem",
+      "priority": "B",
+      "knownLead": "OSM way 139810623; UPLB Commons/StoryMap visual references",
+      "blocker": "Actual polygon and exact present-day complex identity are not pinned.",
+      "nextAction": "Acquire way/complex geometry and distinguish college amenity boundary from individual building footprint before modeling."
+    },
+    {
+      "productionId": "production:ceat",
+      "priority": "B",
+      "blocker": "CEAT is a complex rather than one safely resolved building in the current registry.",
+      "nextAction": "Inventory individual CEAT buildings/wings, pin each footprint, and bind the 2014 legacy 'CEAT Building' figure to the correct present-day structure before geometry generation."
+    },
+    {
+      "productionId": "production:cas-annex-1",
+      "priority": "B",
+      "blocker": "Legacy model lead exists but an exact current footprint snapshot has not been frozen in this production wave.",
+      "nextAction": "Pin current OSM/authorized footprint and then run the same evidence-aware academic-building compiler used for CAS Annex 2."
+    },
+    {
+      "productionId": "production:cdc",
+      "priority": "B",
+      "blocker": "2014 model lead exists; exact current footprint/state is not yet frozen for this wave.",
+      "nextAction": "Pin current footprint and collect licensed current facade references."
+    },
+    {
+      "productionId": "production:uplb-gate",
+      "priority": "A",
+      "blocker": "Landmark dimensions and current gate geometry are not pinned.",
+      "nextAction": "Create a landmark-specific measured/reference pack rather than treating the gate as a normal building extrusion."
+    }
+  ]
+}

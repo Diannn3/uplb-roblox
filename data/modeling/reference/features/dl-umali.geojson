@@ -1,0 +1,65 @@
+{
+  "type": "Feature",
+  "id": "candidate:osm:way/33541381",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          121.2403709,
+          14.1638068
+        ],
+        [
+          121.2403443,
+          14.1638582
+        ],
+        [
+          121.2401346,
+          14.1642815
+        ],
+        [
+          121.2398926,
+          14.1641767
+        ],
+        [
+          121.2401204,
+          14.1636822
+        ],
+        [
+          121.2402621,
+          14.1637527
+        ],
+        [
+          121.2403709,
+          14.1638068
+        ]
+      ]
+    ]
+  },
+  "properties": {
+    "name": "Dioscoro L. Umali Hall",
+    "aliases": [
+      "DL Umali Auditorium"
+    ],
+    "sourceLifecycle": "candidate",
+    "source": "vertical-slice-v0.1 reviewed/context selection",
+    "sourceGeometryHash": "sha256:6cfd4cae3fd9252015f40671dcd844be8e235b6b34d4d2a9e3cbe6afa2cf5ffe",
+    "attributes": {
+      "building": "yes",
+      "building:levels": "1",
+      "building:material": "concrete",
+      "building:underground": "1",
+      "amenity": "theatre",
+      "roof:material": "eternit",
+      "roof:shape": "flat",
+      "start_date": "1969"
+    },
+    "verification": {
+      "footprint": "source-supported",
+      "height": "source-supported-tag-but-volume-ambiguous",
+      "identity": "human-reviewed",
+      "position": "human-reviewed"
+    },
+    "snapshotPolicy": "Evidence snapshot only. This file does not promote candidate identity to canonical truth."
+  }
+}

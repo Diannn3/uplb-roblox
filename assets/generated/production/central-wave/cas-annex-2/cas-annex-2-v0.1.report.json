@@ -1,0 +1,123 @@
+{
+  "accuracyClaims": {
+    "facade": "reference/source-tag-informed proxy only",
+    "footprint": "source-supported project snapshot",
+    "frontFacadeOrientation": "longest-edge proxy, not surveyed",
+    "height": "medium",
+    "identity": "production handle only; no canonical promotion",
+    "interior": "not modeled",
+    "roof": "source-supported-shape/geometry-unresolved"
+  },
+  "assembly": {
+    "boundsM": {
+      "max": [
+        30.638901,
+        18.139628,
+        7.2
+      ],
+      "min": [
+        -28.502939,
+        -21.62063,
+        0.0
+      ],
+      "size": [
+        59.14184,
+        39.760258,
+        7.2
+      ]
+    },
+    "confidenceCounts": {
+      "low-medium-proxy": 12,
+      "source-level-count/proxy-detail": 14,
+      "source-supported-footprint/medium-height": 1
+    },
+    "faceCount": 197,
+    "featureId": "uplb:building:cas-annex-2",
+    "identityStatus": "proposed-candidate",
+    "partCount": 27,
+    "sourceFeatureId": "candidate:osm:way/486667196",
+    "triangleEquivalent": 368,
+    "version": "cas-annex-2.v0.1-reference-production",
+    "vertexCount": 238
+  },
+  "facade": {
+    "bandDepthM": 0.18,
+    "bayCount": 6,
+    "confidence": "low-medium-proxy",
+    "frontEdgePolicy": "longest-edge-proxy",
+    "panelDepthM": 0.08,
+    "panelHeightM": 1.35,
+    "panelWidthRatio": 0.72,
+    "preset": "academic-banded",
+    "supportWidthM": 0.24
+  },
+  "featureId": "uplb:building:cas-annex-2",
+  "footprintAreaM2": 1022.52,
+  "frontFacadeProxy": {
+    "edgeIndex": 3,
+    "lengthM": 24.296,
+    "selectionMethod": "longest-edge-proxy; deterministic production orientation only, not surveyed entrance orientation"
+  },
+  "hardStops": [
+    "Do not treat proposedFeatureId as canonical identity promotion.",
+    "Do not call this a survey-accurate architectural reconstruction.",
+    "Do not infer interiors from exterior massing or photographs.",
+    "Replace proxy facade orientation/dimensions when recovered models, drawings, or measurements become available."
+  ],
+  "height": {
+    "confidence": "medium",
+    "meters": 7.2,
+    "method": "2 source-supported levels \u00d7 provisional 3.6 m family floor height."
+  },
+  "identityStatus": "proposed-candidate",
+  "inputs": {
+    "featureSnapshot": {
+      "path": "data/modeling/reference/features/cas-annex-2.geojson",
+      "sha256": "sha256:30da3c73eca42540c4b6c5565c63d3523620f5c1a39ef65c1f0560ad0ecadbae"
+    },
+    "referenceProfile": {
+      "path": "data/modeling/reference/cas-annex-2.reference-profile.json",
+      "sha256": "sha256:62cf4651c1f3961c15a839e64160d62e9fbba7931da82a1b765fb20d9725e878"
+    },
+    "spec": {
+      "path": "data/modeling/building-specs/central-wave/cas-annex-2.v0.1.json",
+      "sha256": "sha256:9e2950c412102abb1eb214a5c8cc7b417abf2439cc808bf9c1f1a0cf20a3b2b5"
+    }
+  },
+  "modelVersion": "cas-annex-2.v0.1-reference-production",
+  "name": "CAS Annex 2",
+  "originUtm51": [
+    310237.624794,
+    1566765.325116
+  ],
+  "output": {
+    "objPath": "assets/generated/production/central-wave/cas-annex-2/cas-annex-2-v0.1.obj",
+    "objSha256": "sha256:f9a4450a0da870940243b78623231dae1544525c4db2ebecea7c103dc9ea1c36",
+    "qaPath": "assets/generated/production/central-wave/cas-annex-2/cas-annex-2-v0.1.qa.json",
+    "reportPath": "assets/generated/production/central-wave/cas-annex-2/cas-annex-2-v0.1.report.json"
+  },
+  "qa": {
+    "degenerateFaceCount": 0,
+    "duplicatePartNames": false,
+    "faceCount": 197,
+    "featureId": "uplb:building:cas-annex-2",
+    "identityStatus": "proposed-candidate",
+    "invalidFaceIndexCount": 0,
+    "nonFiniteVertexCount": 0,
+    "partCount": 27,
+    "sourceFeatureId": "candidate:osm:way/486667196",
+    "status": "pass",
+    "triangleBudget": 45000,
+    "triangleBudgetGate": "pass",
+    "triangleEquivalent": 368,
+    "vertexCount": 238
+  },
+  "roof": {
+    "confidence": "source-supported-shape/geometry-unresolved",
+    "geometryPolicy": "deferred-known-shape",
+    "sourceShape": "hipped"
+  },
+  "schemaVersion": "uplb-reference-building-production-report-v0.1",
+  "sourceFeatureId": "candidate:osm:way/486667196",
+  "status": "reference-derived-prototype"
+}

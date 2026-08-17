@@ -145,12 +145,13 @@
       "kind": "licensed-photography",
       "provider": "Wikimedia Commons / Ralff Nestor Nacor",
       "url": "https://commons.wikimedia.org/wiki/File:UPLB_Baker_Memorial_Hall,_June_2023.jpg",
-      "rightsStatus": "open-license-check-file-page",
-      "reuseStatus": "verify-exact-commons-license-before-derivative",
+      "rightsStatus": "open-attribution-sharealike",
+      "reuseStatus": "CC-BY-SA-4.0",
       "evidence": [
-        "4080×3072 recent exterior reference photograph."
+        "4080×3072 recent exterior reference photograph.",
+        "File page specifies CC BY-SA 4.0."
       ],
-      "nextAction": "Pin exact license/author metadata before any texture or derivative-image workflow."
+      "nextAction": "Use as visual reference; do not commit photo binary or texture derivative without preserving attribution/share-alike obligations."
     },
     {
       "id": "tool:realityscan",
@@ -177,6 +178,167 @@
         "Supports SfM, dense MVS, Poisson/Delaunay meshing, QEM simplification, and mesh texture mapping."
       ],
       "nextAction": "Use as reproducible/open photogrammetry path and as a validation alternative to proprietary reconstruction tools."
+    },
+    {
+      "id": "source:index:commons-baker-category",
+      "title": "Wikimedia Commons category: Baker Memorial Hall",
+      "kind": "licensed-photo-index",
+      "provider": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Baker_Memorial_Hall",
+      "rightsStatus": "per-file-license",
+      "reuseStatus": "index-only",
+      "evidence": [
+        "Category currently indexes six Baker Hall exterior photographs plus a historical-marker subcategory."
+      ],
+      "nextAction": "Use for reference discovery; verify each selected image file license individually before binary ingest."
+    },
+    {
+      "id": "source:uplb:baker-landscape-thesis-1994",
+      "title": "A landscape design proposal for the Baker Memorial Hall Complex",
+      "kind": "institutional-archive-lead",
+      "provider": "UPLB UKDR / Main Library Special Collections",
+      "url": "https://www.ukdr.uplb.edu.ph/etd-undergrad/9992/",
+      "rightsStatus": "reference-only",
+      "reuseStatus": "metadata-public-full-item-special-collections",
+      "evidence": [
+        "1994 UPLB undergraduate thesis focused specifically on the Baker Memorial Hall complex."
+      ],
+      "nextAction": "Request library consultation if site plans/landscape measurements are useful for the next Baker revision."
+    },
+    {
+      "id": "source:uplb:baker-conservation-dissertation-2017",
+      "title": "Properties and conservation methods of selected wooden artifacts and structure in the Philippines",
+      "kind": "institutional-conservation-study",
+      "provider": "UPLB UKDR / Main Library Special Collections",
+      "url": "https://www.ukdr.uplb.edu.ph/etd-grad/4110/",
+      "rightsStatus": "reference-only",
+      "reuseStatus": "metadata-and-abstract-public-full-item-special-collections",
+      "evidence": [
+        "Dissertation includes Baker Memorial Hall conservation work.",
+        "Abstract explicitly notes use of 3D modelling to explain reconstruction intent in conservation work."
+      ],
+      "nextAction": "Request consultation for any lawfully reviewable Baker condition/model records; do not assume the full dissertation is redistributable."
+    },
+    {
+      "id": "source:image:commons-student-union-2023",
+      "title": "Student Union Building, UPLB (2023)",
+      "kind": "licensed-photography",
+      "provider": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Student_Union_Building,_UPLB.jpg",
+      "rightsStatus": "CC-BY-SA-4.0",
+      "reuseStatus": "visual-reference-open-license-no-binary-ingest",
+      "evidence": [
+        "4080x3072 self-work photograph dated 24 June 2023.",
+        "File page explicitly licenses the photograph CC BY-SA 4.0."
+      ],
+      "nextAction": "Use as visual reference; retain attribution/share-alike obligations if any derivative asset directly incorporates protected expressive content."
+    },
+    {
+      "id": "source:image:commons-dl-umali-2017",
+      "title": "UPLB Umali Auditorium (2017)",
+      "kind": "licensed-photography",
+      "provider": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:University_of_the_Philippines_(UPLB)_-_Umali_Auditorium_(Los_Ba%C3%B1os,_Laguna;_2017-02-16).jpg",
+      "rightsStatus": "CC-BY-SA-4.0",
+      "reuseStatus": "visual-reference-open-license-no-binary-ingest",
+      "evidence": [
+        "2017 exterior photograph in the Dioscoro L. Umali Hall category.",
+        "File page records CC BY-SA 4.0."
+      ],
+      "nextAction": "Use for broad facade morphology only; acquire additional sides/measurements before final reconstruction."
+    },
+    {
+      "id": "source:image:commons-ibs-2009",
+      "title": "UP Los Baños Institute of Biological Sciences building",
+      "kind": "licensed-photography",
+      "provider": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:UP_Los_Ba%C3%B1os_Institute_of_Biological_Sciences_(IBS)_building.jpg",
+      "rightsStatus": "CC-BY-SA-4.0",
+      "reuseStatus": "visual-reference-open-license-no-binary-ingest",
+      "evidence": [
+        "1000x531 exterior image captured in 2009.",
+        "File page records CC BY-SA 4.0."
+      ],
+      "nextAction": "Use as a legal reference lead while recovering legacy model/current dimensions."
+    },
+    {
+      "id": "source:image:commons-bienvenido-gonzales-2023",
+      "title": "UPLB Bienvenido M. Gonzales Hall, June 2023",
+      "kind": "licensed-photography",
+      "provider": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:UPLB_Bienvenido_M._Gonzales_Hall,_June_2023.jpg",
+      "rightsStatus": "CC-BY-SA-4.0",
+      "reuseStatus": "legacy-library-visual-reference-only",
+      "evidence": [
+        "4080x3072 self-work photograph dated 24 June 2023.",
+        "File page records CC BY-SA 4.0."
+      ],
+      "nextAction": "Keep separate from the current ULKC construction candidate unless identity/state correspondence is explicitly established."
+    },
+    {
+      "id": "source:index:commons-uplb-buildings",
+      "title": "Wikimedia Commons UPLB building/photo categories",
+      "kind": "licensed-photo-index",
+      "provider": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:University_of_the_Philippines_Los_Ba%C3%B1os",
+      "rightsStatus": "per-file-license",
+      "reuseStatus": "index-only",
+      "evidence": [
+        "Category indexes UPLB University Library, Student Union, CEM, DL Umali and other campus imagery."
+      ],
+      "nextAction": "Verify the exact file license before adopting any new image as a binary or derivative input."
+    },
+    {
+      "id": "source:reference:arcgis-uplb-memoirs",
+      "title": "Memoirs of UPLB Students StoryMap",
+      "kind": "visual-reference-index",
+      "provider": "ArcGIS StoryMaps / project contributors",
+      "url": "https://storymaps.arcgis.com/stories/33e475de3ce6496fa3b8aa56471795b6",
+      "rightsStatus": "reference-index-rights-per-item",
+      "reuseStatus": "reference-only",
+      "evidence": [
+        "Index includes CAS Annex 1/2, CAS Main, CEAT Library, CEM, DL Umali and other UPLB locations."
+      ],
+      "nextAction": "Use only for discovery/visual cross-checks unless per-image rights are established."
+    },
+    {
+      "id": "source:osmwiki:uplb-mapping",
+      "title": "OpenStreetMap Wiki: University of the Philippines Los Baños",
+      "kind": "mapping-reference",
+      "provider": "OpenStreetMap community",
+      "url": "https://wiki.openstreetmap.org/wiki/University_of_the_Philippines_Los_Ba%C3%B1os",
+      "rightsStatus": "OSM-wiki/reference; underlying map data ODbL",
+      "reuseStatus": "mapping-reference",
+      "evidence": [
+        "Documents UPLB mapping conventions and named academic buildings."
+      ],
+      "nextAction": "Use for identity/mapping context; continue to pin actual OSM feature provenance in project snapshots."
+    },
+    {
+      "id": "source:osm-derived:ibs-way-136462397",
+      "title": "Institute of Biological Sciences OSM-derived metadata",
+      "kind": "osm-derived-metadata-lead",
+      "provider": "OpenStreetMap via Mapcarta summary",
+      "url": "https://mapcarta.com/W136462397",
+      "rightsStatus": "underlying-OSM-data-ODbL; page imagery not ingested",
+      "reuseStatus": "metadata-reference-only",
+      "evidence": [
+        "OSM way 136462397, building=university, listed level count 1, approximate center 14.16633,121.23956."
+      ],
+      "nextAction": "Acquire/pin the actual OSM geometry through the project geodata pipeline before production mesh generation."
+    },
+    {
+      "id": "source:osm-derived:cem-way-139810623",
+      "title": "UPLB College of Economics and Management OSM-derived metadata",
+      "kind": "osm-derived-metadata-lead",
+      "provider": "OpenStreetMap via Mapcarta summary",
+      "url": "https://mapcarta.com/W139810623",
+      "rightsStatus": "underlying-OSM-data-ODbL; page imagery not ingested",
+      "reuseStatus": "metadata-reference-only",
+      "evidence": [
+        "OSM way 139810623, building=yes, listed level count 1, approximate center 14.16702,121.24153."
+      ],
+      "nextAction": "Acquire/pin actual OSM polygon through the project geodata pipeline before production mesh generation."
     }
   ]
 }

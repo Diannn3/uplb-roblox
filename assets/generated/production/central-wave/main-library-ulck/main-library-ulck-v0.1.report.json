@@ -1,0 +1,121 @@
+{
+  "accuracyClaims": {
+    "facade": "reference/source-tag-informed proxy only",
+    "footprint": "source-supported project snapshot",
+    "frontFacadeOrientation": "longest-edge proxy, not surveyed",
+    "height": "low-placeholder",
+    "identity": "production handle only; no canonical promotion",
+    "interior": "not modeled",
+    "roof": "unknown"
+  },
+  "assembly": {
+    "boundsM": {
+      "max": [
+        37.400061,
+        41.017871,
+        12.0
+      ],
+      "min": [
+        -37.380452,
+        -41.064915,
+        0.0
+      ],
+      "size": [
+        74.780514,
+        82.082786,
+        12.0
+      ]
+    },
+    "confidenceCounts": {
+      "source-supported-footprint/low-placeholder-height": 1
+    },
+    "faceCount": 23,
+    "featureId": "uplb:building:university-library-knowledge-center",
+    "identityStatus": "reviewed-candidate",
+    "partCount": 1,
+    "sourceFeatureId": "candidate:osm:way/1098780830",
+    "triangleEquivalent": 32,
+    "version": "main-library-ulck.v0.1-reference-production",
+    "vertexCount": 18
+  },
+  "facade": {
+    "bandDepthM": 0.18,
+    "bayCount": 0,
+    "confidence": "none",
+    "frontEdgePolicy": "longest-edge-proxy",
+    "panelDepthM": 0.08,
+    "panelHeightM": 1.0,
+    "panelWidthRatio": 0.7,
+    "preset": "massing-only",
+    "supportWidthM": 0.25
+  },
+  "featureId": "uplb:building:university-library-knowledge-center",
+  "footprintAreaM2": 3595.677,
+  "frontFacadeProxy": {
+    "edgeIndex": 2,
+    "lengthM": 53.462,
+    "selectionMethod": "longest-edge-proxy; deterministic production orientation only, not surveyed entrance orientation"
+  },
+  "hardStops": [
+    "Do not treat proposedFeatureId as canonical identity promotion.",
+    "Do not call this a survey-accurate architectural reconstruction.",
+    "Do not infer interiors from exterior massing or photographs.",
+    "Replace proxy facade orientation/dimensions when recovered models, drawings, or measurements become available."
+  ],
+  "height": {
+    "confidence": "low-placeholder",
+    "meters": 12.0,
+    "method": "Conservative construction-massing placeholder; current candidate height is unknown and legacy library storey data is intentionally not transferred."
+  },
+  "identityStatus": "reviewed-candidate",
+  "inputs": {
+    "featureSnapshot": {
+      "path": "data/modeling/reference/features/main-library-ulck.geojson",
+      "sha256": "sha256:6fd0a4c0f57e4278d381837b3a83cb330f728e4e5b998e76d6855262fbdb1aaa"
+    },
+    "referenceProfile": {
+      "path": "data/modeling/reference/main-library-ulck.reference-profile.json",
+      "sha256": "sha256:1ac1e75e30d9883031ec13eb74519eda2a042191a9f4637c5d96c859766205aa"
+    },
+    "spec": {
+      "path": "data/modeling/building-specs/central-wave/main-library-ulck.v0.1.json",
+      "sha256": "sha256:8070fdf3c699a3516ed03afde31cb0eac4857b43bbd1c4816d68815611b6dd06"
+    }
+  },
+  "modelVersion": "main-library-ulck.v0.1-reference-production",
+  "name": "University Library and Knowledge Center / Main Library candidate",
+  "originUtm51": [
+    310028.221962,
+    1566458.398824
+  ],
+  "output": {
+    "objPath": "assets/generated/production/central-wave/main-library-ulck/main-library-ulck-v0.1.obj",
+    "objSha256": "sha256:da3eb86e68c68386c0418b163de1a5b74718a2d28c4ed45313c0d333342f83b9",
+    "qaPath": "assets/generated/production/central-wave/main-library-ulck/main-library-ulck-v0.1.qa.json",
+    "reportPath": "assets/generated/production/central-wave/main-library-ulck/main-library-ulck-v0.1.report.json"
+  },
+  "qa": {
+    "degenerateFaceCount": 0,
+    "duplicatePartNames": false,
+    "faceCount": 23,
+    "featureId": "uplb:building:university-library-knowledge-center",
+    "identityStatus": "reviewed-candidate",
+    "invalidFaceIndexCount": 0,
+    "nonFiniteVertexCount": 0,
+    "partCount": 1,
+    "sourceFeatureId": "candidate:osm:way/1098780830",
+    "status": "pass",
+    "triangleBudget": 100000,
+    "triangleBudgetGate": "pass",
+    "triangleEquivalent": 32,
+    "vertexCount": 18
+  },
+  "roof": {
+    "confidence": "unknown",
+    "geometryPolicy": "deferred-unknown",
+    "sourceShape": null
+  },
+  "schemaVersion": "uplb-reference-building-production-report-v0.1",
+  "sourceFeatureId": "candidate:osm:way/1098780830",
+  "status": "reference-derived-prototype"
+}

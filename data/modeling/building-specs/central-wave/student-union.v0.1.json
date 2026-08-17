@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "uplb-reference-building-production-spec-v0.1",
+  "sourceFeatureId": "candidate:osm:way/37450035",
+  "proposedFeatureId": "uplb:building:student-union",
+  "name": "Student Union Building",
+  "productionTier": "standard-exterior",
+  "identityStatus": "proposed-candidate",
+  "architecturalFamily": "uplb-concrete-modernist",
+  "referenceIds": [
+    "source:legacy:uplb-virtual-campus-2014",
+    "source:news:cinterlabs-2014",
+    "source:image:commons-student-union-2023",
+    "source:reference:arcgis-uplb-memoirs"
+  ],
+  "featureSnapshot": "data/modeling/reference/features/student-union.geojson",
+  "referenceProfile": "data/modeling/reference/student-union.reference-profile.json",
+  "height": {
+    "meters": 10.8,
+    "method": "3 source-supported levels × provisional 3.6 m family floor height.",
+    "confidence": "medium"
+  },
+  "facade": {
+    "preset": "glass-frame",
+    "frontEdgePolicy": "longest-edge-proxy",
+    "confidence": "medium-visual/provisional-edge",
+    "bayCount": 6,
+    "panelHeightM": 6.8,
+    "panelWidthRatio": 0.78,
+    "panelDepthM": 0.1,
+    "supportWidthM": 0.36,
+    "bandDepthM": 0.2
+  },
+  "roof": {
+    "sourceShape": null,
+    "geometryPolicy": "deferred-unknown",
+    "confidence": "unknown"
+  },
+  "materials": [
+    "concrete-painted",
+    "painted-metal-glass"
+  ],
+  "accuracyClaims": {
+    "footprint": "source-supported project snapshot",
+    "identity": "production handle only; no canonical promotion",
+    "height": "medium",
+    "facade": "reference/source-tag-informed proxy only",
+    "frontFacadeOrientation": "longest-edge proxy, not surveyed",
+    "roof": "unknown",
+    "interior": "not modeled"
+  },
+  "openQuestions": [
+    "Which polygon edge is the true primary entrance facade",
+    "Exact floor-to-floor heights",
+    "Exact grid/column spacing",
+    "Roof and rear elevations"
+  ]
+}
