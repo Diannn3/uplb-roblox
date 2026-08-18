@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -10,21 +11,22 @@ from jsonschema import Draft202012Validator
 from .assembly import AssemblyPart, BuildingAssembly, write_obj_assembly
 from .budgets import budget_for
 from .evidence import production_orientation_gate, require_reference_profile_v02, validate_schema
-from .geometry_v2 import extrude_local_geometry, project_wgs84_geometry_to_local_meters
+from .geometry_v2 import WGS84_TO_UTM51, extrude_local_geometry, project_wgs84_geometry_to_local_meters
 from .hashing import semantic_json_sha256
 from .mesh import MeshData, gable_prism_mesh, merge_meshes, oriented_box_mesh, oriented_cylinder_mesh, write_obj
 from .orientation import FacadeFrame, resolve_front_frame
 from .qa import validate_assembly_geometry
 from .registry import ROOT
 
-SPEC_PATH = ROOT / "data" / "modeling" / "building-specs" / "baker-hall.v0.3.json"
-REFERENCE_PATH = ROOT / "data" / "modeling" / "reference" / "baker-hall.reference-profile.v0.2.json"
+SPEC_PATH = ROOT / "data" / "modeling" / "building-specs" / "baker-hall.v0.4.json"
+REFERENCE_PATH = ROOT / "data" / "modeling" / "reference" / "baker-hall.reference-profile.v0.3.json"
 SNAPSHOT_PATH = ROOT / "data" / "modeling" / "reference" / "baker-canonical-snapshot.geojson"
-OUTPUT_DIR = ROOT / "assets" / "generated" / "production" / "baker-hall-v0.3"
-LOGICAL_OUTPUT_DIR = "assets/generated/production/baker-hall-v0.3"
+OUTPUT_DIR = ROOT / "assets" / "generated" / "production" / "baker-hall-v0.4"
+LOGICAL_OUTPUT_DIR = "assets/generated/production/baker-hall-v0.4"
 SPEC_SCHEMA = ROOT / "data" / "canonical" / "schemas" / "reference-building-production-spec-v0.2.schema.json"
 PROFILE_SCHEMA = ROOT / "data" / "canonical" / "schemas" / "building-reference-profile-v0.2.schema.json"
 MANIFEST_SCHEMA = ROOT / "data" / "canonical" / "schemas" / "production-asset-manifest-v0.2.schema.json"
+CANONICAL_FEATURES_PATH = ROOT / "data" / "canonical" / "features.geojson"
 
 
 def _read(path: Path) -> dict[str, Any]:
@@ -37,6 +39,42 @@ def _sha256(path: Path) -> str:
 
 def _feature(snapshot: dict[str, Any]) -> dict[str, Any]:
     return snapshot.get("feature") or snapshot
+
+def _angle_distance(a: float, b: float) -> float:
+    return abs((a - b + 180.0) % 360.0 - 180.0)
+
+
+def _frontage_context_report(frame: FacadeFrame, origin_utm: list[float], spec: dict[str, Any]) -> dict[str, Any]:
+    orientation = spec.get("orientation") or {}
+    feature_id = orientation.get("frontageContextFeatureId")
+    if not feature_id:
+        return {"status": "not-checked"}
+
+    features = _read(CANONICAL_FEATURES_PATH).get("features", [])
+    target = next((row for row in features if row.get("id") == feature_id), None)
+    if target is None:
+        return {"status": "fail", "errors": [f"context feature {feature_id} not found"]}
+
+    geometry = target.get("geometry") or {}
+    if geometry.get("type") != "Point":
+        return {"status": "fail", "errors": [f"context feature {feature_id} must be a Point"]}
+
+    lon, lat = geometry["coordinates"]
+    east, north = WGS84_TO_UTM51.transform(float(lon), float(lat))
+    dx = east - float(origin_utm[0])
+    dy = north - float(origin_utm[1])
+    target_bearing = math.degrees(math.atan2(dx, dy)) % 360.0
+    delta = _angle_distance(frame.outward_azimuth_degrees, target_bearing)
+    maximum = float(orientation.get("frontageContextMaxBearingDeltaDegrees", 20.0))
+    return {
+        "status": "pass" if delta <= maximum else "fail",
+        "contextFeatureId": feature_id,
+        "contextBearingDegrees": round(target_bearing, 6),
+        "facadeOutwardAzimuthDegrees": round(frame.outward_azimuth_degrees, 6),
+        "bearingDeltaDegrees": round(delta, 6),
+        "maxBearingDeltaDegrees": maximum,
+    }
+
 
 
 def _point(frame: FacadeFrame, along: float, outward: float, z: float) -> tuple[float, float, float]:
@@ -164,7 +202,7 @@ def _front_modules(frame: FacadeFrame, spec: dict[str, Any], profile: dict[str, 
     ]
 
 
-def compile_baker_v03() -> tuple[dict[str, BuildingAssembly], dict[str, Any]]:
+def compile_baker_v04() -> tuple[dict[str, BuildingAssembly], dict[str, Any]]:
     spec = _read(SPEC_PATH)
     profile = _read(REFERENCE_PATH)
     snapshot = _read(SNAPSHOT_PATH)
@@ -173,20 +211,23 @@ def compile_baker_v03() -> tuple[dict[str, BuildingAssembly], dict[str, Any]]:
     evidence_report = require_reference_profile_v02(profile)
     orientation_gate = production_orientation_gate(spec)
     if orientation_gate["status"] != "pass":
-        raise ValueError("Baker v0.3 orientation gate failed: " + "; ".join(orientation_gate["reasons"]))
+        raise ValueError("Baker v0.4 orientation gate failed: " + "; ".join(orientation_gate["reasons"]))
 
     feature = _feature(snapshot)
     if feature.get("id") != spec["sourceFeatureId"]:
-        raise ValueError("Baker v0.3 source feature does not match canonical snapshot")
+        raise ValueError("Baker v0.4 source feature does not match canonical snapshot")
     projected = project_wgs84_geometry_to_local_meters(feature["geometry"])
     if projected["type"] != "Polygon":
-        raise ValueError("Baker v0.3 currently expects one Polygon footprint")
+        raise ValueError("Baker v0.4 currently expects one Polygon footprint")
     outer = [(float(p[0]), float(p[1])) for p in projected["coordinatesLocalMeters"][0][:-1]]
     frame = resolve_front_frame(
         outer,
         spec["orientation"],
         allow_proxy=spec["productionStage"] == "prototype",
     )
+    frontage_context = _frontage_context_report(frame, projected["originUtm51"], spec)
+    if frontage_context["status"] != "pass":
+        raise ValueError("Baker v0.4 frontage context gate failed: " + json.dumps(frontage_context, sort_keys=True))
 
     body_height = float(spec["height"]["meters"])
     canonical_evidence = tuple(profile["evidenceGroups"]["canonicalGeometry"])
@@ -233,11 +274,11 @@ def compile_baker_v03() -> tuple[dict[str, BuildingAssembly], dict[str, Any]]:
     lod2_parts = (shell, roof)
     lod3_parts = (shell,)
     assemblies = {
-        "lod0": BuildingAssembly(spec["proposedFeatureId"], "baker-v0.3-lod0", tuple(lod0_parts), source_feature_id=spec["sourceFeatureId"], identity_status=spec["identityStatus"]),
-        "lod1": BuildingAssembly(spec["proposedFeatureId"], "baker-v0.3-lod1", tuple(lod1_parts), source_feature_id=spec["sourceFeatureId"], identity_status=spec["identityStatus"]),
-        "lod2": BuildingAssembly(spec["proposedFeatureId"], "baker-v0.3-lod2", tuple(lod2_parts), source_feature_id=spec["sourceFeatureId"], identity_status=spec["identityStatus"]),
-        "lod3": BuildingAssembly(spec["proposedFeatureId"], "baker-v0.3-lod3", tuple(lod3_parts), source_feature_id=spec["sourceFeatureId"], identity_status=spec["identityStatus"]),
-        "collision": BuildingAssembly(spec["proposedFeatureId"], "baker-v0.3-collision", (collision,), source_feature_id=spec["sourceFeatureId"], identity_status=spec["identityStatus"]),
+        "lod0": BuildingAssembly(spec["proposedFeatureId"], "baker-v0.4-lod0", tuple(lod0_parts), source_feature_id=spec["sourceFeatureId"], identity_status=spec["identityStatus"]),
+        "lod1": BuildingAssembly(spec["proposedFeatureId"], "baker-v0.4-lod1", tuple(lod1_parts), source_feature_id=spec["sourceFeatureId"], identity_status=spec["identityStatus"]),
+        "lod2": BuildingAssembly(spec["proposedFeatureId"], "baker-v0.4-lod2", tuple(lod2_parts), source_feature_id=spec["sourceFeatureId"], identity_status=spec["identityStatus"]),
+        "lod3": BuildingAssembly(spec["proposedFeatureId"], "baker-v0.4-lod3", tuple(lod3_parts), source_feature_id=spec["sourceFeatureId"], identity_status=spec["identityStatus"]),
+        "collision": BuildingAssembly(spec["proposedFeatureId"], "baker-v0.4-collision", (collision,), source_feature_id=spec["sourceFeatureId"], identity_status=spec["identityStatus"]),
     }
 
     budget = budget_for(spec["productionTier"])
@@ -258,7 +299,7 @@ def compile_baker_v03() -> tuple[dict[str, BuildingAssembly], dict[str, Any]]:
     }
     status = "pass" if all(row["status"] == "pass" for row in qa.values()) else "fail"
     report = {
-        "schemaVersion": "uplb-baker-production-report-v0.3",
+        "schemaVersion": "uplb-baker-production-report-v0.4",
         "status": status,
         "featureId": spec["proposedFeatureId"],
         "sourceFeatureId": spec["sourceFeatureId"],
@@ -266,26 +307,27 @@ def compile_baker_v03() -> tuple[dict[str, BuildingAssembly], dict[str, Any]]:
         "targetEpoch": profile["targetEpoch"],
         "orientation": frame.to_dict(),
         "orientationGate": orientation_gate,
+        "frontageContext": frontage_context,
         "evidence": evidence_report,
         "modelOriginUtm51": [round(v, 6) for v in projected["originUtm51"]],
         "qa": qa,
         "hardStops": [
-            "Baker v0.3 is not survey-grade architecture.",
-            "Do not call the current front orientation architecturally approved while policy remains a proxy.",
+            "Baker v0.4 is not survey-grade architecture.",
+            "The frontage orientation is evidence-reviewed, but project-owner visual approval is still pending.",
             "Do not infer interiors, basement/tunnels, or hidden structure.",
-            "Replace roof envelope and facade proportions when stronger measured/recovered evidence becomes available."
+            "Replace roof envelope, side/rear openings, and facade proportions when stronger measured/recovered evidence becomes available."
         ],
     }
     return assemblies, report
 
 
-def generate_baker_v03(output_dir: Path = OUTPUT_DIR) -> dict[str, Any]:
-    assemblies, report = compile_baker_v03()
+def generate_baker_v04(output_dir: Path = OUTPUT_DIR) -> dict[str, Any]:
+    assemblies, report = compile_baker_v04()
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     outputs: dict[str, dict[str, Any]] = {}
     for lod, assembly in assemblies.items():
-        obj_path = output_dir / f"baker-hall-v0.3-{lod}.obj"
+        obj_path = output_dir / f"baker-hall-v0.4-{lod}.obj"
         obj_hash = write_obj_assembly(obj_path, assembly)
         part_records = []
         part_dir = output_dir / "meshparts" / lod
@@ -344,7 +386,7 @@ def generate_baker_v03(output_dir: Path = OUTPUT_DIR) -> dict[str, Any]:
         },
         "visualReviewGate": "pending-human",
     }
-    validate_schema(manifest, MANIFEST_SCHEMA, "Baker v0.3 asset manifest")
+    validate_schema(manifest, MANIFEST_SCHEMA, "Baker v0.4 asset manifest")
     manifest_path = output_dir / "asset-manifest.json"
     manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
     report["outputs"] = outputs
@@ -358,7 +400,7 @@ def generate_baker_v03(output_dir: Path = OUTPUT_DIR) -> dict[str, Any]:
 
 
 def main() -> int:
-    result = generate_baker_v03()
+    result = generate_baker_v04()
     print(json.dumps({"status": result["report"]["status"], "visualReviewGate": result["manifest"]["visualReviewGate"]}, indent=2))
     return 0 if result["report"]["status"] == "pass" else 1
 

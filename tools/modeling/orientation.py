@@ -19,6 +19,7 @@ class FacadeFrame:
     outward_azimuth_degrees: float
     selection_method: str
     confidence: str
+    baseline_end_vertex_index: int | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -32,6 +33,7 @@ class FacadeFrame:
             "outwardAzimuthDegrees": round(self.outward_azimuth_degrees, 6),
             "selectionMethod": self.selection_method,
             "confidence": self.confidence,
+            "baselineEndVertexIndex": self.baseline_end_vertex_index,
         }
 
 
@@ -74,6 +76,58 @@ def _frame(ring: list[tuple[float, float]], index: int, *, selection_method: str
         outward_azimuth_degrees=azimuth,
         selection_method=selection_method,
         confidence=confidence,
+    )
+
+
+def _baseline_frame(
+    ring: list[tuple[float, float]],
+    start_index: int,
+    end_index: int,
+    *,
+    front_azimuth_degrees: float,
+    selection_method: str,
+    confidence: str,
+) -> FacadeFrame:
+    """Create a facade frame from a reviewed frontage baseline.
+
+    Stepped facades can span several short footprint edges. The baseline is a
+    review construct only; it never rewrites canonical footprint geometry.
+    """
+    polygon = Polygon(ring)
+    if not polygon.is_valid or polygon.area <= 0:
+        raise ValueError("invalid footprint for facade orientation")
+    if start_index < 0 or start_index >= len(ring) or end_index < 0 or end_index >= len(ring):
+        raise ValueError("reviewed baseline vertex index is outside footprint range")
+    if start_index == end_index:
+        raise ValueError("reviewed baseline requires two distinct vertices")
+
+    start = ring[start_index]
+    end = ring[end_index]
+    length = math.dist(start, end)
+    if length <= 1e-8:
+        raise ValueError("zero-length reviewed facade baseline")
+
+    tangent = ((end[0] - start[0]) / length, (end[1] - start[1]) / length)
+    normals = ((tangent[1], -tangent[0]), (-tangent[1], tangent[0]))
+    target = float(front_azimuth_degrees) % 360.0
+
+    def normal_azimuth(normal: tuple[float, float]) -> float:
+        return math.degrees(math.atan2(normal[0], normal[1])) % 360.0
+
+    outward = min(normals, key=lambda normal: _angle_distance(normal_azimuth(normal), target))
+    azimuth = normal_azimuth(outward)
+    return FacadeFrame(
+        edge_index=start_index,
+        length_m=length,
+        start=start,
+        end=end,
+        midpoint=((start[0] + end[0]) / 2.0, (start[1] + end[1]) / 2.0),
+        tangent=tangent,
+        outward=outward,
+        outward_azimuth_degrees=azimuth,
+        selection_method=selection_method,
+        confidence=confidence,
+        baseline_end_vertex_index=end_index,
     )
 
 
@@ -122,6 +176,7 @@ def resolve_front_frame(
     reviewed_policies = {
         "reviewed-source-edge",
         "reviewed-azimuth",
+        "reviewed-baseline",
         "entrance-anchor",
         "legacy-model-derived",
         "field-measured",
@@ -130,6 +185,21 @@ def resolve_front_frame(
         raise ValueError(f"unsupported front facade orientation policy: {policy}")
     if reviewed != "reviewed":
         raise ValueError(f"orientation policy {policy} requires reviewStatus=reviewed")
+
+    if policy == "reviewed-baseline":
+        required = ("baselineStartVertexIndex", "baselineEndVertexIndex", "frontAzimuthDegrees")
+        missing = [key for key in required if key not in orientation]
+        if missing:
+            raise ValueError("reviewed-baseline requires " + ", ".join(missing))
+        return _baseline_frame(
+            opened,
+            int(orientation["baselineStartVertexIndex"]),
+            int(orientation["baselineEndVertexIndex"]),
+            front_azimuth_degrees=float(orientation["frontAzimuthDegrees"]),
+            selection_method=policy,
+            confidence=confidence,
+        )
+
 
     if "edgeIndex" in orientation:
         return _frame(

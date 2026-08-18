@@ -3,7 +3,7 @@
     {
       "assetId": "uplb-baker-hall-v0.3",
       "assetManifestPath": "assets/generated/production/baker-hall-v0.3/asset-manifest.json",
-      "assetManifestSha256": "sha256:43cec81fc6fd2b5f6974a9038a6cf838cf9d5b237bb18864e4b5cfc54435d4f3",
+      "assetManifestSha256": "sha256:2e357bed4ecc95d15dcb322a66f24e3c0c2ba1936ae33c3479f914ba737f02df",
       "featureId": "uplb:building:baker-hall",
       "placementBindingHash": "sha256:af26a524e2febdd2a907732674f6636d11ffc6ca437f934246c5559a77c0da06",
       "placementBindingPath": "data/modeling/placement-bindings/baker-hall.v0.3.json",
@@ -13,7 +13,7 @@
       "visualReviewGate": "pending-human"
     }
   ],
-  "registryHash": "sha256:bfd6015b8ae545a89148ec41b2cac1ec329628b1724da3a7eb902518e4e51bcd",
+  "registryHash": "sha256:379f1e95e19d16fe8ff06b408db6f77d7b9a32fcde94421f57f76c0f16697e24",
   "schemaVersion": "uplb-production-asset-binding-registry-v0.1",
   "sourceGit": {
     "branch": "feat/modeling-wave01-continuation",

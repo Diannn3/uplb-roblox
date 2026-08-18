@@ -74,3 +74,24 @@ python -m tools.modeling.wave02 --check --check-freshness
 ```
 
 The first command creates the exact scene-backed Baker placement binding and compact production-asset binding registry. Blender/Roblox approval is a later explicit gate.
+
+## Baker Wave 03 — corrected reviewed frontage
+
+Wave 02 deliberately left Baker on `longest-edge-proxy`. Blender review exposed why
+that cannot be used for the visual-review asset: the canonical longest edge is not the
+Freedom-Park-facing entrance facade.
+
+Wave 03 adds an evidence-reviewed **frontage baseline** spanning the stepped southwest
+facade while preserving the canonical footprint and scene placement.
+
+Run:
+
+```powershell
+python -m tools.modeling.wave02 --check --check-freshness
+python -m tools.modeling.wave03 --generate --check-freshness --write-report
+```
+
+For a full-campus Blender replacement preview, use
+`tools/blender/preview_production_asset.py` with the generated v0.4 asset manifest and
+placement binding. Project-owner visual approval is still required before promotion
+to `production-ready`.

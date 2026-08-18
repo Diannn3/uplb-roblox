@@ -1,0 +1,67 @@
+{
+  "baker": {
+    "frontageContext": {
+      "bearingDeltaDegrees": 7.881354,
+      "contextBearingDegrees": 245.208455,
+      "contextFeatureId": "uplb:landmark:freedom-park",
+      "facadeOutwardAzimuthDegrees": 237.327101,
+      "maxBearingDeltaDegrees": 15.0,
+      "status": "pass"
+    },
+    "orientation": {
+      "baselineEndVertexIndex": 5,
+      "confidence": "high",
+      "edgeIndex": 9,
+      "end": [
+        -29.999827,
+        -1.784142
+      ],
+      "lengthM": 29.335934,
+      "midpoint": [
+        -22.081439,
+        -14.131141
+      ],
+      "outward": [
+        -0.841766224,
+        -0.539842221
+      ],
+      "outwardAzimuthDegrees": 237.327101,
+      "selectionMethod": "reviewed-baseline",
+      "start": [
+        -14.163051,
+        -26.478141
+      ],
+      "tangent": [
+        -0.539842221,
+        0.841766224
+      ]
+    },
+    "orientationGate": {
+      "policy": "reviewed-baseline",
+      "reasons": [],
+      "reviewStatus": "reviewed",
+      "status": "pass"
+    },
+    "placementBindingStatus": "pass",
+    "productionStage": "visual-review",
+    "visualReviewGate": "pending-human"
+  },
+  "freshness": {
+    "actualFileCount": 23,
+    "changed": [],
+    "expectedFileCount": 23,
+    "extra": [],
+    "missing": [],
+    "status": "pass"
+  },
+  "hardStops": [
+    "Baker v0.4 is a visual-review asset, not survey-grade architecture.",
+    "Project-owner visual approval is still required before production-ready promotion.",
+    "Side/rear opening layouts and exact roof ridge/eave geometry remain evidence gaps.",
+    "Roblox GLB/FBX import, Reimport, spatial QA, and playtest remain pending."
+  ],
+  "nextGate": "Run real Blender Baker v0.4 build and campus preview, then project-owner visual review.",
+  "schemaVersion": "uplb-modeling-wave03-report-v0.1",
+  "status": "pass",
+  "waveId": "baker-wave03-reviewed-frontage-v0.1"
+}

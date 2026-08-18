@@ -1,0 +1,118 @@
+{
+  "accuracyClaims": {
+    "footprint": "canonical-source-supported",
+    "frontFacadeComposition": "multi-era-photo-reference-derived",
+    "frontFacadeOrientation": "reviewed public-evidence/canonical-context baseline; frontage spans canonical footprint vertices 9\u21925 and faces southwest toward Freedom Park",
+    "height": "provisional",
+    "identity": "canonical",
+    "interior": "not modeled",
+    "roof": "replaceable visual-review envelope; exact ridge/eave network remains unresolved",
+    "sideRearFacade": "shell-only; detailed opening layouts remain unresolved"
+  },
+  "architecturalFamily": "uplb-historic-prewar",
+  "artifactContract": {
+    "aggregateLodBudgets": {
+      "lod0": 100000,
+      "lod1": 45000,
+      "lod2": 15000,
+      "lod3": 3000
+    },
+    "assetId": "uplb-baker-hall-v0.4",
+    "maxMeshParts": 24,
+    "perMeshPartTriangleLimit": 20000,
+    "preferredExchangeFormat": "GLB",
+    "reimportNamingPolicy": "Stable mesh object names and hierarchy are immutable after first Studio production import; renamed geometry requires an explicit migration.",
+    "stableMeshNames": [
+      "Baker__Shell_A",
+      "Baker__Portico",
+      "Baker__FrontWindows",
+      "Baker__FrontAwnings",
+      "Baker__Bands",
+      "Baker__Parapet",
+      "Baker__Roof",
+      "Baker__Collision"
+    ],
+    "studioImportPresetDraft": {
+      "insertUsingScenePosition": false,
+      "mergeMeshes": false,
+      "scaleUnitPolicy": "metric-source; confirm exact Scale Unit during GLB/FBX disposable-Studio bakeoff",
+      "status": "pending-disposable-studio-bakeoff",
+      "useImportedPivot": true,
+      "worldForward": "Front",
+      "worldUp": "Top"
+    }
+  },
+  "facade": {
+    "confidence": "multi-era-visual-provisional",
+    "preset": "baker-reference-modular",
+    "sideRearPolicy": "shell-only-until-supported"
+  },
+  "featureSnapshot": "data/modeling/reference/baker-canonical-snapshot.geojson",
+  "height": {
+    "confidence": "medium-provisional",
+    "meters": 8.2,
+    "method": "Two source-supported levels plus multi-era visual proportion carried forward from v0.2; replace with measured/recovered evidence."
+  },
+  "identityStatus": "canonical",
+  "materials": [
+    "concrete-painted",
+    "painted-metal-green",
+    "painted-metal-glass-dark",
+    "corrugated-metal-green"
+  ],
+  "name": "Charles Fuller Baker Memorial Hall",
+  "openQuestions": [
+    "Recover 2014 Baker model or institutional drawings if possible",
+    "Measure total height and portico dimensions",
+    "Resolve side/rear facades and roof ridges",
+    "Determine any 2024-2026 exterior changes"
+  ],
+  "orientation": {
+    "baselineEndVertexIndex": 5,
+    "baselineStartVertexIndex": 9,
+    "confidence": "high",
+    "evidenceIds": [
+      "source:image:commons-baker-2017",
+      "source:image:commons-baker-2023",
+      "source:canonical:freedom-park-context"
+    ],
+    "frontAzimuthDegrees": 237.3,
+    "frontageContextFeatureId": "uplb:landmark:freedom-park",
+    "frontageContextMaxBearingDeltaDegrees": 15.0,
+    "policy": "reviewed-baseline",
+    "reviewAuthority": "public-evidence-plus-canonical-context",
+    "reviewStatus": "reviewed"
+  },
+  "productionStage": "visual-review",
+  "productionTier": "hero-exterior",
+  "proposedFeatureId": "uplb:building:baker-hall",
+  "referenceDerivedApproximation": {
+    "bodyHeightM": 8.2,
+    "centralRoofDepthM": 24.0,
+    "centralRoofWidthM": 18.5,
+    "groundFloorHeightM": 3.8,
+    "porticoProjectionM": 2.3,
+    "porticoWidthM": 17.2,
+    "ridgeHeightM": 10.2,
+    "status": "provisional-replaceable",
+    "wingBayCountEachSide": 4
+  },
+  "referenceIds": [
+    "source:canonical:osm-baker-way-37449973",
+    "source:legacy:uplb-virtual-campus-2014",
+    "source:image:commons-baker-2008",
+    "source:image:commons-baker-2009",
+    "source:image:commons-baker-2017",
+    "source:image:commons-baker-2023",
+    "source:uplb:baker-conservation-dissertation-2017",
+    "source:history:lbtimes-baker-2024"
+  ],
+  "referenceProfile": "data/modeling/reference/baker-hall.reference-profile.v0.3.json",
+  "roof": {
+    "confidence": "medium-low",
+    "geometryPolicy": "replaceable-visual-envelope",
+    "sourceShape": "sloped-central-envelope"
+  },
+  "schemaVersion": "uplb-reference-building-production-spec-v0.2",
+  "sourceFeatureId": "uplb:building:baker-hall"
+}

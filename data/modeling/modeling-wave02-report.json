@@ -1,6 +1,6 @@
 {
   "baker": {
-    "assetManifestSha256": "sha256:43cec81fc6fd2b5f6974a9038a6cf838cf9d5b237bb18864e4b5cfc54435d4f3",
+    "assetManifestSha256": "sha256:2e357bed4ecc95d15dcb322a66f24e3c0c2ba1936ae33c3479f914ba737f02df",
     "orientationPolicy": "longest-edge-proxy",
     "orientationReviewStatus": "unreviewed",
     "productionStage": "prototype",
@@ -20,7 +20,28 @@
     "targetEpoch": "2026-current-recognizable-exterior",
     "warnings": []
   },
-  "freshness": null,
+  "freshness": {
+    "bakerArtifacts": {
+      "actualFileCount": 23,
+      "changed": [],
+      "expectedFileCount": 23,
+      "extra": [],
+      "missing": [],
+      "status": "pass"
+    },
+    "bindingRegistry": {
+      "actualRegistryHash": "sha256:379f1e95e19d16fe8ff06b408db6f77d7b9a32fcde94421f57f76c0f16697e24",
+      "expectedRegistryHash": "sha256:379f1e95e19d16fe8ff06b408db6f77d7b9a32fcde94421f57f76c0f16697e24",
+      "status": "pass"
+    },
+    "errors": [],
+    "placementBinding": {
+      "actualBindingHash": "sha256:af26a524e2febdd2a907732674f6636d11ffc6ca437f934246c5559a77c0da06",
+      "expectedBindingHash": "sha256:af26a524e2febdd2a907732674f6636d11ffc6ca437f934246c5559a77c0da06",
+      "status": "pass"
+    },
+    "status": "pass"
+  },
   "generatedThisRun": true,
   "hardStops": [
     "Baker front facade orientation remains a proxy and is not human-reviewed.",

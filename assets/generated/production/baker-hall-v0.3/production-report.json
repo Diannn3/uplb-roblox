@@ -1,7 +1,7 @@
 {
   "assetManifest": {
     "path": "assets/generated/production/baker-hall-v0.3/asset-manifest.json",
-    "sha256": "sha256:43cec81fc6fd2b5f6974a9038a6cf838cf9d5b237bb18864e4b5cfc54435d4f3"
+    "sha256": "sha256:2e357bed4ecc95d15dcb322a66f24e3c0c2ba1936ae33c3479f914ba737f02df"
   },
   "evidence": {
     "errors": [],
@@ -23,6 +23,7 @@
     1566327.46843
   ],
   "orientation": {
+    "baselineEndVertexIndex": null,
     "confidence": "proxy",
     "edgeIndex": 8,
     "end": [

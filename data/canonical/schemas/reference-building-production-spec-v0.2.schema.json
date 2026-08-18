@@ -1,75 +1,282 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "UPLB Evidence-Aware Reference Building Production Spec v0.2",
-  "type": "object",
-  "required": [
-    "schemaVersion", "sourceFeatureId", "proposedFeatureId", "name", "productionTier",
-    "productionStage", "identityStatus", "architecturalFamily", "referenceIds", "featureSnapshot",
-    "referenceProfile", "height", "orientation", "facade", "roof", "materials", "artifactContract",
-    "accuracyClaims", "openQuestions"
-  ],
+  "additionalProperties": true,
   "properties": {
-    "schemaVersion": {"const": "uplb-reference-building-production-spec-v0.2"},
-    "sourceFeatureId": {"type": "string", "pattern": "^(candidate:|uplb:)"},
-    "proposedFeatureId": {"type": "string", "pattern": "^uplb:"},
-    "name": {"type": "string", "minLength": 1},
-    "productionTier": {"enum": ["hero-exterior", "standard-exterior", "context-exterior"]},
-    "productionStage": {"enum": ["prototype", "visual-review", "production-ready"]},
-    "identityStatus": {"enum": ["canonical", "reviewed-candidate", "proposed-candidate"]},
-    "architecturalFamily": {"type": "string", "minLength": 1},
-    "referenceIds": {"type": "array", "items": {"type": "string"}},
-    "featureSnapshot": {"type": "string", "minLength": 1},
-    "referenceProfile": {"type": "string", "minLength": 1},
-    "height": {
-      "type": "object",
-      "required": ["meters", "method", "confidence"],
+    "accuracyClaims": {
+      "type": "object"
+    },
+    "architecturalFamily": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "artifactContract": {
       "properties": {
-        "meters": {"type": "number", "exclusiveMinimum": 0},
-        "method": {"type": "string"},
-        "confidence": {"type": "string"}
-      }
+        "aggregateLodBudgets": {
+          "properties": {
+            "lod0": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "lod1": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "lod2": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "lod3": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "lod0",
+            "lod1",
+            "lod2",
+            "lod3"
+          ],
+          "type": "object"
+        },
+        "assetId": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "maxMeshParts": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "perMeshPartTriangleLimit": {
+          "maximum": 20000,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "preferredExchangeFormat": {
+          "enum": [
+            "GLB",
+            "FBX",
+            "undecided"
+          ]
+        },
+        "reimportNamingPolicy": {
+          "type": "string"
+        },
+        "stableMeshNames": {
+          "items": {
+            "pattern": "^[A-Za-z0-9_]+$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "assetId",
+        "stableMeshNames",
+        "aggregateLodBudgets",
+        "perMeshPartTriangleLimit",
+        "maxMeshParts"
+      ],
+      "type": "object"
+    },
+    "facade": {
+      "type": "object"
+    },
+    "featureSnapshot": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "height": {
+      "properties": {
+        "confidence": {
+          "type": "string"
+        },
+        "meters": {
+          "exclusiveMinimum": 0,
+          "type": "number"
+        },
+        "method": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "meters",
+        "method",
+        "confidence"
+      ],
+      "type": "object"
+    },
+    "identityStatus": {
+      "enum": [
+        "canonical",
+        "reviewed-candidate",
+        "proposed-candidate"
+      ]
+    },
+    "materials": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "openQuestions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
     },
     "orientation": {
-      "type": "object",
-      "required": ["policy", "confidence", "reviewStatus", "evidenceIds"],
+      "additionalProperties": false,
       "properties": {
-        "policy": {"enum": ["unknown", "longest-edge-proxy", "reviewed-source-edge", "reviewed-azimuth", "entrance-anchor", "legacy-model-derived", "field-measured"]},
-        "confidence": {"enum": ["unknown", "proxy", "low", "medium-low", "medium", "medium-high", "high", "field-measured"]},
-        "reviewStatus": {"enum": ["unreviewed", "reviewed"]},
-        "edgeIndex": {"type": "integer", "minimum": 0},
-        "frontAzimuthDegrees": {"type": "number", "minimum": 0, "exclusiveMaximum": 360},
-        "entranceAnchorLocalMeters": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}},
-        "evidenceIds": {"type": "array", "items": {"type": "string"}}
-      },
-      "additionalProperties": false
-    },
-    "facade": {"type": "object"},
-    "roof": {"type": "object"},
-    "materials": {"type": "array", "minItems": 1, "items": {"type": "string"}},
-    "artifactContract": {
-      "type": "object",
-      "required": ["assetId", "stableMeshNames", "aggregateLodBudgets", "perMeshPartTriangleLimit", "maxMeshParts"],
-      "properties": {
-        "assetId": {"type": "string", "minLength": 1},
-        "stableMeshNames": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^[A-Za-z0-9_]+$"}},
-        "aggregateLodBudgets": {
-          "type": "object",
-          "required": ["lod0", "lod1", "lod2", "lod3"],
-          "properties": {
-            "lod0": {"type": "integer", "minimum": 0},
-            "lod1": {"type": "integer", "minimum": 0},
-            "lod2": {"type": "integer", "minimum": 0},
-            "lod3": {"type": "integer", "minimum": 0}
-          }
+        "baselineEndVertexIndex": {
+          "minimum": 0,
+          "type": "integer"
         },
-        "perMeshPartTriangleLimit": {"type": "integer", "minimum": 1, "maximum": 20000},
-        "maxMeshParts": {"type": "integer", "minimum": 1},
-        "preferredExchangeFormat": {"enum": ["GLB", "FBX", "undecided"]},
-        "reimportNamingPolicy": {"type": "string"}
-      }
+        "baselineStartVertexIndex": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "confidence": {
+          "enum": [
+            "unknown",
+            "proxy",
+            "low",
+            "medium-low",
+            "medium",
+            "medium-high",
+            "high",
+            "field-measured"
+          ]
+        },
+        "edgeIndex": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "entranceAnchorLocalMeters": {
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "evidenceIds": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "frontAzimuthDegrees": {
+          "exclusiveMaximum": 360,
+          "minimum": 0,
+          "type": "number"
+        },
+        "frontageContextFeatureId": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "frontageContextMaxBearingDeltaDegrees": {
+          "maximum": 90,
+          "minimum": 0,
+          "type": "number"
+        },
+        "policy": {
+          "enum": [
+            "unknown",
+            "longest-edge-proxy",
+            "reviewed-source-edge",
+            "reviewed-azimuth",
+            "reviewed-baseline",
+            "entrance-anchor",
+            "legacy-model-derived",
+            "field-measured"
+          ]
+        },
+        "reviewAuthority": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "reviewStatus": {
+          "enum": [
+            "unreviewed",
+            "reviewed"
+          ]
+        }
+      },
+      "required": [
+        "policy",
+        "confidence",
+        "reviewStatus",
+        "evidenceIds"
+      ],
+      "type": "object"
     },
-    "accuracyClaims": {"type": "object"},
-    "openQuestions": {"type": "array", "items": {"type": "string"}}
+    "productionStage": {
+      "enum": [
+        "prototype",
+        "visual-review",
+        "production-ready"
+      ]
+    },
+    "productionTier": {
+      "enum": [
+        "hero-exterior",
+        "standard-exterior",
+        "context-exterior"
+      ]
+    },
+    "proposedFeatureId": {
+      "pattern": "^uplb:",
+      "type": "string"
+    },
+    "referenceIds": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "referenceProfile": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "roof": {
+      "type": "object"
+    },
+    "schemaVersion": {
+      "const": "uplb-reference-building-production-spec-v0.2"
+    },
+    "sourceFeatureId": {
+      "pattern": "^(candidate:|uplb:)",
+      "type": "string"
+    }
   },
-  "additionalProperties": true
+  "required": [
+    "schemaVersion",
+    "sourceFeatureId",
+    "proposedFeatureId",
+    "name",
+    "productionTier",
+    "productionStage",
+    "identityStatus",
+    "architecturalFamily",
+    "referenceIds",
+    "featureSnapshot",
+    "referenceProfile",
+    "height",
+    "orientation",
+    "facade",
+    "roof",
+    "materials",
+    "artifactContract",
+    "accuracyClaims",
+    "openQuestions"
+  ],
+  "title": "UPLB Evidence-Aware Reference Building Production Spec v0.2",
+  "type": "object"
 }

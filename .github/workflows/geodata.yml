@@ -66,8 +66,8 @@ jobs:
   offline:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - name: Install geodata dependencies
@@ -90,5 +90,7 @@ jobs:
         run: python -m tools.modeling.pipeline --check
       - name: Modeling Wave 02 evidence, binding, and freshness gates
         run: python -m tools.modeling.wave02 --check --check-freshness
+      - name: Baker Wave 03 reviewed-frontage and freshness gates
+        run: python -m tools.modeling.wave03 --check --check-freshness
       - name: Pinned Overture release check (read-only)
         run: python -m tools.geodata.overture_check_updates --offline

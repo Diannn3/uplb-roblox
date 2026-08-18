@@ -1,0 +1,304 @@
+{
+  "buildingName": "Charles Fuller Baker Memorial Hall",
+  "evidenceGroups": {
+    "canonicalGeometry": [
+      "source:canonical:osm-baker-way-37449973"
+    ],
+    "frontFacade": [
+      "source:image:commons-baker-2008",
+      "source:image:commons-baker-2009",
+      "source:image:commons-baker-2017",
+      "source:image:commons-baker-2023"
+    ],
+    "institutionalResearch": [
+      "source:uplb:baker-conservation-dissertation-2017",
+      "source:history:lbtimes-baker-2024"
+    ],
+    "legacyModelRecovery": [
+      "source:legacy:uplb-virtual-campus-2014"
+    ],
+    "orientationResearch": [
+      "source:image:commons-baker-2008",
+      "source:image:commons-baker-2009",
+      "source:image:commons-baker-2017",
+      "source:image:commons-baker-2023",
+      "source:canonical:freedom-park-context"
+    ],
+    "roofEnvelope": [
+      "source:image:commons-baker-2009",
+      "source:image:commons-baker-2017",
+      "source:image:commons-baker-2023"
+    ]
+  },
+  "featureId": "uplb:building:baker-hall",
+  "generatedAt": "2026-08-18",
+  "observations": [
+    {
+      "capability": "footprint",
+      "confidence": "source-supported",
+      "evidenceIds": [
+        "source:canonical:osm-baker-way-37449973"
+      ],
+      "feature": "current project footprint",
+      "id": "obs:baker-footprint",
+      "implementation": "production shell footprint",
+      "value": "canonical polygon from project geodata"
+    },
+    {
+      "capability": "levels",
+      "confidence": "source-supported",
+      "evidenceIds": [
+        "source:canonical:osm-baker-way-37449973"
+      ],
+      "feature": "visible/source-tagged level count",
+      "id": "obs:baker-levels",
+      "implementation": "height/floor-break prior; total height remains provisional",
+      "value": 2
+    },
+    {
+      "capability": "facade",
+      "confidence": "high",
+      "evidenceIds": [
+        "source:image:commons-baker-2008",
+        "source:image:commons-baker-2009",
+        "source:image:commons-baker-2017",
+        "source:image:commons-baker-2023"
+      ],
+      "feature": "central projecting portico/balcony with prominent upper columns",
+      "id": "obs:baker-portico",
+      "implementation": "stable Baker__Portico module",
+      "value": "present across multi-era frontal imagery"
+    },
+    {
+      "capability": "facade",
+      "confidence": "medium-high",
+      "evidenceIds": [
+        "source:image:commons-baker-2008",
+        "source:image:commons-baker-2017",
+        "source:image:commons-baker-2023"
+      ],
+      "feature": "repeated wing openings, horizontal bands, and projecting awnings",
+      "id": "obs:baker-front-rhythm",
+      "implementation": "stable front-window/awning/band modules with provisional dimensions",
+      "value": "broad visual rhythm only"
+    },
+    {
+      "capability": "roof",
+      "confidence": "medium-low",
+      "evidenceIds": [
+        "source:image:commons-baker-2009",
+        "source:image:commons-baker-2017",
+        "source:image:commons-baker-2023"
+      ],
+      "feature": "visible sloped central roof envelope",
+      "id": "obs:baker-roof-envelope",
+      "implementation": "replaceable Baker__Roof envelope for visual QA",
+      "value": "gable-like envelope visible; exact ridge/eave network unresolved"
+    },
+    {
+      "capability": "historical-state",
+      "confidence": "high",
+      "evidenceIds": [
+        "source:canonical:osm-baker-way-37449973",
+        "source:history:lbtimes-baker-2024"
+      ],
+      "feature": "construction/heritage timeline",
+      "id": "obs:baker-history",
+      "implementation": "record target epoch; do not silently mix historical reconstruction states",
+      "value": "built 1927-1938; current target is recognizable present-day exterior"
+    },
+    {
+      "capability": "orientation",
+      "confidence": "high",
+      "evidenceIds": [
+        "source:image:commons-baker-2017",
+        "source:image:commons-baker-2023",
+        "source:canonical:freedom-park-context"
+      ],
+      "feature": "Freedom-Park-facing primary frontage baseline",
+      "id": "obs:baker-frontage-reviewed",
+      "implementation": "Use reviewed-baseline rather than longest-edge-proxy. The photographed entrance/portico faces the Freedom Park side; the canonical frontage is stepped, so one polygon edge is not a sufficient facade frame.",
+      "value": {
+        "baselineEndVertexIndex": 5,
+        "baselineLengthMApprox": 29.34,
+        "baselineStartVertexIndex": 9,
+        "contextFeatureId": "uplb:landmark:freedom-park",
+        "frontAzimuthDegrees": 237.3
+      }
+    }
+  ],
+  "policy": {
+    "accuracyPolicy": "Photo-derived proportions remain replaceable until measured, recovered-model, drawing, or field evidence supersedes them.",
+    "derivativePolicy": "Licensed photographs are evidentiary references only in this revision; they are not used as textures.",
+    "epochPolicy": "Current recognizable exterior is the target. Historical evidence may explain retained morphology but must not silently overwrite current conditions.",
+    "photoBinaryPolicy": "No third-party reference photo binaries are committed."
+  },
+  "schemaVersion": "uplb-building-reference-profile-v0.2",
+  "sources": [
+    {
+      "evidenceCapabilities": [
+        "identity",
+        "footprint",
+        "levels",
+        "materials",
+        "historical-state",
+        "geometry"
+      ],
+      "id": "source:canonical:osm-baker-way-37449973",
+      "kind": "canonical-geodata",
+      "license": "ODbL provenance retained upstream",
+      "path": "data/modeling/reference/baker-canonical-snapshot.geojson",
+      "retrievedAt": "2026-08-17",
+      "rightsStatus": "project-canonical-provenance",
+      "sourceUri": "https://www.openstreetmap.org/way/37449973",
+      "title": "Canonical Baker Hall project feature derived from OSM way/37449973"
+    },
+    {
+      "evidenceCapabilities": [
+        "identity",
+        "historical-state",
+        "geometry",
+        "facade",
+        "roof"
+      ],
+      "id": "source:legacy:uplb-virtual-campus-2014",
+      "kind": "legacy-3d-project-evidence",
+      "license": null,
+      "retrievedAt": "2026-08-17",
+      "rightsStatus": "reference-only-permission-required",
+      "sourceUri": "https://id.scribd.com/document/990184030/ISCE2014-Proceedings-FINAL3",
+      "title": "2014 UPLB 3D Virtual Interactive Multi-user Campus System"
+    },
+    {
+      "author": "Kea Guevarra",
+      "evidenceCapabilities": [
+        "facade",
+        "orientation",
+        "roof",
+        "materials",
+        "historical-state"
+      ],
+      "id": "source:image:commons-baker-2008",
+      "kind": "licensed-photography",
+      "license": "CC BY-SA 2.0",
+      "retrievedAt": "2026-08-17",
+      "rightsStatus": "open-cc-by-sa",
+      "sourceUri": "https://commons.wikimedia.org/wiki/File:Baker_hall.jpg",
+      "title": "Baker hall.jpg"
+    },
+    {
+      "author": "Mjuadiong",
+      "evidenceCapabilities": [
+        "facade",
+        "orientation",
+        "roof",
+        "materials",
+        "historical-state"
+      ],
+      "id": "source:image:commons-baker-2009",
+      "kind": "licensed-photography",
+      "license": "CC BY-SA 3.0",
+      "retrievedAt": "2026-08-17",
+      "rightsStatus": "open-cc-by-sa",
+      "sourceUri": "https://commons.wikimedia.org/wiki/File:Baker_Hall.JPG",
+      "title": "Baker Hall.JPG"
+    },
+    {
+      "author": "Patrick Roque",
+      "evidenceCapabilities": [
+        "facade",
+        "orientation",
+        "roof",
+        "materials",
+        "historical-state"
+      ],
+      "id": "source:image:commons-baker-2017",
+      "kind": "licensed-photography",
+      "license": "CC BY-SA 4.0",
+      "retrievedAt": "2026-08-17",
+      "rightsStatus": "open-cc-by-sa",
+      "sourceUri": "https://commons.wikimedia.org/wiki/File:University_of_the_Philippines_(UPLB)_-_Baker_Hall_(Los_Ba%C3%B1os,_Laguna;_2017-02-16).jpg",
+      "title": "University of the Philippines (UPLB) - Baker Hall (2017-02-16)"
+    },
+    {
+      "author": "Ralff Nestor Nacor",
+      "evidenceCapabilities": [
+        "facade",
+        "orientation",
+        "roof",
+        "materials",
+        "historical-state"
+      ],
+      "id": "source:image:commons-baker-2023",
+      "kind": "licensed-photography",
+      "license": "CC BY-SA 4.0",
+      "retrievedAt": "2026-08-17",
+      "rightsStatus": "open-cc-by-sa",
+      "sourceUri": "https://commons.wikimedia.org/wiki/File:UPLB_Baker_Memorial_Hall,_June_2023.jpg",
+      "title": "UPLB Baker Memorial Hall, June 2023"
+    },
+    {
+      "evidenceCapabilities": [
+        "identity",
+        "historical-state"
+      ],
+      "id": "source:index:commons-baker-category",
+      "kind": "photo-index",
+      "retrievedAt": "2026-08-17",
+      "rightsStatus": "metadata-reference-only",
+      "sourceUri": "https://commons.wikimedia.org/wiki/Category:Baker_Memorial_Hall",
+      "title": "Wikimedia Commons category: Baker Memorial Hall"
+    },
+    {
+      "evidenceCapabilities": [
+        "identity",
+        "historical-state",
+        "materials",
+        "geometry"
+      ],
+      "id": "source:uplb:baker-conservation-dissertation-2017",
+      "kind": "institutional-conservation-study",
+      "retrievedAt": "2026-08-17",
+      "rightsStatus": "institutional-consultation-required",
+      "sourceUri": "https://www.ukdr.uplb.edu.ph/etd-grad/4110/",
+      "title": "Properties and conservation methods of selected wooden artifacts and structure in the Philippines"
+    },
+    {
+      "evidenceCapabilities": [
+        "identity",
+        "historical-state"
+      ],
+      "id": "source:history:lbtimes-baker-2024",
+      "kind": "institutional-local-history",
+      "retrievedAt": "2026-08-17",
+      "rightsStatus": "metadata-reference-only",
+      "sourceUri": "https://lbtimes.ph/unzipped-4031-episode-1-uplb-charles-fuller-baker-memorial-hall/",
+      "title": "Unzipped: 4031 Episode 1: UPLB Charles Fuller Baker Memorial Hall"
+    },
+    {
+      "evidenceCapabilities": [
+        "identity",
+        "orientation",
+        "landscaping",
+        "geometry"
+      ],
+      "id": "source:canonical:freedom-park-context",
+      "kind": "canonical-geodata",
+      "license": "ODbL provenance retained upstream",
+      "path": "data/canonical/features.geojson",
+      "retrievedAt": "2026-08-18",
+      "rightsStatus": "project-canonical-provenance",
+      "title": "Canonical UPLB Freedom Park context point"
+    }
+  ],
+  "targetEpoch": "2026-current-recognizable-exterior",
+  "unresolved": [
+    "Surveyed or recovered total height and floor-to-floor dimensions",
+    "Exact portico projection, column spacing/diameter, and balustrade spacing",
+    "Side and rear facade opening layouts",
+    "Exact roof ridge/eave geometry and current roofing specification",
+    "Basement/underground geometry and any alleged tunnel claims",
+    "Interior layout",
+    "Any post-2023 exterior alterations that materially affect the 2026 target epoch"
+  ]
+}

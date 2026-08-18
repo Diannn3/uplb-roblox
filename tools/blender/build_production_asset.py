@@ -258,8 +258,6 @@ def build(asset_manifest_path: Path, output_dir: Path) -> dict[str, Any]:
 
     output_dir.mkdir(parents=True, exist_ok=True)
     blend_path = output_dir / f"{manifest['assetId']}.blend"
-    bpy.ops.wm.save_as_mainfile(filepath=str(blend_path))
-
     exports: dict[str, Any] = {}
     for lod_name in ("lod0", "lod1", "lod2", "lod3"):
         objects = created.get(lod_name, [])
@@ -278,6 +276,16 @@ def build(asset_manifest_path: Path, output_dir: Path) -> dict[str, Any]:
     if collision_objects:
         _export_gltf(collision_glb, collision_objects)
         exports["collision"] = {"glb": {"path": collision_glb.as_posix(), "sha256": _sha256(collision_glb)}}
+
+    # Default review visibility: only LOD0. Alternate LODs and collision
+    # stay in the .blend for inspection/export but do not clutter review.
+    for lod_name, objects in created.items():
+        visible = lod_name == "lod0"
+        for obj in objects:
+            obj.hide_render = not visible
+            obj.hide_set(not visible)
+
+    bpy.ops.wm.save_as_mainfile(filepath=str(blend_path))
 
     qa = {
         "status": "pass",
